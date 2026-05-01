@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Architecture of High-Performance Learning — Md. Miraz Hossain</title>
+<meta name="description" content="Interactive workshop project on high-performance learning, with chapter-based reading, embedded quizzes, and result submission.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════
+   ROOT & RESET
+════════════════════════════ */
+:root {
+  --paper:   #f5f0e8;
+  --paper2:  #ede8de;
+  --paper3:  #e4ddd0;
+  --ink:     #1a1510;
+  --ink2:    #3d3529;
+  --ink3:    #6b5f52;
+  --ink4:    #9c9080;
+  --gold:    #b8860b;
+  --gold2:   #d4a017;
+  --gold3:   #f5d87a;
+  --green:   #2d6a4f;
+  --green2:  #52b788;
+  --green-bg:#edf7f1;
+  --red:     #9b2226;
+  --red-bg:  #fdf0f0;
+  --blue:    #1d4e89;
+  --blue-bg: #eef3fb;
+  --border:  #d6cfc4;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --mono:    'DM Mono', 'Courier New', monospace;
+  --sans:    'Figtree', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::selection { background: var(--gold3); color: var(--ink); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--gold2); }
+
+/* ════════════════════════════
+   PROGRESS + NAV
+════════════════════════════ */
+#pg { position:fixed; top:0; left:0; height:3px; background:var(--gold); z-index:9999; width:0; box-shadow:0 0 8px var(--gold2); transition:width .1s; }
+
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:500;
+  background: rgba(245,240,232,.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  transform: translateY(-100%);
+  transition: transform .35s ease;
+}
+nav.show { transform: none; }
+.nav-logo a { color: inherit; text-decoration: none; }
+.nav-logo a:hover { color: var(--gold2); }
+.nav-logo { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--gold); font-weight: 600; }
+.nav-items { display: flex; gap: 4px; }
+.nav-item {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--ink4); text-decoration: none;
+  padding: 5px 10px; border-radius: 2px; transition: all .2s;
+}
+.nav-item:hover, .nav-item.active { color: var(--gold); background: rgba(184,134,11,.08); }
+@media(max-width:768px){ .nav-items{display:none;} nav{padding:0 20px;} }
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative; overflow: hidden;
+}
+.hero-texture {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 35%, rgba(184,134,11,.09) 0%, transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(184,134,11,.06) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,.02) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,.02) 80px);
+  pointer-events: none;
+}
+.hero-kicker {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold2);
+  border: 1px solid rgba(212,160,23,.3); padding: 7px 20px;
+  margin-bottom: 40px;
+  animation: fadeUp .8s ease both;
+}
+.hero-title {
+  font-family: var(--serif); font-size: clamp(52px, 9vw, 120px);
+  font-weight: 700; line-height: .92; letter-spacing: -1px;
+  margin-bottom: 28px;
+  animation: fadeUp .8s .1s ease both;
+}
+.hero-title em { color: var(--gold2); font-style: italic; }
+.hero-lead {
+  font-size: clamp(.9rem, 1.5vw, 1.1rem); color: rgba(245,240,232,.6);
+  max-width: 520px; line-height: 1.8; margin-bottom: 56px; font-weight: 300;
+  animation: fadeUp .8s .2s ease both;
+}
+.hero-stats {
+  display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp .8s .3s ease both; margin-bottom: 52px;
+}
+.hstat { text-align: center; }
+.hstat-n { font-family: var(--serif); font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: var(--gold2); line-height: 1; }
+.hstat-l { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,.35); margin-top: 4px; }
+.hero-chapters {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  animation: fadeUp .8s .4s ease both;
+}
+.ch-pill {
+  font-family: var(--mono); font-size: .6rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(245,240,232,.4);
+  border: 1px solid rgba(245,240,232,.1); padding: 7px 14px;
+  text-decoration: none; transition: all .25s;
+}
+.ch-pill:hover { color: var(--gold2); border-color: rgba(212,160,23,.4); }
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeUp .8s .6s ease both;
+}
+.hero-scroll span { font-family: var(--mono); font-size: .55rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(245,240,232,.25); }
+.scroll-bar { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gold2), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
+/* ════════════════════════════
+   CHAPTER SYSTEM
+   Each .chapter reveals on scroll
+════════════════════════════ */
+.chapter {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity .8s ease, transform .8s ease;
+  position: relative;
+}
+.chapter.revealed { opacity: 1; transform: none; }
+
+.chapter-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+@media(max-width:768px){ .chapter-inner{ padding:64px 20px; } }
+
+/* Chapter separator line */
+.chapter + .chapter { border-top: 1px solid var(--border); }
+
+/* Chapter number watermark */
+.ch-watermark {
+  font-family: var(--serif); font-size: clamp(80px, 15vw, 160px);
+  font-weight: 700; color: rgba(26,21,16,.04);
+  position: absolute; top: 40px; right: -20px;
+  line-height: 1; pointer-events: none; user-select: none;
+  letter-spacing: -4px;
+}
+
+/* ════════════════════════════
+   TYPOGRAPHY SYSTEM
+════════════════════════════ */
+.eyebrow {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--gold); }
+
+h2.chapter-title {
+  font-family: var(--serif); font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700; line-height: 1.05; margin-bottom: 12px;
+  letter-spacing: -.5px;
+}
+h2.chapter-title em { color: var(--gold); font-style: italic; }
+
+.chapter-subtitle {
+  font-size: 1.15rem; color: var(--ink3); line-height: 1.6;
+  margin-bottom: 40px; font-weight: 300; max-width: 620px;
+}
+
+/* Body prose */
+.prose { font-size: 1rem; line-height: 1.8; color: var(--ink2); }
+.prose p { margin-bottom: 1.2rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--ink); font-weight: 600; }
+
+/* ════════════════════════════
+   CONTENT COMPONENTS
+════════════════════════════ */
+
+/* Science callout */
+.science {
+  background: var(--green-bg); border: 1px solid rgba(45,106,79,.2);
+  padding: 20px 24px; margin: 28px 0;
+  border-left: 3px solid var(--green);
+}
+.sci-tag { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+.science .prose { font-size: .95rem; }
+
+/* Warn box */
+.warn {
+  background: rgba(155,34,38,.04); border: 1px solid rgba(155,34,38,.2);
+  padding: 20px 24px; margin: 20px 0; border-left: 3px solid var(--red);
+}
+.warn-tag { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+
+/* Info callout */
+.callout {
+  background: rgba(184,134,11,.06); border: 1px solid rgba(184,134,11,.2);
+  padding: 20px 24px; margin: 24px 0;
+}
+.callout-tag { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+
+/* Two column grid */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+@media(max-width:640px){ .grid2{ grid-template-columns: 1fr; } }
+.grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 24px 0; }
+@media(max-width:640px){ .grid3{ grid-template-columns: 1fr; } }
+
+/* Card */
+.card {
+  background: #fff; border: 1px solid var(--border);
+  padding: 24px; transition: box-shadow .25s;
+}
+.card:hover { box-shadow: 0 4px 20px rgba(26,21,16,.08); }
+.card-tag { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+.card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; line-height: 1.2; }
+.card-body { font-size: .9rem; color: var(--ink3); line-height: 1.7; }
+.card-body strong { color: var(--ink2); }
+
+/* VS compare */
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); margin: 24px 0; overflow: hidden; }
+@media(max-width:600px){ .vs{ grid-template-columns:1fr; } }
+.vs-col { padding: 22px 26px; }
+.vs-col:first-child { border-right: 1px solid var(--border); background: rgba(155,34,38,.025); }
+.vs-col:last-child { background: rgba(45,106,79,.025); }
+.vs-head { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.vs-col:first-child .vs-head { color: var(--red); }
+.vs-col:last-child .vs-head { color: var(--green); }
+.vs-item { display: flex; gap: 10px; margin-bottom: 9px; font-size: .9rem; color: var(--ink3); line-height: 1.5; align-items: flex-start; }
+.vs-item::before { content: '×'; color: var(--red); flex-shrink: 0; font-size: 1rem; line-height: 1.4; font-weight: 700; }
+.vs-col:last-child .vs-item::before { content: '✓'; color: var(--green); font-size: .85rem; margin-top: 1px; }
+
+/* Table */
+.data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: .88rem; }
+.data-table th { font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); }
+.data-table td { padding: 13px 14px; color: var(--ink3); border-bottom: 1px solid var(--paper3); vertical-align: top; line-height: 1.55; }
+.data-table tr:hover td { background: rgba(245,240,232,.6); }
+.data-table td strong { color: var(--ink); }
+.t-letter { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; line-height: 1; }
+
+/* Accordion */
+.accordion { margin: 20px 0; }
+.acc-item { border: 1px solid var(--border); margin-bottom: 6px; background: #fff; }
+.acc-btn { width: 100%; background: none; border: none; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; transition: background .15s; }
+.acc-btn:hover { background: var(--paper2); }
+.acc-q { font-size: .95rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.acc-icon { font-size: 1.2rem; color: var(--gold); transition: transform .3s; flex-shrink: 0; margin-left: 16px; }
+.acc-item.open .acc-icon { transform: rotate(45deg); }
+.acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; padding: 0 20px; }
+.acc-item.open .acc-body { max-height: 600px; padding: 16px 20px 20px; }
+.acc-body .prose { font-size: .9rem; }
+.acc-source { font-family: var(--mono); font-size: .6rem; letter-spacing: 1px; color: var(--ink4); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+/* Review timeline */
+.timeline { margin: 24px 0; }
+.tl-row { display: flex; align-items: flex-start; gap: 0; margin-bottom: 0; }
+.tl-dot-wrap { display: flex; flex-direction: column; align-items: center; width: 36px; flex-shrink: 0; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--gold); margin-top: 5px; }
+.tl-dot.dim { background: var(--border); }
+.tl-line { width: 2px; flex: 1; min-height: 32px; background: var(--border); margin: 4px 0; }
+.tl-content { padding: 0 0 28px 12px; flex: 1; }
+.tl-time { font-family: var(--mono); font-size: .62rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 3px; }
+.tl-title { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
+.tl-desc { font-size: .88rem; color: var(--ink3); line-height: 1.6; }
+
+/* Ladder */
+.ladder { display: flex; flex-direction: column-reverse; gap: 4px; margin: 20px 0; }
+.rung { background: #fff; border: 1px solid var(--border); padding: 16px 20px; display: flex; gap: 16px; align-items: flex-start; transition: all .25s; }
+.rung:hover { border-color: var(--gold); background: rgba(184,134,11,.04); transform: translateX(6px); }
+.rung-n { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; width: 28px; }
+.rung-h { font-family: var(--mono); font-size: .62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); margin-bottom: 4px; }
+.rung-p { font-size: .88rem; color: var(--ink3); line-height: 1.6; }
+
+/* Matrix */
+.matrix { display: grid; grid-template-columns: auto 1fr 1fr; grid-template-rows: auto 1fr 1fr; gap: 3px; margin: 24px 0; }
+.m-corner,.m-colhead { background: var(--paper3); font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); padding: 10px 14px; text-align: center; }
+.m-rowhead { background: var(--paper3); font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); padding: 10px 8px; writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; }
+.m-cell { padding: 18px 20px; background: #fff; border: 1px solid var(--border); transition: all .25s; }
+.m-cell:hover { box-shadow: 0 4px 16px rgba(26,21,16,.08); }
+.m-label { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+.m-desc { font-size: .82rem; color: var(--ink3); line-height: 1.5; }
+.m-eg { font-size: .78rem; color: var(--ink4); margin-top: 8px; font-style: italic; }
+
+/* Stat callout */
+.big-stat { display: flex; align-items: baseline; gap: 10px; margin: 20px 0; }
+.bstat-n { font-family: var(--serif); font-size: clamp(48px, 7vw, 72px); font-weight: 700; color: var(--gold); line-height: 1; }
+.bstat-l { font-size: .9rem; color: var(--ink3); max-width: 200px; line-height: 1.5; }
+
+/* ════════════════════════════
+   NEW: TOUCH TYPING SECTION
+════════════════════════════ */
+.typing-meter { margin: 24px 0; background: #fff; border: 1px solid var(--border); padding: 28px; }
+.typing-scale { display: flex; height: 56px; border: 1px solid var(--border); overflow: hidden; margin: 16px 0; }
+.ts-seg { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4px; }
+.ts-label { font-family: var(--mono); font-size: .58rem; letter-spacing: 1px; text-transform: uppercase; text-align: center; line-height: 1.2; }
+.typing-benchmark { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 16px; }
+.tb-item { background: var(--paper); border: 1px solid var(--border); padding: 12px; text-align: center; }
+.tb-wpm { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.tb-label { font-family: var(--mono); font-size: .58rem; letter-spacing: 1px; text-transform: uppercase; color: var(--ink4); margin-top: 4px; }
+
+/* Note-taking visual */
+.cornell-demo {
+  border: 1px solid var(--border); margin: 20px 0; background: #fff;
+  display: grid; grid-template-columns: 1fr 2.5fr; grid-template-rows: auto 1fr auto;
+  min-height: 240px; font-size: .82rem;
+}
+.cornell-header { grid-column: 1/-1; padding: 10px 14px; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: .6rem; letter-spacing: 2px; text-transform: uppercase; }
+.cornell-cue { padding: 14px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(184,134,11,.04); }
+.cornell-notes { padding: 14px; border-bottom: 1px solid var(--border); }
+.cornell-footer { grid-column: 1/-1; padding: 10px 14px; background: var(--paper2); border-top: 1px solid var(--border); }
+.cn-label { font-family: var(--mono); font-size: .58rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink4); margin-bottom: 6px; }
+.cn-content { color: var(--ink3); line-height: 1.6; }
+
+/* ════════════════════════════
+   QUIZ SYSTEM
+════════════════════════════ */
+.quiz-section {
+  background: var(--ink); color: var(--paper);
+  padding: 60px 40px; margin-top: 0;
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.quiz-section.revealed { opacity: 1; transform: none; }
+.quiz-inner { max-width: 820px; margin: 0 auto; }
+
+.quiz-header { margin-bottom: 36px; }
+.quiz-eyebrow { font-family: var(--mono); font-size: .6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold2); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.quiz-eyebrow::after { content:''; flex:0 0 24px; height:1px; background:var(--gold2); }
+.quiz-title { font-family: var(--serif); font-size: clamp(24px, 4vw, 36px); font-weight: 700; line-height: 1.1; }
+.quiz-desc { font-size: .88rem; color: rgba(245,240,232,.5); margin-top: 8px; line-height: 1.6; }
+
+/* Progress dots */
+.quiz-dots { display: flex; gap: 6px; margin-bottom: 28px; }
+.qdot { width: 8px; height: 8px; border-radius: 50%; background: rgba(245,240,232,.15); transition: background .3s; }
+.qdot.active { background: var(--gold2); }
+.qdot.done { background: var(--green2); }
+
+.quiz-q-text { font-size: 1.05rem; font-weight: 500; line-height: 1.55; margin-bottom: 20px; }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  background: rgba(245,240,232,.05); border: 1px solid rgba(245,240,232,.1);
+  padding: 14px 18px; font-size: .92rem; color: rgba(245,240,232,.8);
+  cursor: pointer; text-align: left; width: 100%; font-family: var(--sans);
+  transition: all .2s; line-height: 1.4;
+}
+.quiz-opt:hover { border-color: rgba(212,160,23,.5); color: var(--paper); background: rgba(184,134,11,.1); }
+.quiz-opt.correct { background: rgba(82,183,136,.12); border-color: var(--green2); color: var(--green2); }
+.quiz-opt.wrong { background: rgba(155,34,38,.12); border-color: #e06060; color: #e06060; }
+.quiz-opt:disabled { cursor: default; }
+
+.quiz-feedback {
+  margin-top: 14px; padding: 14px 18px; font-size: .88rem;
+  line-height: 1.7; display: none; border-left: 2px solid;
+}
+.quiz-feedback.show { display: block; }
+.quiz-feedback.ok { border-color: var(--green2); background: rgba(82,183,136,.08); color: rgba(245,240,232,.75); }
+.quiz-feedback.bad { border-color: #e06060; background: rgba(155,34,38,.1); color: rgba(245,240,232,.75); }
+.quiz-feedback strong { display: block; margin-bottom: 6px; font-size: .92rem; }
+
+.quiz-nav { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.q-btn {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: 2px; text-transform: uppercase;
+  padding: 11px 22px; background: var(--gold); color: var(--ink); border: none;
+  cursor: pointer; transition: background .2s;
+}
+.q-btn:hover { background: var(--gold2); }
+.q-btn:disabled { background: rgba(245,240,232,.1); color: rgba(245,240,232,.25); cursor: not-allowed; }
+.q-btn.outline { background: transparent; border: 1px solid rgba(245,240,232,.15); color: rgba(245,240,232,.5); }
+.q-btn.outline:hover { border-color: var(--gold2); color: var(--gold2); }
+.quiz-counter { font-family: var(--mono); font-size: .62rem; color: rgba(245,240,232,.3); letter-spacing: 1px; margin-left: auto; }
+
+/* Score display */
+.quiz-score {
+  display: none; text-align: center; padding: 24px 0;
+}
+.quiz-score.show { display: block; }
+.qs-num { font-family: var(--serif); font-size: 64px; font-weight: 700; color: var(--gold2); line-height: 1; }
+.qs-label { font-family: var(--mono); font-size: .65rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(245,240,232,.3); margin-top: 4px; margin-bottom: 16px; }
+.qs-msg { font-size: .92rem; color: rgba(245,240,232,.6); line-height: 1.7; max-width: 480px; margin: 0 auto 20px; }
+
+/* ════════════════════════════
+   DASHBOARD
+════════════════════════════ */
+.dashboard {
+  background: var(--paper2); border-top: 2px solid var(--gold);
+  padding: 80px 40px; opacity: 0; transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.dashboard.revealed { opacity: 1; transform: none; }
+.dash-inner { max-width: 1000px; margin: 0 auto; }
+.dash-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 700; margin-bottom: 8px; }
+.dash-sub { font-size: .92rem; color: var(--ink3); margin-bottom: 36px; line-height: 1.6; }
+
+/* Summary cards */
+.dash-overview { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; margin-bottom: 36px; }
+.dash-stat { background: #fff; border: 1px solid var(--border); padding: 20px; text-align: center; }
+.ds-n { font-family: var(--serif); font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.ds-l { font-family: var(--mono); font-size: .58rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); margin-top: 4px; }
+
+/* Per-section score */
+.dash-sections { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+.dash-row { background: #fff; border: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; gap: 16px; }
+.dr-name { font-weight: 600; font-size: .92rem; flex: 1; }
+.dr-score { font-family: var(--mono); font-size: .82rem; color: var(--ink3); width: 64px; text-align: right; }
+.dr-bar-wrap { flex: 2; height: 6px; background: var(--paper3); border-radius: 2px; overflow: hidden; }
+.dr-bar { height: 100%; background: var(--gold); border-radius: 2px; transition: width 1s ease; }
+.dr-bar.great { background: var(--green); }
+.dr-bar.poor { background: var(--red); }
+
+/* Responses table */
+.resp-table { width: 100%; border-collapse: collapse; font-size: .82rem; background: #fff; border: 1px solid var(--border); margin-bottom: 24px; }
+.resp-table th { background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: .58rem; letter-spacing: 2px; text-transform: uppercase; padding: 10px 12px; text-align: left; }
+.resp-table td { padding: 10px 12px; border-bottom: 1px solid var(--paper3); color: var(--ink3); vertical-align: top; line-height: 1.4; }
+.resp-table tr:hover td { background: var(--paper); }
+.tag-c { background: var(--green-bg); color: var(--green); font-family: var(--mono); font-size: .6rem; padding: 2px 8px; letter-spacing: 1px; border-radius: 2px; }
+.tag-w { background: var(--red-bg); color: var(--red); font-family: var(--mono); font-size: .6rem; padding: 2px 8px; letter-spacing: 1px; border-radius: 2px; }
+
+.submit-wrap {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.submit-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+.submit-title {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+.submit-note {
+  color: var(--ink3);
+  font-size: .9rem;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+.submit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.submit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.submit-field.full {
+  grid-column: 1 / -1;
+}
+.submit-field label {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink4);
+}
+.submit-field input,
+.submit-field textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+}
+.submit-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.submit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.submit-btn {
+  border: none;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.submit-btn:hover { transform: translateY(-1px); background: var(--gold2); }
+.submit-btn[disabled] {
+  opacity: .6;
+  cursor: wait;
+  transform: none;
+}
+.submit-status {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: 1px;
+  color: var(--ink4);
+}
+.submit-status.ok { color: var(--green); }
+.submit-status.bad { color: var(--red); }
+
+/* Export button */
+.export-btn {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: 2px; text-transform: uppercase;
+  padding: 13px 28px; background: var(--ink); color: var(--paper); border: none; cursor: pointer;
+  transition: background .2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.export-btn:hover { background: var(--gold); color: var(--ink); }
+.clear-btn {
+  font-family: var(--mono); font-size: .65rem; letter-spacing: 2px; text-transform: uppercase;
+  padding: 13px 24px; background: transparent; color: var(--ink4); border: 1px solid var(--border);
+  cursor: pointer; transition: all .2s; margin-left: 10px;
+}
+.clear-btn:hover { border-color: var(--red); color: var(--red); }
+
+@media(max-width:768px){
+  .submit-head { flex-direction: column; }
+  .submit-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer {
+  background: var(--ink); color: rgba(245,240,232,.3);
+  padding: 40px 48px; font-family: var(--mono); font-size: .62rem;
+  letter-spacing: 1px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+footer strong { color: var(--gold2); }
+
+/* ════════════════════════════
+   ANIMATIONS
+════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:none; }
+}
+@keyframes scrollPulse {
+  0%,100%{ opacity:1; }
+  50%    { opacity:.25; }
+}
+
+/* ════════════════════════════
+   RETENTION CHART SVG
+════════════════════════════ */
+.chart-wrap { background: #fff; border: 1px solid var(--border); padding: 28px; margin: 24px 0; }
+.chart-label { font-family: var(--mono); font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div id="pg"></div>
+
+<nav id="nav">
+  <div class="nav-logo"><a href="projects.html">← Back to Projects</a></div>
+  <div class="nav-items">
+    <a href="#ch1" class="nav-item">Neuro</a>
+    <a href="#ch2" class="nav-item">Memory</a>
+    <a href="#ch3" class="nav-item">Skills</a>
+    <a href="#ch4" class="nav-item">Environment</a>
+    <a href="#ch5" class="nav-item">Schedule</a>
+    <a href="#ch6" class="nav-item">Recovery</a>
+    <a href="#ch7" class="nav-item">Mindset</a>
+    <a href="#dashboard" class="nav-item">Dashboard</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-kicker">Evidence-Based · Neuroscience-Backed · ULAB Workshop</div>
+  <h1 class="hero-title">The <em>Architecture</em><br>of High-Performance<br>Learning</h1>
+  <p class="hero-lead">A framework built not on motivation or willpower, but on the actual science of how memory forms, degrades, and consolidates — translated into a practical, daily system.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n">~50%</div><div class="hstat-l">Forgotten in 1 hour without recall</div></div>
+    <div class="hstat"><div class="hstat-n">150%</div><div class="hstat-l">Better retention: retrieval vs re-reading</div></div>
+    <div class="hstat"><div class="hstat-n">37×</div><div class="hstat-l">Improvement from 1% daily growth</div></div>
+    <div class="hstat"><div class="hstat-n">7</div><div class="hstat-l">Integrated systems covered</div></div>
+  </div>
+  <div class="hero-chapters">
+    <a href="#ch1" class="ch-pill">01 Neurochemistry</a>
+    <a href="#ch2" class="ch-pill">02 Memory Science</a>
+    <a href="#ch3" class="ch-pill">03 Underrated Skills</a>
+    <a href="#ch4" class="ch-pill">04 Environment</a>
+    <a href="#ch5" class="ch-pill">05 Scheduling</a>
+    <a href="#ch6" class="ch-pill">06 Recovery</a>
+    <a href="#ch7" class="ch-pill">07 Mindset</a>
+  </div>
+  <div class="hero-scroll"><span>Scroll to begin</span><div class="scroll-bar"></div></div>
+</section>
+
+<!-- ══════════════════════════════════
+     CHAPTER 1 — NEUROCHEMISTRY
+══════════════════════════════════ -->
+<div class="chapter" id="ch1">
+  <div class="chapter-inner">
+    <div class="ch-watermark">01</div>
+    <div class="eyebrow">Chapter One</div>
+    <h2 class="chapter-title">Mastering the<br><em>Dopamine Economy</em></h2>
+    <p class="chapter-subtitle">Dopamine is not a reward chemical. It is the neurochemical prerequisite for motivation, attention, and the willingness to work hard. Without managing it deliberately, no study technique will be effective.</p>
+
+    <div class="science">
+      <div class="sci-tag">⚗ Neuroscience — Wolfram Schultz (1997), Nature Reviews Neuroscience</div>
+      <div class="prose"><p>Dopamine fires not when you receive a reward, but <strong>in anticipation of a reward</strong>. When you spike dopamine artificially through social media or novelty-seeking, your brain crashes below its baseline. In that depleted trough, studying feels genuinely aversive — not because you're lazy, but because your brain's reward system is miscalibrated against quiet, sustained effort.</p></div>
+    </div>
+
+    <div class="vs">
+      <div class="vs-col">
+        <div class="vs-head">✕ Standard Morning (Low Performance)</div>
+        <div class="vs-item">Phone immediately on waking</div>
+        <div class="vs-item">Dopamine spiked before any work</div>
+        <div class="vs-item">High-carb breakfast → insulin crash</div>
+        <div class="vs-item">Stimulation loop begins</div>
+        <div class="vs-item">Studying feels aversive all day</div>
+      </div>
+      <div class="vs-col">
+        <div class="vs-head">✓ Optimised Morning (High Performance)</div>
+        <div class="vs-item">10–15 min direct sunlight first</div>
+        <div class="vs-item">No digital input for 60–90 minutes</div>
+        <div class="vs-item">Delayed eating, or protein-based</div>
+        <div class="vs-item">Baseline dopamine sensitivity preserved</div>
+        <div class="vs-item">Deep work feels genuinely rewarding</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-tag">🕐 The 15-Minute Dopamine Reset</div>
+      <div class="prose"><p>No phone, no music, no stimulation, no intentional thought. Just exist. Done daily, this lowers your dopamine baseline back to a healthy set point, making the quiet reward of understanding a concept feel meaningful again. This is not meditation — it is baseline recalibration.</p></div>
+    </div>
+
+    <div class="warn">
+      <div class="warn-tag">⚠ The Most Common Mistake</div>
+      <div class="prose"><p>Scrolling for 30 minutes before opening a textbook is not just a distraction. It <strong>chemically recalibrates your reward system against studying</strong>. The textbook then competes with an artificially elevated dopamine baseline it was never designed to meet. The solution is not more discipline — it is protecting your neurochemical state before you begin.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz 1 -->
+<div class="quiz-section" id="quiz1" data-chapter="1" data-title="Neurochemistry">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 1 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Neurochemistry of Focus</div>
+      <div class="quiz-desc">5 questions. The effort of retrieval — not the reading of feedback — is what builds the memory trace. Don't skip this.</div>
+    </div>
+    <div class="quiz-dots" id="qd1"></div>
+    <div id="qa1"></div>
+    <div class="quiz-score" id="qs1"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 2 — MEMORY SCIENCE
+══════════════════════════════════ -->
+<div class="chapter" id="ch2">
+  <div class="chapter-inner">
+    <div class="ch-watermark">02</div>
+    <div class="eyebrow">Chapter Two</div>
+    <h2 class="chapter-title">The Science of<br><em>Memory & Mastery</em></h2>
+    <p class="chapter-subtitle">How you study matters far more than how long. Most students default to strategies that feel effective but are scientifically shown to be among the least effective available.</p>
+
+    <div class="chart-wrap">
+      <div class="chart-label">The Forgetting Curve — Ebbinghaus (1885), Replicated by Murre & Dros (PLOS ONE, 2015)</div>
+      <svg viewBox="0 0 600 160" width="100%" height="160" style="overflow:visible;">
+        <defs>
+          <linearGradient id="fgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9b2226" stop-opacity=".15"/><stop offset="100%" stop-color="#9b2226" stop-opacity="0"/></linearGradient>
+          <linearGradient id="ggr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d6a4f" stop-opacity=".12"/><stop offset="100%" stop-color="#2d6a4f" stop-opacity="0"/></linearGradient>
+        </defs>
+        <!-- axes -->
+        <line x1="48" y1="12" x2="48" y2="140" stroke="#d6cfc4"/>
+        <line x1="48" y1="140" x2="592" y2="140" stroke="#d6cfc4"/>
+        <!-- y labels -->
+        <text x="43" y="16" fill="#9c9080" font-size="9" text-anchor="end" font-family="monospace">100%</text>
+        <text x="43" y="78" fill="#9c9080" font-size="9" text-anchor="end" font-family="monospace">50%</text>
+        <text x="43" y="141" fill="#9c9080" font-size="9" text-anchor="end" font-family="monospace">0%</text>
+        <!-- x labels -->
+        <text x="50" y="154" fill="#9c9080" font-size="9" font-family="monospace">0</text>
+        <text x="122" y="154" fill="#9c9080" font-size="9" font-family="monospace">20m</text>
+        <text x="196" y="154" fill="#9c9080" font-size="9" font-family="monospace">1hr</text>
+        <text x="274" y="154" fill="#9c9080" font-size="9" font-family="monospace">1d</text>
+        <text x="362" y="154" fill="#9c9080" font-size="9" font-family="monospace">7d</text>
+        <text x="468" y="154" fill="#9c9080" font-size="9" font-family="monospace">31d</text>
+        <!-- grid -->
+        <line x1="49" y1="78" x2="592" y2="78" stroke="#f0ebe2" stroke-dasharray="4,4"/>
+        <!-- forget curve -->
+        <path d="M50,14 C80,14 110,60 135,84 C160,104 178,120 202,128 C236,136 282,138 340,139 C400,140 460,140 592,140" stroke="#9b2226" stroke-width="2" fill="none" id="fp1"/>
+        <path d="M50,14 C80,14 110,60 135,84 C160,104 178,120 202,128 C236,136 282,138 340,139 C400,140 460,140 592,140 L592,140 L50,140Z" fill="url(#fgr)"/>
+        <!-- spaced rep curve (with bumps) -->
+        <path d="M50,14 C68,14 76,14 90,50 C104,14 118,10 135,10 C152,18 168,36 184,60 C200,14 216,10 234,10 C254,16 272,26 292,46 C316,10 336,8 362,8 C400,10 444,8 592,8" stroke="#2d6a4f" stroke-width="1.8" fill="none" stroke-dasharray="5,3"/>
+        <path d="M50,14 C68,14 76,14 90,50 C104,14 118,10 135,10 C152,18 168,36 184,60 C200,14 216,10 234,10 C254,16 272,26 292,46 C316,10 336,8 362,8 C400,10 444,8 592,8 L592,140 L50,140Z" fill="url(#ggr)"/>
+        <!-- annotations -->
+        <circle cx="135" cy="84" r="4" fill="#9b2226"/>
+        <text x="137" y="78" fill="#9b2226" font-size="9" font-family="monospace">56% lost</text>
+        <circle cx="202" cy="128" r="4" fill="#9b2226"/>
+        <text x="390" y="6" fill="#2d6a4f" font-size="9" font-family="monospace">With spaced repetition</text>
+        <text x="340" y="133" fill="#9b2226" font-size="9" font-family="monospace">Without review</text>
+      </svg>
+    </div>
+
+    <div class="prose"><p>Without active recall, <strong>approximately 56% of new information is forgotten within one hour</strong>. After 24 hours without reinforcement, roughly 67% is gone. After 31 days, 79%. The single most powerful intervention against this curve is retrieval practice — testing yourself, not re-reading.</p></div>
+
+    <!-- DESIRABLE DIFFICULTY — prominently featured -->
+    <div style="margin:36px 0;padding:28px;background:var(--ink);color:var(--paper);">
+      <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:12px;">★ Desirable Difficulty — Robert Bjork, UCLA (1994)</div>
+      <div style="font-family:var(--serif);font-size:clamp(20px,3vw,28px);font-weight:600;line-height:1.15;margin-bottom:16px;color:var(--paper);">"What makes learning feel hard in the short term is usually what makes it stick in the long term."</div>
+      <div style="font-size:.92rem;color:rgba(245,240,232,.65);line-height:1.75;">The strategies that produce the <em>fastest gains during practice</em> are almost always the strategies that produce the <em>worst long-term retention</em>. Conversely, the strategies that feel slow and difficult during practice — retrieval practice, interleaving, spaced repetition — produce far superior long-term outcomes. If your study session feels smooth and easy, that is usually a sign you are not learning effectively.</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:20px;">
+        <div style="padding:14px;background:rgba(245,240,232,.05);border:1px solid rgba(245,240,232,.08);">
+          <div style="font-family:var(--mono);font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:#e06060;margin-bottom:6px;">Feels Easy / Doesn't Stick</div>
+          <div style="font-size:.85rem;color:rgba(245,240,232,.55);line-height:1.6;">Re-reading · Highlighting · Blocked practice · Massed review</div>
+        </div>
+        <div style="padding:14px;background:rgba(245,240,232,.05);border:1px solid rgba(245,240,232,.08);">
+          <div style="font-family:var(--mono);font-size:.58rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--green2);margin-bottom:6px;">Feels Hard / Actually Sticks</div>
+          <div style="font-size:.85rem;color:rgba(245,240,232,.55);line-height:1.6;">Self-testing · Interleaving · Spaced review · Generation before reading</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card" style="border-top:2px solid var(--blue);">
+        <div class="card-tag" style="color:var(--blue);">Roediger & Karpicke (2006)</div>
+        <div class="card-title">The Testing Effect</div>
+        <div class="card-body">Retrieval practice (self-testing) produced <strong>150% better long-term retention</strong> than re-reading in a 1-week delayed test. The cruel irony: re-reading produced higher scores on an immediate (5-minute) test, which is why students believe it works. Karpicke (2009): 77% of students reported re-reading as their primary strategy despite it being one of the least effective.</div>
+      </div>
+      <div class="card" style="border-top:2px solid var(--green);">
+        <div class="card-tag" style="color:var(--green);">Cepeda et al. (2006) — 317 experiments</div>
+        <div class="card-title">Spaced Repetition</div>
+        <div class="card-body">A meta-analysis of 317 experiments found that <strong>spaced practice outperformed massed practice by 10–30%</strong> across all subject types and age groups. The optimal spacing grows over time: review within 60 min → day later → 1 week → 1 month. Each review exponentially extends how long the memory holds.</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-q">What is interleaving and why does it feel wrong but work?</span><span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="prose"><p>Interleaving mixes different topics or problem types within a single study session — the opposite of studying one topic to completion before moving on. Rohrer et al. (2015) showed that interleaved practice produced better performance at both 1-day and 30-day delays. The mechanism: your brain must identify which strategy to use with each problem, not just execute one strategy repeatedly.</p><p>The uncomfortable truth: students who use interleaving consistently rate their sessions as less productive and more confusing. But their test scores are systematically higher. This is desirable difficulty in its clearest form — productive confusion is the learning event itself.</p></div><div class="acc-source">SOURCE: Rohrer, D., Dedrick, R.F., & Stershic, S. (2015). Interleaved practice improves mathematics learning. Journal of Educational Psychology, 107(3).</div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-q">What is the Generation Effect and how do I use it?</span><span class="acc-icon">+</span></button>
+        <div class="acc-body"><div class="prose"><p>Slamecka & Graf (1978): information you <em>generate yourself</em> is remembered significantly better than information you passively receive. Even generating a <em>wrong answer</em> before seeing the correct one produces better final retention than seeing the correct answer directly. The effortful attempt creates a stronger memory trace than the passive reception of information.</p><p>Practical applications: write what you know about a topic before reading the chapter; attempt problem solutions before looking at worked examples; create your own examples rather than memorising the textbook's.</p></div><div class="acc-source">SOURCE: Slamecka, N.J. & Graf, P. (1978). The generation effect: Delineation of a phenomenon. Journal of Experimental Psychology: Human Learning and Memory.</div></div>
+      </div>
+    </div>
+
+    <!-- PACER Table -->
+    <div style="margin-top:36px;margin-bottom:8px;"><div class="eyebrow">PACER Framework</div><p class="prose" style="margin-bottom:16px;">Not all knowledge is the same. Applying the wrong learning strategy to the wrong type of knowledge is a major source of inefficiency.</p></div>
+    <table class="data-table">
+      <thead><tr><th>Type</th><th>Category</th><th>Examples</th><th>Strategy</th><th>Why it works</th></tr></thead>
+      <tbody>
+        <tr><td><div class="t-letter" style="color:var(--gold)">P</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Procedural</small></td><td>Skills requiring execution</td><td>Coding, grammar, math procedures</td><td style="font-weight:600;color:var(--ink);">Immediate Practice</td><td>Motor + executive memory only activates through doing, not reading about it</td></tr>
+        <tr><td><div class="t-letter" style="color:var(--blue)">A</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Analogous</small></td><td>Builds on prior knowledge</td><td>Related theories, comparative topics</td><td style="font-weight:600;color:var(--ink);">Critique & Compare</td><td>Activates prior schema, strengthens both old and new memory networks</td></tr>
+        <tr><td><div class="t-letter" style="color:var(--green)">C</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Conceptual</small></td><td>Abstract frameworks & theory</td><td>Economic models, scientific theories</td><td style="font-weight:600;color:var(--ink);">Mind Mapping</td><td>Spatial + semantic encoding combined; relationships encoded visually</td></tr>
+        <tr><td><div class="t-letter" style="color:var(--red)">E</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Evidence</small></td><td>Facts that anchor theories</td><td>Statistics, research findings</td><td style="font-weight:600;color:var(--ink);">Application Rehearsal</td><td>Using evidence in context forces deeper encoding than passive review</td></tr>
+        <tr><td><div class="t-letter" style="color:#7b3f8c">R</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Reference</small></td><td>Specific items to memorise</td><td>Dates, formulas, vocabulary</td><td style="font-weight:600;color:var(--ink);">Anki / Spaced Rep</td><td>Only efficient method for arbitrary associations in long-term memory</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Quiz 2 -->
+<div class="quiz-section" id="quiz2" data-chapter="2" data-title="Memory Science">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 2 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Memory Science & Learning Techniques</div>
+      <div class="quiz-desc">5 questions drawn from the research covered above.</div>
+    </div>
+    <div class="quiz-dots" id="qd2"></div>
+    <div id="qa2"></div>
+    <div class="quiz-score" id="qs2"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 3 — UNDERRATED SKILLS
+══════════════════════════════════ -->
+<div class="chapter" id="ch3">
+  <div class="chapter-inner">
+    <div class="ch-watermark">03</div>
+    <div class="eyebrow">Chapter Three — Rarely Discussed</div>
+    <h2 class="chapter-title">Two Skills That<br><em>Radically Compound</em><br>Everything Else</h2>
+    <p class="chapter-subtitle">These are not study techniques. They are foundational infrastructure skills — and almost no one teaches them explicitly. Invest once; benefit permanently.</p>
+
+    <!-- TOUCH TYPING -->
+    <div style="margin-bottom:48px;">
+      <div class="eyebrow">Skill One</div>
+      <h3 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:700;margin-bottom:12px;line-height:1.1;">Touch Typing: <em>Freeing Your Brain</em></h3>
+
+      <div class="science">
+        <div class="sci-tag">⚗ Cognitive Psychology — Controlled vs Automatic Processing</div>
+        <div class="prose"><p>Research in cognitive psychology describes a critical shift when a skill moves from "controlled processing" to "automatic processing." When typing requires conscious effort (hunt-and-peck), the brain must simultaneously <strong>compose thoughts AND physically locate keys</strong> — two tasks competing for limited working memory. When typing becomes automatic through touch typing, the full weight of cognitive resources shifts to the actual work: idea generation, argumentation, analysis. The transcription layer disappears entirely.</p></div>
+      </div>
+
+      <div class="typing-meter">
+        <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:12px;">Typing Speed Scale — Where Are You?</div>
+        <div class="typing-scale">
+          <div class="ts-seg" style="width:20%;background:#fdf0f0;border-right:1px solid var(--border);">
+            <div class="ts-label" style="color:var(--red);font-size:.65rem;">10–25 WPM<br>Hunt & Peck<br>High cognitive load</div>
+          </div>
+          <div class="ts-seg" style="width:25%;background:#fffbe6;border-right:1px solid var(--border);">
+            <div class="ts-label" style="color:#8a6d00;font-size:.65rem;">25–40 WPM<br>Transition<br>Some automation</div>
+          </div>
+          <div class="ts-seg" style="width:30%;background:#edf7f1;border-right:1px solid var(--border);">
+            <div class="ts-label" style="color:var(--green);font-size:.65rem;">40–65 WPM<br>Functional<br>Low cognitive load</div>
+          </div>
+          <div class="ts-seg" style="width:25%;background:rgba(45,106,79,.12);">
+            <div class="ts-label" style="color:var(--green);font-size:.65rem;">65–100+ WPM<br>Expert Touch Typing<br>Zero conscious load</div>
+          </div>
+        </div>
+        <div class="typing-benchmark">
+          <div class="tb-item"><div class="tb-wpm">20 WPM</div><div class="tb-label">Average hunt-and-peck student</div></div>
+          <div class="tb-item"><div class="tb-wpm">40 WPM</div><div class="tb-label">Average typing speed globally</div></div>
+          <div class="tb-item"><div class="tb-wpm">70 WPM</div><div class="tb-label">Touch-typist average (research studies)</div></div>
+          <div class="tb-item"><div class="tb-wpm">3.5×</div><div class="tb-label">Speed difference: 20→70 WPM</div></div>
+        </div>
+      </div>
+
+      <div class="prose">
+        <p>A student who types at 20 WPM and needs to write a 1,500-word essay is allocating <strong>significant mental bandwidth just to the physical act of typing</strong>. At 70 WPM, the same task consumes a fraction of that resource. More importantly: slow typists are forced to abbreviate and paraphrase during lectures — losing nuance, examples, and explanations that faster typists capture in full.</p>
+        <p>A 2015 study (Weintraub et al., ScienceDirect) examining higher-education students found that non-proficient keyboarding skills directly impaired academic performance — students allocated attention to key-searching rather than to the higher cognitive processes of planning, organising, and revising their writing. The written outputs of non-proficient typists were measurably lower quality.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-tag">📌 Practical Recommendation</div>
+        <div class="prose"><p><strong>Free resources:</strong> TypeRacer (typingclub.com), Keybr.com, Monkeytype.com. Minimum investment: 15 minutes daily for 4–6 weeks to reach functional touch-typing. Target: 50+ WPM before focusing on any other study system improvement. This is one of the highest-ROI skills a student can develop — you use it every day for the rest of your academic and professional life.</p></div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC NOTE-TAKING -->
+    <div>
+      <div class="eyebrow">Skill Two</div>
+      <h3 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:700;margin-bottom:12px;line-height:1.1;">Strategic Note-Taking:<br><em>Encoding, Not Transcribing</em></h3>
+
+      <div class="warn">
+        <div class="warn-tag">⚠ The Transcription Trap</div>
+        <div class="prose"><p>Most students treat note-taking as transcription — copying down everything the lecturer says, aiming for completeness. This is wrong twice over: it produces cognitive passivity during the lecture (you are not processing, you are recording), and it produces documents that are nearly impossible to use for retrieval practice. <strong>Notes are not a record. They are a study tool.</strong></p></div>
+      </div>
+
+      <div class="prose" style="margin:20px 0;"><p>The research (Mueller & Oppenheimer, 2014; Psychological Science) found that <strong>handwriting produces better conceptual understanding</strong> than laptop typing — not because of some mystical paper property, but because the physical constraint of handwriting forces you to process and paraphrase in real time. Laptop users who type everything verbatim perform worse on conceptual questions even when allowed to review their notes. The mechanism is encoding depth, not the medium itself.</p></div>
+
+      <!-- Cornell Demo -->
+      <div style="margin:24px 0 12px;"><div class="eyebrow" style="font-size:.6rem;">The Cornell Method — Walter Pauk, Cornell University (1950s)</div></div>
+      <div class="cornell-demo">
+        <div class="cornell-header">Cornell Notes Layout — Single Page Structure</div>
+        <div class="cornell-cue">
+          <div class="cn-label">Cue Column (30%)<br>Add AFTER lecture</div>
+          <div class="cn-content" style="font-size:.82rem;line-height:1.6;">
+            <p>What triggers the dopamine trough?</p>
+            <p style="margin-top:8px;">How long is the baseline reset?</p>
+            <p style="margin-top:8px;">What is the key mechanism?</p>
+          </div>
+        </div>
+        <div class="cornell-notes">
+          <div class="cn-label">Notes Column (70%)<br>Write DURING lecture</div>
+          <div class="cn-content" style="font-size:.82rem;line-height:1.6;">
+            <p>Dopamine fires in anticipation of reward (Schultz 1997). Social media → spike → trough below baseline → studying feels aversive.</p>
+            <p style="margin-top:8px;">15-min detox: no phone, no music, no stimulation. Daily. Recalibrates set point.</p>
+            <p style="margin-top:8px;">Key: it's not discipline, it's neurochemistry. Baseline management = precondition for focus.</p>
+          </div>
+        </div>
+        <div class="cornell-footer">
+          <div class="cn-label">Summary (write within 24 hrs)</div>
+          <div class="cn-content" style="font-size:.82rem;">Dopamine management is a precondition for effective studying. Artificial stimulation depletes baseline; the 15-min detox and protected mornings restore it, making learning neurochemically possible.</div>
+        </div>
+      </div>
+
+      <div class="prose"><p>The cue column — added <em>after</em> the lecture — is what converts passive notes into a retrieval practice tool. Cover the notes column, read each cue question, and attempt to recall the answer aloud. This single addition turns every set of notes into a self-testing resource requiring no extra preparation time.</p></div>
+
+      <table class="data-table" style="margin-top:24px;">
+        <thead><tr><th>Method</th><th>Best For</th><th>Cognitive Mode</th><th>Study Tool Quality</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cornell</strong></td><td>Lectures, seminars, any subject with concepts + details</td><td>Active processing + built-in retrieval cues</td><td style="color:var(--green);font-weight:600;">Excellent</td></tr>
+          <tr><td><strong>Mind Mapping</strong></td><td>Conceptual subjects, essays, revision overview</td><td>Relational / visual thinking</td><td style="color:var(--green);font-weight:600;">Excellent for concepts</td></tr>
+          <tr><td><strong>Outlining</strong></td><td>Structured lectures, textbook reading</td><td>Hierarchical organisation</td><td style="color:var(--gold);font-weight:600;">Good</td></tr>
+          <tr><td><strong>Verbatim transcription</strong></td><td>Nothing — avoid entirely</td><td>Passive recording (no encoding)</td><td style="color:var(--red);font-weight:600;">Poor</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-tag">📌 The Two-Stage Note System</div>
+        <div class="prose"><p><strong>Stage 1 (during lecture):</strong> Capture raw material in outline or Cornell format. Aim for completeness of key ideas, not verbatim transcription. <strong>Stage 2 (within 24 hours):</strong> Reprocess notes — add cue questions, draw a mind map of the main concept relationships, write a 3-sentence summary without looking. Stage 2 is where encoding happens. Stage 1 is just collection.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz 3 -->
+<div class="quiz-section" id="quiz3" data-chapter="3" data-title="Underrated Skills">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 3 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Touch Typing & Strategic Note-Taking</div>
+      <div class="quiz-desc">5 questions on the two underrated skills covered in this chapter.</div>
+    </div>
+    <div class="quiz-dots" id="qd3"></div>
+    <div id="qa3"></div>
+    <div class="quiz-score" id="qs3"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 4 — ENVIRONMENT
+══════════════════════════════════ -->
+<div class="chapter" id="ch4">
+  <div class="chapter-inner">
+    <div class="ch-watermark">04</div>
+    <div class="eyebrow">Chapter Four</div>
+    <h2 class="chapter-title">Designing Your<br><em>Focus Architecture</em></h2>
+    <p class="chapter-subtitle">Your environment shapes your behaviour more reliably than your intentions do. Make the desired behaviour the path of least resistance — and make distraction require deliberate effort.</p>
+
+    <div class="science">
+      <div class="sci-tag">⚗ Ward, Duke, Gneezy & Bos — Journal of Consumer Research (2017)</div>
+      <div class="prose"><p>In a series of experiments, participants who kept their phone in another room during a cognitive task performed <strong>significantly better</strong> than those whose phones were on the desk — even face-down, even powered off. The researchers concluded that the phone creates a "brain drain" by drawing on limited attentional resources through its mere potential to distract. <strong>Removing the phone from the room completely eliminated this effect.</strong> The cost of doing nothing with your phone — just having it present — is measurable and real.</p></div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:14px;">Eliminate Attention Leeches</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="padding:12px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;font-size:.9rem;color:var(--ink3);">
+            <span style="color:var(--red);font-weight:700;flex-shrink:0;">01</span>
+            <span><strong style="color:var(--ink);">Phone out of the room.</strong> Not silenced. Not face-down. Physically absent.</span>
+          </div>
+          <div style="padding:12px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;font-size:.9rem;color:var(--ink3);">
+            <span style="color:var(--red);font-weight:700;flex-shrink:0;">02</span>
+            <span><strong style="color:var(--ink);">Website blockers</strong> (Cold Turkey, Freedom) that require deliberate effort to disable.</span>
+          </div>
+          <div style="padding:12px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;font-size:.9rem;color:var(--ink3);">
+            <span style="color:var(--red);font-weight:700;flex-shrink:0;">03</span>
+            <span><strong style="color:var(--ink);">One-tab rule.</strong> Only the current task is open in the browser.</span>
+          </div>
+          <div style="padding:12px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;font-size:.9rem;color:var(--ink3);">
+            <span style="color:var(--red);font-weight:700;flex-shrink:0;">04</span>
+            <span><strong style="color:var(--ink);">Notifications off.</strong> The decision not to check still uses executive function.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:14px;">The "Illegal Focus" Protocol (5 min)</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="padding:13px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;">1</span>
+            <div><strong style="font-size:.88rem;display:block;margin-bottom:3px;">Fixed Location</strong><span style="font-size:.85rem;color:var(--ink3);">Same desk, same spot. Classical conditioning creates automatic focus response over weeks.</span></div>
+          </div>
+          <div style="padding:13px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;">2</span>
+            <div><strong style="font-size:.88rem;display:block;margin-bottom:3px;">Brain Anchor</strong><span style="font-size:.85rem;color:var(--ink3);">Same playlist, used exclusively for study. Becomes a conditioned stimulus for concentration.</span></div>
+          </div>
+          <div style="padding:13px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;">3</span>
+            <div><strong style="font-size:.88rem;display:block;margin-bottom:3px;">Physical Activation</strong><span style="font-size:.85rem;color:var(--ink3);">5 push-ups or jumping jacks. Raises core temperature, increases norepinephrine in under 60 sec.</span></div>
+          </div>
+          <div style="padding:13px 16px;background:#fff;border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;">
+            <span style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;">4</span>
+            <div><strong style="font-size:.88rem;display:block;margin-bottom:3px;">Countdown + Declaration</strong><span style="font-size:.85rem;color:var(--ink3);">Count down 10 to 1 aloud. Clap once. Say "Focus mode on." Implementation intention (Gollwitzer, 1999): 2–3× higher follow-through than general intention.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz 4 -->
+<div class="quiz-section" id="quiz4" data-chapter="4" data-title="Environment & Scheduling">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 4 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Environment & Focus Architecture</div>
+      <div class="quiz-desc">5 questions on environmental design and focus protocols.</div>
+    </div>
+    <div class="quiz-dots" id="qd4"></div>
+    <div id="qa4"></div>
+    <div class="quiz-score" id="qs4"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 5 — SCHEDULING
+══════════════════════════════════ -->
+<div class="chapter" id="ch5">
+  <div class="chapter-inner">
+    <div class="ch-watermark">05</div>
+    <div class="eyebrow">Chapter Five</div>
+    <h2 class="chapter-title">Working With Your<br><em>Biological Rhythms</em></h2>
+    <p class="chapter-subtitle">The brain operates in 90-minute ultradian cycles of peak and reduced alertness throughout the day. Scheduling against this rhythm wastes energy that could be redirected into learning.</p>
+
+    <div class="grid2">
+      <div style="background:#fff;border:1px solid var(--border);padding:24px;">
+        <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">The 52/17 Rule</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--gold);line-height:1;">52<span style="font-size:1.2rem;color:var(--ink3);font-family:var(--sans);"> min</span></div>
+        <div style="font-size:.88rem;color:var(--ink3);margin-top:10px;line-height:1.65;">Deep, unbroken work followed by a strict 17-minute break. Emerged from DeskTime productivity research (2014). During the break: no screens. Walk, stretch, look out a window. The rest must be genuine to reset attention.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);padding:24px;">
+        <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;">The 90-Min Ultradian Cycle</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:700;color:var(--blue);line-height:1;">90<span style="font-size:1.2rem;color:var(--ink3);font-family:var(--sans);"> min</span></div>
+        <div style="font-size:.88rem;color:var(--ink3);margin-top:10px;line-height:1.65;">Based on Kleitman's Basic Rest-Activity Cycle (BRAC). The same 90-minute rhythm that governs sleep continues while awake. Peak cognitive capacity lasts ~90 minutes before the brain signals for recovery. Work with this; don't override it indefinitely with caffeine.</div>
+      </div>
+    </div>
+
+    <div class="science" style="margin-top:24px;">
+      <div class="sci-tag">⚗ Attention Residue — Sophie Leroy, University of Washington (2009)</div>
+      <div class="prose"><p>Task-switching leaves a "residue" of attention on the previous task for approximately <strong>10–15 minutes</strong>, during which performance on the new task is measurably degraded. This compounds invisibly throughout the day. Every notification check, every context switch, every half-completed task depletes the cognitive budget. <strong>Solution: batch similar tasks.</strong> All reading first, then all writing, then all problem-solving. Never alternate between different cognitive modes.</p></div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <div class="callout-tag">Parkinson's Law (1955) + Temptation Bundling (Milkman, 2014)</div>
+      <div class="prose"><p><strong>Parkinson's Law:</strong> Work expands to fill the time available. If you allow 3 hours for a 1-hour task, it will take 3 hours. Deliberate time constraints force prioritisation. <strong>Temptation Bundling:</strong> Pair something you want (specific coffee, specific show) with something you need to do. Only allowed the "want" while doing the "need." Milkman's research found a 51% increase in gym attendance using this method. Same principle applies to studying.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 6 — RECOVERY
+══════════════════════════════════ -->
+<div class="chapter" id="ch6">
+  <div class="chapter-inner">
+    <div class="ch-watermark">06</div>
+    <div class="eyebrow">Chapter Six</div>
+    <h2 class="chapter-title">Recovery as<br><em>Strategic Architecture</em></h2>
+    <p class="chapter-subtitle">Elite athletes don't train harder than recreational athletes — they recover better. The same principle applies to cognitive performance. Strategic recovery is not the absence of work; it is part of the training system.</p>
+
+    <div class="science">
+      <div class="sci-tag">⚗ Matthew Walker — Nature Reviews Neuroscience (2004) · Science (2009)</div>
+      <div class="prose"><p>During slow-wave sleep (NREM stages 3–4), the hippocampus <strong>replays newly encoded memories and transfers them to the neocortex</strong> for long-term storage. The amount of hippocampal reactivation during SWS is directly proportional to next-day task improvement. One night of post-learning sleep deprivation impairs recall even after subsequent recovery sleep. <strong>The consolidation cannot be rescheduled.</strong> An all-nighter is not a neutral trade — it permanently destroys that night's memory formation.</p></div>
+    </div>
+
+    <div class="ladder">
+      <div class="rung"><div class="rung-n">1</div><div><div class="rung-h">Entry — On Bad Days</div><div class="rung-p">Open the material. Skim headings, diagrams, and bolded terms only. No pressure to understand — just orient yourself. Often enough to build momentum.</div></div></div>
+      <div class="rung"><div class="rung-n">2</div><div><div class="rung-h">Framework — The Conceptual Skeleton</div><div class="rung-p">Understand the 3–4 central ideas and how they connect. Skip details. Build the structure first — details attach to structure, not the reverse.</div></div></div>
+      <div class="rung"><div class="rung-n">3</div><div><div class="rung-h">Depth — Mechanisms & Nuance</div><div class="rung-p">Now go deep. Context exists — new details have somewhere to integrate. Without rung 2 first, rung 3 material is poorly retained.</div></div></div>
+    </div>
+
+    <div style="margin-top:32px;"><div class="eyebrow">Eisenhower Matrix — Task Triage</div></div>
+    <div class="matrix">
+      <div class="m-corner"></div>
+      <div class="m-colhead">🔥 Urgent</div>
+      <div class="m-colhead">📅 Not Urgent</div>
+      <div class="m-rowhead">Important</div>
+      <div class="m-cell" style="background:rgba(45,106,79,.04);border-color:rgba(45,106,79,.2);">
+        <div class="m-label" style="color:var(--green);">DO NOW</div>
+        <div class="m-desc">Crises and real deadlines. Handle immediately and personally.</div>
+        <div class="m-eg">Exam prep, submission deadlines</div>
+      </div>
+      <div class="m-cell" style="background:rgba(184,134,11,.04);border-color:rgba(184,134,11,.2);">
+        <div class="m-label" style="color:var(--gold);">SCHEDULE</div>
+        <div class="m-desc">Where long-term success actually lives. Most people neglect this under urgency pressure.</div>
+        <div class="m-eg">Deep study sessions, review schedules, health habits</div>
+      </div>
+      <div class="m-rowhead">Not Important</div>
+      <div class="m-cell">
+        <div class="m-label" style="color:var(--blue);">DELEGATE</div>
+        <div class="m-desc">Someone else can do this, or it can wait.</div>
+        <div class="m-eg">Admin tasks, group logistics</div>
+      </div>
+      <div class="m-cell" style="background:rgba(155,34,38,.025);">
+        <div class="m-label" style="color:var(--red);">ELIMINATE</div>
+        <div class="m-desc">Delete entirely. Reformatting notes is not studying.</div>
+        <div class="m-eg">Note decoration, system reorganisation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CHAPTER 7 — MINDSET
+══════════════════════════════════ -->
+<div class="chapter" id="ch7">
+  <div class="chapter-inner">
+    <div class="ch-watermark">07</div>
+    <div class="eyebrow">Chapter Seven</div>
+    <h2 class="chapter-title"><em>Identity-Based</em><br>Motivation</h2>
+    <p class="chapter-subtitle">External motivation — grades, rankings, approval — is fragile. Identity-based motivation is durable because it is tied to who you believe yourself to be, not what you are trying to get.</p>
+
+    <div class="grid2">
+      <div class="card" style="border-top:2px solid var(--gold);">
+        <div class="card-tag" style="color:var(--gold);">James Clear — Atomic Habits (2018)</div>
+        <div class="card-title">Identity-Based Habits</div>
+        <div class="card-body">Three layers: outcomes (what you want), processes (what you do), identity (who you believe you are). Most people focus on outcomes. The most durable change targets identity. <strong>Each study session becomes evidence for the identity you are building.</strong> "I want an A" is fragile. "I am someone who takes intellectual development seriously" is self-reinforcing.</div>
+      </div>
+      <div class="card" style="border-top:2px solid var(--blue);">
+        <div class="card-tag" style="color:var(--blue);">Carol Dweck — Mindset (2006, Stanford)</div>
+        <div class="card-title">Growth vs Fixed Mindset</div>
+        <div class="card-body">Students with a fixed mindset avoid challenges to protect their identity. Students with a growth mindset lean into challenges as evidence of learning in progress. <strong>Struggling is not evidence of low ability — it is evidence of learning happening.</strong> Teaching this explicitly improved grades and persistence in longitudinal studies across multiple countries.</div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:16px;">
+      <div class="card" style="border-top:2px solid var(--gold);">
+        <div style="font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:6px;">80/20 Rule</div>
+        <div class="card-body">20% of content generates 80% of exam points. Identify the high-yield material first. Master it completely before the remaining 80%. This is triage, not laziness.</div>
+      </div>
+      <div class="card" style="border-top:2px solid var(--green);">
+        <div style="font-size:.82rem;font-weight:600;color:var(--green);margin-bottom:6px;">Reading Backwards</div>
+        <div class="card-body">Read chapter summaries and end-questions <em>before</em> the chapter text. Pre-questioning activates a schema that makes your brain prioritise relevant information as you encounter it.</div>
+      </div>
+      <div class="card" style="border-top:2px solid var(--blue);">
+        <div style="font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:6px;">Directness Principle</div>
+        <div class="card-body">Practice in the exact format of your exam. MCQ exam → do MCQs under timed conditions. Essay exam → write timed essays. Notes don't transfer to production under pressure.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz 5 (covers chs 5+6+7) -->
+<div class="quiz-section" id="quiz5" data-chapter="5" data-title="Scheduling, Recovery & Mindset">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapters 5–7 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Scheduling, Recovery & Mindset</div>
+      <div class="quiz-desc">5 questions spanning the final three chapters.</div>
+    </div>
+    <div class="quiz-dots" id="qd5"></div>
+    <div id="qa5"></div>
+    <div class="quiz-score" id="qs5"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CONCLUSION
+══════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-inner" style="text-align:center;">
+    <div class="eyebrow" style="justify-content:center;">The Integrated System</div>
+    <h2 class="chapter-title" style="font-size:clamp(32px,5vw,64px);">High-performance learning<br>is not a <em>personality trait.</em><br>It is a system.</h2>
+    <p class="chapter-subtitle" style="max-width:560px;margin:0 auto 48px;">Six pillars. Each necessary. Each insufficient alone. Remove any one and the system degrades. Keep all six and they compound.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:48px;">
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">🧠 Neurochemistry</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">⚗ Memory</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--gold);color:var(--ink);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;">⌨ Skills</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">🏠 Environment</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">⏱ Schedule</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">💚 Recovery</div>
+      <div style="color:var(--ink3);align-self:center;font-size:1.2rem;">→</div>
+      <div style="padding:12px 20px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;">⚔ Mindset</div>
+    </div>
+    <div style="font-family:var(--mono);font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--ink4);">★ Master the system. The results become inevitable. ★</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STUDENT DASHBOARD
+══════════════════════════════════ -->
+<div class="dashboard" id="dashboard">
+  <div class="dash-inner">
+    <div class="eyebrow">Student Performance Dashboard</div>
+    <div class="dash-title">Your Quiz Results</div>
+    <div class="dash-sub">Responses are still saved in the visitor's browser for convenience, but this public version also lets readers submit their test results directly from the page.</div>
+
+    <div class="dash-overview" id="dash-overview">
+      <div class="dash-stat"><div class="ds-n" id="d-total">—</div><div class="ds-l">Total Questions</div></div>
+      <div class="dash-stat"><div class="ds-n" id="d-correct">—</div><div class="ds-l">Correct</div></div>
+      <div class="dash-stat"><div class="ds-n" id="d-pct">—</div><div class="ds-l">Overall Score</div></div>
+      <div class="dash-stat"><div class="ds-n" id="d-done">—</div><div class="ds-l">Sections Complete</div></div>
+    </div>
+
+    <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:12px;">Score by Chapter</div>
+    <div class="dash-sections" id="dash-sections"></div>
+
+    <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin:24px 0 12px;">Full Response Log</div>
+    <div style="overflow-x:auto;">
+      <table class="resp-table" id="resp-table">
+        <thead><tr><th>Chapter</th><th>#</th><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th><th>Timestamp</th></tr></thead>
+        <tbody id="resp-body"></tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:8px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+      <button class="export-btn" onclick="exportCSV()">⬇ Export as CSV</button>
+      <button class="clear-btn" onclick="clearAll()">Clear All Data</button>
+      <span id="export-confirm" style="font-family:var(--mono);font-size:.62rem;color:var(--green);opacity:0;transition:opacity .3s;margin-left:8px;">✓ Downloaded</span>
+    </div>
+
+    <div class="submit-wrap">
+      <div class="submit-head">
+        <div>
+          <div class="submit-title">Submit your results</div>
+          <p class="submit-note">Readers can leave a name, email, and short note before sending their quiz log. This sends the score summary and detailed response record to the project owner.</p>
+        </div>
+      </div>
+
+      <form id="results-form" novalidate>
+        <div class="submit-grid">
+          <div class="submit-field">
+            <label for="visitor-name">Name</label>
+            <input id="visitor-name" name="visitorName" type="text" placeholder="Your name">
+          </div>
+          <div class="submit-field">
+            <label for="visitor-email">Email</label>
+            <input id="visitor-email" name="visitorEmail" type="email" placeholder="name@example.com">
+          </div>
+          <div class="submit-field full">
+            <label for="visitor-note">Note</label>
+            <textarea id="visitor-note" name="visitorNote" placeholder="Optional note about what you found useful or difficult."></textarea>
+          </div>
+        </div>
+        <div class="submit-actions">
+          <button class="submit-btn" id="submit-results-btn" type="submit">Send Results</button>
+          <span id="submit-status" class="submit-status">Complete at least one quiz section, then submit.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div><strong>The Architecture of High-Performance Learning</strong> · ULAB Centre for Language Studies</div>
+  <div>Evidence-Based Learning Series · All citations available on request</div>
+</footer>
+
+<script>
+// ════════════════════════════════════
+//  QUIZ DATA — 5 questions × 5 quizzes
+// ════════════════════════════════════
+const QUIZZES = {
+  1: [
+    {q:"Wolfram Schultz's (1997) research on dopamine found that it fires primarily at which moment?",opts:["When you receive a reward","In anticipation of a reward","During physical exercise","When you complete a difficult task"],ans:1,exp:"Dopamine fires in anticipation of reward — this is the reward prediction error. This is why novelty-seeking (social media, notifications) creates a spike-trough cycle: the anticipation fires dopamine, then the baseline crashes, making sustained effort feel aversive."},
+    {q:"According to the neurochemistry chapter, what is the purpose of the 15-minute dopamine detox?",opts:["To meditate and reduce stress","To recalibrate dopamine baseline sensitivity","To prepare the hippocampus for memory encoding","To increase norepinephrine levels"],ans:1,exp:"The detox is baseline recalibration — not meditation. When baseline dopamine sensitivity is restored, the quieter reward of understanding a concept becomes meaningful again. Artificial stimulation spikes then depletes this baseline."},
+    {q:"Which morning behaviour is described as most damaging to dopamine baseline?",opts:["Skipping breakfast","Checking your phone immediately on waking","Drinking coffee","Sleeping past 8am"],ans:1,exp:"Checking your phone immediately on waking spikes dopamine before any cognitively demanding work has been done. Your brain then competes against an artificially elevated baseline for the rest of the morning, making studying feel aversive by comparison."},
+    {q:"An optimised high-performance morning avoids digital input for approximately how long after waking?",opts:["15 minutes","30 minutes","60–90 minutes","3 hours"],ans:2,exp:"The recommendation is to avoid digital input for 60–90 minutes after waking, allowing the dopamine baseline to remain intact and cortisol awakening response to anchor properly. Sunlight exposure and physical movement during this window further support the neurochemical state for deep work."},
+    {q:"Why does studying feel 'hellish' after social media use, according to the neurochemistry principle?",opts:["Social media is more interesting than textbooks","Your brain has entered a trough below its dopamine baseline","You are procrastinating out of laziness","Your working memory is full of social content"],ans:1,exp:"After an artificial dopamine spike (social media, junk food), the brain crashes below its baseline. In that trough, the quiet reward of studying — which is genuinely dopaminergic but modestly so — cannot compete. It is not a character failing; it is a neurochemical state that can be managed deliberately."},
+  ],
+  2: [
+    {q:"Roediger & Karpicke (2006) found that retrieval practice produced how much better long-term retention than re-reading?",opts:["About 30% better","About 75% better","About 150% better","About the same"],ans:2,exp:"Retrieval practice produced approximately 150% better retention at the 1-week delayed test. The re-reading group actually scored higher on an immediate (5-minute) test, which explains why students believe re-reading works — they are measuring short-term fluency, not long-term retrievability."},
+    {q:"What is the 'desirable difficulty' principle (Bjork, 1994)?",opts:["Studying harder material builds more resilience","Strategies that feel difficult in the short term tend to produce better long-term retention","Difficulty indicates a mismatch between skill level and material","The harder the exam, the more you learn"],ans:1,exp:"Desirable difficulties are learning conditions that slow initial performance but enhance long-term retention. The counterintuitive implication: if your study session feels smooth and easy, it is usually a sign you are not learning effectively. Productive struggle — not comfort — is the signal of real learning."},
+    {q:"What does the Generation Effect (Slamecka & Graf, 1978) tell us about creating your own examples?",opts:["Self-generated examples are harder to remember because they are idiosyncratic","Information you generate yourself is remembered significantly better than information passively received","Generated examples only help with procedural knowledge","The generation effect only applies to verbal, not written, material"],ans:1,exp:"Even generating a wrong answer before seeing the correct one produces better final retention than receiving the correct answer directly. The effortful attempt creates a stronger memory trace. This is why writing your own examples, definitions, and summaries outperforms copying the textbook's."},
+    {q:"According to the PACER framework, what is the correct strategy for reference knowledge (dates, formulas, vocabulary)?",opts:["Mind mapping","Immediate practice","Application rehearsal","Anki / spaced repetition"],ans:3,exp:"Reference knowledge (arbitrary associations — dates, vocabulary, formulas, constants) requires spaced retrieval systems like Anki. This is the only efficient method for building and maintaining arbitrary associations in long-term memory. Other strategies like mind-mapping or practice are appropriate for different knowledge types but not for reference material."},
+    {q:"Why do interleaved learners typically rate their study sessions as less productive — yet score higher on tests?",opts:["They study more hours overall","They benefit from the illusion of competence","Interleaving creates productive confusion that is the actual learning event","They are better at test-taking strategies"],ans:2,exp:"Interleaving forces the brain to identify which strategy to use with each problem, not just execute one strategy repeatedly. This is a desirable difficulty — the confusion is the learning. Students who use blocked practice feel more fluent during study (recognising material they've seen recently) and rate their learning higher, but perform worse on delayed tests."},
+  ],
+  3: [
+    {q:"When touch typing shifts from 'controlled processing' to 'automatic processing', what is the primary cognitive benefit?",opts:["You type faster which saves time","Full working memory capacity is freed for idea generation, argumentation, and analysis","Your spelling improves significantly","You experience less physical fatigue"],ans:1,exp:"The shift to automatic processing means the transcription layer disappears entirely. For a hunt-and-peck typist, a significant portion of working memory is allocated to locating keys. When typing becomes automatic, that resource is entirely available for higher-order thinking — the actual intellectual work."},
+    {q:"According to the Weintraub et al. (2015) study on higher-education students, what was the primary academic consequence of poor keyboarding skills?",opts:["Students took longer to complete assignments","Students allocated attention to key-searching instead of planning, organising, and revising their writing","Students made more spelling errors","Students preferred to handwrite instead"],ans:1,exp:"Non-proficient typists directed cognitive resources toward the physical mechanics of typing (key location, error correction) rather than the higher cognitive processes of writing — planning, organising ideas, and revising text. The written outputs of non-proficient typists were measurably lower quality as a result."},
+    {q:"Mueller & Oppenheimer (2014) found that laptop note-takers performed worse on conceptual questions than handwriters, even when allowed to review notes. Why?",opts:["Handwriting activates different and superior brain regions","Laptop typists typed too much content which was confusing","The physical constraint of handwriting forced real-time processing and paraphrasing rather than verbatim transcription","Handwriters studied their notes for longer"],ans:2,exp:"The mechanism is encoding depth. Laptop users who type verbatim are transcribing, not processing. Handwriters are forced to paraphrase and select in real time — an active encoding operation. The medium is not the cause; the cognitive activity is. A laptop typist who deliberately paraphrases rather than transcribes would produce similarly deep encoding."},
+    {q:"In the Cornell note-taking system, the cue column is added at which stage?",opts:["During the lecture, alongside the main notes","Before the lecture as a preparation step","After the lecture, as questions that test recall of the main notes","During the first review session"],ans:2,exp:"The cue column is added after the lecture. This is what converts passive notes into a retrieval practice tool. You cover the notes column, read the cue question, and attempt to recall aloud. The cue column requires no extra study preparation — it transforms the notes you already have into a self-testing resource."},
+    {q:"Which note-taking approach should be avoided entirely according to the evidence?",opts:["Cornell Method","Mind Mapping","Verbatim transcription","Outline Method"],ans:2,exp:"Verbatim transcription produces passive recording with no active encoding. You are operating as a court reporter, not a learner. The material passes through your attention without being processed. Mueller & Oppenheimer's research showed this produces worse conceptual understanding than any organised note-taking method, even when the verbatim notes are available for review."},
+  ],
+  4: [
+    {q:"In the Ward et al. (2017) 'brain drain' study, which condition most effectively eliminated the cognitive cost of smartphone presence?",opts:["Phone turned off and face-down on the desk","Phone in a bag or pocket","Phone in another room","Phone in silent mode in a drawer"],ans:2,exp:"Only removing the phone from the room entirely eliminated the brain drain effect. Phone on desk (even off, face-down), phone in pocket, and phone in a bag all showed measurable cognitive cost compared to the phone-in-another-room condition. The potential for distraction — not actual distraction — is what consumes cognitive resources."},
+    {q:"The 'Illegal Focus' Protocol uses classical conditioning to create automatic focus responses. Which step creates the conditioned stimulus?",opts:["The physical activation (push-ups or jumping jacks)","The fixed location (same desk, same spot)","The countdown and declaration","The brain anchor (same playlist used exclusively for study)"],ans:3,exp:"The brain anchor — a specific playlist used exclusively for studying — becomes a conditioned stimulus through Pavlovian conditioning. Each time you study to this music, the association strengthens. Eventually, just hearing the first few seconds of the track triggers the attentional narrowing associated with focus. This only works if the playlist is reserved exclusively for study sessions."},
+    {q:"Gollwitzer's (1999) research on implementation intentions found that if-then specific plans produce how much higher follow-through compared to general intentions?",opts:["About the same as general intentions","About 50% higher","2–3× higher","10× higher"],ans:2,exp:"Implementation intentions — specific if-then plans ('When X occurs, I will do Y') — produced 2–3 times higher follow-through rates compared to general goal intentions ('I will study more'). The countdown and declaration step of the focus protocol is an implementation intention: a specific behavioural cue that signals the beginning of the focused work state."},
+    {q:"What is the purpose of the one-tab rule in digital study environments?",opts:["To save memory on your computer","To prevent your computer from slowing down","To eliminate the temptation of one-click distraction access","To improve your typing speed"],ans:2,exp:"The one-tab rule ensures that switching to a distraction requires deliberate action — opening a new tab, navigating to a site. This friction is the entire point. BJ Fogg's behaviour design principle: make desired behaviours require zero friction and undesired behaviours require maximum friction. The one-tab rule creates asymmetric friction between studying and distraction."},
+    {q:"Why is notification silence during study important even if you choose not to check the notifications?",opts:["Notifications make sounds that break concentration","The act of deciding not to check a notification still consumes executive function","Notifications create FOMO which increases anxiety","All of the above"],ans:1,exp:"The decision not to check a notification — even when you successfully resist — uses executive function resources. Each suppressed impulse depletes the same cognitive budget you need for study. This is the 'ego depletion' effect: self-control is a limited resource. Eliminating the notifications eliminates the need for repeated self-control decisions throughout the session."},
+  ],
+  5: [
+    {q:"Kleitman's Basic Rest-Activity Cycle (BRAC) established that the brain cycles through performance peaks and troughs approximately how often?",opts:["Every 45 minutes","Every 90 minutes","Every 2 hours","Every 30 minutes"],ans:1,exp:"Kleitman's BRAC research established a ~90-minute cycle that continues while awake — the same rhythm that governs sleep stages. This is why the 90-minute work block followed by genuine rest maps to biological reality rather than arbitrary productivity advice. Working in alignment with this cycle produces better output with the same invested time."},
+    {q:"Sophie Leroy's (2009) concept of 'attention residue' describes what phenomenon?",opts:["The feeling of tiredness after a long study session","A 10–15 minute period of reduced performance on a new task after switching from a previous one","The tendency to remember the last thing you studied best","The cognitive cost of multitasking across three or more tasks simultaneously"],ans:1,exp:"Attention residue: when you switch tasks before fully completing the previous one, part of your attention remains on the prior task for 10–15 minutes. This invisibly degrades performance on the new task. The practical implication: batch similar cognitive tasks (all reading, then all writing) and minimise task switches throughout the day."},
+    {q:"Walker's sleep research found that the amount of hippocampal SWS reactivation during sleep is directly proportional to what?",opts:["How many hours you slept","Next-day memory consolidation and task improvement","How difficult the material was during study","The emotional significance of what you learned"],ans:1,exp:"The quantity of hippocampal replay during slow-wave sleep is directly proportional to next-day performance improvement — even without additional waking practice. This is why an all-nighter permanently destroys that night's consolidation: the replay cannot be rescheduled to the following night. Sleep is not rest from learning; it is an active phase of it."},
+    {q:"James Clear's identity-based habit formation suggests the most durable behaviour change targets which layer?",opts:["Outcomes — what you want to achieve","Processes — what actions you take","Identity — who you believe you are","Environment — what triggers your behaviour"],ans:2,exp:"Clear's three-layer model: outcomes (what you want), processes (what you do), identity (who you are). Most people set outcome goals. Identity-based habits are most durable because each action becomes evidence for the identity rather than progress toward an external goal. 'I am a serious learner' is self-reinforcing in a way that 'I want an A' is not."},
+    {q:"Dweck's growth mindset research found that teaching students that intelligence is developable (not fixed) produced what measurable outcome?",opts:["Students reported feeling less anxious about exams","Students improved in grades and persistence in longitudinal studies across multiple countries","Students spent more time studying each day","Students developed better relationships with their teachers"],ans:1,exp:"Teaching the growth mindset explicitly — that the brain is malleable and struggles are productive — improved grades and persistence in longitudinal studies replicated across multiple countries. The mechanism: students with a fixed mindset avoid challenges to protect their identity. Students with a growth mindset lean into challenges as evidence of growth in progress, choosing harder problems and recovering faster from setbacks."},
+  ]
+};
+
+// ════════════════════════════════════
+//  STATE — stored in localStorage
+// ════════════════════════════════════
+const RESULTS_ENDPOINT = 'https://formsubmit.co/ajax/miraz8395@gmail.com';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem('hpl_v3_state') || '{}'); }
+  catch(e) { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem('hpl_v3_state', JSON.stringify(state));
+}
+
+let state = loadState();
+// state structure: { responses: [{chapter,qIndex,question,chosen,correct,answer,ts}], scores: {1:{correct,total},...} }
+if (!state.responses) state.responses = [];
+if (!state.scores) state.scores = {};
+if (!state.lastSubmittedAt) state.lastSubmittedAt = '';
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function getScoreSummary() {
+  const chIds = [1, 2, 3, 4, 5];
+  let totalQ = 0;
+  let totalC = 0;
+  let done = 0;
+
+  chIds.forEach((id) => {
+    const score = state.scores[id];
+    if (score && score.total > 0) {
+      totalQ += score.total;
+      totalC += score.correct;
+      if (score.total >= QUIZZES[id].length) done++;
+    }
+  });
+
+  return {
+    totalQuestions: totalQ,
+    totalCorrect: totalC,
+    overallPercent: totalQ ? Math.round(totalC / totalQ * 100) : 0,
+    sectionsComplete: done
+  };
+}
+
+function buildResponsesText() {
+  if (!state.responses.length) return 'No responses recorded.';
+
+  return state.responses.map((response) => {
+    return [
+      `Chapter: ${response.chapterTitle}`,
+      `Question #: ${response.qIndex}`,
+      `Question: ${response.question}`,
+      `Visitor Answer: ${response.chosen}`,
+      `Correct Answer: ${response.answer}`,
+      `Result: ${response.correct ? 'CORRECT' : 'WRONG'}`,
+      `Timestamp: ${response.ts}`
+    ].join('\n');
+  }).join('\n\n---\n\n');
+}
+
+async function submitResults(event) {
+  event.preventDefault();
+
+  const status = document.getElementById('submit-status');
+  const button = document.getElementById('submit-results-btn');
+
+  if (!state.responses.length) {
+    status.textContent = 'Take at least one quiz before submitting results.';
+    status.className = 'submit-status bad';
+    return;
+  }
+
+  const summary = getScoreSummary();
+  const visitorName = document.getElementById('visitor-name').value.trim();
+  const visitorEmail = document.getElementById('visitor-email').value.trim();
+  const visitorNote = document.getElementById('visitor-note').value.trim();
+
+  button.disabled = true;
+  status.textContent = 'Sending results...';
+  status.className = 'submit-status';
+
+  const payload = new FormData();
+  payload.append('_subject', 'New HPL quiz submission');
+  payload.append('_captcha', 'false');
+  payload.append('project', 'The Architecture of High-Performance Learning');
+  payload.append('visitor_name', visitorName || 'Anonymous visitor');
+  payload.append('visitor_email', visitorEmail || 'Not provided');
+  payload.append('visitor_note', visitorNote || 'No note left.');
+  payload.append('overall_score', `${summary.totalCorrect}/${summary.totalQuestions} (${summary.overallPercent}%)`);
+  payload.append('sections_complete', `${summary.sectionsComplete}/5`);
+  payload.append('responses_logged', String(state.responses.length));
+  payload.append('submitted_at', new Date().toLocaleString());
+  payload.append('response_log', buildResponsesText());
+
+  try {
+    const response = await fetch(RESULTS_ENDPOINT, {
+      method: 'POST',
+      body: payload,
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Submission failed with status ${response.status}`);
+    }
+
+    state.lastSubmittedAt = new Date().toISOString();
+    saveState(state);
+    status.textContent = 'Results sent successfully. Thank you.';
+    status.className = 'submit-status ok';
+  } catch (error) {
+    console.error(error);
+    status.textContent = 'Submission could not be completed right now. Export the CSV instead as a fallback.';
+    status.className = 'submit-status bad';
+  } finally {
+    button.disabled = false;
+  }
+}
+
+// ════════════════════════════════════
+//  RENDER QUIZZES
+// ════════════════════════════════════
+function renderQuiz(chId) {
+  const qs = QUIZZES[chId];
+  let cur = 0, answered = false;
+  const qaEl = document.getElementById('qa'+chId);
+  const qdEl = document.getElementById('qd'+chId);
+  const qsEl = document.getElementById('qs'+chId);
+
+  function renderDots() {
+    qdEl.innerHTML = '';
+    qs.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'qdot' + (i < cur ? ' done' : i === cur ? ' active' : '');
+      qdEl.appendChild(d);
+    });
+  }
+
+  function renderQ() {
+    if (cur >= qs.length) { showScore(); return; }
+    renderDots();
+    const q = qs[cur];
+    qaEl.innerHTML = `
+      <div class="quiz-q-text">${cur+1}. ${escapeHtml(q.q)}</div>
+      <div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="pickOpt(${chId},${i},this)">${escapeHtml(o)}</button>`).join('')}</div>
+      <div class="quiz-feedback" id="qfb${chId}"></div>
+      <div class="quiz-nav">
+        <button class="q-btn" id="qnext${chId}" disabled onclick="nextQ(${chId})">Next →</button>
+        <span class="quiz-counter">${cur+1} / ${qs.length}</span>
+      </div>`;
+    answered = false;
+  }
+
+  window[`pickOpt`] = function(ch, idx, el) {
+    if (ch !== chId || answered) return;
+    answered = true;
+    const q = qs[cur];
+    const ok = idx === q.ans;
+    document.querySelectorAll(`#qa${ch} .quiz-opt`).forEach((b,i) => {
+      b.classList.add(i === q.ans ? 'correct' : (i === idx && !ok ? 'wrong' : ''));
+      b.disabled = true;
+    });
+    const fb = document.getElementById(`qfb${ch}`);
+    fb.className = `quiz-feedback show ${ok?'ok':'bad'}`;
+    fb.innerHTML = `<strong>${ok ? '✓ Correct' : '✗ Incorrect'}</strong>${q.exp}`;
+    document.getElementById(`qnext${ch}`).disabled = false;
+
+    // save response
+    state.responses.push({
+      chapter: ch,
+      chapterTitle: document.querySelector(`#quiz${ch}`).dataset.title,
+      qIndex: cur+1,
+      question: q.q,
+      chosen: q.opts[idx],
+      answer: q.opts[q.ans],
+      correct: ok,
+      ts: new Date().toLocaleString()
+    });
+    if (!state.scores[ch]) state.scores[ch] = {correct:0, total:0};
+    state.scores[ch].total++;
+    if (ok) state.scores[ch].correct++;
+    saveState(state);
+    renderDashboard();
+  };
+
+  window[`nextQ`] = function(ch) {
+    if (ch !== chId) return;
+    cur++;
+    if (cur >= qs.length) showScore();
+    else renderQ();
+  };
+
+  function showScore() {
+    qaEl.innerHTML = '';
+    qdEl.innerHTML = '';
+    const sc = state.scores[chId] || {correct:0, total: qs.length};
+    const pct = Math.round(sc.correct / qs.length * 100);
+    const msg = pct >= 80 ? "Excellent retrieval. The memory traces are forming." :
+                pct >= 60 ? "Good — review the questions you missed, then test again in 24 hours." :
+                "That's the forgetting curve in action. Re-read the chapter, then come back and test again. The second attempt will be significantly better.";
+    qsEl.innerHTML = `
+      <div class="qs-num">${pct}%</div>
+      <div class="qs-label">${sc.correct} / ${qs.length} correct</div>
+      <div class="qs-msg">${msg}</div>
+      <button class="q-btn outline" onclick="retakeQuiz(${chId})">Retake Quiz</button>`;
+    qsEl.className = 'quiz-score show';
+    renderDashboard();
+  }
+
+  window[`retakeQuiz`] = function(ch) {
+    if (ch !== chId) return;
+    cur = 0; answered = false;
+    qsEl.className = 'quiz-score';
+    renderQ();
+  };
+
+  renderQ();
+}
+
+// Init all quizzes
+[1,2,3,4,5].forEach(renderQuiz);
+
+// ════════════════════════════════════
+//  DASHBOARD
+// ════════════════════════════════════
+const CHAPTER_LABELS = {
+  1: 'Neurochemistry',
+  2: 'Memory Science',
+  3: 'Underrated Skills',
+  4: 'Environment',
+  5: 'Scheduling / Recovery / Mindset'
+};
+
+function renderDashboard() {
+  const scores = state.scores;
+  const chIds = [1,2,3,4,5];
+  const summary = getScoreSummary();
+  document.getElementById('d-total').textContent = summary.totalQuestions || '—';
+  document.getElementById('d-correct').textContent = summary.totalCorrect || '—';
+  document.getElementById('d-pct').textContent = summary.totalQuestions > 0 ? summary.overallPercent + '%' : '—';
+  document.getElementById('d-done').textContent = summary.sectionsComplete + '/5';
+
+  // Section bars
+  const secEl = document.getElementById('dash-sections');
+  secEl.innerHTML = chIds.map(id => {
+    const s = scores[id];
+    const pct = s && s.total > 0 ? Math.round(s.correct/s.total*100) : null;
+    const barClass = pct === null ? '' : pct >= 80 ? 'great' : pct < 50 ? 'poor' : '';
+    return `<div class="dash-row">
+      <div class="dr-name">${CHAPTER_LABELS[id]}</div>
+      <div class="dr-score">${pct !== null ? pct+'%' : 'Not taken'}</div>
+      <div class="dr-bar-wrap"><div class="dr-bar ${barClass}" style="width:${pct||0}%"></div></div>
+    </div>`;
+  }).join('');
+
+  // Response table
+  const tbody = document.getElementById('resp-body');
+  tbody.innerHTML = state.responses.length === 0
+    ? '<tr><td colspan="7" style="text-align:center;color:var(--ink4);padding:20px;font-style:italic;">No responses recorded yet. Complete a quiz to see your data here.</td></tr>'
+    : state.responses.map((r,i) => `<tr>
+        <td>${escapeHtml(r.chapterTitle)}</td>
+        <td>${r.qIndex}</td>
+        <td style="max-width:260px;">${escapeHtml(r.question)}</td>
+        <td style="max-width:160px;">${escapeHtml(r.chosen)}</td>
+        <td style="max-width:160px;">${escapeHtml(r.answer)}</td>
+        <td><span class="${r.correct?'tag-c':'tag-w'}">${r.correct?'CORRECT':'WRONG'}</span></td>
+        <td style="white-space:nowrap;font-family:var(--mono);font-size:.7rem;">${escapeHtml(r.ts)}</td>
+      </tr>`).join('');
+}
+renderDashboard();
+document.getElementById('results-form').addEventListener('submit', submitResults);
+
+// ════════════════════════════════════
+//  EXPORT CSV
+// ════════════════════════════════════
+function exportCSV() {
+  const headers = ['Chapter','Q#','Question','Your Answer','Correct Answer','Result','Timestamp'];
+  const rows = state.responses.map(r => [
+    r.chapterTitle, r.qIndex,
+    '"'+r.question.replace(/"/g,'""')+'"',
+    '"'+r.chosen.replace(/"/g,'""')+'"',
+    '"'+r.answer.replace(/"/g,'""')+'"',
+    r.correct ? 'CORRECT' : 'WRONG',
+    r.ts
+  ]);
+  const csv = [headers.join(','), ...rows.map(r=>r.join(','))].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'HPL_Quiz_Results_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.click(); URL.revokeObjectURL(url);
+  const c = document.getElementById('export-confirm');
+  c.style.opacity = 1; setTimeout(()=>c.style.opacity=0, 2500);
+}
+
+function clearAll() {
+  if (!confirm('Clear all quiz responses? This cannot be undone.')) return;
+  state = {responses:[], scores:{}};
+  saveState(state);
+  renderDashboard();
+  [1,2,3,4,5].forEach(renderQuiz);
+}
+
+// ════════════════════════════════════
+//  SCROLL SYSTEM
+// ════════════════════════════════════
+window.addEventListener('scroll', () => {
+  // Progress
+  document.getElementById('pg').style.width =
+    (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+  // Nav
+  document.getElementById('nav').classList.toggle('show', window.scrollY > window.innerHeight * .6);
+});
+
+// Reveal on scroll
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('revealed'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.chapter, .quiz-section, .dashboard').forEach(el => revealObs.observe(el));
+
+// Active nav
+const navLinks = document.querySelectorAll('.nav-item[href^="#"]');
+const sectionEls = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionEls.forEach(s => { if (s.getBoundingClientRect().top <= 80) current = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+current));
+});
+
+// Accordion
+function toggleAcc(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  item.closest('.accordion').querySelectorAll('.acc-item.open').forEach(i=>i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
