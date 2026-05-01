@@ -1,4 +1,41 @@
 {
+  "learning": {
+    "slug": "learning",
+    "icon": "🌱",
+    "title": "Learning log",
+    "subtitle": "A shelf for the things I have learned, am learning, and still want to learn.",
+    "intro": "This folder is for the wider life of curiosity. I want it to eventually hold one hundred things I have learned, am learning, or still hope to learn — from cycling and cooking to speedcubing, pen spinning, web development, languages, and practical everyday skills. It is less a polished expertise page than an honest map of how I keep becoming.",
+    "sections": [
+      {
+        "kind": "reading-now",
+        "title": "Learning now",
+        "items": [
+          { "text": "Front-end web development", "meta": "Building this site section by section" },
+          { "text": "Spanish beyond the classroom", "meta": "Daily self-study · aiming for B1" },
+          { "text": "Cooking with more confidence", "meta": "Trying to make one new dish feel natural before adding another" }
+        ]
+      },
+      {
+        "kind": "memory",
+        "title": "Why this folder exists",
+        "body": "I do not like the idea that learning ends when coursework ends. Some of the most useful things in my life were learned sideways: how to ask better questions, how to cycle through a city, how to edit a sentence without flattening its voice, how to keep trying after being bad at something for a while. This page is for that slower education."
+      },
+      {
+        "kind": "notes",
+        "title": "Things on the 100-things list",
+        "items": [
+          { "text": "Cycling", "meta": "confidence, endurance, city rhythm" },
+          { "text": "Speedcubing", "meta": "memory, algorithms, finger discipline" },
+          { "text": "Pen spinning", "meta": "small motor patience" },
+          { "text": "Cooking", "meta": "from surviving to actually enjoying it" },
+          { "text": "Web development", "meta": "design systems, structure, interaction" },
+          { "text": "Photography", "meta": "framing, light, restraint" },
+          { "text": "Language learning", "meta": "Spanish now, maybe more later" },
+          { "text": "Public speaking", "meta": "clearer voice, calmer delivery" }
+        ]
+      }
+    ]
+  },
   "literature": {
     "slug": "literature",
     "icon": "📚",

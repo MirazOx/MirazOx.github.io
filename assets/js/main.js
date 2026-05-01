@@ -68,7 +68,8 @@ function initModernNav() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const bodyPage = document.body && document.body.dataset ? document.body.dataset.page : '';
   const pageAliases = {
-    projects: 'projects.html'
+    projects: 'projects.html',
+    interventions: 'interventions.html'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
   let matched = false;
@@ -138,7 +139,7 @@ function initRotatingTags() {
     setTimeout(() => {
       current.classList.remove('is-leaving');
     }, 700);
-  }, 6000);
+  }, 1800);
 }
 
 // ---------- LIGHTBOX ----------
