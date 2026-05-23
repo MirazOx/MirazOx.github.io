@@ -606,23 +606,23 @@
       margin-left: -0.5rem;
       margin-right: -0.5rem;
       width: calc(100% + 1rem);
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 3 / 2;
       height: auto;
       border-radius: 16px;
       border: none;
+      background:
+        radial-gradient(circle at 72% 42%, rgba(189, 177, 162, 0.32), transparent 42%),
+        linear-gradient(180deg, #28231f 0%, #5a5148 58%, #877d70 100%);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .about-portrait-frame img {
       width: 100%;
-      height: 142%;
-      object-fit: cover;
-      object-position: 72% center;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
       position: absolute;
-      top: -34%;
-      right: 0;
-      bottom: auto;
-      left: 0;
+      inset: 0;
     }
 
     .about-portrait-frame::after {
