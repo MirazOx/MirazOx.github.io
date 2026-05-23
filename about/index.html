@@ -588,10 +588,6 @@
   }
 
   @media (max-width: 600px) {
-    body[data-page="about"] {
-      padding-top: 0;
-    }
-
     .about-editorial-layout {
       padding-top: 0;
       padding-bottom: 2rem;
@@ -629,17 +625,17 @@
       background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
     }
 
-    /* 2. Name — overlayed side-by-side at the bottom of the portrait card */
+    /* 2. Name — stacked at the bottom of the portrait card */
     .about-title {
-      padding: 1.5rem;
-      font-size: clamp(36px, 11vw, 48px);
+      padding: 1.15rem 1.25rem;
+      font-size: clamp(34px, 10vw, 44px);
       text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .about-title span {
-      display: inline;
-      margin-left: 0.25rem;
-      margin-top: 0;
+      display: block;
+      margin-left: 0;
+      margin-top: 0.08rem;
     }
 
     /* 3. Quick links — horizontal row just beneath the portrait */
