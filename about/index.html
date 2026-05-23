@@ -587,6 +587,18 @@
     }
   }
 
+  @media (min-width: 601px) {
+    .about-editorial-layout {
+      padding-top: clamp(1.25rem, 3vw, 2.5rem);
+    }
+
+    .about-portrait-frame img {
+      object-position: right 30%;
+      transform: translateY(2%) scale(0.96);
+      transform-origin: 72% center;
+    }
+  }
+
   @media (max-width: 600px) {
     .about-editorial-layout {
       padding-top: 0;
