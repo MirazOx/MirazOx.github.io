@@ -122,10 +122,11 @@
           "name": "Media and the Law",
           "session": "Spring 2025",
           "grade": "A+",
-          "workTitle": "Communication and Technology Essay",
-          "type": "Theory essay",
-          "desc": "A coursework essay on communication, technology, and the politics embedded in technical systems.",
-          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=drivesdk&rtpof=true&sd=true"
+          "workTitle": "Press Freedom on Trial",
+          "type": "Comparative legal analysis",
+          "desc": "A comparative legal analysis examining how Bangladesh’s Digital Security Act (DSA) and Pakistan’s PECA weaponise cybercrime law against journalism.",
+          "externalUrl": "https://docs.google.com/document/d/1e_NuvtSLw0CsZVwAn1WFPxlj8MQdHqqA/edit",
+          "linkLabel": "Open analysis"
         },
         {
           "code": "MSJ2201",
@@ -164,9 +165,11 @@
           "name": "Communication and Technology",
           "session": "Summer 2024",
           "grade": "A",
-          "workTitle": "Communication and Technology Essay",
+          "workTitle": "The Politics Embedded in Technical Systems",
           "type": "Theory essay",
-          "desc": "Analytical coursework on the politics embedded in technical systems."
+          "desc": "An analytical coursework essay applying Langdon Winner’s framework of technological politics to algorithmic content distribution systems.",
+          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true",
+          "linkLabel": "Open essay"
         }
       ]
     },
