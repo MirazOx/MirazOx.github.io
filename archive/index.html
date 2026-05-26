@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
 <title>Reportage Archive — Md. Miraz Hossain</title>
-<meta name="description" content="Full searchable archive of 220 journalism pieces by Md. Miraz Hossain.">
+<meta name="description" content="Full searchable archive of 223 journalism pieces by Md. Miraz Hossain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=27">
+<link rel="stylesheet" href="/assets/css/style.css?v=28">
 </head>
 <body data-page="writing">
 
@@ -128,6 +128,11 @@ function renderArchive() {
   document.getElementById('archive-list').innerHTML = items.map(article => `
     <li class="writing-item archive-item">
       <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener">
+        <div class="archive-thumb${article.image ? '' : ' archive-thumb-fallback'}">
+          ${article.image
+            ? `<img src="${escapeHTML(article.image)}" alt="${escapeHTML(article.imageAlt || article.title)}" loading="lazy">`
+            : `<span>${escapeHTML((article.outlet || 'M').slice(0, 1))}</span>`}
+        </div>
         <div class="archive-item-copy">
           <p class="writing-outlet">${escapeHTML(article.outlet)} · <span>${escapeHTML(article.theme || 'Features & Explainers')}</span></p>
           <p class="writing-title-text">${escapeHTML(article.title)}</p>
@@ -194,7 +199,7 @@ function hydrateFilters(data) {
   document.getElementById(id).addEventListener('change', renderArchive);
 });
 
-fetch('/content/articles.json?v=15')
+fetch('/content/articles.json?v=16')
   .then(response => {
     if (!response.ok) throw new Error('Could not load archive');
     return response.json();
