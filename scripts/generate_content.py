@@ -254,52 +254,20 @@ services = {
         "intro": "Portfolio websites, sharp English writing, and research support. Done properly, delivered on time.",
         "availability": "Taking new work",
         "rotating": [
-            "Portfolio Websites",
             "SOP Writing",
             "CV Editing",
-            "Research Proposals",
-            "Literature Reviews",
             "English Copywriting",
             "Annual Reports",
+            "Portfolio Websites",
+            "Research Proposals",
+            "Literature Reviews",
             "Content Analysis",
         ],
     },
     "sections": [
         {
-            "id": "websites",
-            "number": "01",
-            "title": "Portfolio Websites",
-            "columns": ["Package", "What's included", "Price"],
-            "rows": [
-                {
-                    "name": "Basic",
-                    "sub": "3 revisions included",
-                    "detail": "Single page - 3 sections - clean layout, mobile-ready",
-                    "price": "৳3,500",
-                },
-                {
-                    "name": "Standard",
-                    "sub": "3 revisions included",
-                    "detail": "Multi-page - CV + Projects + Contact - most popular",
-                    "price": "৳6,000",
-                    "highlight": "Most popular",
-                },
-                {
-                    "name": "Premium",
-                    "sub": "3 revisions included",
-                    "detail": "Custom design - Blog - LinkedIn integration - for those who want to stand out",
-                    "price": "৳9,000",
-                },
-            ],
-            "addons": [
-                {"price": "৳500", "label": "Per extra revision or content update after delivery"},
-                {"price": "৳800 / month", "label": "Monthly maintenance - edits, updates, uptime"},
-                {"price": "৳1,500 / year", "label": "Domain + hosting support, annually"},
-            ],
-        },
-        {
             "id": "writing",
-            "number": "02",
+            "number": "01",
             "title": "Writing & Editing",
             "columns": ["Service", "Details", "Price"],
             "rows": [
@@ -339,6 +307,38 @@ services = {
                     "detail": "Written and proofed to publication standard",
                     "price": "৳800",
                 },
+            ],
+        },
+        {
+            "id": "websites",
+            "number": "02",
+            "title": "Portfolio Websites",
+            "columns": ["Package", "What's included", "Price"],
+            "rows": [
+                {
+                    "name": "Basic",
+                    "sub": "3 revisions included",
+                    "detail": "Single page - 3 sections - clean layout, mobile-ready",
+                    "price": "৳3,500",
+                },
+                {
+                    "name": "Standard",
+                    "sub": "3 revisions included",
+                    "detail": "Multi-page - CV + Projects + Contact - most popular",
+                    "price": "৳6,000",
+                    "highlight": "Most popular",
+                },
+                {
+                    "name": "Premium",
+                    "sub": "3 revisions included",
+                    "detail": "Custom design - Blog - LinkedIn integration - for those who want to stand out",
+                    "price": "৳9,000",
+                },
+            ],
+            "addons": [
+                {"price": "৳500", "label": "Per extra revision or content update after delivery"},
+                {"price": "৳800 / month", "label": "Monthly maintenance - edits, updates, uptime"},
+                {"price": "৳1,500 / year", "label": "Domain + hosting support, annually"},
             ],
         },
         {
