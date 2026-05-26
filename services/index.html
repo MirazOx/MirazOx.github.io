@@ -51,9 +51,8 @@
         <a href="#websites">Websites <span>01</span></a>
         <a href="#writing-services">Writing <span>02</span></a>
         <a href="#research-services">Research <span>03</span></a>
-        <a href="/mentors/">Mentors <span>04</span></a>
-        <a href="#process">Process <span>05</span></a>
-        <a href="#contact">Contact <span>06</span></a>
+        <a href="#process">Process <span>04</span></a>
+        <a href="#contact">Contact <span>05</span></a>
       </nav>
     </aside>
 
@@ -78,26 +77,9 @@
 
       <div id="service-sections"></div>
 
-      <section class="service-block reveal" id="mentors" style="position:relative;">
-        <div class="service-block-head">
-          <span>04</span>
-          <h2>Miraz Mentors — Graduate Admissions</h2>
-        </div>
-        <div class="service-addons" style="grid-template-columns: 1fr; gap: 0;">
-          <div style="padding: 28px 32px; border-left: 3px solid currentColor;">
-            <p style="margin: 0 0 10px; font-size: 0.95rem; line-height: 1.6;">
-              The writing services above are sold per document. <strong>Miraz Mentors</strong> is the full, end-to-end version — a separate boutique practice for PhD and Masters candidates targeting top-tier global programs. SOP, research proposals, professor outreach, scholarship essays, interview prep — all under one cap of <strong>five applicants per cycle</strong>.
-            </p>
-            <p style="margin: 0;">
-              <a href="/mentors/" style="font-weight: 600; text-decoration: underline;">Visit Miraz Mentors →</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section class="service-block" id="process">
         <div class="service-block-head">
-          <span>05</span>
+          <span>04</span>
           <h2>How It Works</h2>
         </div>
         <div class="service-process-grid" id="service-process"></div>
@@ -105,7 +87,7 @@
 
       <section class="service-block" id="contact">
         <div class="service-block-head">
-          <span>06</span>
+          <span>05</span>
           <h2>Get in Touch</h2>
         </div>
         <div class="service-contact-grid">
@@ -177,6 +159,15 @@ function renderServiceSections(data) {
       </div>
     ` : '';
 
+    const callout = section.callout ? `
+      <aside class="service-section-callout" style="margin-top: 28px; padding: 22px 26px; border-left: 3px solid currentColor; background: rgba(0,0,0,0.03); border-radius: 0 4px 4px 0;">
+        ${section.callout.eyebrow ? `<p style="margin: 0 0 6px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7;">${escapeHTML(section.callout.eyebrow)}</p>` : ''}
+        ${section.callout.title ? `<p style="margin: 0 0 8px; font-weight: 600; font-size: 1.05rem;">${escapeHTML(section.callout.title)}</p>` : ''}
+        ${section.callout.body ? `<p style="margin: 0 0 12px; font-size: 0.95rem; line-height: 1.6; opacity: 0.85;">${escapeHTML(section.callout.body)}</p>` : ''}
+        ${section.callout.href ? `<a href="${escapeHTML(section.callout.href)}" style="font-weight: 600; text-decoration: underline;">${escapeHTML(section.callout.linkText || 'Learn more')} →</a>` : ''}
+      </aside>
+    ` : '';
+
     return `
       <section class="service-block reveal" id="${id}">
         <div class="service-block-head">
@@ -192,6 +183,7 @@ function renderServiceSections(data) {
           </table>
         </div>
         ${addons}
+        ${callout}
       </section>
     `;
   }).join('');

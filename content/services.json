@@ -107,7 +107,14 @@
           "detail": "Written and proofed to publication standard",
           "price": "৳800"
         }
-      ]
+      ],
+      "callout": {
+        "eyebrow": "Going further",
+        "title": "Need full admissions mentorship?",
+        "body": "The services above are sold per document. For PhD and Masters candidates who want end-to-end strategy — SOPs, research proposals, professor outreach, scholarship essays, and interview prep — I run a separate boutique practice, capped at five clients per cycle.",
+        "linkText": "Visit Miraz Mentors",
+        "href": "/mentors/"
+      }
     },
     {
       "id": "research",
