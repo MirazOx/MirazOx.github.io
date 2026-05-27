@@ -36,20 +36,26 @@
     overflow: hidden;
     border: 1px solid var(--border-subtle);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    background-color: #b8ad9e; /* matching warm neutral background color */
+    background:
+      radial-gradient(circle at 78% 46%, rgba(255, 255, 255, 0.28), transparent 38%),
+      radial-gradient(circle at 72% 42%, rgba(150, 132, 111, 0.28), transparent 48%),
+      linear-gradient(112deg, #5a5148 0%, #9d9181 45%, #d0c6b8 100%);
     position: relative;
     transition: var(--trans);
   }
 
   :root[data-theme="dark"] .about-portrait-frame {
-    background-color: #2b2724; /* matching dark warm neutral background color */
+    background:
+      radial-gradient(circle at 78% 46%, rgba(184, 170, 150, 0.2), transparent 40%),
+      radial-gradient(circle at 72% 42%, rgba(98, 84, 70, 0.3), transparent 48%),
+      linear-gradient(112deg, #151210 0%, #2b2724 48%, #5c5248 100%);
   }
 
   .about-portrait-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: right 45%;
+    object-fit: contain;
+    object-position: right center;
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -593,7 +599,8 @@
     }
 
     .about-portrait-frame img {
-      object-position: right 32%;
+      object-fit: contain;
+      object-position: right center;
       transform: none;
     }
   }

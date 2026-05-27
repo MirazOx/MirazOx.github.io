@@ -1495,12 +1495,12 @@ a.timeline-item-title:hover {
 }
 .cred-verify-jump-card {
   position: relative;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: space-between;
   gap: 0.38rem;
-  padding: clamp(1rem, 2vw, 1.45rem);
+  min-height: 100%;
+  padding: 1rem;
   background:
     radial-gradient(circle at 10% 15%, color-mix(in srgb, var(--accent-teal) 28%, transparent), transparent 34%),
     radial-gradient(circle at 82% 20%, color-mix(in srgb, #ffb1a1 20%, transparent), transparent 30%),
@@ -1508,16 +1508,16 @@ a.timeline-item-title:hover {
     var(--bg2);
 }
 .cred-verify-jump-mark {
-  width: 54px;
-  height: 54px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
-  margin-bottom: auto;
+  margin-bottom: 0.65rem;
   border: 0.5px solid color-mix(in srgb, var(--accent-teal) 54%, var(--border));
   border-radius: 50%;
   color: var(--accent-teal);
   font-family: 'DM Serif Display', serif;
-  font-size: 2.2rem;
+  font-size: 1.75rem;
   font-style: italic;
 }
 .cred-verify-sticker {
@@ -1529,23 +1529,24 @@ a.timeline-item-title:hover {
   color: #8f241c;
   background: color-mix(in srgb, #ffb1a1 12%, var(--bg2));
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.46rem 0.62rem;
+  padding: 0.34rem 0.48rem;
 }
 :root[data-theme="dark"] .cred-verify-sticker {
   color: #ffb1a1;
   background: rgba(255, 177, 161, 0.08);
 }
 .cred-verify-sticker.is-top {
-  top: 1rem;
-  right: 1rem;
+  top: 0.8rem;
+  right: 0.8rem;
   transform: rotate(3deg);
 }
 .cred-verify-sticker.is-side {
-  top: 4.25rem;
-  right: 1.35rem;
+  display: none;
+  top: 3.25rem;
+  right: 1rem;
   transform: rotate(-4deg);
 }
 .cred-verify-jump-copy {
@@ -1553,6 +1554,7 @@ a.timeline-item-title:hover {
   color: var(--text2);
   font-size: 13px;
   line-height: 1.55;
+  display: none;
 }
 .cred-showcase-issuer {
   font-family: 'DM Mono', monospace;
@@ -1585,17 +1587,18 @@ a.timeline-item-title:hover {
   color: #ffb1a1;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 720px) {
   .cred-verify-jump-card {
-    grid-column: span 3;
-    min-height: 266px;
+    grid-column: -2 / -1;
+    grid-row: 2;
+    min-height: 0;
   }
   .cred-verify-jump-card .cred-showcase-title {
-    max-width: 18ch;
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
-    line-height: 0.98;
-    letter-spacing: -0.02em;
+    max-width: 15ch;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0;
   }
 }
 
