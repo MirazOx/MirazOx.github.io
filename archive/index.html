@@ -142,7 +142,7 @@ function renderArchive() {
             : `<span>${escapeHTML((article.outlet || 'M').slice(0, 1))}</span>`}
         </div>
         <div class="archive-item-copy">
-          <p class="writing-outlet">${escapeHTML(article.outlet)} · <span>${escapeHTML(getArticleThemes(article).join(' / '))}</span></p>
+          <p class="writing-outlet">${escapeHTML(article.outlet)}</p>
           <p class="writing-title-text">${escapeHTML(article.title)}</p>
         </div>
         <span class="writing-date">${escapeHTML(article.date || '—')}</span>
@@ -207,7 +207,7 @@ function hydrateFilters(data) {
   document.getElementById(id).addEventListener('change', renderArchive);
 });
 
-fetch('/content/articles.json?v=17')
+fetch('/content/articles.json?v=18')
   .then(response => {
     if (!response.ok) throw new Error('Could not load archive');
     return response.json();
