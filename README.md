@@ -26,8 +26,8 @@ mirazhossain-site/
 │   ├── js/partials.js    (optional) shared nav/footer injector
 │   └── images/           
 ├── content/              ← Edit these JSON files to update the site
-│   ├── articles.json     220 published pieces
-│   ├── certificates.json 74 certifications
+│   ├── articles.json     223 published pieces
+│   ├── certificates.json 75 certifications
 │   ├── writing-selected.json  10 featured writings
 │   ├── research.json     Research projects
 │   ├── academic.json     Academic papers
