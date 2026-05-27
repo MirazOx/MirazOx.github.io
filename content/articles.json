@@ -6,7 +6,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/02/17/the-tinder-swindler.png",
-    "imageAlt": "Source image for Tinder Swindler: A captivating cautionary tale"
+    "imageAlt": "Source image for Tinder Swindler: A captivating cautionary tale",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "What does it take to get into MIT?",
@@ -15,7 +18,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/02/24/mit.png",
-    "imageAlt": "Source image for What does it take to get into MIT?"
+    "imageAlt": "Source image for What does it take to get into MIT?",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Wordle: Everything you need to know",
@@ -24,7 +30,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/03/10/wordle_photo.0.jpg",
-    "imageAlt": "Source image for Wordle: Everything you need to know"
+    "imageAlt": "Source image for Wordle: Everything you need to know",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "How to make your CV stand out",
@@ -33,7 +42,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/03/24/ac_comp_table_money_revamp_your_cv.png",
-    "imageAlt": "Source image for How to make your CV stand out"
+    "imageAlt": "Source image for How to make your CV stand out",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Sapiens – A Graphic History",
@@ -42,7 +55,10 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/10/01/screenshot_2022-10-01_133307.png",
-    "imageAlt": "Source image for Sapiens – A Graphic History"
+    "imageAlt": "Source image for Sapiens – A Graphic History",
+    "themes": [
+      "Culture & Literature"
+    ]
   },
   {
     "title": "The weight of work stress on mental health",
@@ -51,16 +67,24 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/07/16/work_stress.png",
-    "imageAlt": "Source image for The weight of work stress on mental health"
+    "imageAlt": "Source image for The weight of work stress on mental health",
+    "themes": [
+      "Public Health & Drugs",
+      "Work & Career"
+    ]
   },
   {
     "title": "Sadat Hossain: Writing is the tree, the other identities branches",
     "date": "2022-07-25",
     "link": "https://www.tbsnews.net/splash/sadat-hossain-writing-tree-other-identities-branches-464546",
     "outlet": "The Business Standard",
-    "theme": "Digital Rights & Platform Power",
+    "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/07/25/as5i79674.jpg",
-    "imageAlt": "Source image for Sadat Hossain: Writing is the tree, the other identities branches"
+    "imageAlt": "Source image for Sadat Hossain: Writing is the tree, the other identities branches",
+    "themes": [
+      "Culture & Literature",
+      "Profile"
+    ]
   },
   {
     "title": "The Line: An infrastructural marvel that seeks to be a city of the future",
@@ -69,7 +93,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/08/20/2._lead_photo.png",
-    "imageAlt": "Source image for The Line: An infrastructural marvel that seeks to be a city of the future"
+    "imageAlt": "Source image for The Line: An infrastructural marvel that seeks to be a city of the future",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Shortlist for Booker Prize 2022: Imagined worlds that feel as our own",
@@ -78,7 +106,10 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/09/11/untitled-2.png",
-    "imageAlt": "Source image for Shortlist for Booker Prize 2022: Imagined worlds that feel as our own"
+    "imageAlt": "Source image for Shortlist for Booker Prize 2022: Imagined worlds that feel as our own",
+    "themes": [
+      "Culture & Literature"
+    ]
   },
   {
     "title": "Bangla translation of ‘Nusrat Fateh Ali Khan: Le Messager du Qawwali’ published",
@@ -87,7 +118,10 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/09/17/_akk0069-01.jpeg",
-    "imageAlt": "Source image for Bangla translation of ‘Nusrat Fateh Ali Khan: Le Messager du Qawwali’ published"
+    "imageAlt": "Source image for Bangla translation of ‘Nusrat Fateh Ali Khan: Le Messager du Qawwali’ published",
+    "themes": [
+      "Culture & Literature"
+    ]
   },
   {
     "title": "Millennials of Bangladesh",
@@ -96,7 +130,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/09/26/millennial_generation_full_spread_final_artboard_1_0.jpg",
-    "imageAlt": "Source image for Millennials of Bangladesh"
+    "imageAlt": "Source image for Millennials of Bangladesh",
+    "themes": [
+      "Education & Student Life",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Enola Holmes 2' trailer: Millie Bobby Brown is ready to open her own detective agency",
@@ -105,7 +143,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/09/27/enola_holmes.png",
-    "imageAlt": "Source image for Enola Holmes 2' trailer: Millie Bobby Brown is ready to open her own detective agency"
+    "imageAlt": "Source image for Enola Holmes 2' trailer: Millie Bobby Brown is ready to open her own detective agency",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Blonde: Gloomy and bleak, but haunting",
@@ -114,7 +156,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/10/07/new_project_27.png",
-    "imageAlt": "Source image for Blonde: Gloomy and bleak, but haunting"
+    "imageAlt": "Source image for Blonde: Gloomy and bleak, but haunting",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Tahlil’s journey to Silicon Valley, defying life-altering chronic illness",
@@ -123,7 +168,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/10/13/tahlil.png",
-    "imageAlt": "Source image for Tahlil’s journey to Silicon Valley, defying life-altering chronic illness"
+    "imageAlt": "Source image for Tahlil’s journey to Silicon Valley, defying life-altering chronic illness",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "Vicky Zahed: ‘Vickyverse’ has a good ring to it",
@@ -132,7 +181,11 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/10/18/1_6.jpeg",
-    "imageAlt": "Source image for Vicky Zahed: ‘Vickyverse’ has a good ring to it"
+    "imageAlt": "Source image for Vicky Zahed: ‘Vickyverse’ has a good ring to it",
+    "themes": [
+      "Film & Entertainment",
+      "Profile"
+    ]
   },
   {
     "title": "How a madrasa student from Magura founded a college in Poland",
@@ -141,7 +194,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/10/20/magura_poland.jpeg",
-    "imageAlt": "Source image for How a madrasa student from Magura founded a college in Poland"
+    "imageAlt": "Source image for How a madrasa student from Magura founded a college in Poland",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Punorjonmo 3: Chef Rafsan serves new dish of turns and twists",
@@ -150,7 +206,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/11/03/633ae19ba60bb.jpg",
-    "imageAlt": "Source image for Punorjonmo 3: Chef Rafsan serves new dish of turns and twists"
+    "imageAlt": "Source image for Punorjonmo 3: Chef Rafsan serves new dish of turns and twists",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "The Watcher: You play a game of ‘whodunnit’ along with the characters on screen",
@@ -159,7 +218,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/11/05/the_wtacher.jpg",
-    "imageAlt": "Source image for The Watcher: You play a game of ‘whodunnit’ along with the characters on screen"
+    "imageAlt": "Source image for The Watcher: You play a game of ‘whodunnit’ along with the characters on screen",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Joy Bangla Youth Award: Recognising the next generation of trailblazers",
@@ -168,7 +230,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/11/17/_rgp4323.jpg",
-    "imageAlt": "Source image for Joy Bangla Youth Award: Recognising the next generation of trailblazers"
+    "imageAlt": "Source image for Joy Bangla Youth Award: Recognising the next generation of trailblazers",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Enola Holmes 2: A fun watch with a feminist overtone",
@@ -177,7 +243,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/11/19/millie_bobby_brown_represents_a_historic_real_life_event_in_enola_holmes_2.png",
-    "imageAlt": "Source image for Enola Holmes 2: A fun watch with a feminist overtone"
+    "imageAlt": "Source image for Enola Holmes 2: A fun watch with a feminist overtone",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Can mRNA vaccines cure cancer?",
@@ -186,7 +255,11 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/03/tech_mrna.png",
-    "imageAlt": "Source image for Can mRNA vaccines cure cancer?"
+    "imageAlt": "Source image for Can mRNA vaccines cure cancer?",
+    "themes": [
+      "Public Health & Drugs",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "How tech enables modern athletes to train better",
@@ -195,7 +268,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/09/1600190636_screenshot_32.jpg",
-    "imageAlt": "Source image for How tech enables modern athletes to train better"
+    "imageAlt": "Source image for How tech enables modern athletes to train better",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Lab-grown meat: How it is made and what’s at stake",
@@ -204,7 +280,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/17/la-carn-per-cultiu-cel-lular-una-revolucio-en-el-sistema-alimentari.jpeg",
-    "imageAlt": "Source image for Lab-grown meat: How it is made and what’s at stake"
+    "imageAlt": "Source image for Lab-grown meat: How it is made and what’s at stake",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Karagar 2: Who is the mystery prisoner?",
@@ -213,7 +292,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/22/screenshot_7.png",
-    "imageAlt": "Source image for Karagar 2: Who is the mystery prisoner?"
+    "imageAlt": "Source image for Karagar 2: Who is the mystery prisoner?",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "10 time management tips for students",
@@ -222,7 +304,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/26/time_management_for_students.jpg",
-    "imageAlt": "Source image for 10 time management tips for students"
+    "imageAlt": "Source image for 10 time management tips for students",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Illusion of competence: Do you really know what you think you know?",
@@ -231,25 +316,35 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/29/untitled_0.jpg",
-    "imageAlt": "Source image for Illusion of competence: Do you really know what you think you know?"
+    "imageAlt": "Source image for Illusion of competence: Do you really know what you think you know?",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Karagar 2 does not live up to the hype but Naufel nails it",
     "date": "2022-12-31",
     "link": "https://www.tbsnews.net/splash/karagar-2-does-not-live-hype-naufel-nails-it-560650",
     "outlet": "The Business Standard",
-    "theme": "Digital Rights & Platform Power",
+    "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/31/karagar.png",
-    "imageAlt": "Source image for Karagar 2 does not live up to the hype but Naufel nails it"
+    "imageAlt": "Source image for Karagar 2 does not live up to the hype but Naufel nails it",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Problematic Loveletters: A manifesto of love, pain and recovery",
     "date": "2023-01-02",
     "link": "https://www.tbsnews.net/splash/problematic-loveletters-manifesto-love-pain-and-recovery-561622",
     "outlet": "The Business Standard",
-    "theme": "Digital Rights & Platform Power",
+    "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/02/new_project.jpg",
-    "imageAlt": "Source image for Problematic Loveletters: A manifesto of love, pain and recovery"
+    "imageAlt": "Source image for Problematic Loveletters: A manifesto of love, pain and recovery",
+    "themes": [
+      "Culture & Literature",
+      "Rights & Society"
+    ]
   },
   {
     "title": "The old business model for media organisations is broken: Dominic Ziegler",
@@ -258,7 +353,11 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/10/untitled.jpg",
-    "imageAlt": "Source image for The old business model for media organisations is broken: Dominic Ziegler"
+    "imageAlt": "Source image for The old business model for media organisations is broken: Dominic Ziegler",
+    "themes": [
+      "Work & Career",
+      "Profile"
+    ]
   },
   {
     "title": "How to get a high score in GRE Verbal",
@@ -267,7 +366,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/11/pursuit_10_01_2023.png",
-    "imageAlt": "Source image for How to get a high score in GRE Verbal"
+    "imageAlt": "Source image for How to get a high score in GRE Verbal",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Sometimes fighting for a book is worth it: Alexandra Pringle",
@@ -276,7 +378,11 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/12/alexandra_pringle.png",
-    "imageAlt": "Source image for Sometimes fighting for a book is worth it: Alexandra Pringle"
+    "imageAlt": "Source image for Sometimes fighting for a book is worth it: Alexandra Pringle",
+    "themes": [
+      "Culture & Literature",
+      "Profile"
+    ]
   },
   {
     "title": "How physicists simulated a 'baby' wormhole and what it means for the future",
@@ -285,7 +391,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/14/reuters_wormhole.jpg",
-    "imageAlt": "Source image for How physicists simulated a 'baby' wormhole and what it means for the future"
+    "imageAlt": "Source image for How physicists simulated a 'baby' wormhole and what it means for the future",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "The Silence: Grotesque, but for the right reasons",
@@ -294,7 +403,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/01/31/the_silence_2.png",
-    "imageAlt": "Source image for The Silence: Grotesque, but for the right reasons"
+    "imageAlt": "Source image for The Silence: Grotesque, but for the right reasons",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Glenrich International School wants to build a savvy generation",
@@ -303,7 +415,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/01/sts_day_3.jpg",
-    "imageAlt": "Source image for Glenrich International School wants to build a savvy generation"
+    "imageAlt": "Source image for Glenrich International School wants to build a savvy generation",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "Celebrating hope and unity: A look inside the Brac Hope festival",
@@ -312,7 +428,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/11/copy_of_hope_fest_1.jpg",
-    "imageAlt": "Source image for Celebrating hope and unity: A look inside the Brac Hope festival"
+    "imageAlt": "Source image for Celebrating hope and unity: A look inside the Brac Hope festival",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Fazlur Rahman Babu's 'Puthi Path' takes centre stage at Hope Festival",
@@ -321,7 +440,11 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/11/aq7i1349_0.jpg",
-    "imageAlt": "Source image for Fazlur Rahman Babu's 'Puthi Path' takes centre stage at Hope Festival"
+    "imageAlt": "Source image for Fazlur Rahman Babu's 'Puthi Path' takes centre stage at Hope Festival",
+    "themes": [
+      "Culture & Literature",
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Brac Hope Festival wraps up with James' electrifying performance",
@@ -330,7 +453,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/12/chosen_photo.jpeg",
-    "imageAlt": "Source image for Brac Hope Festival wraps up with James' electrifying performance"
+    "imageAlt": "Source image for Brac Hope Festival wraps up with James' electrifying performance",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "T-1000 is here: Scientists make breakthrough in shape-shifting robots",
@@ -339,7 +465,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/18/505096_411_0.jpg",
-    "imageAlt": "Source image for T-1000 is here: Scientists make breakthrough in shape-shifting robots"
+    "imageAlt": "Source image for T-1000 is here: Scientists make breakthrough in shape-shifting robots",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "When the little-known becomes a headliner",
@@ -348,7 +477,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/02/19/splash_lead_0.png",
-    "imageAlt": "Source image for When the little-known becomes a headliner"
+    "imageAlt": "Source image for When the little-known becomes a headliner",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Bangladesh's mathematical odyssey to the international stage",
@@ -357,7 +489,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/03/01/kiyk.png",
-    "imageAlt": "Source image for Bangladesh's mathematical odyssey to the international stage"
+    "imageAlt": "Source image for Bangladesh's mathematical odyssey to the international stage",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Eyes on the bigger picture",
@@ -366,7 +501,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/03/22/manisha_das_chaity.png",
-    "imageAlt": "Source image for Eyes on the bigger picture"
+    "imageAlt": "Source image for Eyes on the bigger picture",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "The road to MIT and Caltech: Bangladeshi undergrads beat the odds",
@@ -375,7 +513,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/03/29/caltech_mit.png",
-    "imageAlt": "Source image for The road to MIT and Caltech: Bangladeshi undergrads beat the odds"
+    "imageAlt": "Source image for The road to MIT and Caltech: Bangladeshi undergrads beat the odds",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Eight tips to effectively study during Ramadan",
@@ -384,7 +527,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/03/29/readinghabbit_1.png",
-    "imageAlt": "Source image for Eight tips to effectively study during Ramadan"
+    "imageAlt": "Source image for Eight tips to effectively study during Ramadan",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Level up your English with TV shows, magazines and podcasts",
@@ -393,7 +539,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/05/pursuit.png",
-    "imageAlt": "Source image for Level up your English with TV shows, magazines and podcasts"
+    "imageAlt": "Source image for Level up your English with TV shows, magazines and podcasts",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Watching TV Series to Improve Conversational English",
@@ -402,7 +552,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/05/lead_1.jpg",
-    "imageAlt": "Source image for Watching TV Series to Improve Conversational English"
+    "imageAlt": "Source image for Watching TV Series to Improve Conversational English",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Reading Magazines to Give Your Language a Touch of Sophistication",
@@ -411,7 +564,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/05/lead_2.jpg",
-    "imageAlt": "Source image for Reading Magazines to Give Your Language a Touch of Sophistication"
+    "imageAlt": "Source image for Reading Magazines to Give Your Language a Touch of Sophistication",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Podcast Can Improve Listening Skills",
@@ -420,7 +576,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/05/lead_3.jpg",
-    "imageAlt": "Source image for Podcast Can Improve Listening Skills"
+    "imageAlt": "Source image for Podcast Can Improve Listening Skills",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "John Wick: Chapter 4: 'Baba Yaga' returns with more action than ever",
@@ -429,16 +589,24 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/07/john_wick_chapter_4.jpg",
-    "imageAlt": "Source image for John Wick: Chapter 4: 'Baba Yaga' returns with more action than ever"
+    "imageAlt": "Source image for John Wick: Chapter 4: 'Baba Yaga' returns with more action than ever",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Rooh Afza: A herbal drink that survived a partition, war, lawsuit and many haters",
     "date": "2023-04-09",
     "link": "https://www.tbsnews.net/features/panorama/rooh-afza-herbal-drink-survived-partition-war-lawsuit-and-many-haters-613458",
     "outlet": "The Business Standard",
-    "theme": "Accountability & Governance",
+    "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/10/roohafzah_.png",
-    "imageAlt": "Source image for Rooh Afza: A herbal drink that survived a partition, war, lawsuit and many haters"
+    "imageAlt": "Source image for Rooh Afza: A herbal drink that survived a partition, war, lawsuit and many haters",
+    "themes": [
+      "Food & Lifestyle",
+      "Culture & Literature",
+      "Profile"
+    ]
   },
   {
     "title": "Team Atlas: Building robots to solve practical problems",
@@ -447,7 +615,12 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/12/fremo_robot.jpg",
-    "imageAlt": "Source image for Team Atlas: Building robots to solve practical problems"
+    "imageAlt": "Source image for Team Atlas: Building robots to solve practical problems",
+    "themes": [
+      "Education & Student Life",
+      "Digital Rights & Platform Power",
+      "Profile"
+    ]
   },
   {
     "title": "Internship at a government office? A welcome idea",
@@ -456,7 +629,12 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/04/19/pursuit_govt_office.png",
-    "imageAlt": "Source image for Internship at a government office? A welcome idea"
+    "imageAlt": "Source image for Internship at a government office? A welcome idea",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career",
+      "Accountability & Governance"
+    ]
   },
   {
     "title": "Mastering the art of cold emailing",
@@ -465,7 +643,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/05/03/pursuit_mumitm-2232.jpg",
-    "imageAlt": "Source image for Mastering the art of cold emailing"
+    "imageAlt": "Source image for Mastering the art of cold emailing",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Find the right Olympiad for you",
@@ -474,7 +657,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/05/17/olympiad.png",
-    "imageAlt": "Source image for Find the right Olympiad for you"
+    "imageAlt": "Source image for Find the right Olympiad for you",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Phoenix: The bicycle that once carried a generation on its back",
@@ -483,7 +669,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/05/23/08_phoenixs_0.jpg",
-    "imageAlt": "Source image for Phoenix: The bicycle that once carried a generation on its back"
+    "imageAlt": "Source image for Phoenix: The bicycle that once carried a generation on its back",
+    "themes": [
+      "Features & Explainers",
+      "Profile"
+    ]
   },
   {
     "title": "Should you pursue fact-checking as a career in Bangladesh?",
@@ -492,7 +682,12 @@
     "outlet": "The Business Standard",
     "theme": "Misinformation & Verification",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/05/24/16_pursuitillustration_copy_2.png",
-    "imageAlt": "Source image for Should you pursue fact-checking as a career in Bangladesh?"
+    "imageAlt": "Source image for Should you pursue fact-checking as a career in Bangladesh?",
+    "themes": [
+      "Misinformation & Verification",
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Duty under duress: The unseen, unheard heat wave victims",
@@ -501,7 +696,10 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/06/04/heatwave_dhaka_.png",
-    "imageAlt": "Source image for Duty under duress: The unseen, unheard heat wave victims"
+    "imageAlt": "Source image for Duty under duress: The unseen, unheard heat wave victims",
+    "themes": [
+      "Climate & Environment"
+    ]
   },
   {
     "title": "Dreamwater: Solving the paradox of water crisis in flood-prone Bangladesh",
@@ -510,7 +708,11 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/06/28/1copy_of_cover_3_-_copy.png",
-    "imageAlt": "Source image for Dreamwater: Solving the paradox of water crisis in flood-prone Bangladesh"
+    "imageAlt": "Source image for Dreamwater: Solving the paradox of water crisis in flood-prone Bangladesh",
+    "themes": [
+      "Climate & Environment",
+      "Profile"
+    ]
   },
   {
     "title": "BK School: Inspiring research and cultivating curiosity",
@@ -519,7 +721,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/06/28/20221026_113736_1_1.jpg",
-    "imageAlt": "Source image for BK School: Inspiring research and cultivating curiosity"
+    "imageAlt": "Source image for BK School: Inspiring research and cultivating curiosity",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "Holey Artisan: Remembering the descent into a dark chapter",
@@ -528,7 +734,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/02/holey_artisan_attack_anniversary.jpg",
-    "imageAlt": "Source image for Holey Artisan: Remembering the descent into a dark chapter"
+    "imageAlt": "Source image for Holey Artisan: Remembering the descent into a dark chapter",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Cashless Dhaka' still a far cry",
@@ -537,7 +746,12 @@
     "outlet": "The Business Standard",
     "theme": "Economy & Development",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/03/1686937565497.jpg",
-    "imageAlt": "Source image for Cashless Dhaka' still a far cry"
+    "imageAlt": "Source image for Cashless Dhaka' still a far cry",
+    "themes": [
+      "Economy & Development",
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Microplastics in frogs and fish: A grave concern for human health and ecosystems",
@@ -546,7 +760,11 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/07/microplastic_1_1.jpg",
-    "imageAlt": "Source image for Microplastics in frogs and fish: A grave concern for human health and ecosystems"
+    "imageAlt": "Source image for Microplastics in frogs and fish: A grave concern for human health and ecosystems",
+    "themes": [
+      "Public Health & Drugs",
+      "Climate & Environment"
+    ]
   },
   {
     "title": "Indulging in delights and the cool breeze at Impetus Lounge",
@@ -555,7 +773,10 @@
     "outlet": "The Business Standard",
     "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/17/impetus_lounge_18.jpg",
-    "imageAlt": "Source image for Indulging in delights and the cool breeze at Impetus Lounge"
+    "imageAlt": "Source image for Indulging in delights and the cool breeze at Impetus Lounge",
+    "themes": [
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "Nothing but FB. Why Bangladeshis never took to Twitter, Threads and the like",
@@ -564,7 +785,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/18/gdhjfhj.jpg",
-    "imageAlt": "Source image for Nothing but FB. Why Bangladeshis never took to Twitter, Threads and the like"
+    "imageAlt": "Source image for Nothing but FB. Why Bangladeshis never took to Twitter, Threads and the like",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "The quest for knowledge brings a mother back to the classroom with her son",
@@ -573,7 +797,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/19/for_web_mother_and_son.jpg",
-    "imageAlt": "Source image for The quest for knowledge brings a mother back to the classroom with her son"
+    "imageAlt": "Source image for The quest for knowledge brings a mother back to the classroom with her son",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Israel may not be 'racist'. But what about apartheid?",
@@ -582,7 +809,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/20/dk7ft5jqsvognjmnsvvt23tb7i_0.jpg",
-    "imageAlt": "Source image for Israel may not be 'racist'. But what about apartheid?"
+    "imageAlt": "Source image for Israel may not be 'racist'. But what about apartheid?",
+    "themes": [
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Meet ‘Khanmigo’, Khan Academy’s AI assistant",
@@ -591,7 +822,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/22/sci_tech_copy.png",
-    "imageAlt": "Source image for Meet ‘Khanmigo’, Khan Academy’s AI assistant"
+    "imageAlt": "Source image for Meet ‘Khanmigo’, Khan Academy’s AI assistant",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Profile"
+    ]
   },
   {
     "title": "Breaking bread: Why office canteens are pivotal to a healthy workplace",
@@ -600,7 +835,12 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/07/26/2m9a8122.jpg",
-    "imageAlt": "Source image for Breaking bread: Why office canteens are pivotal to a healthy workplace"
+    "imageAlt": "Source image for Breaking bread: Why office canteens are pivotal to a healthy workplace",
+    "themes": [
+      "Public Health & Drugs",
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Ami Probashi: Revolutionising foreign migration with a digital touch",
@@ -609,7 +849,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/07/ami_probashi_1_0.png",
-    "imageAlt": "Source image for Ami Probashi: Revolutionising foreign migration with a digital touch"
+    "imageAlt": "Source image for Ami Probashi: Revolutionising foreign migration with a digital touch",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Economy & Development",
+      "Profile"
+    ]
   },
   {
     "title": "5 alternatives to a graduate degree",
@@ -618,7 +863,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/16/16_pursuit_32_page-0001_1_1.jpg",
-    "imageAlt": "Source image for 5 alternatives to a graduate degree"
+    "imageAlt": "Source image for 5 alternatives to a graduate degree",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "inDrive: The mysterious inner workings of a new ridesharing app",
@@ -627,7 +875,11 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/18/bike_1.jpg",
-    "imageAlt": "Source image for inDrive: The mysterious inner workings of a new ridesharing app"
+    "imageAlt": "Source image for inDrive: The mysterious inner workings of a new ridesharing app",
+    "themes": [
+      "Work & Career",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "What makes a CEO exceptional: A leader’s guide",
@@ -636,7 +888,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/23/featured_image_for_online.jpg",
-    "imageAlt": "Source image for What makes a CEO exceptional: A leader’s guide"
+    "imageAlt": "Source image for What makes a CEO exceptional: A leader’s guide",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Women-only ridesharing apps step on the brakes",
@@ -645,7 +901,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/29/scooty_edited.jpg",
-    "imageAlt": "Source image for Women-only ridesharing apps step on the brakes"
+    "imageAlt": "Source image for Women-only ridesharing apps step on the brakes",
+    "themes": [
+      "Rights & Society",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Are Bangladeshi startups too dependent on Western models?",
@@ -654,7 +914,12 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/31/oscar-ramos-horizontal.jpg",
-    "imageAlt": "Source image for Are Bangladeshi startups too dependent on Western models?"
+    "imageAlt": "Source image for Are Bangladeshi startups too dependent on Western models?",
+    "themes": [
+      "Work & Career",
+      "Digital Rights & Platform Power",
+      "Economy & Development"
+    ]
   },
   {
     "title": "Meet Korvi Rakshand, the winner of the 'Nobel Prize of Asia'",
@@ -663,7 +928,10 @@
     "outlet": "The Business Standard",
     "theme": "Profile",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/01/korvi_rakshand_.png",
-    "imageAlt": "Source image for Meet Korvi Rakshand, the winner of the 'Nobel Prize of Asia'"
+    "imageAlt": "Source image for Meet Korvi Rakshand, the winner of the 'Nobel Prize of Asia'",
+    "themes": [
+      "Profile"
+    ]
   },
   {
     "title": "‘With right support, we can design and test microchips in the country’",
@@ -672,7 +940,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2020/09/14/microchips.jpg",
-    "imageAlt": "Source image for ‘With right support, we can design and test microchips in the country’"
+    "imageAlt": "Source image for ‘With right support, we can design and test microchips in the country’",
+    "themes": [
+      "Features & Explainers",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Fresh graduates stare at bleak future",
@@ -681,7 +953,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/11/fresh_graduates_pano.jpg",
-    "imageAlt": "Source image for Fresh graduates stare at bleak future"
+    "imageAlt": "Source image for Fresh graduates stare at bleak future",
+    "themes": [
+      "Features & Explainers",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Your Campus: Transforming dormitory life with vending machines, laundromats",
@@ -690,7 +966,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/14/washing_machine_in_du_photo_noor_5.jpg",
-    "imageAlt": "Source image for Your Campus: Transforming dormitory life with vending machines, laundromats"
+    "imageAlt": "Source image for Your Campus: Transforming dormitory life with vending machines, laundromats",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "The brief, viral fame of Shahin Alom's basket of bread",
@@ -699,7 +979,10 @@
     "outlet": "The Business Standard",
     "theme": "Misinformation & Verification",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/20/new_project_1.jpg",
-    "imageAlt": "Source image for The brief, viral fame of Shahin Alom's basket of bread"
+    "imageAlt": "Source image for The brief, viral fame of Shahin Alom's basket of bread",
+    "themes": [
+      "Misinformation & Verification"
+    ]
   },
   {
     "title": "A swim through the city",
@@ -708,7 +991,11 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/22/rain.png",
-    "imageAlt": "Source image for A swim through the city"
+    "imageAlt": "Source image for A swim through the city",
+    "themes": [
+      "Climate & Environment",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Bike-sharing thru’ apps on decline, forcing cos to halt service",
@@ -717,7 +1004,11 @@
     "outlet": "The Business Standard",
     "theme": "Economy & Development",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/08/18/bike_1.jpg",
-    "imageAlt": "Source image for Bike-sharing thru’ apps on decline, forcing cos to halt service"
+    "imageAlt": "Source image for Bike-sharing thru’ apps on decline, forcing cos to halt service",
+    "themes": [
+      "Economy & Development",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "What impact will a forward forex rate have?",
@@ -726,7 +1017,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/09/27/pano.png",
-    "imageAlt": "Source image for What impact will a forward forex rate have?"
+    "imageAlt": "Source image for What impact will a forward forex rate have?",
+    "themes": [
+      "Features & Explainers",
+      "Economy & Development"
+    ]
   },
   {
     "title": "What should be the minimum wage for garment workers?",
@@ -735,7 +1030,11 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2020/11/28/rmg_garments_apparel.jpg",
-    "imageAlt": "Source image for What should be the minimum wage for garment workers?"
+    "imageAlt": "Source image for What should be the minimum wage for garment workers?",
+    "themes": [
+      "Work & Career",
+      "Economy & Development"
+    ]
   },
   {
     "title": "When cost of living takes a toll on social life",
@@ -744,7 +1043,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/13/copy_of_no_money_4.png",
-    "imageAlt": "Source image for When cost of living takes a toll on social life"
+    "imageAlt": "Source image for When cost of living takes a toll on social life",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "A couple's tale travelling through Bangladesh's 64 districts",
@@ -753,7 +1055,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/13/raanggaamaatti_1_2.jpg",
-    "imageAlt": "Source image for A couple's tale travelling through Bangladesh's 64 districts"
+    "imageAlt": "Source image for A couple's tale travelling through Bangladesh's 64 districts",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Meet Niklas, the artist behind the Nobel Prize portraits",
@@ -762,7 +1067,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/13/golden_wall_2023.jpg",
-    "imageAlt": "Source image for Meet Niklas, the artist behind the Nobel Prize portraits"
+    "imageAlt": "Source image for Meet Niklas, the artist behind the Nobel Prize portraits",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Culture & Literature",
+      "Profile"
+    ]
   },
   {
     "title": "Why choosing a lower-paying job can sometimes be a wise decision",
@@ -771,7 +1081,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/18/16_pursuit_18_october_copy.png",
-    "imageAlt": "Source image for Why choosing a lower-paying job can sometimes be a wise decision"
+    "imageAlt": "Source image for Why choosing a lower-paying job can sometimes be a wise decision",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "The eerie silence of big business when it comes to Israel-Palestine",
@@ -780,7 +1094,12 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/20/panorama_copy.png",
-    "imageAlt": "Source image for The eerie silence of big business when it comes to Israel-Palestine"
+    "imageAlt": "Source image for The eerie silence of big business when it comes to Israel-Palestine",
+    "themes": [
+      "Work & Career",
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Midnight Munchies: The best places to eat in late night Dhaka",
@@ -789,7 +1108,11 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/22/whatsapp_image_2023-10-22_at_4.47.52_pm.jpeg",
-    "imageAlt": "Source image for Midnight Munchies: The best places to eat in late night Dhaka"
+    "imageAlt": "Source image for Midnight Munchies: The best places to eat in late night Dhaka",
+    "themes": [
+      "Urban Life & Public Services",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "How air transport helps advance healthcare, education and employment",
@@ -798,7 +1121,12 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/25/biman.png",
-    "imageAlt": "Source image for How air transport helps advance healthcare, education and employment"
+    "imageAlt": "Source image for How air transport helps advance healthcare, education and employment",
+    "themes": [
+      "Public Health & Drugs",
+      "Digital Rights & Platform Power",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Jewish voices of reason: How dissenting voices view the Israel-Palestine conflict",
@@ -807,7 +1135,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/26/naom_chomsky_barnie_norman.jpg",
-    "imageAlt": "Source image for Jewish voices of reason: How dissenting voices view the Israel-Palestine conflict"
+    "imageAlt": "Source image for Jewish voices of reason: How dissenting voices view the Israel-Palestine conflict",
+    "themes": [
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Your university is the cornerstone of your career",
@@ -816,7 +1148,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/30/education_supplement_13-24_copy_3.png",
-    "imageAlt": "Source image for Your university is the cornerstone of your career"
+    "imageAlt": "Source image for Your university is the cornerstone of your career",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Things you learn in universities that can help you land a job",
@@ -825,7 +1161,11 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/30/jobs_pixabay.jpg",
-    "imageAlt": "Source image for Things you learn in universities that can help you land a job"
+    "imageAlt": "Source image for Things you learn in universities that can help you land a job",
+    "themes": [
+      "Work & Career",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Oven: A small yet pleasing eatery",
@@ -834,7 +1174,10 @@
     "outlet": "The Business Standard",
     "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/04/oven.jpg",
-    "imageAlt": "Source image for Oven: A small yet pleasing eatery"
+    "imageAlt": "Source image for Oven: A small yet pleasing eatery",
+    "themes": [
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "Dhaka's Palestinian students: 'How can I study when my people are suffering'",
@@ -843,7 +1186,12 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/05/palestrine_r.jpg",
-    "imageAlt": "Source image for Dhaka's Palestinian students: 'How can I study when my people are suffering'"
+    "imageAlt": "Source image for Dhaka's Palestinian students: 'How can I study when my people are suffering'",
+    "themes": [
+      "Education & Student Life",
+      "Urban Life & Public Services",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Pan-Arabism: The quest for Arab unity",
@@ -852,16 +1200,26 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/07/screenshot_2023-11-07_at_10.27.04_am.png",
-    "imageAlt": "Source image for Pan-Arabism: The quest for Arab unity"
+    "imageAlt": "Source image for Pan-Arabism: The quest for Arab unity",
+    "themes": [
+      "Features & Explainers",
+      "Politics & Democracy",
+      "Culture & Literature"
+    ]
   },
   {
     "title": "The history of the Middle East and Israel",
     "date": "2023-11-07",
     "link": "https://www.tbsnews.net/features/panorama/history-middle-east-and-israel-tracing-empires-ruled-cradle-civilisation-734730",
     "outlet": "The Business Standard",
-    "theme": "Profile",
+    "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/07/al_aqsa_mosque.jpg",
-    "imageAlt": "Source image for The history of the Middle East and Israel"
+    "imageAlt": "Source image for The history of the Middle East and Israel",
+    "themes": [
+      "Culture & Literature",
+      "Politics & Democracy",
+      "Rights & Society"
+    ]
   },
   {
     "title": "How Arab world's role evolved in the Israeli-Palestinian conflict",
@@ -870,7 +1228,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/11/after_signing_of_the_camp_david_accords_egyptian_president_anwar_sadat_us_president_jimmy_carter_and_israeli_prime_minister_menachem_begin._photo_collected.jpg",
-    "imageAlt": "Source image for How Arab world's role evolved in the Israeli-Palestinian conflict"
+    "imageAlt": "Source image for How Arab world's role evolved in the Israeli-Palestinian conflict",
+    "themes": [
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Is Israel losing the media war?",
@@ -879,7 +1241,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/18/maxresdefault.jpg",
-    "imageAlt": "Source image for Is Israel losing the media war?"
+    "imageAlt": "Source image for Is Israel losing the media war?",
+    "themes": [
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "The 70-year legacy of Aligarh Old Boys' Association of Bangladesh",
@@ -888,7 +1254,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/22/aligarh_old_boys_association.jpg",
-    "imageAlt": "Source image for The 70-year legacy of Aligarh Old Boys' Association of Bangladesh"
+    "imageAlt": "Source image for The 70-year legacy of Aligarh Old Boys' Association of Bangladesh",
+    "themes": [
+      "Features & Explainers",
+      "Culture & Literature"
+    ]
   },
   {
     "title": "Jobs lost, voices censored: The fate of Westerners who speak up for Palestine",
@@ -897,7 +1267,12 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/23/tbs_infograph.png",
-    "imageAlt": "Source image for Jobs lost, voices censored: The fate of Westerners who speak up for Palestine"
+    "imageAlt": "Source image for Jobs lost, voices censored: The fate of Westerners who speak up for Palestine",
+    "themes": [
+      "Work & Career",
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "TAXdo: Let 'Young Sheldon' file your tax returns",
@@ -906,7 +1281,12 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/11/29/tax_0.png",
-    "imageAlt": "Source image for TAXdo: Let 'Young Sheldon' file your tax returns"
+    "imageAlt": "Source image for TAXdo: Let 'Young Sheldon' file your tax returns",
+    "themes": [
+      "Features & Explainers",
+      "Digital Rights & Platform Power",
+      "Profile"
+    ]
   },
   {
     "title": "Halal products export receives boost with new policy, but more is required",
@@ -915,7 +1295,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/12/04/new_project_4.png",
-    "imageAlt": "Source image for Halal products export receives boost with new policy, but more is required"
+    "imageAlt": "Source image for Halal products export receives boost with new policy, but more is required",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "A wobbly stroll with a 'stick': Sanskritic Muktijot’s entry in 2024 election",
@@ -924,7 +1307,10 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/12/24/bangladesh_sanskritic_muktijot.jpg",
-    "imageAlt": "Source image for A wobbly stroll with a 'stick': Sanskritic Muktijot’s entry in 2024 election"
+    "imageAlt": "Source image for A wobbly stroll with a 'stick': Sanskritic Muktijot’s entry in 2024 election",
+    "themes": [
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "City walls are poster-free during elections. Why not year-round?",
@@ -933,7 +1319,11 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/12/30/1.png",
-    "imageAlt": "Source image for City walls are poster-free during elections. Why not year-round?"
+    "imageAlt": "Source image for City walls are poster-free during elections. Why not year-round?",
+    "themes": [
+      "Politics & Democracy",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "AI in 2024: more growth, more concerns",
@@ -942,7 +1332,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/12/31/ai_tech.png",
-    "imageAlt": "Source image for AI in 2024: more growth, more concerns"
+    "imageAlt": "Source image for AI in 2024: more growth, more concerns",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "A step closer to Digital Bangladesh in 2024",
@@ -951,7 +1344,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/12/31/digital_adaptation_6_1_copy.png",
-    "imageAlt": "Source image for A step closer to Digital Bangladesh in 2024"
+    "imageAlt": "Source image for A step closer to Digital Bangladesh in 2024",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Education in 2024: New curriculum awaits students, teachers",
@@ -960,7 +1356,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2022/12/08/mohammad_minhaj_uddin.jpg",
-    "imageAlt": "Source image for Education in 2024: New curriculum awaits students, teachers"
+    "imageAlt": "Source image for Education in 2024: New curriculum awaits students, teachers",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Job market expected to grow in second half of 2024",
@@ -969,7 +1369,10 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2021/12/04/handshake-close-up-executives.jpg",
-    "imageAlt": "Source image for Job market expected to grow in second half of 2024"
+    "imageAlt": "Source image for Job market expected to grow in second half of 2024",
+    "themes": [
+      "Work & Career"
+    ]
   },
   {
     "title": "Why university professors want you to talk to them",
@@ -978,7 +1381,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/01/04/nasl3540.jpg",
-    "imageAlt": "Source image for Why university professors want you to talk to them"
+    "imageAlt": "Source image for Why university professors want you to talk to them",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Second-hand online subscriptions are surging. But should you get one?",
@@ -987,7 +1393,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/01/10/08_panorama_10_january_2023_copy.png",
-    "imageAlt": "Source image for Second-hand online subscriptions are surging. But should you get one?"
+    "imageAlt": "Source image for Second-hand online subscriptions are surging. But should you get one?",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Why India, Maldives will remain on the same page despite deepening tensions",
@@ -996,7 +1405,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2023/10/20/miraz-hossain.png",
-    "imageAlt": "Source image for Why India, Maldives will remain on the same page despite deepening tensions"
+    "imageAlt": "Source image for Why India, Maldives will remain on the same page despite deepening tensions",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Iran-Pakistan conflict: Is a regional war brewing?",
@@ -1005,7 +1417,10 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/01/20/iran_pakistan_conflict-tbs_illustration002.png",
-    "imageAlt": "Source image for Iran-Pakistan conflict: Is a regional war brewing?"
+    "imageAlt": "Source image for Iran-Pakistan conflict: Is a regional war brewing?",
+    "themes": [
+      "Rights & Society"
+    ]
   },
   {
     "title": "The power of ‘networking’ to prop up your career",
@@ -1014,7 +1429,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/01/24/feature_image_0.jpg",
-    "imageAlt": "Source image for The power of ‘networking’ to prop up your career"
+    "imageAlt": "Source image for The power of ‘networking’ to prop up your career",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Taher A Saif goes small to win big",
@@ -1023,7 +1442,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/02/14/career-timeline-of-taher-a-saif_1.jpg",
-    "imageAlt": "Source image for Taher A Saif goes small to win big"
+    "imageAlt": "Source image for Taher A Saif goes small to win big",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "A guide to men's accessories",
@@ -1032,7 +1454,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/02/16/3y2a9659-edit-edit_1_1.jpg",
-    "imageAlt": "Source image for A guide to men's accessories"
+    "imageAlt": "Source image for A guide to men's accessories",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Rise of Mirpur",
@@ -1041,7 +1466,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/02/17/mirpur.jpg",
-    "imageAlt": "Source image for Rise of Mirpur"
+    "imageAlt": "Source image for Rise of Mirpur",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Chip War': What is it good for?",
@@ -1050,7 +1478,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/02/18/chipwartitle_1.jpg",
-    "imageAlt": "Source image for Chip War': What is it good for?"
+    "imageAlt": "Source image for Chip War': What is it good for?",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Free food sampling as a marketing strategy: How effective is it?",
@@ -1059,7 +1490,10 @@
     "outlet": "The Business Standard",
     "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/02/20/free_food_sample.jpg",
-    "imageAlt": "Source image for Free food sampling as a marketing strategy: How effective is it?"
+    "imageAlt": "Source image for Free food sampling as a marketing strategy: How effective is it?",
+    "themes": [
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "A trial by fire: How Prothit survived the Bailey Road blaze",
@@ -1068,7 +1502,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/03/01/bailey_road_fire_rescue.mp4_.jpg",
-    "imageAlt": "Source image for A trial by fire: How Prothit survived the Bailey Road blaze"
+    "imageAlt": "Source image for A trial by fire: How Prothit survived the Bailey Road blaze",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Whistleblower’s death throws Boeing from frying pan into the fire",
@@ -1077,7 +1515,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/03/14/e4lxpihucaapyzx.jpg",
-    "imageAlt": "Source image for Whistleblower’s death throws Boeing from frying pan into the fire"
+    "imageAlt": "Source image for Whistleblower’s death throws Boeing from frying pan into the fire",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "Witness to genocide",
@@ -1086,7 +1527,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/03/26/opsearchlightimage.jpg",
-    "imageAlt": "Source image for Witness to genocide"
+    "imageAlt": "Source image for Witness to genocide",
+    "themes": [
+      "Features & Explainers",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Dhaka's traffic police are on the front lines of air pollution. Are they okay?",
@@ -1095,7 +1540,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/02/traffic_police_-_mehedi_hasan_1.jpg",
-    "imageAlt": "Source image for Dhaka's traffic police are on the front lines of air pollution. Are they okay?"
+    "imageAlt": "Source image for Dhaka's traffic police are on the front lines of air pollution. Are they okay?",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Climate & Environment",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Beyond showpiece: Personalised home for a teacher couple",
@@ -1104,7 +1554,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/02/01_.jpg",
-    "imageAlt": "Source image for Beyond showpiece: Personalised home for a teacher couple"
+    "imageAlt": "Source image for Beyond showpiece: Personalised home for a teacher couple",
+    "themes": [
+      "Features & Explainers",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Hello, can you speak English?",
@@ -1113,16 +1567,23 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/04/scammers_0.png",
-    "imageAlt": "Source image for Hello, can you speak English?"
+    "imageAlt": "Source image for Hello, can you speak English?",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Sajna: The secret ingredient to keeping a restaurant lively over 3 decades",
     "date": "2024-04-17",
     "link": "https://www.tbsnews.net/features/panorama/sajna-secret-ingredient-keeping-restaurant-lively-over-3-decades-829821",
     "outlet": "The Business Standard",
-    "theme": "Education & Student Life",
+    "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/17/szh_9092.jpg",
-    "imageAlt": "Source image for Sajna: The secret ingredient to keeping a restaurant lively over 3 decades"
+    "imageAlt": "Source image for Sajna: The secret ingredient to keeping a restaurant lively over 3 decades",
+    "themes": [
+      "Food & Lifestyle",
+      "Profile"
+    ]
   },
   {
     "title": "Having nightmares about exams years after graduating? Here’s why",
@@ -1131,7 +1592,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/21/exams-nightmare.png",
-    "imageAlt": "Source image for Having nightmares about exams years after graduating? Here’s why"
+    "imageAlt": "Source image for Having nightmares about exams years after graduating? Here’s why",
+    "themes": [
+      "Features & Explainers",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Beat the heat with Puran Dhaka’s mixed fruit platters",
@@ -1140,7 +1605,12 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/27/pxl_20240415_121021476.portrait_1.jpg",
-    "imageAlt": "Source image for Beat the heat with Puran Dhaka’s mixed fruit platters"
+    "imageAlt": "Source image for Beat the heat with Puran Dhaka’s mixed fruit platters",
+    "themes": [
+      "Urban Life & Public Services",
+      "Climate & Environment",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "When drinking water becomes a form of charity",
@@ -1149,7 +1619,10 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/04/28/heatwave_water_charity_1.jpg",
-    "imageAlt": "Source image for When drinking water becomes a form of charity"
+    "imageAlt": "Source image for When drinking water becomes a form of charity",
+    "themes": [
+      "Climate & Environment"
+    ]
   },
   {
     "title": "Laapataa Ladies: Laughter in between lost and found",
@@ -1158,7 +1631,10 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/04/laapata_ladies.png",
-    "imageAlt": "Source image for Laapataa Ladies: Laughter in between lost and found"
+    "imageAlt": "Source image for Laapataa Ladies: Laughter in between lost and found",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Pulp Fiction: Green and tasty",
@@ -1167,7 +1643,12 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/11/428621195_254973940985188_3147544100593646349_n_1.jpg",
-    "imageAlt": "Source image for Pulp Fiction: Green and tasty"
+    "imageAlt": "Source image for Pulp Fiction: Green and tasty",
+    "themes": [
+      "Climate & Environment",
+      "Education & Student Life",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "An insider’s take on how to ace the KM-ILOT scholarship",
@@ -1176,7 +1657,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/15/feature_image.jpg",
-    "imageAlt": "Source image for An insider’s take on how to ace the KM-ILOT scholarship"
+    "imageAlt": "Source image for An insider’s take on how to ace the KM-ILOT scholarship",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "For the US, the meaning of genocide is a moving goalpost",
@@ -1185,7 +1669,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/17/picsart_24-05-17_09-14-58-805.jpg",
-    "imageAlt": "Source image for For the US, the meaning of genocide is a moving goalpost"
+    "imageAlt": "Source image for For the US, the meaning of genocide is a moving goalpost",
+    "themes": [
+      "Features & Explainers",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Bending the rules with female panjabi",
@@ -1194,7 +1682,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/17/befunky-collage_2_0.jpg",
-    "imageAlt": "Source image for Bending the rules with female panjabi"
+    "imageAlt": "Source image for Bending the rules with female panjabi",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "How Sher-E-Bangla Nagar developed into an actual 'city'",
@@ -1203,7 +1694,10 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/18/untitled_design_3.jpg",
-    "imageAlt": "Source image for How Sher-E-Bangla Nagar developed into an actual 'city'"
+    "imageAlt": "Source image for How Sher-E-Bangla Nagar developed into an actual 'city'",
+    "themes": [
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Jarul: Petals that touch our souls",
@@ -1212,7 +1706,10 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/21/untitled_design_6.jpg",
-    "imageAlt": "Source image for Jarul: Petals that touch our souls"
+    "imageAlt": "Source image for Jarul: Petals that touch our souls",
+    "themes": [
+      "Features & Explainers"
+    ]
   },
   {
     "title": "CPDL Rubicon City -The Happy Condominium: Tomorrow is today",
@@ -1221,7 +1718,10 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/21/cpdl_rubicon_city_0.jpeg",
-    "imageAlt": "Source image for CPDL Rubicon City -The Happy Condominium: Tomorrow is today"
+    "imageAlt": "Source image for CPDL Rubicon City -The Happy Condominium: Tomorrow is today",
+    "themes": [
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Eggs for everyone",
@@ -1230,7 +1730,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/30/eggs.jpg",
-    "imageAlt": "Source image for Eggs for everyone"
+    "imageAlt": "Source image for Eggs for everyone",
+    "themes": [
+      "Features & Explainers",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "As life gets harder, processed food makes it a little easier",
@@ -1239,7 +1743,10 @@
     "outlet": "The Business Standard",
     "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/05/30/processed_food.jpg",
-    "imageAlt": "Source image for As life gets harder, processed food makes it a little easier"
+    "imageAlt": "Source image for As life gets harder, processed food makes it a little easier",
+    "themes": [
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "Inside Boiyer Jahaj’s literary treasure trove",
@@ -1248,7 +1755,10 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/09/copy_of_20240607171413_8v8a7605.jpg",
-    "imageAlt": "Source image for Inside Boiyer Jahaj’s literary treasure trove"
+    "imageAlt": "Source image for Inside Boiyer Jahaj’s literary treasure trove",
+    "themes": [
+      "Culture & Literature"
+    ]
   },
   {
     "title": "Palestinian students find support and hope in Bangladeshi universities",
@@ -1257,7 +1767,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/10/untitled_design_27.jpg",
-    "imageAlt": "Source image for Palestinian students find support and hope in Bangladeshi universities"
+    "imageAlt": "Source image for Palestinian students find support and hope in Bangladeshi universities",
+    "themes": [
+      "Education & Student Life",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Games, clubs and talent shows: How Bangladeshi companies are embracing recreational activities in the workplace",
@@ -1266,7 +1780,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/12/archery_session1.jpg",
-    "imageAlt": "Source image for Games, clubs and talent shows: How Bangladeshi companies are embracing recreational activities in the workplace"
+    "imageAlt": "Source image for Games, clubs and talent shows: How Bangladeshi companies are embracing recreational activities in the workplace",
+    "themes": [
+      "Education & Student Life",
+      "Work & Career"
+    ]
   },
   {
     "title": "Bangladesh Blacklist: Were you scammed? Report it to this site and save others",
@@ -1275,7 +1793,12 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/15/untitled_design_2.jpg",
-    "imageAlt": "Source image for Bangladesh Blacklist: Were you scammed? Report it to this site and save others"
+    "imageAlt": "Source image for Bangladesh Blacklist: Were you scammed? Report it to this site and save others",
+    "themes": [
+      "Features & Explainers",
+      "Digital Rights & Platform Power",
+      "Profile"
+    ]
   },
   {
     "title": "Savoy's Ekdom Aam redefines mango ice cream",
@@ -1284,7 +1807,11 @@
     "outlet": "The Business Standard",
     "theme": "Economy & Development",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/22/437396940_829480669214734_7699444599105869525_n.jpg",
-    "imageAlt": "Source image for Savoy's Ekdom Aam redefines mango ice cream"
+    "imageAlt": "Source image for Savoy's Ekdom Aam redefines mango ice cream",
+    "themes": [
+      "Economy & Development",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "Why the govt, pvt sector have so little interest in R&D",
@@ -1293,7 +1820,12 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/24/new_project_8.png",
-    "imageAlt": "Source image for Why the govt, pvt sector have so little interest in R&D"
+    "imageAlt": "Source image for Why the govt, pvt sector have so little interest in R&D",
+    "themes": [
+      "Features & Explainers",
+      "Accountability & Governance",
+      "Economy & Development"
+    ]
   },
   {
     "title": "Ariyan Kabir’s GrayMatter makes ‘digital workers’ for factory floors",
@@ -1302,7 +1834,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/06/28/pano.jpg",
-    "imageAlt": "Source image for Ariyan Kabir’s GrayMatter makes ‘digital workers’ for factory floors"
+    "imageAlt": "Source image for Ariyan Kabir’s GrayMatter makes ‘digital workers’ for factory floors",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Work & Career",
+      "Profile"
+    ]
   },
   {
     "title": "The future of Dhaka's water",
@@ -1311,7 +1848,11 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/03/new_project_15.png",
-    "imageAlt": "Source image for The future of Dhaka's water"
+    "imageAlt": "Source image for The future of Dhaka's water",
+    "themes": [
+      "Climate & Environment",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Why Southeast University's new vertical campus draws in students",
@@ -1320,7 +1861,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/09/south_east_university.jpg",
-    "imageAlt": "Source image for Why Southeast University's new vertical campus draws in students"
+    "imageAlt": "Source image for Why Southeast University's new vertical campus draws in students",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Property Lifts: Elevating the standards of locally manufactured elevators",
@@ -1329,7 +1873,11 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/14/property_lifts.png",
-    "imageAlt": "Source image for Property Lifts: Elevating the standards of locally manufactured elevators"
+    "imageAlt": "Source image for Property Lifts: Elevating the standards of locally manufactured elevators",
+    "themes": [
+      "Urban Life & Public Services",
+      "Profile"
+    ]
   },
   {
     "title": "Does Trump's second life mean a second presidential term?",
@@ -1338,7 +1886,10 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/14/43t.png",
-    "imageAlt": "Source image for Does Trump's second life mean a second presidential term?"
+    "imageAlt": "Source image for Does Trump's second life mean a second presidential term?",
+    "themes": [
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Kill: Adrenaline filled bloodbath",
@@ -1347,52 +1898,80 @@
     "outlet": "The Business Standard",
     "theme": "Film & Entertainment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/28/kill.png",
-    "imageAlt": "Source image for Kill: Adrenaline filled bloodbath"
+    "imageAlt": "Source image for Kill: Adrenaline filled bloodbath",
+    "themes": [
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Out of a gig",
     "date": "2024-07-30",
     "link": "https://www.tbsnews.net/features/panorama/out-gig-906051",
     "outlet": "The Business Standard",
-    "theme": "Features & Explainers",
+    "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/30/picsart_24-07-30_08-56-39-373.jpg",
-    "imageAlt": "Source image for Out of a gig"
+    "imageAlt": "Source image for Out of a gig",
+    "themes": [
+      "July Movement",
+      "Work & Career",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "The many nightmares of Bangladeshi freelancers",
     "date": "2024-07-31",
     "link": "https://www.tbsnews.net/features/panorama/many-nightmares-bangladeshi-freelancers-906691",
     "outlet": "The Business Standard",
-    "theme": "Features & Explainers",
+    "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/31/picsart_24-07-31_08-46-18-932.jpg",
-    "imageAlt": "Source image for The many nightmares of Bangladeshi freelancers"
+    "imageAlt": "Source image for The many nightmares of Bangladeshi freelancers",
+    "themes": [
+      "July Movement",
+      "Digital Rights & Platform Power",
+      "Work & Career"
+    ]
   },
   {
     "title": "Four hours at the CMM Court premises",
     "date": "2024-07-31",
     "link": "https://www.tbsnews.net/features/panorama/four-hours-cmm-court-premises-906696",
     "outlet": "The Business Standard",
-    "theme": "Accountability & Governance",
+    "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/31/picsart_24-07-31_09-08-19-794.jpg",
-    "imageAlt": "Source image for Four hours at the CMM Court premises"
+    "imageAlt": "Source image for Four hours at the CMM Court premises",
+    "themes": [
+      "July Movement",
+      "Accountability & Governance",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Fear and uncertainty behind a facade",
     "date": "2024-08-01",
     "link": "https://www.tbsnews.net/features/panorama/fear-and-uncertainty-behind-facade-907776",
     "outlet": "The Business Standard",
-    "theme": "Digital Rights & Platform Power",
+    "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/01/picsart_24-08-01_16-09-20-306.jpg",
-    "imageAlt": "Source image for Fear and uncertainty behind a facade"
+    "imageAlt": "Source image for Fear and uncertainty behind a facade",
+    "themes": [
+      "July Movement",
+      "Digital Rights & Platform Power",
+      "Rights & Society"
+    ]
   },
   {
     "title": "GET UP STAND UP': Bands, musicians in solidarity with students",
     "date": "2024-08-02",
     "link": "https://www.tbsnews.net/bangladesh/get-stand-bands-musicians-gather-rabindra-sarobar-solidarity-students-908581",
     "outlet": "The Business Standard",
-    "theme": "Education & Student Life",
+    "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/02/shironamhin.jpg",
-    "imageAlt": "Source image for GET UP STAND UP': Bands, musicians in solidarity with students"
+    "imageAlt": "Source image for GET UP STAND UP': Bands, musicians in solidarity with students",
+    "themes": [
+      "July Movement",
+      "Education & Student Life",
+      "Film & Entertainment"
+    ]
   },
   {
     "title": "Chalaiden': Misinformation war grips social media",
@@ -1401,7 +1980,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/07/11/fake_news.png",
-    "imageAlt": "Source image for Chalaiden': Misinformation war grips social media"
+    "imageAlt": "Source image for Chalaiden': Misinformation war grips social media",
+    "themes": [
+      "July Movement",
+      "Misinformation & Verification",
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Hasina out: Jubilation in the air",
@@ -1410,7 +1994,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/06/untitled_design_71.jpg",
-    "imageAlt": "Source image for Hasina out: Jubilation in the air"
+    "imageAlt": "Source image for Hasina out: Jubilation in the air",
+    "themes": [
+      "July Movement",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Surviving a city without police",
@@ -1419,7 +2007,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/08/pano_city.png",
-    "imageAlt": "Source image for Surviving a city without police"
+    "imageAlt": "Source image for Surviving a city without police",
+    "themes": [
+      "July Movement",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Abdul Kader: The mastermind behind the nine-point demand",
@@ -1428,7 +2020,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/17/pano_abdul_kader_0.jpg",
-    "imageAlt": "Source image for Abdul Kader: The mastermind behind the nine-point demand"
+    "imageAlt": "Source image for Abdul Kader: The mastermind behind the nine-point demand",
+    "themes": [
+      "July Movement",
+      "Profile"
+    ]
   },
   {
     "title": "The kind of student politics campuses need",
@@ -1437,7 +2033,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/21/whatsapp_image_2024-08-20_at_3.08.10_pm_1.jpeg",
-    "imageAlt": "Source image for The kind of student politics campuses need"
+    "imageAlt": "Source image for The kind of student politics campuses need",
+    "themes": [
+      "July Movement",
+      "Education & Student Life",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Was Azimpur Govt Girls' School principal really tied to a tree?",
@@ -1446,7 +2047,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/22/azimpur-school.jpg",
-    "imageAlt": "Source image for Was Azimpur Govt Girls' School principal really tied to a tree?"
+    "imageAlt": "Source image for Was Azimpur Govt Girls' School principal really tied to a tree?",
+    "themes": [
+      "July Movement",
+      "Misinformation & Verification",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "The teen in handcuffs and and ropes: Police brutality on 17-year-old Faiyaz",
@@ -1455,7 +2061,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/30/pxl_20240828_141053809_0.jpg",
-    "imageAlt": "Source image for The teen in handcuffs and and ropes: Police brutality on 17-year-old Faiyaz"
+    "imageAlt": "Source image for The teen in handcuffs and and ropes: Police brutality on 17-year-old Faiyaz",
+    "themes": [
+      "July Movement",
+      "Accountability & Governance",
+      "Profile"
+    ]
   },
   {
     "title": "Arfatul Islam’s journey to make a name for Bangladeshi cuisine",
@@ -1464,7 +2075,11 @@
     "outlet": "The Business Standard",
     "theme": "Profile",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/30/arfatul_islam_action.png",
-    "imageAlt": "Source image for Arfatul Islam’s journey to make a name for Bangladeshi cuisine"
+    "imageAlt": "Source image for Arfatul Islam’s journey to make a name for Bangladeshi cuisine",
+    "themes": [
+      "Profile",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "How amateur radio operators became lifelines during Feni flood crisis",
@@ -1473,7 +2088,11 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/08/31/radio_op_feni.jpeg",
-    "imageAlt": "Source image for How amateur radio operators became lifelines during Feni flood crisis"
+    "imageAlt": "Source image for How amateur radio operators became lifelines during Feni flood crisis",
+    "themes": [
+      "Climate & Environment",
+      "Profile"
+    ]
   },
   {
     "title": "One Month of Freedom: Timeline of Sheikh Hasina's fall",
@@ -1482,7 +2101,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "/assets/images/projects/one-month-of-freedom-timeline.jpg",
-    "imageAlt": "Source image for One Month of Freedom: Timeline of Sheikh Hasina's fall"
+    "imageAlt": "Source image for One Month of Freedom: Timeline of Sheikh Hasina's fall",
+    "themes": [
+      "July Movement",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "They made me listen as they tortured him': The tale of a mother-son duo who braved the July atrocities",
@@ -1491,7 +2114,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/11/atrocities.png",
-    "imageAlt": "Source image for They made me listen as they tortured him': The tale of a mother-son duo who braved the July atrocities"
+    "imageAlt": "Source image for They made me listen as they tortured him': The tale of a mother-son duo who braved the July atrocities",
+    "themes": [
+      "July Movement",
+      "Profile"
+    ]
   },
   {
     "title": "Reduce, reuse, recycle, repeat: The art of green living",
@@ -1500,7 +2127,11 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/13/feature_image.jpg",
-    "imageAlt": "Source image for Reduce, reuse, recycle, repeat: The art of green living"
+    "imageAlt": "Source image for Reduce, reuse, recycle, repeat: The art of green living",
+    "themes": [
+      "Climate & Environment",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "July 18: The day pvt uni students etched their names in nation's history",
@@ -1509,7 +2140,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/15/syed_zakir_hossain_02_1_2_0.jpg",
-    "imageAlt": "Source image for July 18: The day pvt uni students etched their names in nation's history"
+    "imageAlt": "Source image for July 18: The day pvt uni students etched their names in nation's history",
+    "themes": [
+      "July Movement",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "What is the Dissanayake magic? A seismic shift in Sri Lanka's politics",
@@ -1518,7 +2153,10 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/22/up52x5ly4nmjbh5p3ed34evzau.jpg",
-    "imageAlt": "Source image for What is the Dissanayake magic? A seismic shift in Sri Lanka's politics"
+    "imageAlt": "Source image for What is the Dissanayake magic? A seismic shift in Sri Lanka's politics",
+    "themes": [
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "How August's 'volunteer' vanguards sent out 191 trucks to 11 flood-hit districts",
@@ -1527,7 +2165,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/28/photo_1_.jpg",
-    "imageAlt": "Source image for How August's 'volunteer' vanguards sent out 191 trucks to 11 flood-hit districts"
+    "imageAlt": "Source image for How August's 'volunteer' vanguards sent out 191 trucks to 11 flood-hit districts",
+    "themes": [
+      "July Movement",
+      "Climate & Environment",
+      "Profile"
+    ]
   },
   {
     "title": "The unsung Hijra heroes in the July uprising",
@@ -1536,7 +2179,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/09/29/untitled_design_14.png",
-    "imageAlt": "Source image for The unsung Hijra heroes in the July uprising"
+    "imageAlt": "Source image for The unsung Hijra heroes in the July uprising",
+    "themes": [
+      "July Movement",
+      "Rights & Society",
+      "Profile"
+    ]
   },
   {
     "title": "How to use your credit card without owing a pound of flesh",
@@ -1545,7 +2193,10 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/01/credit-card-banner-july-2022-2.jpg",
-    "imageAlt": "Source image for How to use your credit card without owing a pound of flesh"
+    "imageAlt": "Source image for How to use your credit card without owing a pound of flesh",
+    "themes": [
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Madhurja wins Silver Award in Queen's Commonwealth Essay Competition 2024",
@@ -1554,7 +2205,10 @@
     "outlet": "The Business Standard",
     "theme": "Culture & Literature",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/04/untitled_design_6.jpg",
-    "imageAlt": "Source image for Madhurja wins Silver Award in Queen's Commonwealth Essay Competition 2024"
+    "imageAlt": "Source image for Madhurja wins Silver Award in Queen's Commonwealth Essay Competition 2024",
+    "themes": [
+      "Culture & Literature"
+    ]
   },
   {
     "title": "International law: A gun without bullets",
@@ -1563,7 +2217,10 @@
     "outlet": "The Business Standard",
     "theme": "Accountability & Governance",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/07/gaza_10_oct_2023.jpg",
-    "imageAlt": "Source image for International law: A gun without bullets"
+    "imageAlt": "Source image for International law: A gun without bullets",
+    "themes": [
+      "Accountability & Governance"
+    ]
   },
   {
     "title": "Sakra’s Tanti Bazar: A love letter to the jewellery of Old Dhaka",
@@ -1572,7 +2229,10 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/16/sakras_tanti_bazar.png",
-    "imageAlt": "Source image for Sakra’s Tanti Bazar: A love letter to the jewellery of Old Dhaka"
+    "imageAlt": "Source image for Sakra’s Tanti Bazar: A love letter to the jewellery of Old Dhaka",
+    "themes": [
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Will a Trump presidency impact US-Bangladesh relations?",
@@ -1581,7 +2241,10 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/16/donald_trump.jpg",
-    "imageAlt": "Source image for Will a Trump presidency impact US-Bangladesh relations?"
+    "imageAlt": "Source image for Will a Trump presidency impact US-Bangladesh relations?",
+    "themes": [
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Dakshinkhan: A neglected corner of the capital",
@@ -1590,7 +2253,10 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/22/20241012_141944.jpg",
-    "imageAlt": "Source image for Dakshinkhan: A neglected corner of the capital"
+    "imageAlt": "Source image for Dakshinkhan: A neglected corner of the capital",
+    "themes": [
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Live bakeries: Dhakayaites latest street food obsession",
@@ -1599,7 +2265,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/05/whatsapp_image_2024-11-05_at_1.10.52_pm.jpeg",
-    "imageAlt": "Source image for Live bakeries: Dhakayaites latest street food obsession"
+    "imageAlt": "Source image for Live bakeries: Dhakayaites latest street food obsession",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services",
+      "Food & Lifestyle"
+    ]
   },
   {
     "title": "Not so ‘digital’ Bangladesh",
@@ -1608,7 +2279,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/27/digital_bangladesh_0.jpg",
-    "imageAlt": "Source image for Not so ‘digital’ Bangladesh"
+    "imageAlt": "Source image for Not so ‘digital’ Bangladesh",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "How to maintain the elevator of the country’s tallest building? Ask Mahbub",
@@ -1617,7 +2291,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/10/27/pxl_20240624_100555317.jpg",
-    "imageAlt": "Source image for How to maintain the elevator of the country’s tallest building? Ask Mahbub"
+    "imageAlt": "Source image for How to maintain the elevator of the country’s tallest building? Ask Mahbub",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services",
+      "Profile"
+    ]
   },
   {
     "title": "Bangladesh under Awami League rule from 2009-2023: A book discussion",
@@ -1626,7 +2305,11 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/02/pxl_20241102_103419840.jpg",
-    "imageAlt": "Source image for Bangladesh under Awami League rule from 2009-2023: A book discussion"
+    "imageAlt": "Source image for Bangladesh under Awami League rule from 2009-2023: A book discussion",
+    "themes": [
+      "Politics & Democracy",
+      "Culture & Literature"
+    ]
   },
   {
     "title": "The price of sight: Muhaimin's fight against pellet guns",
@@ -1635,7 +2318,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/03/whatsapp_image_2024-11-03_at_2.30.36_pm.jpeg",
-    "imageAlt": "Source image for The price of sight: Muhaimin's fight against pellet guns"
+    "imageAlt": "Source image for The price of sight: Muhaimin's fight against pellet guns",
+    "themes": [
+      "July Movement",
+      "Rights & Society",
+      "Profile"
+    ]
   },
   {
     "title": "Savoy pays every candidate Tk1,000 for showing up at the interview",
@@ -1644,7 +2332,12 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/05/465862327_8663670913698724_80345_1.jpg",
-    "imageAlt": "Source image for Savoy pays every candidate Tk1,000 for showing up at the interview"
+    "imageAlt": "Source image for Savoy pays every candidate Tk1,000 for showing up at the interview",
+    "themes": [
+      "Features & Explainers",
+      "Work & Career",
+      "Profile"
+    ]
   },
   {
     "title": "What Airport Road traffic reveals about our development model",
@@ -1653,7 +2346,12 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/10/_f3a0362.jpg",
-    "imageAlt": "Source image for What Airport Road traffic reveals about our development model"
+    "imageAlt": "Source image for What Airport Road traffic reveals about our development model",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services",
+      "Economy & Development"
+    ]
   },
   {
     "title": "The future of legacy media under Trump",
@@ -1662,7 +2360,10 @@
     "outlet": "The Business Standard",
     "theme": "Politics & Democracy",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/14/trump-feature-image.png",
-    "imageAlt": "Source image for The future of legacy media under Trump"
+    "imageAlt": "Source image for The future of legacy media under Trump",
+    "themes": [
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "The attestation system: A colonial legacy that still frustrates citizens",
@@ -1671,7 +2372,10 @@
     "outlet": "The Business Standard",
     "theme": "Accountability & Governance",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/18/08_panorama_19_november.jpg",
-    "imageAlt": "Source image for The attestation system: A colonial legacy that still frustrates citizens"
+    "imageAlt": "Source image for The attestation system: A colonial legacy that still frustrates citizens",
+    "themes": [
+      "Accountability & Governance"
+    ]
   },
   {
     "title": "BRTA picks up speed with smoother, hassle-free services",
@@ -1680,7 +2384,11 @@
     "outlet": "The Business Standard",
     "theme": "Accountability & Governance",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/24/pano_1.jpg",
-    "imageAlt": "Source image for BRTA picks up speed with smoother, hassle-free services"
+    "imageAlt": "Source image for BRTA picks up speed with smoother, hassle-free services",
+    "themes": [
+      "Accountability & Governance",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "Gridlock hustlers: Stories behind Dhaka’s traffic signal vendors",
@@ -1689,7 +2397,12 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/11/30/pxl_20241104_105500186.jpg",
-    "imageAlt": "Source image for Gridlock hustlers: Stories behind Dhaka’s traffic signal vendors"
+    "imageAlt": "Source image for Gridlock hustlers: Stories behind Dhaka’s traffic signal vendors",
+    "themes": [
+      "Work & Career",
+      "Urban Life & Public Services",
+      "Profile"
+    ]
   },
   {
     "title": "How 19-year-old Ishmam built a thriving web development business",
@@ -1698,7 +2411,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2024/12/03/for_web_ishmam.png",
-    "imageAlt": "Source image for How 19-year-old Ishmam built a thriving web development business"
+    "imageAlt": "Source image for How 19-year-old Ishmam built a thriving web development business",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "Does the NEIR's 'crime prevention' promise hold up to scrutiny?",
@@ -1707,7 +2424,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/01/02/08_panorama.png",
-    "imageAlt": "Source image for Does the NEIR's 'crime prevention' promise hold up to scrutiny?"
+    "imageAlt": "Source image for Does the NEIR's 'crime prevention' promise hold up to scrutiny?",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "The politics of election affidavits: Why asset declarations no longer reveal the truth",
@@ -1716,7 +2436,11 @@
     "outlet": "The Business Standard",
     "theme": "Accountability & Governance",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/01/10/panoroma_210.1.2025.jpg",
-    "imageAlt": "Source image for The politics of election affidavits: Why asset declarations no longer reveal the truth"
+    "imageAlt": "Source image for The politics of election affidavits: Why asset declarations no longer reveal the truth",
+    "themes": [
+      "Accountability & Governance",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Deer traps in the Sundarbans turn into a shared hazard for tigers",
@@ -1725,7 +2449,10 @@
     "outlet": "The Business Standard",
     "theme": "Climate & Environment",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/01/28/whatsapp_image_2026-01-14_at_3.02.24_pm.jpeg",
-    "imageAlt": "Source image for Deer traps in the Sundarbans turn into a shared hazard for tigers"
+    "imageAlt": "Source image for Deer traps in the Sundarbans turn into a shared hazard for tigers",
+    "themes": [
+      "Climate & Environment"
+    ]
   },
   {
     "title": "Debola Mondol: A woman who helped deliver 2,500 babies",
@@ -1734,7 +2461,11 @@
     "outlet": "The Business Standard",
     "theme": "Profile",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/01/31/dsc08192.jpg",
-    "imageAlt": "Source image for Debola Mondol: A woman who helped deliver 2,500 babies"
+    "imageAlt": "Source image for Debola Mondol: A woman who helped deliver 2,500 babies",
+    "themes": [
+      "Profile",
+      "Public Health & Drugs"
+    ]
   },
   {
     "title": "How podcasts are transforming political communication in Bangladesh",
@@ -1743,7 +2474,10 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/02/07/08_panorama3.png",
-    "imageAlt": "Source image for How podcasts are transforming political communication in Bangladesh"
+    "imageAlt": "Source image for How podcasts are transforming political communication in Bangladesh",
+    "themes": [
+      "Digital Rights & Platform Power"
+    ]
   },
   {
     "title": "Betting on the ballot",
@@ -1752,7 +2486,11 @@
     "outlet": "The Business Standard",
     "theme": "Features & Explainers",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/02/09/illustration_tbs_jamaat_bnp.jpg",
-    "imageAlt": "Source image for Betting on the ballot"
+    "imageAlt": "Source image for Betting on the ballot",
+    "themes": [
+      "Features & Explainers",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "KAVVA: The missing piece in the Bangali fusion puzzle",
@@ -1761,7 +2499,11 @@
     "outlet": "The Business Standard",
     "theme": "Food & Lifestyle",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/02/12/mhn_4441.jpg",
-    "imageAlt": "Source image for KAVVA: The missing piece in the Bangali fusion puzzle"
+    "imageAlt": "Source image for KAVVA: The missing piece in the Bangali fusion puzzle",
+    "themes": [
+      "Food & Lifestyle",
+      "Profile"
+    ]
   },
   {
     "title": "Six Muslim women redefining how the world sees women",
@@ -1770,7 +2512,10 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/03/08/untitled_design_2.png",
-    "imageAlt": "Source image for Six Muslim women redefining how the world sees women"
+    "imageAlt": "Source image for Six Muslim women redefining how the world sees women",
+    "themes": [
+      "Rights & Society"
+    ]
   },
   {
     "title": "Fear and loathing in Mohammadpur: When will the muggers’ reign end?",
@@ -1779,7 +2524,10 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/03/10/photo-collage.png_2.png",
-    "imageAlt": "Source image for Fear and loathing in Mohammadpur: When will the muggers’ reign end?"
+    "imageAlt": "Source image for Fear and loathing in Mohammadpur: When will the muggers’ reign end?",
+    "themes": [
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "How Bangladesh’s global talent returned to build startups at home",
@@ -1788,7 +2536,12 @@
     "outlet": "The Business Standard",
     "theme": "Work & Career",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/03/18/08_panorama_17.3.2026_copy.png",
-    "imageAlt": "Source image for How Bangladesh’s global talent returned to build startups at home"
+    "imageAlt": "Source image for How Bangladesh’s global talent returned to build startups at home",
+    "themes": [
+      "Work & Career",
+      "Digital Rights & Platform Power",
+      "Profile"
+    ]
   },
   {
     "title": "When deaths arrive on schedule each year: Why Bangladesh fails to curb fatalities on the road during Eid",
@@ -1797,7 +2550,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/03/28/rescue_0.jpeg",
-    "imageAlt": "Source image for When deaths arrive on schedule each year: Why Bangladesh fails to curb fatalities on the road during Eid"
+    "imageAlt": "Source image for When deaths arrive on schedule each year: Why Bangladesh fails to curb fatalities on the road during Eid",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "How Asif Muqtadir got into Harvard — and how you can make it too",
@@ -1806,7 +2563,11 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/04/01/img_7599.jpeg",
-    "imageAlt": "Source image for How Asif Muqtadir got into Harvard — and how you can make it too"
+    "imageAlt": "Source image for How Asif Muqtadir got into Harvard — and how you can make it too",
+    "themes": [
+      "Education & Student Life",
+      "Profile"
+    ]
   },
   {
     "title": "Talking to the world from a rooftop in Dhaka: The story of Bangladesh’s amateur radio community",
@@ -1815,7 +2576,11 @@
     "outlet": "The Business Standard",
     "theme": "Profile",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/04/06/lead.jpg",
-    "imageAlt": "Source image for Talking to the world from a rooftop in Dhaka: The story of Bangladesh’s amateur radio community"
+    "imageAlt": "Source image for Talking to the world from a rooftop in Dhaka: The story of Bangladesh’s amateur radio community",
+    "themes": [
+      "Profile",
+      "Urban Life & Public Services"
+    ]
   },
   {
     "title": "When salt wins against agricultural innovation",
@@ -1824,7 +2589,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/04/10/paddy_field_0.jpeg",
-    "imageAlt": "Source image for When salt wins against agricultural innovation"
+    "imageAlt": "Source image for When salt wins against agricultural innovation",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Climate & Environment"
+    ]
   },
   {
     "title": "The truce that never came: Why Israel repeatedly keeps sabotaging peace despite negotiations",
@@ -1833,7 +2602,11 @@
     "outlet": "The Business Standard",
     "theme": "Rights & Society",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/03/30/israel_strike_lebanon.png",
-    "imageAlt": "Source image for The truce that never came: Why Israel repeatedly keeps sabotaging peace despite negotiations"
+    "imageAlt": "Source image for The truce that never came: Why Israel repeatedly keeps sabotaging peace despite negotiations",
+    "themes": [
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Bodies, waste, and the weight of a nation",
@@ -1842,7 +2615,12 @@
     "outlet": "The Business Standard",
     "theme": "Urban Life & Public Services",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/04/19/img_2070_1.jpg",
-    "imageAlt": "Source image for Bodies, waste, and the weight of a nation"
+    "imageAlt": "Source image for Bodies, waste, and the weight of a nation",
+    "themes": [
+      "Urban Life & Public Services",
+      "Climate & Environment",
+      "Public Health & Drugs"
+    ]
   },
   {
     "title": "Bangladesh is building a digital economy on a floor that is giving way",
@@ -1851,7 +2629,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/07/thoughts.jpg",
-    "imageAlt": "Source image for Bangladesh is building a digital economy on a floor that is giving way"
+    "imageAlt": "Source image for Bangladesh is building a digital economy on a floor that is giving way",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Economy & Development"
+    ]
   },
   {
     "title": "Arrests over social media posts: Who decides what speech is acceptable?",
@@ -1860,7 +2642,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/04/22/08_panorama_copy.png",
-    "imageAlt": "Source image for Arrests over social media posts: Who decides what speech is acceptable?"
+    "imageAlt": "Source image for Arrests over social media posts: Who decides what speech is acceptable?",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Rights & Society"
+    ]
   },
   {
     "title": "How Bangladesh’s local NGOs are surviving the foreign aid collapse",
@@ -1869,7 +2655,11 @@
     "outlet": "The Business Standard",
     "theme": "Digital Rights & Platform Power",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/10/image_2_1.png",
-    "imageAlt": "Source image for How Bangladesh’s local NGOs are surviving the foreign aid collapse"
+    "imageAlt": "Source image for How Bangladesh’s local NGOs are surviving the foreign aid collapse",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Economy & Development"
+    ]
   },
   {
     "title": "Hindu nationalist mob storms Bangladesh mission in India amid escalating tension",
@@ -1878,7 +2668,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://res.cloudinary.com/djogegxes/image/fetch/q_auto,f_auto/https%3A%2F%2Fnetra.news%2Fcontent%2Fimages%2F2024%2F12%2Fahchss.png",
-    "imageAlt": "Source image for Hindu nationalist mob storms Bangladesh mission in India amid escalating tension"
+    "imageAlt": "Source image for Hindu nationalist mob storms Bangladesh mission in India amid escalating tension",
+    "themes": [
+      "July Movement",
+      "Rights & Society",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "Campus cold war: Chhatra Dal vs. Shibir",
@@ -1887,7 +2682,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://res.cloudinary.com/djogegxes/image/fetch/q_auto,f_auto/https%3A%2F%2Fnetra.news%2Fcontent%2Fimages%2F2024%2F12%2Fjcdshibir.png",
-    "imageAlt": "Source image for Campus cold war: Chhatra Dal vs. Shibir"
+    "imageAlt": "Source image for Campus cold war: Chhatra Dal vs. Shibir",
+    "themes": [
+      "July Movement",
+      "Politics & Democracy",
+      "Education & Student Life"
+    ]
   },
   {
     "title": "Jatiya Nagorik Committee: A New Dawn in Bangladesh’s Politics?",
@@ -1896,7 +2696,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://res.cloudinary.com/djogegxes/image/fetch/q_auto,f_auto/https%3A%2F%2Fnetra.news%2Fcontent%2Fimages%2F2025%2F01%2Fnagorikmeeting2.png",
-    "imageAlt": "Source image for Jatiya Nagorik Committee: A New Dawn in Bangladesh’s Politics?"
+    "imageAlt": "Source image for Jatiya Nagorik Committee: A New Dawn in Bangladesh’s Politics?",
+    "themes": [
+      "July Movement",
+      "Politics & Democracy",
+      "Profile"
+    ]
   },
   {
     "title": "প্রতিকৃতি: নাদিরা ইয়াসমিন",
@@ -1905,7 +2710,11 @@
     "outlet": "Netra News",
     "theme": "Digital Rights & Platform Power",
     "image": "https://scontent.fdac191-1.fna.fbcdn.net/v/t15.5256-10/513313838_1101343361889372_8638529228696762537_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=596eb7&_nc_ohc=tBD-swFxdgwQ7kNvwHPfjqR&_nc_oc=AdpBkN0HaxwEvwLX-eG7l6TRxrnNbEF556mpajtFLpv3RcsP-z3tELAIbecvp5MAUBY&_nc_zt=23&_nc_ht=scontent.fdac191-1.fna&_nc_gid=XM846iEWgfIUl23jeRR7Qw&_nc_ss=7c20f&oh=00_Af4Hr6ZTAS9wmsCo5sh82ltmICurtfe06npdbJ7s_DiVXQ&oe=6A1BDB44",
-    "imageAlt": "Source image for প্রতিকৃতি: নাদিরা ইয়াসমিন"
+    "imageAlt": "Source image for প্রতিকৃতি: নাদিরা ইয়াসমিন",
+    "themes": [
+      "Digital Rights & Platform Power",
+      "Culture & Literature"
+    ]
   },
   {
     "title": "দুই সাংবাদিকের চোখে গণঅভ্যুত্থান",
@@ -1914,7 +2723,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://i.ytimg.com/vi/FnEtpf5zl_w/hqdefault.jpg",
-    "imageAlt": "Source image for দুই সাংবাদিকের চোখে গণঅভ্যুত্থান"
+    "imageAlt": "Source image for দুই সাংবাদিকের চোখে গণঅভ্যুত্থান",
+    "themes": [
+      "July Movement",
+      "Rights & Society",
+      "Profile"
+    ]
   },
   {
     "title": "আবারও আয়নাঘর | Abaro Aynaghar",
@@ -1923,7 +2737,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://i.ytimg.com/vi/2cHkfSwo3Lg/hqdefault.jpg",
-    "imageAlt": "Source image for আবারও আয়নাঘর | Abaro Aynaghar"
+    "imageAlt": "Source image for আবারও আয়নাঘর | Abaro Aynaghar",
+    "themes": [
+      "July Movement",
+      "Accountability & Governance",
+      "Rights & Society"
+    ]
   },
   {
     "title": "The job “verification” trap",
@@ -1932,7 +2751,12 @@
     "outlet": "Netra News",
     "theme": "Misinformation & Verification",
     "image": "https://res.cloudinary.com/djogegxes/image/fetch/q_auto,f_auto/https%3A%2F%2Fnetra.news%2Fcontent%2Fimages%2F2025%2F10%2FJob-Verification-Trap.jpg",
-    "imageAlt": "Source image for The job “verification” trap"
+    "imageAlt": "Source image for The job “verification” trap",
+    "themes": [
+      "Misinformation & Verification",
+      "Digital Rights & Platform Power",
+      "Work & Career"
+    ]
   },
   {
     "title": "ভেরিফিকেশনের রাজনীতি",
@@ -1941,7 +2765,12 @@
     "outlet": "Netra News",
     "theme": "Misinformation & Verification",
     "image": "https://i.ytimg.com/vi/E3JgnfWGtjA/hqdefault.jpg",
-    "imageAlt": "Source image for ভেরিফিকেশনের রাজনীতি"
+    "imageAlt": "Source image for ভেরিফিকেশনের রাজনীতি",
+    "themes": [
+      "Misinformation & Verification",
+      "Digital Rights & Platform Power",
+      "Politics & Democracy"
+    ]
   },
   {
     "title": "গাঁজা বৃত্তান্ত",
@@ -1950,7 +2779,11 @@
     "outlet": "Netra News",
     "theme": "Public Health & Drugs",
     "image": "https://i.ytimg.com/vi/G2tZ7xVUgKc/hqdefault.jpg",
-    "imageAlt": "Source image for গাঁজা বৃত্তান্ত"
+    "imageAlt": "Source image for গাঁজা বৃত্তান্ত",
+    "themes": [
+      "Public Health & Drugs",
+      "Rights & Society"
+    ]
   },
   {
     "title": "Cops, camera, cannabis",
@@ -1959,7 +2792,12 @@
     "outlet": "Netra News",
     "theme": "Public Health & Drugs",
     "image": "https://res.cloudinary.com/djogegxes/image/fetch/q_auto,f_auto/https%3A%2F%2Fnetra.news%2Fcontent%2Fimages%2F2026%2F04%2Fgajafeature.webp",
-    "imageAlt": "Source image for Cops, camera, cannabis"
+    "imageAlt": "Source image for Cops, camera, cannabis",
+    "themes": [
+      "Public Health & Drugs",
+      "Accountability & Governance",
+      "Rights & Society"
+    ]
   },
   {
     "title": "শেখ হাসিনার নিজ জবানীতে",
@@ -1968,7 +2806,12 @@
     "outlet": "Netra News",
     "theme": "July Movement",
     "image": "https://interactive.netra.news/sheikh-hasina-call-recordings-bn/assets/photos/hasina-gif-wave.gif",
-    "imageAlt": "Source image for শেখ হাসিনার নিজ জবানীতে"
+    "imageAlt": "Source image for শেখ হাসিনার নিজ জবানীতে",
+    "themes": [
+      "July Movement",
+      "Politics & Democracy",
+      "Accountability & Governance"
+    ]
   },
   {
     "title": "The quiet rise of new drugs in Bangladesh",
@@ -1977,7 +2820,11 @@
     "outlet": "The Business Standard",
     "theme": "Public Health & Drugs",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/12/08_panorama_11.5.2026_copy.png",
-    "imageAlt": "Source image for The quiet rise of new drugs in Bangladesh"
+    "imageAlt": "Source image for The quiet rise of new drugs in Bangladesh",
+    "themes": [
+      "Public Health & Drugs",
+      "Rights & Society"
+    ]
   },
   {
     "title": "The world is restricting children’s screen time. Bangladesh must follow suit",
@@ -1986,7 +2833,12 @@
     "outlet": "The Business Standard",
     "theme": "Education & Student Life",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/16/08_panorama-1.png",
-    "imageAlt": "Source image for The world is restricting children’s screen time. Bangladesh must follow suit"
+    "imageAlt": "Source image for The world is restricting children’s screen time. Bangladesh must follow suit",
+    "themes": [
+      "Education & Student Life",
+      "Digital Rights & Platform Power",
+      "Public Health & Drugs"
+    ]
   },
   {
     "title": "Crowd at Dhaka Medical thins but patients in desperate need of blood",
@@ -1995,7 +2847,12 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/24/pxl_20240720_073422197.jpg",
-    "imageAlt": "Source image for Crowd at Dhaka Medical thins but patients in desperate need of blood"
+    "imageAlt": "Source image for Crowd at Dhaka Medical thins but patients in desperate need of blood",
+    "themes": [
+      "July Movement",
+      "Public Health & Drugs",
+      "Rights & Society"
+    ]
   },
   {
     "title": "A ghastly birthday gift",
@@ -2004,6 +2861,11 @@
     "outlet": "The Business Standard",
     "theme": "July Movement",
     "image": "https://www.tbsnews.net/sites/default/files/images/2026/05/24/pxl_20240721_122745643.jpg",
-    "imageAlt": "Source image for A ghastly birthday gift"
+    "imageAlt": "Source image for A ghastly birthday gift",
+    "themes": [
+      "July Movement",
+      "Rights & Society",
+      "Profile"
+    ]
   }
 ]
