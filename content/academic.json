@@ -331,7 +331,16 @@
           "workTitle": "Om-Dar-B-Dar Video Essay",
           "type": "Video essay",
           "desc": "A film-studies coursework document on form, feeling, and visual interpretation.",
-          "externalUrl": "https://docs.google.com/document/d/1m0R8KDT4m7FpGTsZQy3Z8KLghW1iQwQ3/edit?usp=drivesdk&rtpof=true&sd=true"
+          "resources": [
+            {
+              "label": "Om-Dar-B-Dar Video Essay",
+              "url": "https://docs.google.com/document/d/1m0R8KDT4m7FpGTsZQy3Z8KLghW1iQwQ3/edit?usp=drivesdk&rtpof=true&sd=true"
+            },
+            {
+              "label": "HUM3101 Article",
+              "url": "https://docs.google.com/document/d/1KeR2VgsLjOHRtpeYqwBXDnwdc5CkEO0h/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true"
+            }
+          ]
         },
         {
           "code": "SSC2149",
