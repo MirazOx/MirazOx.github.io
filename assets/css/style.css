@@ -4159,6 +4159,15 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
    RESONANCE — Organic Blob Testimonial Bubbles
    ========================================================== */
 .resonance-section {
+  --bg2: #121212; /* Deep Obsidian Off-Black Background */
+  --text: #DFD0BC; /* Champagne Gold / Warm Cream Quote Text */
+  --text3: #9E9285; /* Muted Grayish Gold Secondary Text */
+  --accent: #C07A60; /* Burnt Terracotta Copper Typography Accent */
+  --border-subtle: rgba(192, 122, 96, 0.15); /* Crisp Copper Border Accent */
+  --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-display: 'Cormorant Garamond', 'DM Serif Display', Georgia, serif;
+  --font-mono: 'DM Mono', 'SF Mono', monospace;
+
   background: var(--bg2);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
