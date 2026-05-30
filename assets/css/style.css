@@ -3930,7 +3930,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .status-stats-col {
   border: 0.5px solid var(--border);
   border-radius: 8px;
-  padding: 1.5rem 1.75rem;
+  padding: 3rem 1.75rem 1.5rem;
   background: var(--bg2);
   position: relative;
   overflow: hidden;
@@ -3943,13 +3943,20 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   background: var(--accent-amber);
 }
 .status-stats-eyebrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--accent-teal);
+  color: var(--bg);
+  padding: 6px 14px 6px 12px;
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--accent-terracotta);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  font-size: 10px;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  z-index: 10;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
 }
 .sh-grid {
   display: grid;
@@ -4006,11 +4013,8 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
     justify-content: center;
   }
   .status-stats-col {
-    display: grid;
-    grid-template-columns: 140px minmax(0, 1fr);
-    gap: 1.5rem;
-    align-items: center;
-    padding: 0.95rem 1rem;
+    display: block;
+    padding: 3rem 1.5rem 1.5rem;
   }
   .status-stats-eyebrow {
     margin-bottom: 0;
