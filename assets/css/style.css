@@ -4602,17 +4602,14 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 
 .research-hero-modern {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(340px, 0.72fr);
-  gap: 1.5rem;
-  align-items: stretch;
+  display: block;
   padding: 4rem 0 2rem;
 }
 .research-hero-copy {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  min-height: 360px;
+  min-height: auto;
   border-bottom: 0.5px solid var(--border);
   padding-bottom: 2rem;
 }
@@ -6199,9 +6196,8 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   .research-hero-modern {
     padding-top: 2.4rem;
   }
-  .research-hero-copy,
-  .research-hero-media {
-    min-height: 280px;
+  .research-hero-copy {
+    min-height: auto;
   }
   .research-signal-grid,
   .research-visual-grid,
