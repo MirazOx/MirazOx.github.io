@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=27">
+<link rel="stylesheet" href="/assets/css/style.css?v=28">
 </head>
 <body data-page="academic">
 
@@ -48,11 +48,28 @@
       <h1 class="page-title">Coursework-born <em>projects</em></h1>
     </section>
 
+    <section class="academic-ledger reveal">
+      <div class="academic-ledger-inner">
+        <p class="academic-ledger-eyebrow">Academic record</p>
+        <div class="academic-ledger-grid" id="academicLedger"></div>
+      </div>
+      <p class="academic-grade-note"><sup>*</sup> On the 4.00 scale, A and A+ both carry 4.00 grade points.</p>
+    </section>
+
+    <section class="academic-featured reveal">
+      <div class="academic-band-header">
+        <h2>Selected coursework</h2>
+        <span class="band-meta">top-graded projects</span>
+      </div>
+      <div class="academic-featured-grid" id="academicFeatured"></div>
+    </section>
+
     <section>
       <div class="section-header">
-        <h2 class="section-title">Coursework map</h2>
+        <h2 class="section-title">Browse all coursework</h2>
         <span class="section-meta">search by code, course, work, grade</span>
       </div>
+      <p class="academic-browse-lead">Every course on record. Search by code, title, grade, or project, or filter by status and type.</p>
 
       <div class="academic-tools" role="search">
         <label class="sr-only" for="academicSearch">Search academic coursework</label>
@@ -292,6 +309,53 @@ fetch('/content/academic.json?v=14')
   .catch(() => {
     document.getElementById('academic-course-map').innerHTML = '<p class="result-count">Academic work loads when the site is served over HTTP.</p>';
   });
+</script>
+
+<script>
+// Academic record ledger + selected (A+) coursework — built from the same content source.
+(function () {
+  function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+  fetch('/content/academic.json?v=14').then(r=>r.json()).then(data=>{
+    const groups = data.courseGroups || [];
+    let aplus = 0, a = 0, aminus = 0, completed = 0;
+    const featured = [];
+    groups.forEach(g=>{
+      (g.courses||[]).forEach(c=>{
+        const gr = String(c.grade||'').toUpperCase();
+        if (gr==='A+') aplus++;
+        if (gr==='A') a++;
+        if (gr==='A-') aminus++;
+        if (gr==='A+'||gr==='A'||gr==='A-') completed++;
+        if (gr==='A+') featured.push({code:c.code,name:c.name,work:c.workTitle,group:g.category});
+      });
+    });
+    const aRange = aplus + a + aminus;
+    const aRangePct = completed ? Math.round(aRange / completed * 100) : 0;
+
+    const ledger = [
+      {n:'3.99',          l:'CGPA · 4.00 scale', accent:true, note:true},
+      {n:completed,       l:'Courses graded'},
+      {n:aplus,           l:'A+ grades', accent:true},
+      {n:aRangePct+'%',   l:'A-range results', accent:true, note:true}
+    ];
+    const lh = document.getElementById('academicLedger');
+    if (lh) lh.innerHTML = ledger.map(s=>
+      `<div class="lg-item ${s.accent?'is-accent':''}"><span class="lg-n">${esc(s.n)}</span><span class="lg-l">${esc(s.l)}${s.note?' <sup>*</sup>':''}</span></div>`
+    ).join('');
+
+    const fh = document.getElementById('academicFeatured');
+    if (fh) fh.innerHTML = featured.slice(0,6).map(c=>
+      `<article class="featured-course">
+        <div class="fc-top"><span class="fc-code">${esc(c.code)}</span><span class="fc-grade">A+</span></div>
+        <h3 class="fc-name">${esc(c.name)}</h3>
+        <p class="fc-work">${esc(c.work||'')}</p>
+        <p class="fc-group">${esc(c.group)}</p>
+      </article>`
+    ).join('');
+
+    if (window.__reInitReveal) window.__reInitReveal();
+  }).catch(()=>{});
+})();
 </script>
 
 </body>
