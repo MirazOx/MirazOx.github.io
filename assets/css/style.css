@@ -608,29 +608,28 @@ a { color: var(--accent-teal); }
   border-bottom-color: color-mix(in srgb, var(--accent-teal) 55%, transparent);
 }
 .hero-bio-new {
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.85;
   color: var(--text2);
-  margin-top: 1.5rem;
-  max-width: 44ch;
+  margin-top: 2.25rem;
+  max-width: 56ch;
   animation: fadeUp 0.8s ease-out 0.3s both;
 }
 .hero-statement {
-  max-width: 44ch;
-  width: fit-content;
-  padding: 0.85rem 1rem;
-  border-left: 2px solid color-mix(in srgb, var(--accent-teal) 45%, transparent);
-  background: color-mix(in srgb, var(--bg2) 46%, transparent);
-  border-radius: 0 8px 8px 0;
+  width: auto;
+  padding: 0;
+  border-left: none;
+  background: none;
+  border-radius: 0;
   text-wrap: pretty;
 }
 .hero-statement::first-letter {
   font-family: 'DM Serif Display', serif;
-  font-size: clamp(3.2rem, 5.5vw, 4.2rem);
+  font-size: clamp(3.4rem, 6vw, 4.5rem);
   float: left;
-  line-height: 0.85;
-  margin-top: 0.05em;
-  margin-right: 0.12em;
+  line-height: 0.82;
+  margin-top: 0.06em;
+  margin-right: 0.1em;
   color: var(--accent-teal);
   font-weight: 500;
 }
@@ -6475,10 +6474,11 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: rgba(238, 245, 246, 0.82);
 }
 .hero-fullbleed .hero-statement {
-  background: rgba(8, 14, 18, 0.5);
-  border-left: 2px solid rgba(45, 212, 191, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: none;
+  border-left: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
 }
 
 .hero-fullbleed .rotating-tag-label {
