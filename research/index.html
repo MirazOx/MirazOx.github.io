@@ -163,10 +163,10 @@ function renderResearch(items) {
 
   container.innerHTML = items.map(item => `
     <article class="research-visual-card">
-      <figure class="research-visual-media">
-        <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}" loading="lazy">
-      </figure>
       <div class="research-visual-copy">
+        <figure class="research-visual-media">
+          <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}" loading="lazy">
+        </figure>
         ${item.thread ? `<p class="research-thread">${escapeHTML(item.thread)}</p>` : ''}
         <div class="research-top">
           <span class="research-type">${escapeHTML(item.type)}</span>
