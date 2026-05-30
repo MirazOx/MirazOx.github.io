@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=27">
+<link rel="stylesheet" href="/assets/css/style.css?v=28">
 </head>
 <body data-page="research">
 <nav class="nav-modern" id="siteNav">
@@ -53,18 +53,22 @@
       </figure>
     </section>
 
-    <div class="research-signal-grid reveal">
-      <div><strong>2</strong><span>active proposals</span></div>
-      <div><strong>OSF</strong><span>pre-registration planned</span></div>
-      <div><strong>NLP</strong><span>artefact analysis</span></div>
-      <div><strong>Dhaka</strong><span>local evidence base</span></div>
-    </div>
+    <section class="research-approach reveal">
+      <p class="research-approach-eyebrow">How I work</p>
+      <div class="research-approach-row">
+        <div class="ra-item"><span class="ra-term">Pre-registered</span><span class="ra-sub">OSF, before data collection</span></div>
+        <div class="ra-item"><span class="ra-term">Mixed methods</span><span class="ra-sub">quantitative + qualitative</span></div>
+        <div class="ra-item"><span class="ra-term">Local evidence</span><span class="ra-sub">grounded in Dhaka</span></div>
+        <div class="ra-item"><span class="ra-term">Multi-instrument</span><span class="ra-sub">survey · artefact · interview</span></div>
+      </div>
+    </section>
 
     <section class="reveal">
       <div class="section-header">
         <h2 class="section-title">Current research</h2>
-        <span class="section-meta">active proposals</span>
+        <span class="section-meta">two threads · pre-registered</span>
       </div>
+      <p class="research-section-lead">Two linked questions, two pre-registered studies: how readers learn from algorithmic feeds, and what students lose when writing is outsourced to AI.</p>
       <div id="research-list" class="research-visual-grid"></div>
     </section>
 
@@ -107,6 +111,7 @@
 <script type="application/json" id="inline-research-data">[
   {
     "slug": "writing-without-writing",
+    "thread": "Thread · Writing & epistemic development",
     "status": "in-progress",
     "year": "2026",
     "type": "Mixed methods · ULAB CLS",
@@ -123,6 +128,7 @@
   },
   {
     "slug": "algorithmic-news-feeds",
+    "thread": "Thread · Learning from algorithmic feeds",
     "status": "in-progress",
     "year": "2026",
     "type": "Mixed methods · six Dhaka universities",
@@ -161,6 +167,7 @@ function renderResearch(items) {
         <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}" loading="lazy">
       </figure>
       <div class="research-visual-copy">
+        ${item.thread ? `<p class="research-thread">${escapeHTML(item.thread)}</p>` : ''}
         <div class="research-top">
           <span class="research-type">${escapeHTML(item.type)}</span>
           <span class="badge${badgeClass(item.status)}">${badgeText(item.status)} · ${escapeHTML(item.year)}</span>

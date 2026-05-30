@@ -6685,3 +6685,82 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   margin: -0.5rem 0 1.5rem;
   max-width: 60ch;
 }
+
+/* ==========================================================
+   RESEARCH — "How I work" approach band + thread framing
+   ========================================================== */
+
+.research-approach {
+  margin: 1rem 0 3.5rem;
+  padding: 1.5rem 1.75rem;
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg2);
+}
+.research-approach-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  margin-bottom: 1.1rem;
+}
+.research-approach-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.ra-item {
+  padding: 0 1.5rem;
+  border-left: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.ra-item:first-child { border-left: none; padding-left: 0; }
+.ra-term {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1.15;
+}
+.ra-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--text2);
+  line-height: 1.45;
+}
+@media (max-width: 720px) {
+  .research-approach-row { grid-template-columns: 1fr 1fr; gap: 1.25rem 0; }
+  .ra-item:nth-child(3) { border-left: none; padding-left: 0; }
+}
+@media (max-width: 440px) {
+  .research-approach-row { grid-template-columns: 1fr; gap: 1.1rem; }
+  .ra-item { border-left: none; padding-left: 0; }
+}
+
+.research-section-lead {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text2);
+  margin: -0.5rem 0 1.75rem;
+  max-width: 64ch;
+}
+.research-thread {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.research-thread::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent-teal);
+  flex-shrink: 0;
+}
