@@ -4624,11 +4624,18 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   overflow: hidden;
   background: var(--bg2);
 }
-.research-hero-media img,
-.research-visual-media img {
+.research-hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  filter: grayscale(1);
+  transition: filter 360ms ease, transform 360ms ease;
+}
+.research-visual-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
   filter: grayscale(1);
   transition: filter 360ms ease, transform 360ms ease;
