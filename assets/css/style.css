@@ -6797,6 +6797,44 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: var(--text3);
 }
 
+.featured-course .fc-outcome-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+.featured-course .fc-resource-link,
+.featured-course .fc-resource-placeholder {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.28rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+.featured-course .fc-resource-link {
+  color: var(--accent-teal);
+  border-color: color-mix(in srgb, var(--accent-teal) 30%, var(--border2));
+  transition: all 0.2s ease;
+  z-index: 2;
+  position: relative;
+}
+.featured-course .fc-resource-link:hover {
+  border-color: color-mix(in srgb, var(--accent-teal) 65%, var(--border2));
+  background: color-mix(in srgb, var(--accent-teal) 8%, transparent);
+  color: var(--accent-teal);
+}
+.featured-course .fc-resource-placeholder {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--accent-teal) 20%, var(--border2));
+  color: color-mix(in srgb, var(--text3) 70%, var(--accent-teal));
+}
+
 .academic-band-header {
   display: flex;
   justify-content: space-between;
