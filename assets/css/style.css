@@ -1616,16 +1616,19 @@ a.timeline-item-title:hover {
 
 @media (min-width: 720px) {
   .cred-verify-jump-card {
-    grid-column: -2 / -1;
+    grid-column: -3 / -1;
     grid-row: 2;
     min-height: 0;
   }
   .cred-verify-jump-card .cred-showcase-title {
-    max-width: 15ch;
+    max-width: none;
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.2;
     letter-spacing: 0;
+  }
+  .cred-verify-jump-card .cred-verify-jump-copy {
+    display: block;
   }
 }
 
