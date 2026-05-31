@@ -352,10 +352,12 @@ fetch('/content/academic.json?v=14')
       const outcomes = resources.length
         ? resources.map(r => `<a class="fc-resource-link" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.label)} ↗</a>`).join('')
         : '<span class="fc-resource-placeholder">Work sample pending</span>';
+      const showWork = !resources.length && c.work;
+      const workHtml = showWork ? `<p class="fc-work">${esc(c.work)}</p>` : '';
       return `<article class="featured-course">
         <div class="fc-top"><span class="fc-code">${esc(c.code)}</span><span class="fc-grade">A+</span></div>
         <h3 class="fc-name">${esc(c.name)}</h3>
-        <p class="fc-work">${esc(c.work||'')}</p>
+        ${workHtml}
         <div class="fc-outcome-list">${outcomes}</div>
         <p class="fc-group">${esc(c.group)}</p>
       </article>`;
