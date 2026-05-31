@@ -1788,6 +1788,35 @@ a.timeline-item-title:hover {
   color: var(--text3);
 }
 
+.cred-verify-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .cred-verify-two-col {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+  }
+}
+.cred-verify-left {
+  display: flex;
+  flex-direction: column;
+}
+.cred-verify-left .cred-verify-desc {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.cred-verify-left .credential-verify-foot {
+  margin-top: 2rem;
+}
+.cred-verify-right .credential-verify-form {
+  margin-top: 0;
+  max-width: 100%;
+}
+
 /* SERVICES */
 .service-title { font-family: var(--font-display); font-size: 20px; color: var(--text); }
 .service-price { font-family: var(--font-mono); font-size: 11px; color: var(--accent-amber); }
