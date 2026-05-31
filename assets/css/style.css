@@ -1659,21 +1659,21 @@ a.timeline-item-title:hover {
   min-width: 0;
 }
 .cred-inst-logo {
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   object-fit: cover;
   border: 0.5px solid var(--border);
   flex-shrink: 0;
 }
 .cred-inst-monogram {
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05em;
   flex-shrink: 0;
@@ -1687,8 +1687,8 @@ a.timeline-item-title:hover {
 }
 .cred-logo-wrapper {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -1703,7 +1703,7 @@ a.timeline-item-title:hover {
 }
 .cred-inst-monogram-bg {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1718,7 +1718,7 @@ a.timeline-item-title:hover {
   height: 100%;
   z-index: 2;
   background: #ffffff;
-  padding: 4px;
+  padding: 5px;
   box-sizing: border-box;
   object-fit: contain;
 }
