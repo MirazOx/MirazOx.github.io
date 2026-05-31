@@ -6802,9 +6802,10 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 .featured-course .fc-outcome-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.3rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-top: 0.4rem;
   margin-bottom: 0.8rem;
 }
 .featured-course .fc-resource-link,
@@ -6831,6 +6832,12 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   border-color: color-mix(in srgb, var(--accent-teal) 65%, var(--border2));
   background: color-mix(in srgb, var(--accent-teal) 8%, transparent);
   color: var(--accent-teal);
+}
+.featured-course .fc-bullet {
+  color: var(--accent-terracotta);
+  margin-right: 0.4rem;
+  font-size: 10px;
+  line-height: 1;
 }
 .featured-course .fc-resource-placeholder {
   border-style: dashed;

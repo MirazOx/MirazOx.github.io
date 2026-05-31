@@ -350,7 +350,7 @@ fetch('/content/academic.json?v=14')
     if (fh) fh.innerHTML = featured.slice(0,6).map(c=> {
       const resources = c.resources || [];
       const outcomes = resources.length
-        ? resources.map(r => `<a class="fc-resource-link" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.label)} ↗</a>`).join('')
+        ? resources.map(r => `<a class="fc-resource-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`).join('')
         : '<span class="fc-resource-placeholder">Work sample pending</span>';
       const showWork = !resources.length && c.work;
       const workHtml = showWork ? `<p class="fc-work">${esc(c.work)}</p>` : '';
