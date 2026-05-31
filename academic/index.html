@@ -326,7 +326,11 @@ fetch('/content/academic.json?v=14')
         if (gr==='A') a++;
         if (gr==='A-') aminus++;
         if (gr==='A+'||gr==='A'||gr==='A-') completed++;
-        if (gr==='A+') featured.push({code:c.code,name:c.name,work:c.workTitle,group:g.category});
+        if (gr==='A+') {
+          const res = getCourseResources(c);
+          const url = res.length ? res[0].url : '';
+          featured.push({code:c.code,name:c.name,work:c.workTitle,group:g.category,url:url});
+        }
       });
     });
     const aRange = aplus + a + aminus;
@@ -344,14 +348,17 @@ fetch('/content/academic.json?v=14')
     ).join('');
 
     const fh = document.getElementById('academicFeatured');
-    if (fh) fh.innerHTML = featured.slice(0,6).map(c=>
-      `<article class="featured-course">
+    if (fh) fh.innerHTML = featured.slice(0,6).map(c=> {
+      const hasUrl = !!c.url;
+      const tagOpen = hasUrl ? `<a class="featured-course is-link" href="${esc(c.url)}" target="_blank" rel="noopener">` : `<article class="featured-course">`;
+      const tagClose = hasUrl ? `</a>` : `</article>`;
+      return `${tagOpen}
         <div class="fc-top"><span class="fc-code">${esc(c.code)}</span><span class="fc-grade">A+</span></div>
         <h3 class="fc-name">${esc(c.name)}</h3>
-        <p class="fc-work">${esc(c.work||'')}</p>
+        <p class="fc-work">${esc(c.work||'')}${hasUrl ? ' ↗' : ''}</p>
         <p class="fc-group">${esc(c.group)}</p>
-      </article>`
-    ).join('');
+      ${tagClose}`;
+    }).join('');
 
     if (window.__reInitReveal) window.__reInitReveal();
   }).catch(()=>{});
