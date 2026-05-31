@@ -116,7 +116,11 @@
     padding-left: 1.2rem;
   }
 
-  .about-title span {
+  .name-part {
+    display: inline-block;
+  }
+
+  .about-title span.name-last {
     display: block; /* break name into two lines on PC view */
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
@@ -691,7 +695,7 @@
       max-width: 320px;
     }
 
-    .about-title span {
+    .about-title span.name-part {
       display: block;
       margin-left: 0;
       margin-top: 0.08rem;
@@ -882,7 +886,7 @@
     <div class="about-portrait-frame">
       <img src="/assets/images/portraits/about-suit-portrait.png" onerror="this.onerror=null;this.src='/assets/images/portraits/about-black-jacket-smile.jpg';" alt="Portrait of Md. Miraz Hossain">
       <div class="about-hero-text">
-        <h1 class="about-title">Md. Miraz <span>Hossain</span></h1>
+        <h1 class="about-title"><span class="name-part">Md.</span> <span class="name-part">Miraz</span> <span class="name-part name-last">Hossain</span></h1>
         <p class="about-hero-subtitle">A short introduction, because the long one is the rest of the site.</p>
       </div>
     </div>
