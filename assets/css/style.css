@@ -1646,8 +1646,45 @@ a.timeline-item-title:hover {
 .cred-group-title { font-family: var(--font-display); font-size: 18px; color: var(--accent-blue); }
 .cred-group-count { font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 0.05em; }
 .cred-list { list-style: none; }
-.cred-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.65rem 0; border-bottom: 0.5px solid var(--border); align-items: baseline; }
+.cred-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.25rem;
+  padding: 0.85rem 0;
+  border-bottom: 0.5px solid var(--border);
+  align-items: center;
+}
 .cred-item:last-child { border-bottom: none; }
+.cred-item-info {
+  min-width: 0;
+}
+.cred-inst-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.5px solid var(--border);
+  flex-shrink: 0;
+}
+.cred-inst-monogram {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+:root[data-theme="light"] .cred-inst-monogram {
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
 .cred-title { font-size: 14px; color: var(--text); line-height: 1.5; }
 .cred-title-link {
   color: inherit;
@@ -3649,8 +3686,8 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   .nav-links { gap: 0.9rem; margin-right: 2.5rem; }
   .controls { flex-direction: column; align-items: stretch; }
   .writing-date { display: none; }
-  .cred-item { grid-template-columns: 1fr; gap: 0.25rem; }
-  .cred-date { text-align: left; }
+  .cred-item { grid-template-columns: auto 1fr; gap: 0.75rem 1rem; align-items: start; }
+  .cred-date { grid-column: 2; text-align: left; margin-top: 0.1rem; }
   .rotating-tag-box { min-width: 0; width: 100%; }
   .folder-entry { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
   .folder-entry-meta { white-space: normal; }
