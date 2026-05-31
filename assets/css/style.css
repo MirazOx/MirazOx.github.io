@@ -4162,15 +4162,6 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
    RESONANCE — Organic Blob Testimonial Bubbles
    ========================================================== */
 .resonance-section {
-  --bg2: #121212; /* Deep Obsidian Off-Black Background */
-  --text: #DFD0BC; /* Champagne Gold / Warm Cream Quote Text */
-  --text3: #9E9285; /* Muted Grayish Gold Secondary Text */
-  --accent: #C07A60; /* Burnt Terracotta Copper Typography Accent */
-  --border-subtle: rgba(192, 122, 96, 0.15); /* Crisp Copper Border Accent */
-  --trans: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-display: var(--font-display), var(--font-display), Georgia, serif;
-  --font-mono: var(--font-mono);
-
   background: var(--bg2);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
@@ -4179,7 +4170,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 .resonance-section .section-title {
   font-family: var(--font-display);
-  color: var(--accent);
+  color: var(--accent-teal);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: clamp(2rem, 3.5vw, 3rem);
@@ -4201,7 +4192,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .resonance-section .section-subtitle {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.6rem);
-  color: #9E9285;
+  color: var(--text2);
   font-style: italic;
   text-align: center;
   margin-top: 12px; /* Relaxed editorial breathing room */
@@ -4219,18 +4210,18 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .resonance-bubble {
   position: absolute;
   padding: 2.2rem 2.4rem 2rem;
-  background: rgba(20, 19, 18, 0.6); /* Obsidian glassy background lets deep dark show through */
+  background: color-mix(in srgb, var(--surface) 65%, transparent); /* Glassy native overlay */
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
-  border: 1px solid rgba(192, 122, 96, 0.45); /* Crisp, sharp copper border with low opacity */
+  border: 1px solid color-mix(in srgb, var(--accent-teal) 32%, transparent); /* Cohesive soft cyan border */
   color: var(--text);
   transition: border-color var(--trans), background var(--trans), transform var(--trans);
-  box-shadow: none; /* Removed heavy shadows causing muddy halos for extreme shape lift */
+  box-shadow: var(--shadow-sm);
 }
 
 .resonance-bubble:hover {
-  border-color: rgba(192, 122, 96, 0.85);
-  background: rgba(20, 19, 18, 0.75);
+  border-color: color-mix(in srgb, var(--accent-teal) 75%, transparent);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
   animation-play-state: paused;
 }
 
@@ -4309,7 +4300,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   font-size: clamp(15px, 1.25vw, 17px);
   font-style: italic;
   font-weight: 400;
-  color: #EAE3DA; /* Pale, stark champagne cream quote text */
+  color: var(--text);
   line-height: 1.6;
   margin-bottom: 1.2rem;
   letter-spacing: 0.01em;
@@ -4321,7 +4312,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   content: '“';
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--accent);
+  color: var(--accent-teal); /* Glowing cyan quotes marks */
   vertical-align: top;
   margin-right: 0.15rem;
   line-height: 1;
@@ -4332,7 +4323,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   content: '”';
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--accent);
+  color: var(--accent-teal); /* Glowing cyan quotes marks */
   vertical-align: bottom;
   margin-left: 0.15rem;
   line-height: 1;
@@ -4342,15 +4333,15 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .bubble-author {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #9E9285; /* Muted grayish-gold for secondary roles info */
+  color: var(--text3); /* Muted native text secondary info */
   letter-spacing: 0.05em;
   line-height: 1.4;
-  border-top: 1px solid rgba(192, 122, 96, 0.2); /* Crisp horizontal divider inside card */
+  border-top: 1px solid var(--border); /* Cohesive horizontal divider */
   padding-top: 0.8rem;
   opacity: 0.8;
 }
 .bubble-author strong {
-  color: #C07A60; /* Signature burnt terracotta copper author name */
+  color: var(--accent-amber); /* Warm gold/amber accent for author names */
   font-weight: 600;
   display: block;
   font-size: 12px;
