@@ -6980,3 +6980,83 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   background: var(--accent-teal);
   flex-shrink: 0;
 }
+
+/* Credentials Horizontal Strip on Landing Page */
+.credentials-strip {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.25rem 0;
+  margin: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.credentials-strip-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.credentials-strip-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.strip-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-terracotta);
+  margin: 0;
+}
+.strip-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--text1);
+  margin: 0;
+  line-height: 1.25;
+  font-weight: 400;
+}
+.strip-cta-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background: transparent;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.4rem;
+  border-radius: 30px;
+  transition: all var(--trans);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.strip-cta-btn:hover {
+  border-color: var(--accent-terracotta);
+  background: color-mix(in srgb, var(--accent-terracotta) 6%, transparent);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+  .credentials-strip {
+    padding: 1.75rem 0;
+    margin: 2.5rem 0;
+  }
+  .credentials-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .strip-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
