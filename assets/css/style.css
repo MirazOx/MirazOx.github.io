@@ -238,7 +238,7 @@ a { color: var(--accent-teal); }
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #16212b;
+  color: var(--text);
   flex-shrink: 0;
 }
 
@@ -250,7 +250,7 @@ a { color: var(--accent-teal); }
   place-items: center;
   border: 1px solid var(--border);
   background: var(--surface);
-  color: #0f1720;
+  color: var(--text);
   transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
   box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset;
 }
@@ -352,7 +352,7 @@ a { color: var(--accent-teal); }
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface);
-  color: #18222c;
+  color: var(--text);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -407,7 +407,7 @@ a { color: var(--accent-teal); }
   gap: 10px;
   padding: 11px 12px;
   border-radius: 12px;
-  color: #41505d;
+  color: var(--text2);
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
@@ -479,7 +479,7 @@ a { color: var(--accent-teal); }
 /* dark mode nav overrides — teal border + charcoal panel */
 :root[data-theme="dark"] .nav-modern::before {
   border: 1px solid color-mix(in srgb, var(--accent-teal) 24%, transparent);
-  background: rgba(24, 30, 38, 0.94);
+  background: rgba(17, 22, 29, 0.94); /* Native slate-navy-charcoal at 94% opacity */
   box-shadow: 0 14px 34px rgba(0,0,0,0.34);
 }
 
@@ -506,7 +506,7 @@ a { color: var(--accent-teal); }
 
 :root[data-theme="dark"] .nav-dropdown {
   border: 1px solid color-mix(in srgb, var(--accent-teal) 22%, transparent);
-  background: rgba(24, 30, 38, 0.98);
+  background: rgba(17, 22, 29, 0.98); /* Native slate-navy-charcoal at 98% opacity */
 }
 
 :root[data-theme="dark"] .nav-link-icon,
@@ -6241,7 +6241,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   }
   :root[data-theme="dark"] .nav-mobile-panel {
     border-color: color-mix(in srgb, var(--accent-teal) 22%, transparent);
-    background: rgba(24, 30, 38, 0.98);
+    background: rgba(17, 22, 29, 0.98); /* Native slate-navy-charcoal at 98% opacity */
   }
   :root[data-theme="dark"] .nav-mobile-panel a {
     color: #eef4f8;
