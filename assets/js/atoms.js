@@ -1,7 +1,8 @@
 /**
  * atoms.js
- * A custom physics-based HTML5 canvas particle connector ("moving atoms") animation.
- * Automatically adapts particle colors by parsing active CSS theme custom properties.
+ * A custom physics-based HTML5 canvas particle animation.
+ * Replicates the gentle rising water bubble / twinkling star style from the mentors page,
+ * while dynamically adapting particle colors using active CSS theme custom properties.
  */
 class AtomParticles {
   constructor(canvasContainer, options = {}) {
@@ -20,11 +21,9 @@ class AtomParticles {
     this.ctx = this.canvas.getContext('2d');
 
     this.particles = [];
-    this.density = options.density || 16000; // px^2 per particle
-    this.maxParticles = options.maxParticles || 65;
-    this.minParticles = options.minParticles || 15;
-    this.speedFactor = options.speed || 0.45;
-    this.lineDist = options.lineDist || 115;
+    this.density = options.density || 9000; // px^2 per particle
+    this.maxParticles = options.maxParticles || 150;
+    this.minParticles = options.minParticles || 30;
     this.colorVar = options.colorVar || '--accent-teal';
     this.fallbackColor = options.fallbackColor || '#22d3ee';
 
@@ -33,7 +32,6 @@ class AtomParticles {
 
     window.addEventListener('resize', this.resize);
     this.resize();
-    this.initParticles();
     this.animate();
   }
 
@@ -43,9 +41,11 @@ class AtomParticles {
     this.height = rect.height;
     
     // Scale canvas pixels for high-DPI displays
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     this.canvas.width = this.width * dpr;
     this.canvas.height = this.height * dpr;
+    this.canvas.style.width = this.width + 'px';
+    this.canvas.style.height = this.height + 'px';
     this.ctx.resetTransform();
     this.ctx.scale(dpr, dpr);
     
@@ -66,23 +66,16 @@ class AtomParticles {
 
   createParticle(randomPos = false) {
     return {
-      x: randomPos ? Math.random() * this.width : (Math.random() > 0.5 ? 0 : this.width),
-      y: randomPos ? Math.random() * this.height : (Math.random() > 0.5 ? 0 : this.height),
-      vx: (Math.random() * 2 - 1) * this.speedFactor,
-      vy: (Math.random() * 2 - 1) * this.speedFactor,
-      radius: Math.random() * 1.5 + 1.2
+      x: Math.random() * this.width,
+      y: randomPos ? Math.random() * this.height : this.height + 4,
+      r: Math.random() * 1.8 + 0.5,
+      baseA: Math.random() * 0.45 + 0.15,
+      a: Math.random(),
+      tw: Math.random() * 0.025 + 0.005,   // twinkle/fade speed
+      dir: Math.random() < 0.5 ? 1 : -1,
+      vy: -(Math.random() * 0.22 + 0.05),  // gentle upward drift
+      vx: (Math.random() - 0.5) * 0.12     // slight horizontal sway
     };
-  }
-
-  initParticles() {
-    const count = Math.min(
-      this.maxParticles,
-      Math.max(this.minParticles, Math.floor((this.width * this.height) / this.density))
-    );
-    this.particles = [];
-    for (let i = 0; i < count; i++) {
-      this.particles.push(this.createParticle(true));
-    }
   }
 
   getRGBColor() {
@@ -116,52 +109,47 @@ class AtomParticles {
   }
 
   animate() {
-    // Clear canvas
     this.ctx.clearRect(0, 0, this.width, this.height);
 
     const rgb = this.getRGBColor();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Update and draw particles
     for (let p of this.particles) {
-      p.x += p.vx;
-      p.y += p.vy;
+      // Update opacity / twinkle
+      p.a += p.tw * p.dir;
+      if (p.a > 1) {
+        p.a = 1; 
+        p.dir = -1;
+      } else if (p.a < 0.1) {
+        p.a = 0.1; 
+        p.dir = 1;
+      }
 
-      // Bounce off walls
-      if (p.x < 0 || p.x > this.width) p.vx *= -1;
-      if (p.y < 0 || p.y > this.height) p.vy *= -1;
+      // Update positions (unless prefers-reduced-motion is active)
+      if (!reduce) {
+        p.x += p.vx;
+        p.y += p.vy;
 
-      // Keep inside bounds
-      if (p.x < 0) p.x = 0;
-      if (p.x > this.width) p.x = this.width;
-      if (p.y < 0) p.y = 0;
-      if (p.y > this.height) p.y = this.height;
+        // Loop when going out of top bounds
+        if (p.y < -4) {
+          p.y = this.height + 4;
+          p.x = Math.random() * this.width;
+        }
 
-      // Draw particle circle
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(${rgb}, 0.22)`;
-      this.ctx.fill();
-    }
-
-    // Draw lines connecting close particles
-    for (let i = 0; i < this.particles.length; i++) {
-      const p1 = this.particles[i];
-      for (let j = i + 1; j < this.particles.length; j++) {
-        const p2 = this.particles[j];
-        const dx = p1.x - p2.x;
-        const dy = p1.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < this.lineDist) {
-          const alpha = (1 - dist / this.lineDist) * 0.14;
-          this.ctx.beginPath();
-          this.ctx.moveTo(p1.x, p1.y);
-          this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(${rgb}, ${alpha})`;
-          this.ctx.lineWidth = 0.8;
-          this.ctx.stroke();
+        // Wrap horizontal positioning
+        if (p.x < -4) {
+          p.x = this.width + 4;
+        } else if (p.x > this.width + 4) {
+          p.x = -4;
         }
       }
+
+      // Draw particle bubble
+      const alpha = p.baseA * p.a;
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      this.ctx.fillStyle = `rgba(${rgb}, ${alpha})`;
+      this.ctx.fill();
     }
 
     requestAnimationFrame(this.animate);
@@ -174,10 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const testimonialsSec = document.getElementById('testimonials');
   if (testimonialsSec) {
     new AtomParticles(testimonialsSec, {
-      density: 15000,
-      maxParticles: 55,
-      speed: 0.4,
-      lineDist: 110,
+      density: 9500,
+      maxParticles: 100,
       colorVar: '--accent-teal',
       fallbackColor: '#22d3ee'
     });
@@ -187,10 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const credentialsStrip = document.querySelector('.credentials-strip');
   if (credentialsStrip) {
     new AtomParticles(credentialsStrip, {
-      density: 10000,
-      maxParticles: 35,
-      speed: 0.35,
-      lineDist: 100,
+      density: 8000,
+      maxParticles: 50,
       colorVar: '--accent-terracotta',
       fallbackColor: '#e2876f'
     });
