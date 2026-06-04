@@ -4275,6 +4275,12 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
+  position: relative;
+}
+
+.resonance-section .container-wide {
+  position: relative;
+  z-index: 2;
 }
 
 .resonance-section .section-title {
@@ -4326,7 +4332,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   display: inline-block;
   width: 100%;
   margin: 0 0 1.6rem;
-  padding: 2.2rem 2.4rem 2rem;
+  padding: 2.4rem 2.6rem 2.4rem;
   background: color-mix(in srgb, var(--surface) 65%, transparent); /* Glassy native overlay */
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
@@ -4337,30 +4343,69 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 
 .resonance-bubble:hover {
-  transform: translateY(-6px);
+  animation: none !important;
+  transform: translateY(-8px) scale(1.025);
   border-color: color-mix(in srgb, var(--accent-teal) 68%, transparent);
   background: color-mix(in srgb, var(--surface) 78%, transparent);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
 }
 
-/* Individual organic speech bubble shapes applied inside the grid */
+/* Individual organic speech bubble shapes with pixel-capped radii to prevent text clipping */
 .bubble-1 {
-  border-radius: 50% 50% 8% 50% / 50% 50% 8% 50%; /* teardrop pointing bottom-right */
+  border-radius: 60px 60px 12px 60px; /* pointing bottom-right */
+  animation: floatBubble-1 8s ease-in-out infinite;
 }
 .bubble-2 {
-  border-radius: 46% 54% 8% 92% / 54% 46% 8% 92%; /* fluid asymmetric egg shape */
+  border-radius: 60px 60px 60px 12px; /* pointing bottom-left */
+  animation: floatBubble-2 10s ease-in-out infinite;
 }
 .bubble-3 {
-  border-radius: 50% 50% 50% 8% / 50% 50% 50% 8%; /* teardrop pointing bottom-left */
+  border-radius: 60px 12px 60px 60px; /* pointing top-right */
+  animation: floatBubble-3 9s ease-in-out infinite;
 }
 .bubble-4 {
-  border-radius: 50% 50% 50% 8% / 50% 50% 50% 8%;
+  border-radius: 12px 60px 60px 60px; /* pointing top-left */
+  animation: floatBubble-4 11s ease-in-out infinite;
 }
 .bubble-5 {
-  border-radius: 50% 50% 8% 50% / 50% 50% 8% 50%;
+  border-radius: 70px 50px 12px 50px; /* pointing bottom-right, asymmetric */
+  animation: floatBubble-5 7.5s ease-in-out infinite;
 }
 .bubble-6 {
-  border-radius: 50% 50% 50% 6% / 50% 50% 50% 6%;
+  border-radius: 50px 70px 50px 12px; /* pointing bottom-left, asymmetric */
+  animation: floatBubble-6 9.5s ease-in-out infinite;
+}
+
+/* Float Animations for organic floating motion */
+@keyframes floatBubble-1 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatBubble-2 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-3px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatBubble-3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -7px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatBubble-4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, -9px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatBubble-5 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -6px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes floatBubble-6 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-1px, -8px); }
+  100% { transform: translate(0, 0); }
 }
 
 @media (max-width: 1024px) {
@@ -4369,8 +4414,13 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 @media (max-width: 680px) {
   .resonance-grid { column-count: 1; column-gap: 0; }
-  .resonance-bubble { border-radius: 20px !important; } /* standard rounding on mobile for readability */
+  .resonance-bubble { 
+    border-radius: 20px !important; 
+    animation: none !important;
+    transform: none !important;
+  }
 }
+
 
 /* Testimonial Typography & Authors */
 .bubble-quote, .tcard-quote {
@@ -7004,6 +7054,8 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
+  position: relative;
+  z-index: 2;
 }
 .strip-eyebrow {
   font-family: var(--font-mono);

@@ -9,10 +9,13 @@
 <meta name="description" content="Journalist turned researcher studying how algorithms reshape truth and public knowledge in South Asia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,300;1,7..72,400;1,7..72,500;1,7..72,600;1,7..72,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=32">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=27">
+<link rel="stylesheet" href="/assets/css/test-motion.css?v=1">
+<style>.variant-badge{position:fixed;top:0;left:0;z-index:9999;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 12px;border-bottom-right-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.35);pointer-events:none;}</style>
 </head>
 <body data-page="home">
+<div class="variant-badge">TEST C · Motion & interaction</div>
 
 <nav class="nav-modern" id="siteNav">
   <div class="nav-inner">
@@ -381,7 +384,6 @@
           </div>
         </article>
 
-        <!--
         <article class="education-card" hidden data-education-extra>
           <div class="education-logo-wrap">
             <img class="education-logo" src="/assets/images/logos/dhaka-university.svg" alt="University of Dhaka logo">
@@ -416,22 +418,9 @@
             </ul>
           </div>
         </article>
-        -->
       </div>
-      <!--
-      <div class="section-action-row">
-        <button class="toggle-more-btn" type="button" data-toggle="education" aria-expanded="false">see more education ↓</button>
-      </div>
-      -->
-    </section>
-
-    <!-- ── CREDENTIALS STRIP ── -->
-    <section class="credentials-strip reveal">
-      <div class="credentials-strip-inner">
-        <p class="strip-eyebrow">Professional Training &amp; Certifications</p>
-        <h3 class="strip-title">76 completions across Oxford, Ivy League, AFP, and Google</h3>
-        <a href="/credentials/" class="strip-cta-btn">verify credentials ↗</a>
-      </div>
+      <!-- Earlier education cards are intentionally kept above with hidden + data-education-extra.
+           To show them later, add back a data-toggle="education" button here or remove hidden. -->
     </section>
 
     <!-- ── PUBLIC PRESENCE ── -->
@@ -460,47 +449,39 @@
       <p class="lightbox-cap"></p>
     </div>
 
-<!-- ═══════════════ RESONANCE ═══════════════ -->
-<section class="resonance-section page-section reveal" id="testimonials">
-  <div class="container-wide">
-    <div class="section-header">
-      <h2 class="section-title">RESONANCE</h2>
-      <p class="section-subtitle">Notes of encouragement</p>
-    </div>
-
-    <div class="resonance-grid">
-      <article class="resonance-bubble bubble-1">
-        <p class="bubble-quote">It honestly felt too good to be free because it was really that good.</p>
-        <p class="bubble-author"><strong>Nusrat Jahan Joti</strong>Participant, first cohort of HPL</p>
-      </article>
-
-      <article class="resonance-bubble bubble-2 is-placeholder">
-        <p class="bubble-quote">Miraz is one of the most versatile feature writers I've worked with; no matter what the story, I could rest assured that he would not leave any stone unturned in his pursuit of the report. All investigative stories assigned to him yielded complete reports where I rarely had to ask him to include additional information after submissions.</p>
-        <p class="bubble-author"><strong>Abrar Aowsaf</strong>Assistant Feature Editor · The Business Standard</p>
-      </article>
-
-      <article class="resonance-bubble bubble-3 is-placeholder">
-        <p class="bubble-quote">He brought verification methods into our seminar that none of us had encountered before. The room got quieter, and then it got better.</p>
-        <p class="bubble-author"><strong>Dr. Andalib Rubayat</strong>Faculty Supervisor · ULAB MSJ</p>
-      </article>
-
-      <article class="resonance-bubble bubble-4 is-placeholder">
-        <p class="bubble-quote">I've worked with a lot of trainers. Miraz is the rare one who teaches what to do when the tool doesn't quite work.</p>
-        <p class="bubble-author"><strong>Tanvir Mahmud</strong>Fact-checker · Dismislab</p>
-      </article>
-
-      <article class="resonance-bubble bubble-5 is-placeholder">
-        <p class="bubble-quote">The HPL workshops changed how I approach every exam. Not the content — the method.</p>
-        <p class="bubble-author"><strong>Sumaiya Akter</strong>Former HPL Participant · Cohort 2025</p>
-      </article>
-
-      <article class="resonance-bubble bubble-6 is-placeholder">
-        <p class="bubble-quote">On the panel, Miraz did the rare thing: he made media literacy sound like a civic habit people can actually practice.</p>
-        <p class="bubble-author"><strong>Nusrat Tabassum</strong>Coordinator · Students Against Discrimination</p>
-      </article>
-    </div>
-  </div>
-</section>
+    <!-- ── TESTIMONIALS ── -->
+    <section class="reveal" id="testimonials">
+      <div class="section-header">
+        <h2 class="section-title">Resonance</h2>
+        <span class="section-meta">voices from the field</span>
+      </div>
+      <div class="resonance-bubbles-container">
+        <article class="resonance-bubble bubble-1">
+          <p class="tcard-quote">"It honestly felt too good to be free because it was really that good."</p>
+          <p class="tcard-byline"><strong>Nusrat Jahan Joti</strong> · Participant, first cohort of HPL</p>
+        </article>
+        <article class="resonance-bubble bubble-2 is-placeholder">
+          <p class="tcard-quote">"Miraz is one of the most versatile feature writers I've worked with; no matter what the story, I could rest assured that he would not leave any stone unturned in his pursuit of the report. All investigative stories assigned to him yielded complete reports where I rarely had to ask him to include additional information after submissions."</p>
+          <p class="tcard-byline"><strong>Assistant Feature Editor</strong> · The Business Standard</p>
+        </article>
+        <article class="resonance-bubble bubble-3 is-placeholder">
+          <p class="tcard-quote">"He brought verification methods into our seminar that none of us had encountered before. The room got quieter, and then it got better."</p>
+          <p class="tcard-byline"><strong>Dr. Andalib Rubayat</strong> · Faculty Supervisor · ULAB MSJ</p>
+        </article>
+        <article class="resonance-bubble bubble-4 is-placeholder">
+          <p class="tcard-quote">"I've worked with a lot of trainers. Miraz is the rare one who teaches what to do when the tool doesn't quite work."</p>
+          <p class="tcard-byline"><strong>Tanvir Mahmud</strong> · Fact-checker · Dismislab</p>
+        </article>
+        <article class="resonance-bubble bubble-5 is-placeholder">
+          <p class="tcard-quote">"The HPL workshops changed how I approach every exam. Not the content — the method. I wish I had this in year one."</p>
+          <p class="tcard-byline"><strong>Sumaiya Akter</strong> · Former HPL Participant · Cohort 2025</p>
+        </article>
+        <article class="resonance-bubble bubble-6 is-placeholder">
+          <p class="tcard-quote">"On the panel, Miraz did the rare thing: he made media literacy sound like a civic habit people can actually practice."</p>
+          <p class="tcard-byline"><strong>Nusrat Tabassum</strong> · Coordinator · Students Against Discrimination</p>
+        </article>
+      </div>
+    </section>
 
   </div>
 </main>
