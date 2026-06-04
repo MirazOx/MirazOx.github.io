@@ -4309,135 +4309,152 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   opacity: 0.85;
 }
 
-/* Masonry column layout: packs unequal-length quotes cleanly,
-   no overlap, no fixed height, no absolute collisions. */
+/* ── Design 4: Tactile Index Cards with Ripped Washi/Matte Tape ──
+   A creative, tactile board look. Each testimonial is styled as a
+   ruled paper card with a vertical red margin line, a ripped piece
+   of transparent matte tape at the top, and a custom authenticity
+   stamp. Subtle random tilts simulate a real bulletin board. */
 .resonance-grid {
-  max-width: 1080px;
+  max-width: 1040px;
   margin: 0 auto;
   column-count: 3;
-  column-gap: 1.6rem;
+  column-gap: 2rem;
 }
 
 .resonance-bubble {
   position: relative;
-  overflow: hidden; /* clips the gradient hairline + keeps corners clean */
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
-  display: inline-block; /* keeps each card whole within a column */
+  display: inline-block;
   width: 100%;
-  margin: 0 0 1.6rem;
-  padding: 2.1rem 1.8rem 1.5rem;
-  background: color-mix(in srgb, var(--surface) 62%, transparent); /* Glassy native overlay */
-  backdrop-filter: blur(10px) saturate(1.15);
-  -webkit-backdrop-filter: blur(10px) saturate(1.15);
-  border: 1px solid color-mix(in srgb, var(--accent-teal) 24%, transparent); /* Cohesive soft cyan border */
-  border-radius: 16px; /* calm, consistent rounding (no organic blobs) */
+  margin: 0 0 2rem;
+  padding: 2.25rem 1.6rem 1.6rem 1.85rem;
+  background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
   color: var(--text);
-  box-shadow: var(--shadow-sm);
-  transform: rotate(var(--tilt, 0deg)); /* hand-pinned "note" feel, subtle */
-  transition: border-color var(--trans), background var(--trans), transform var(--trans), box-shadow var(--trans);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: rotate(var(--tilt, 0deg));
+  border-left: 2px solid color-mix(in srgb, var(--accent-terracotta) 45%, transparent); /* vertical red margin line */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color var(--trans),
+              background var(--trans);
 }
 
-/* Oversized ghost quotation mark — decorative motif behind each note */
+/* Alternate tilts to look organic and scattered */
+.resonance-bubble:nth-child(1) { --tilt: -1.2deg; }
+.resonance-bubble:nth-child(2) { --tilt: 0.9deg; }
+.resonance-bubble:nth-child(3) { --tilt: -0.7deg; }
+.resonance-bubble:nth-child(4) { --tilt: 1.1deg; }
+.resonance-bubble:nth-child(5) { --tilt: -0.8deg; }
+.resonance-bubble:nth-child(6) { --tilt: 0.6deg; }
+
+/* The Ripped Washi/Matte Tape at the top of the card */
 .resonance-bubble::before {
-  content: '\201C';
-  position: absolute;
-  top: 0.1rem;
-  left: 0.85rem;
-  font-family: var(--font-display);
-  font-size: 4.5rem;
-  line-height: 1;
-  color: var(--accent-teal);
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity var(--trans);
-}
-
-/* Teal -> amber gradient hairline across the top edge */
-.resonance-bubble::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
-  opacity: 0.45;
-  transition: opacity var(--trans);
+  top: -10px;
+  left: 50%;
+  width: 70px;
+  height: 18px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.08) 50%, 
+    rgba(255,255,255,0) 100%
+  ), color-mix(in srgb, var(--accent-teal) 16%, transparent);
+  opacity: 0.75;
+  z-index: 5;
+  transform: translateX(-50%) rotate(var(--tape-tilt, -2deg));
+  /* A ripped look on left and right edges */
+  clip-path: polygon(
+    0% 12%, 4% 0%, 96% 0%, 100% 12%, 
+    97% 32%, 100% 52%, 98% 72%, 100% 88%, 96% 100%, 
+    4% 100%, 0% 88%, 3% 68%, 0% 48%, 2% 28%
+  );
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: opacity var(--trans), transform var(--trans);
 }
+.resonance-bubble:nth-child(even)::before { --tape-tilt: 3deg; }
 
-/* Gentle alternating tilt so the notes feel scattered, not stamped */
-.resonance-bubble:nth-child(1) { --tilt: -0.9deg; }
-.resonance-bubble:nth-child(2) { --tilt:  0.8deg; }
-.resonance-bubble:nth-child(3) { --tilt: -0.5deg; }
-.resonance-bubble:nth-child(4) { --tilt:  0.7deg; }
-.resonance-bubble:nth-child(5) { --tilt: -0.8deg; }
-.resonance-bubble:nth-child(6) { --tilt:  0.5deg; }
+/* Hand-stamped 'VERIFIED' mark on bottom-right corner */
+.resonance-bubble::after {
+  content: 'VERIFIED SIGN';
+  position: absolute;
+  bottom: 1.1rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 5px;
+  border: 1px dashed color-mix(in srgb, var(--accent-teal) 32%, transparent);
+  border-radius: 4px;
+  color: var(--accent-teal);
+  opacity: 0.28;
+  transform: rotate(-10deg);
+  pointer-events: none;
+  transition: opacity var(--trans), transform var(--trans), border-color var(--trans);
+}
 
 .resonance-bubble:hover {
-  transform: rotate(0deg) translateY(-6px); /* straighten + lift like picking it up */
-  border-color: color-mix(in srgb, var(--accent-teal) 60%, transparent);
-  background: color-mix(in srgb, var(--surface) 80%, transparent);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.30),
-              0 6px 22px color-mix(in srgb, var(--accent-teal) 20%, transparent); /* soft teal glow */
+  transform: rotate(0deg) translateY(-8px) scale(1.015);
+  border-color: color-mix(in srgb, var(--accent-teal) 48%, transparent);
+  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22),
+              0 4px 12px color-mix(in srgb, var(--accent-teal) 12%, transparent);
 }
-
-.resonance-bubble:hover::before { opacity: 0.2; }
-.resonance-bubble:hover::after  { opacity: 1; }
+.resonance-bubble:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) rotate(0deg) scale(1.05);
+}
+.resonance-bubble:hover::after {
+  opacity: 0.65;
+  border-color: var(--accent-teal);
+  transform: rotate(-6deg) scale(1.05);
+}
 
 @media (max-width: 1024px) {
-  .resonance-grid { column-count: 2; }
+  .resonance-grid { column-count: 2; column-gap: 1.5rem; }
 }
 
-/* Respect reduced-motion: drop the tilt entirely */
-@media (prefers-reduced-motion: reduce) {
-  .resonance-bubble,
-  .resonance-bubble:hover { transform: none; }
+@media (max-width: 760px) {
+  .resonance-grid { column-count: 1; column-gap: 0; max-width: 560px; }
+  .resonance-bubble { transform: none !important; }
 }
 
-.bubble-quote {
-  position: relative;
-  z-index: 1; /* sits above the ghost quotation mark */
+.tcard-quote {
   font-family: var(--font-display);
-  font-size: clamp(15px, 1.25vw, 17px);
+  font-size: clamp(15px, 1.3vw, 17px);
   font-style: italic;
   font-weight: 400;
   color: var(--text);
-  line-height: 1.6;
-  margin-bottom: 1.2rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
   letter-spacing: 0.01em;
-  text-shadow: none; /* High-contrast, ensure no blurry text-glow halo */
-  opacity: 0.95;
+  text-shadow: none;
+  opacity: 0.96;
 }
 
-.bubble-author {
+.tcard-byline {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text3); /* Muted native text secondary info */
   letter-spacing: 0.05em;
   line-height: 1.4;
-  border-top: 1px solid var(--border); /* Cohesive horizontal divider */
-  padding-top: 0.8rem;
-  opacity: 0.8;
+  padding-top: 0.2rem;
+  opacity: 0.85;
 }
-.bubble-author strong {
+.tcard-byline strong {
   color: var(--accent-amber); /* Warm gold/amber accent for author names */
   font-weight: 600;
-  display: block;
+  display: inline-block;
   font-size: 12px;
   margin-bottom: 0.15rem;
   letter-spacing: 0.05em;
 }
 
 .is-placeholder { opacity: 1; } /* keep quote text fully legible on dark bg */
-
-@media (max-width: 680px) {
-  .resonance-grid {
-    column-count: 1;
-    column-gap: 0;
-  }
-}
 
 /* ═══════════════════════════════════════════
    PUBLIC PRESENCE / PANEL FEATURE
