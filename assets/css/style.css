@@ -4319,12 +4319,14 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 
 .resonance-bubble {
+  position: relative;
+  overflow: hidden; /* clips the gradient hairline + keeps corners clean */
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   display: inline-block; /* keeps each card whole within a column */
   width: 100%;
   margin: 0 0 1.6rem;
-  padding: 1.7rem 1.8rem 1.5rem;
+  padding: 2.1rem 1.8rem 1.5rem;
   background: color-mix(in srgb, var(--surface) 62%, transparent); /* Glassy native overlay */
   backdrop-filter: blur(10px) saturate(1.15);
   -webkit-backdrop-filter: blur(10px) saturate(1.15);
@@ -4332,21 +4334,71 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   border-radius: 16px; /* calm, consistent rounding (no organic blobs) */
   color: var(--text);
   box-shadow: var(--shadow-sm);
+  transform: rotate(var(--tilt, 0deg)); /* hand-pinned "note" feel, subtle */
   transition: border-color var(--trans), background var(--trans), transform var(--trans), box-shadow var(--trans);
 }
 
-.resonance-bubble:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent-teal) 60%, transparent);
-  background: color-mix(in srgb, var(--surface) 78%, transparent);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+/* Oversized ghost quotation mark — decorative motif behind each note */
+.resonance-bubble::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.1rem;
+  left: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--accent-teal);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity var(--trans);
 }
+
+/* Teal -> amber gradient hairline across the top edge */
+.resonance-bubble::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
+  opacity: 0.45;
+  transition: opacity var(--trans);
+}
+
+/* Gentle alternating tilt so the notes feel scattered, not stamped */
+.resonance-bubble:nth-child(1) { --tilt: -0.9deg; }
+.resonance-bubble:nth-child(2) { --tilt:  0.8deg; }
+.resonance-bubble:nth-child(3) { --tilt: -0.5deg; }
+.resonance-bubble:nth-child(4) { --tilt:  0.7deg; }
+.resonance-bubble:nth-child(5) { --tilt: -0.8deg; }
+.resonance-bubble:nth-child(6) { --tilt:  0.5deg; }
+
+.resonance-bubble:hover {
+  transform: rotate(0deg) translateY(-6px); /* straighten + lift like picking it up */
+  border-color: color-mix(in srgb, var(--accent-teal) 60%, transparent);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.30),
+              0 6px 22px color-mix(in srgb, var(--accent-teal) 20%, transparent); /* soft teal glow */
+}
+
+.resonance-bubble:hover::before { opacity: 0.2; }
+.resonance-bubble:hover::after  { opacity: 1; }
 
 @media (max-width: 1024px) {
   .resonance-grid { column-count: 2; }
 }
 
+/* Respect reduced-motion: drop the tilt entirely */
+@media (prefers-reduced-motion: reduce) {
+  .resonance-bubble,
+  .resonance-bubble:hover { transform: none; }
+}
+
 .bubble-quote {
+  position: relative;
+  z-index: 1; /* sits above the ghost quotation mark */
   font-family: var(--font-display);
   font-size: clamp(15px, 1.25vw, 17px);
   font-style: italic;
@@ -4357,28 +4409,6 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   letter-spacing: 0.01em;
   text-shadow: none; /* High-contrast, ensure no blurry text-glow halo */
   opacity: 0.95;
-}
-
-.bubble-quote::before {
-  content: '“';
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--accent-teal); /* Glowing cyan quotes marks */
-  vertical-align: top;
-  margin-right: 0.15rem;
-  line-height: 1;
-  opacity: 0.85;
-}
-
-.bubble-quote::after {
-  content: '”';
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--accent-teal); /* Glowing cyan quotes marks */
-  vertical-align: bottom;
-  margin-left: 0.15rem;
-  line-height: 1;
-  opacity: 0.85;
 }
 
 .bubble-author {
