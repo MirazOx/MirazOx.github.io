@@ -7139,3 +7139,48 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
     justify-content: center;
   }
 }
+
+/* ==========================================================
+   HERO — rhythm, standalone CTA, photo cohesion
+   ========================================================== */
+
+.hero-fullbleed .hero-tagline { margin-bottom: 2.1rem; }
+.hero-fullbleed .hero-statement { margin-bottom: 1.5rem; max-width: 52ch; }
+.hero-fullbleed .rotating-tag-wrap { margin-bottom: 1.4rem; }
+
+.hero-cta-row {
+  margin-top: 0;
+  animation: fadeUp 0.8s ease-out 0.5s both;
+}
+.hero-fullbleed .hero-cta-row .hero-inline-cta {
+  margin-left: 0;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  gap: 9px;
+  padding-bottom: 3px;
+}
+.hero-fullbleed .hero-cta-row .hero-inline-cta::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  opacity: 0.32;
+  height: 1.5px;
+}
+.hero-fullbleed .hero-cta-row .hero-inline-cta:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+.hero-fullbleed .hero-cta-row .hero-inline-cta .arrow { font-size: 1.1em; }
+
+.hero-fullbleed-portrait img {
+  filter: grayscale(36%) contrast(1.05) brightness(0.66) saturate(0.72);
+}
+.hero-fullbleed-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(2,6,12,0) 42%, rgba(6,10,20,0.62) 100%),
+    linear-gradient(0deg, rgba(2,6,12,0.45) 0%, transparent 22%);
+  pointer-events: none;
+  z-index: 1;
+}
