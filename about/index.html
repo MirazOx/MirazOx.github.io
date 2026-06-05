@@ -202,7 +202,7 @@
 
   .about-subtitle {
     margin: 0;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: clamp(16px, 1.8vw, 18px);
     line-height: 1.5;
     color: var(--text2);
@@ -217,7 +217,7 @@
   }
 
   .about-lede {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(22px, 2.5vw, 28px);
     line-height: 1.35;
     font-style: italic;
@@ -266,7 +266,7 @@
   }
 
   .section-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(32px, 4vw, 48px);
     line-height: 1.1;
     font-weight: 400;
@@ -294,7 +294,7 @@
   }
 
   .habits-sidebar-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(22px, 2.5vw, 26px);
     font-weight: 400;
     margin: 0 0 0.25rem 0;
@@ -322,7 +322,7 @@
   }
 
   .craft-habit-capsule {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: var(--font-body), sans-serif;
     font-size: 14px;
     font-weight: 500;
     padding: 0.75rem 1.35rem;
@@ -395,7 +395,7 @@
   }
 
   .craft-habit-num {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 12px;
     color: var(--accent-terracotta);
     letter-spacing: 0.1em;
@@ -403,7 +403,7 @@
   }
 
   .craft-habit-tag {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -414,7 +414,7 @@
   }
 
   .craft-habit-detail-card h3 {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: 26px;
     line-height: 1.2;
     font-weight: 400;
@@ -459,7 +459,7 @@
   }
 
   .door-card h2 {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: clamp(28px, 3.5vw, 36px);
     margin: 0;
     font-weight: 400;
@@ -481,7 +481,7 @@
   }
 
   .door-pills span {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -497,7 +497,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -530,7 +530,7 @@
   }
 
   .footer-details-col h3 {
-    font-family: 'DM Serif Display', serif;
+    font-family: var(--font-display), serif;
     font-size: 24px;
     margin: 0 0 1rem 0;
     font-weight: 400;
@@ -538,7 +538,7 @@
   }
 
   .footer-details-col h4 {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -894,15 +894,15 @@
     <!-- 2. Quick Links Section (Just beneath the photo) -->
     <div class="about-quick-links" aria-label="Primary about links">
       <a href="/research/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #0ea5e9;"></span><span class="btn-prefix">Explore </span>Research</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--accent-terracotta);"></span><span class="btn-prefix">Explore </span>Research</span>
         <span class="arrow">&rarr;</span>
       </a>
       <a href="/interventions/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #c46f58;"></span><span class="btn-prefix">View </span>Interventions</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--accent-terracotta);"></span><span class="btn-prefix">View </span>Interventions</span>
         <span class="arrow">&rarr;</span>
       </a>
       <a href="/credentials/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #10b981;"></span><span class="btn-prefix">Check </span>Credentials</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--accent-terracotta);"></span><span class="btn-prefix">Check </span>Credentials</span>
         <span class="arrow">&rarr;</span>
       </a>
     </div>
@@ -919,81 +919,81 @@
           <p class="habits-sidebar-desc">Practices that make the work move faster, cleaner, and less blindly.</p>
           
           <div class="craft-habits-capsules" role="tablist" aria-label="Habits list">
-            <button class="craft-habit-capsule active" data-habit="1">
-              Touch typing
-            </button>
-            <button class="craft-habit-capsule" data-habit="2">
-              Learning systems
-            </button>
-            <button class="craft-habit-capsule" data-habit="3">
+            <button class="craft-habit-capsule active" data-habit="3">
               Structuring
-            </button>
-            <button class="craft-habit-capsule" data-habit="4">
-              Architecture
             </button>
             <button class="craft-habit-capsule" data-habit="5">
               Analysis
             </button>
+            <button class="craft-habit-capsule" data-habit="4">
+              Architecture
+            </button>
+            <button class="craft-habit-capsule" data-habit="2">
+              Learning systems
+            </button>
             <button class="craft-habit-capsule" data-habit="6">
               Expression
+            </button>
+            <button class="craft-habit-capsule" data-habit="1">
+              Touch typing
             </button>
           </div>
 
           <!-- Detail Card Display -->
           <div class="craft-habit-detail-container">
             
-            <article class="craft-habit-detail-card active" data-habit-content="1">
+            <article class="craft-habit-detail-card active" data-habit-content="3">
               <div class="detail-card-header">
-                <span class="craft-habit-num">01 / PERFORMANCE</span>
-                <span class="craft-habit-tag" style="background: #0ea5e9;">65+ WPM</span>
-              </div>
-              <h3>Touch typing at thinking speed</h3>
-              <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
-            </article>
-
-            <article class="craft-habit-detail-card" data-habit-content="2">
-              <div class="detail-card-header">
-                <span class="craft-habit-num">02 / EDUCATION</span>
-                <span class="craft-habit-tag" style="background: #f97316;">Self-study</span>
-              </div>
-              <h3>Designing my own learning systems</h3>
-              <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
-            </article>
-
-            <article class="craft-habit-detail-card" data-habit-content="3">
-              <div class="detail-card-header">
-                <span class="craft-habit-num">03 / STRUCTURING</span>
-                <span class="craft-habit-tag" style="background: #10b981;">Systems</span>
+                <span class="craft-habit-num">01 / STRUCTURING</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">Systems</span>
               </div>
               <h3>Seeing the machinery behind events</h3>
               <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
             </article>
 
-            <article class="craft-habit-detail-card" data-habit-content="4">
-              <div class="detail-card-header">
-                <span class="craft-habit-num">04 / ARCHITECTURE</span>
-                <span class="craft-habit-tag" style="background: #a855f7;">Mess to map</span>
-              </div>
-              <h3>Turning chaos into structure</h3>
-              <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
-            </article>
-
             <article class="craft-habit-detail-card" data-habit-content="5">
               <div class="detail-card-header">
-                <span class="craft-habit-num">05 / ANALYSIS</span>
-                <span class="craft-habit-tag" style="background: #f43f5e;">Verification</span>
+                <span class="craft-habit-num">02 / ANALYSIS</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">Verification</span>
               </div>
               <h3>Not trusting the first clean answer</h3>
               <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
             </article>
 
+            <article class="craft-habit-detail-card" data-habit-content="4">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">03 / ARCHITECTURE</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">Mess to map</span>
+              </div>
+              <h3>Turning chaos into structure</h3>
+              <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="2">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">04 / EDUCATION</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">Self-study</span>
+              </div>
+              <h3>Designing my own learning systems</h3>
+              <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
+            </article>
+
             <article class="craft-habit-detail-card" data-habit-content="6">
               <div class="detail-card-header">
-                <span class="craft-habit-num">06 / EXPRESSION</span>
-                <span class="craft-habit-tag" style="background: #f59e0b;">Voice</span>
+                <span class="craft-habit-num">05 / EXPRESSION</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">Voice</span>
               </div>
               <h3>Editing without killing the pulse</h3>
               <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="1">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">06 / PERFORMANCE</span>
+                <span class="craft-habit-tag" style="background: var(--accent-terracotta);">65+ WPM</span>
+              </div>
+              <h3>Touch typing at thinking speed</h3>
+              <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
             </article>
 
           </div>
@@ -1003,11 +1003,11 @@
       <!-- Right Column: Biography Content -->
       <div class="about-bio-container">
         <div class="about-lede">
-          I am a journalist turned researcher. I took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.
+          I am a journalist turned researcher. I took a slow detour through literature and never quite came back, which, on most days, feels like the most useful thing about me.
         </div>
         
         <div class="about-bio-paragraphs">
-          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine &mdash; for what it is doing, and for the small failures it is trying to disguise.</p>
+          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine, for what it is doing, and for the small failures it is trying to disguise.</p>
           
           <p>That habit moved with me into a newsroom. I now write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, the polite architecture of platform power. I came to research because journalism kept asking questions I could not answer in 1,200 words, and I came back to journalism because research, left alone, can forget who it is for.</p>
           
@@ -1062,10 +1062,10 @@
   
   <section class="footer-details-grid" aria-label="CV and contact">
     <div class="footer-details-col">
-      <blockquote style="margin: 0; padding: 0; border: none; font-family: 'DM Serif Display', serif; font-size: 21px; line-height: 1.4; font-style: italic; color: var(--text2);">
+      <blockquote style="margin: 0; padding: 0; border: none; font-family: var(--font-display), serif; font-size: 21px; line-height: 1.4; font-style: italic; color: var(--text2);">
         "What stands in the way becomes the way."
       </blockquote>
-      <cite style="display: block; margin-top: 0.75rem; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-terracotta); font-style: normal;">
+      <cite style="display: block; margin-top: 0.75rem; font-family: var(--font-mono), monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-terracotta); font-style: normal;">
         &mdash; Marcus Aurelius
       </cite>
     </div>
