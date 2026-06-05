@@ -1,0 +1,113 @@
+/* ============================================================
+   TEST VARIANT C — "Motion & interaction"
+   Layered on top of style.css. Keeps the look, adds purposeful
+   motion: richer reveals, hover lifts, animated accents, a
+   living hero. Honours prefers-reduced-motion.
+   ============================================================ */
+
+/* — Richer scroll reveals (JS toggles .is-visible) — */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1),
+              filter 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.is-visible { opacity: 1; transform: none; filter: blur(0); }
+
+/* — Living hero canvas: slow drifting glow — */
+.hero-new.hero-fullbleed {
+  background:
+    radial-gradient(circle at 72% 16%, rgba(45, 212, 191, 0.16), transparent 32%),
+    linear-gradient(96deg, #030608 0%, #071014 50%, #050a0d 100%);
+  background-size: 140% 140%, 100% 100%;
+  animation: heroDrift 18s ease-in-out infinite alternate;
+}
+@keyframes heroDrift {
+  from { background-position: 0% 0%, 0 0; }
+  to   { background-position: 30% 20%, 0 0; }
+}
+
+/* — Animated underline that draws under section titles on reveal — */
+.section-title { position: relative; }
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  height: 2px; width: 0;
+  background: var(--accent-teal);
+  transition: width 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+.reveal.is-visible .section-title::after { width: 2.4em; }
+
+/* — Stat cards: lift + accent glow on hover — */
+.sh-item {
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1),
+              background 0.3s ease, box-shadow 0.3s ease;
+}
+.sh-item:hover {
+  transform: translateY(-5px);
+  background: color-mix(in srgb, var(--accent-teal) 7%, transparent);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+}
+.sh-item:hover .sh-n {
+  text-shadow: 0 0 22px color-mix(in srgb, var(--accent-teal) 50%, transparent);
+}
+
+/* — Animated sheen across the stats panel — */
+.status-stats-col::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: skewX(-18deg);
+  animation: statsSheen 6.5s ease-in-out infinite;
+}
+@keyframes statsSheen { 0%,70% { left: -60%; } 100% { left: 130%; } }
+
+/* — Recognition + timeline + education cards lift on hover — */
+.recognition-column-card,
+.education-card,
+.panel-feature-card {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+}
+.recognition-column-card:hover,
+.education-card:hover,
+.panel-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+.timeline-item { transition: transform 0.3s ease; }
+.timeline-item:hover { transform: translateX(5px); }
+
+/* — Testimonial bubbles gently float in place — */
+.resonance-bubble { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+.resonance-bubble:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 44px rgba(0,0,0,0.32); }
+
+/* — CTA shimmer — */
+.hero-cta { position: relative; overflow: hidden; }
+.hero-cta::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(45,212,191,0.18) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+.hero-cta:hover::after { transform: translateX(120%); }
+
+/* — Respect reduced motion — */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-new.hero-fullbleed, .status-stats-col::after,
+  .section-title::after, .sh-item, .resonance-bubble,
+  .recognition-column-card, .education-card, .panel-feature-card, .timeline-item {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+    filter: none !important;
+  }
+}
+
+/* variant badge */
+.variant-badge { background: #7c3aed; color: #f3eaff; }

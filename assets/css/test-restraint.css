@@ -1,0 +1,66 @@
+/* ============================================================
+   TEST VARIANT B — "Refined restraint"
+   Layered on top of style.css. Same bones, elevated craft:
+   more whitespace, lighter borders, calmer hierarchy,
+   teal-only accent discipline. Quieter, more premium.
+   ============================================================ */
+
+/* — Calm the hero: softer canvas, less glow, gentler portrait — */
+.hero-new.hero-fullbleed {
+  min-height: clamp(600px, 84vh, 820px);
+  background:
+    radial-gradient(circle at 76% 22%, rgba(45, 212, 191, 0.06), transparent 40%),
+    linear-gradient(98deg, #060a0d 0%, #0a1216 55%, #070c0f 100%);
+}
+.hero-fullbleed-portrait { opacity: 0.62; }
+.hero-fullbleed-portrait img { filter: grayscale(28%) contrast(1.02) brightness(0.66) saturate(0.7); }
+.hero-fullbleed .hero-name-big {
+  font-weight: 300;
+  font-size: clamp(52px, 7.4vw, 104px);
+  letter-spacing: 0.005em;
+}
+
+/* — Discipline the accent: drop amber, unify on teal — */
+.hero-name-big .last::after { background: color-mix(in srgb, var(--accent-teal) 60%, transparent); }
+.status-stats-col::before { background: color-mix(in srgb, var(--accent-teal) 38%, transparent); width: 2px; }
+.status-stats-eyebrow { color: var(--text3); font-weight: 500; letter-spacing: 0.18em; }
+.sh-n { color: var(--text); font-weight: 300; }
+.sh-item.accent-teal .sh-n { color: var(--accent-teal); }
+
+/* — More air everywhere — */
+body { font-size: 16px; }
+.container-wide > section.reveal { margin-top: 6rem; }
+.status-trinity { gap: 2rem; margin-bottom: 3.5rem; }
+.sh-grid { gap: 1.75rem; }
+.status-stats-col { padding: 2rem 2.25rem; background: transparent; border-color: var(--border); }
+
+/* — Quieter section headers: small caps label, hairline rule — */
+.section-header {
+  border-bottom-width: 0.5px;
+  border-bottom-color: var(--border);
+  padding-bottom: 0.9rem;
+  margin-bottom: 2.25rem;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.section-meta { color: var(--text3); letter-spacing: 0.04em; }
+
+/* — Soften the statement box — */
+.hero-fullbleed .hero-statement {
+  border-left-width: 1.5px;
+  background: rgba(8, 14, 18, 0.32);
+}
+
+/* — Lighter CTAs — */
+.hero-cta, .hero-cta-secondary { border-color: var(--border); }
+
+/* — Calmer rotating tag — */
+.rotating-tag-box { border-color: var(--border); }
+
+/* variant badge */
+.variant-badge { background: var(--accent-teal); color: #04100e; }

@@ -1,0 +1,71 @@
+/* ============================================================
+   TEST VARIANT D — "Structural rework"
+   Layered on top of style.css. Rethinks the home-page narrative:
+   lead with proof (Recognition), then the numbers as a full-width
+   ledger band, then experience/education, closing on resonance.
+   Reorders sections via flex order — content/markup unchanged.
+   ============================================================ */
+
+/* — Make the column reorderable — */
+.container-wide {
+  display: flex;
+  flex-direction: column;
+}
+
+/* New narrative order:
+   Recognition → Numbers → Experience → Public presence → Education → Resonance */
+#recognition       { order: 1; }
+.status-trinity    { order: 2; }
+#experience        { order: 3; }
+#public-presence   { order: 4; }
+#education         { order: 5; }
+#testimonials      { order: 6; }
+.lightbox          { order: 99; }
+
+/* — Numbers as a full-bleed horizontal ledger band, not a side box — */
+.status-trinity {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 2.75rem clamp(1.5rem, 5vw, 4rem);
+  background: var(--bg2);
+  border-block: 0.5px solid var(--border);
+  margin-bottom: 4rem;
+}
+.status-left {
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.status-stats-col {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+}
+.status-stats-col::before { display: none; }
+.status-stats-eyebrow { text-align: center; }
+.sh-grid {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.sh-item { text-align: center; padding: 0.5rem; }
+@media (max-width: 880px) { .sh-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px) { .sh-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* — Recognition leads: give it a stronger opening frame — */
+#recognition { margin-top: 3.5rem; }
+#recognition .section-title { font-size: 34px; }
+
+/* — Slightly tighter rhythm between the reordered sections — */
+.container-wide > section.reveal { margin-top: 3rem; }
+#recognition.reveal { margin-top: 3.5rem; }
+
+/* variant badge */
+.variant-badge { background: #0ea5e9; color: #03212e; }

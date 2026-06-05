@@ -1,0 +1,85 @@
+/* ============================================================
+   TEST VARIANT A — "Editorial bolder"
+   Layered on top of style.css. Leans into the journalist
+   identity: bigger expressive serif, stronger hierarchy,
+   magazine rhythm. Same palette/tokens.
+   ============================================================ */
+
+/* — Hero: push the serif, tighten, more authored — */
+.hero-fullbleed .hero-name-big {
+  font-size: clamp(64px, 10vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+.hero-fullbleed .hero-name-big .last {
+  font-weight: 400;
+}
+.hero-fullbleed .hero-bio-new.hero-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.1vw, 27px);
+  line-height: 1.45;
+  max-width: 30ch;
+  font-weight: 400;
+  border-left-width: 3px;
+}
+/* Drop cap on the lead statement */
+.hero-fullbleed .hero-statement::first-letter {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.72;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent-teal);
+}
+
+/* — Section titles: magazine-scale serif with a heavy rule — */
+.section-header {
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--text);
+  margin-bottom: 2.25rem;
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.section-meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* — Bigger section breathing room for editorial rhythm — */
+.container-wide > section.reveal { margin-top: 5.5rem; }
+
+/* — Stats: oversized serif numerals, editorial ledger feel — */
+.sh-n { font-size: clamp(44px, 6vw, 68px); font-weight: 400; }
+.status-stats-eyebrow { font-size: 13px; }
+
+/* — Recognition headings larger, more confident — */
+.recognition-column-copy h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* — Testimonials become real pull-quotes — */
+.resonance-bubble .tcard-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.32;
+  font-style: italic;
+  font-weight: 400;
+}
+#testimonials .section-title::after { content: none; }
+
+/* variant badge */
+.variant-badge { background: var(--accent-amber); color: #1a1206; }
