@@ -73,7 +73,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.84) 38%, rgba(0, 0, 0, 0.58) 49%, rgba(0, 0, 0, 0.22) 62%, rgba(0, 0, 0, 0.04) 74%, transparent 100%);
     pointer-events: none;
     z-index: 2;
   }
@@ -85,7 +85,8 @@
     left: 0;
     z-index: 3;
     padding: clamp(2rem, 4vw, 3.5rem);
-    max-width: 65%;
+    width: min(52%, 620px);
+    max-width: min(52%, 620px);
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
@@ -104,8 +105,8 @@
   }
 
   .about-intro-title {
-    max-width: 11.5em;
-    font-size: clamp(30px, 4vw, 50px);
+    max-width: 9.2em;
+    font-size: clamp(28px, 3.45vw, 46px);
     line-height: 1.08;
     letter-spacing: -0.015em;
   }
@@ -673,20 +674,21 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: center center;
+      object-position: right center;
       position: absolute;
       inset: 0;
     }
 
     .about-portrait-frame::after {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.86) 56%, rgba(0, 0, 0, 0.5) 68%, rgba(0, 0, 0, 0.12) 84%, transparent 100%);
     }
 
     /* 2. Name & Subtitle overlay container — responsive layout stacked at the bottom of the portrait card */
     .about-hero-text {
-      padding: 1.15rem 1.25rem;
-      max-width: 90%;
-      gap: 0.45rem;
+      padding: 1rem 1.05rem;
+      width: 58%;
+      max-width: 58%;
+      gap: 0.35rem;
     }
 
     .about-title {
@@ -696,9 +698,9 @@
     }
 
     .about-intro-title {
-      max-width: 12em;
-      font-size: clamp(25px, 7.2vw, 34px);
-      line-height: 1.12;
+      max-width: 100%;
+      font-size: clamp(17px, 4.7vw, 22px);
+      line-height: 1.14;
     }
 
     .about-hero-subtitle {
@@ -845,7 +847,7 @@
     }
 
     .about-intro-title {
-      font-size: clamp(21px, 6.4vw, 25px);
+      font-size: clamp(16px, 4.55vw, 20px);
     }
   }
 </style>
