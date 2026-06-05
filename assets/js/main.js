@@ -91,15 +91,8 @@ function initModernNav() {
     writing: '/writing/'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
-  const homeLink = document.querySelector('.nav-home');
   const isHome = bodyPage === 'home' || current === '/' || current === '';
-  let matched = false;
-
-  if (homeLink && isHome) {
-    homeLink.classList.add('is-active');
-    homeLink.setAttribute('aria-current', 'page');
-    matched = true;
-  }
+  let matched = isHome;
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');

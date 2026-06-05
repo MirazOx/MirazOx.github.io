@@ -255,9 +255,9 @@ a { color: var(--accent-teal); }
   background: var(--surface);
   color: var(--text);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0;
   transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 180ms ease, box-shadow 220ms ease;
   box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset;
 }
@@ -346,13 +346,6 @@ a { color: var(--accent-teal); }
   background: color-mix(in srgb, var(--accent-blue) 10%, transparent);
 }
 
-.nav-home.is-active .nav-home-icon,
-.nav-home[aria-current="page"] .nav-home-icon {
-  color: var(--accent-blue);
-  border-color: color-mix(in srgb, var(--accent-blue) 42%, transparent);
-  background: color-mix(in srgb, var(--accent-blue) 10%, #ffffff);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-blue) 10%, transparent);
-}
 
 .nav-actions {
   display: flex;
@@ -529,13 +522,6 @@ a { color: var(--accent-teal); }
 :root[data-theme="dark"] .nav-dd-icon { color: var(--accent-blue); }
 
 :root[data-theme="dark"] .nav-main a::after { background: var(--accent-blue); }
-
-:root[data-theme="dark"] .nav-home.is-active .nav-home-icon,
-:root[data-theme="dark"] .nav-home[aria-current="page"] .nav-home-icon {
-  color: var(--accent-blue);
-  border-color: color-mix(in srgb, var(--accent-blue) 44%, transparent);
-  background: color-mix(in srgb, var(--accent-blue) 14%, transparent);
-}
 
 /* HERO (NEW — creative) */
 .hero-new { padding: 4.4rem 0 3.2rem; position: relative; }
@@ -1225,7 +1211,7 @@ a.timeline-item-title:hover {
   box-shadow: var(--shadow-md);
 }
 .research-top, .project-top, .service-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; gap: 1rem; }
-.research-type, .project-type { font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 0.07em; text-transform: uppercase; }
+.research-type, .project-type { color: var(--text3); }
 .badge { font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; border-radius: 2px; background: #f6e0da; color: #c46f58; }
 .badge.done { background: #d1fae5; color: #065f46; }
 .badge.planned { background: #e0e7ff; color: #3730a3; }
@@ -5410,10 +5396,15 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .course-grade,
 .course-slot-meta span,
 .course-slot-meta a,
-.course-category {
+.course-category,
+.research-type,
+.project-type,
+.essay-meta span {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 600;
   letter-spacing: 0.08em;
+  line-height: 1.35;
   text-transform: uppercase;
 }
 .course-code {
@@ -5435,7 +5426,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 .course-slot h4 {
   margin-top: 0.5rem;
-  font-family: 'Newsreader', Georgia, serif;
+  font-family: var(--font-display);
   font-size: 1.46rem;
   line-height: 1.02;
   letter-spacing: 0;
@@ -5449,6 +5440,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .course-project-title {
   margin-top: 0.7rem;
   color: var(--text);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 14px;
   line-height: 1.45;
