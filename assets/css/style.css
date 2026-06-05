@@ -16,10 +16,10 @@
   --border: rgba(0,0,0,0.09);
   --border2: rgba(0,0,0,0.18);
   --accent-blue: #1e3a5f;
-  --accent-amber: #c46f58;
-  --accent-teal: #0284c7;
-  --accent-terracotta: #c46f58;
-  --accent: #c46f58;
+  --accent-amber: #5b6573;
+  --accent-teal: #1e3a5f;
+  --accent-terracotta: #5b6573;
+  --accent: #1e3a5f;
   --border-subtle: rgba(0,0,0,0.05);
   --font-body: 'Literata', Georgia, serif;
   --font-display: 'Literata', Georgia, serif;
@@ -42,11 +42,11 @@
     --text3: #828fa3;
     --border: rgba(147, 197, 253, 0.08);
     --border2: rgba(147, 197, 253, 0.16);
-    --accent-blue: #93c5fd;
-    --accent-amber: #e2876f;
-    --accent-teal: #22d3ee;
-    --accent-terracotta: #e2876f;
-    --accent: #e2876f;
+    --accent-blue: #8ab4f8;
+    --accent-amber: #8b97a9;
+    --accent-teal: #8ab4f8;
+    --accent-terracotta: #8b97a9;
+    --accent: #8ab4f8;
     --border-subtle: rgba(147, 197, 253, 0.04);
     --font-body: 'Literata', Georgia, serif;
     --font-display: 'Literata', Georgia, serif;
@@ -68,11 +68,11 @@
   --text3: #828fa3;
   --border: rgba(147, 197, 253, 0.08);
   --border2: rgba(147, 197, 253, 0.16);
-  --accent-blue: #93c5fd;
-  --accent-amber: #e2876f;
-  --accent-teal: #22d3ee;
-  --accent-terracotta: #e2876f;
-  --accent: #e2876f;
+  --accent-blue: #8ab4f8;
+  --accent-amber: #8b97a9;
+  --accent-teal: #8ab4f8;
+  --accent-terracotta: #8b97a9;
+  --accent: #8ab4f8;
   --border-subtle: rgba(147, 197, 253, 0.04);
   --font-body: 'Literata', Georgia, serif;
   --font-display: 'Literata', Georgia, serif;
@@ -7273,3 +7273,6 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 /* Demote the dense methods line */
 .research-method-line { font-size: 9.5px; color: var(--text3); }
+
+/* Hero accent stays light-blue on its dark canvas regardless of theme */
+.hero-new.hero-fullbleed { --accent-teal: #8ab4f8; --accent-blue: #8ab4f8; --accent-terracotta: #8b97a9; }
