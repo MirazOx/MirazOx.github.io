@@ -602,7 +602,7 @@ a { color: var(--accent-teal); }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 0;
-  margin-bottom: 4.2rem;
+  margin-bottom: 5.8rem;
   animation: fadeUp 0.8s ease-out 0.3s both;
 }
 .hero-tagline a {
