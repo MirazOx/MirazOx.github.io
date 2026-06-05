@@ -5686,6 +5686,19 @@ body[data-page="writing"] .july-movement-callout .hero-cta {
   white-space: nowrap;
 }
 
+body[data-page="writing"] .academic-ledger,
+body[data-page="writing"] .academic-ledger *,
+body[data-page="writing"] .july-movement-callout,
+body[data-page="writing"] .july-movement-callout *,
+body[data-page="writing"] .selected-writing-showcase,
+body[data-page="writing"] .selected-writing-showcase *,
+body[data-page="writing"] .writing-archive-cta,
+body[data-page="writing"] .writing-archive-cta * {
+  font-family: var(--font-body);
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 .archive-panel {
   border: 0.5px solid var(--border);
   border-radius: 16px;
