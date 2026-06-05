@@ -16,10 +16,10 @@
   --border: rgba(0,0,0,0.09);
   --border2: rgba(0,0,0,0.18);
   --accent-blue: #1e3a5f;
-  --accent-amber: #b45309;
+  --accent-amber: #c46f58;
   --accent-teal: #0284c7;
   --accent-terracotta: #c46f58;
-  --accent: #b45309;
+  --accent: #c46f58;
   --border-subtle: rgba(0,0,0,0.05);
   --font-body: 'Literata', Georgia, serif;
   --font-display: 'Literata', Georgia, serif;
@@ -43,10 +43,10 @@
     --border: rgba(147, 197, 253, 0.08);
     --border2: rgba(147, 197, 253, 0.16);
     --accent-blue: #93c5fd;
-    --accent-amber: #fbbf24;
+    --accent-amber: #e2876f;
     --accent-teal: #22d3ee;
     --accent-terracotta: #e2876f;
-    --accent: #fbbf24;
+    --accent: #e2876f;
     --border-subtle: rgba(147, 197, 253, 0.04);
     --font-body: 'Literata', Georgia, serif;
     --font-display: 'Literata', Georgia, serif;
@@ -69,10 +69,10 @@
   --border: rgba(147, 197, 253, 0.08);
   --border2: rgba(147, 197, 253, 0.16);
   --accent-blue: #93c5fd;
-  --accent-amber: #fbbf24;
+  --accent-amber: #e2876f;
   --accent-teal: #22d3ee;
   --accent-terracotta: #e2876f;
-  --accent: #fbbf24;
+  --accent: #e2876f;
   --border-subtle: rgba(147, 197, 253, 0.04);
   --font-body: 'Literata', Georgia, serif;
   --font-display: 'Literata', Georgia, serif;
@@ -1206,10 +1206,10 @@ a.timeline-item-title:hover {
 }
 .research-top, .project-top, .service-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; gap: 1rem; }
 .research-type, .project-type { font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 0.07em; text-transform: uppercase; }
-.badge { font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; border-radius: 2px; background: #fef3c7; color: #b45309; }
+.badge { font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; border-radius: 2px; background: #f6e0da; color: #c46f58; }
 .badge.done { background: #d1fae5; color: #065f46; }
 .badge.planned { background: #e0e7ff; color: #3730a3; }
-:root[data-theme="dark"] .badge { background: #292007; color: #fbbf24; }
+:root[data-theme="dark"] .badge { background: #2a1712; color: #e2876f; }
 :root[data-theme="dark"] .badge.done { background: #052e16; color: #34d399; }
 :root[data-theme="dark"] .badge.planned { background: #1e1b4b; color: #a5b4fc; }
 .research-title, .project-title { font-family: var(--font-display); font-size: 18px; color: var(--text); line-height: 1.35; margin-bottom: 0.75rem; }
@@ -3501,7 +3501,7 @@ a.timeline-item-title:hover {
 }
 
 .comparison-fill.bachelor {
-  background: linear-gradient(90deg, var(--accent-amber), #f59e0b);
+  background: linear-gradient(90deg, var(--accent-amber), #c0563f);
 }
 
 .toggle-row {
