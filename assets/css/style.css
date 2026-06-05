@@ -254,7 +254,11 @@ a { color: var(--accent-teal); }
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 180ms ease, box-shadow 220ms ease;
   box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset;
 }
 
@@ -303,10 +307,10 @@ a { color: var(--accent-teal); }
   gap: 0;
   padding: 8px 11px;
   border-radius: 8px;
-  color: #41505d;
+  color: var(--text2);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   white-space: nowrap;
@@ -321,7 +325,7 @@ a { color: var(--accent-teal); }
   left: 11px;
   right: 11px;
   bottom: 5px;
-  height: 1.5px;
+  height: 2px;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
   transform: scaleX(0);
@@ -330,15 +334,24 @@ a { color: var(--accent-teal); }
 }
 
 .nav-main a:hover {
-  color: #0f1720;
-  background: color-mix(in srgb, var(--accent-teal) 7%, transparent);
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent-blue) 8%, transparent);
 }
 
 .nav-main a:hover::after, .nav-main a.is-active::after { transform: scaleX(1); }
 
 .nav-main a.is-active {
-  color: #0f1720;
-  background: color-mix(in srgb, var(--accent-teal) 10%, transparent);
+  color: var(--accent-blue);
+  font-weight: 700;
+  background: color-mix(in srgb, var(--accent-blue) 10%, transparent);
+}
+
+.nav-home.is-active .nav-home-icon,
+.nav-home[aria-current="page"] .nav-home-icon {
+  color: var(--accent-blue);
+  border-color: color-mix(in srgb, var(--accent-blue) 42%, transparent);
+  background: color-mix(in srgb, var(--accent-blue) 10%, #ffffff);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent-blue) 10%, transparent);
 }
 
 .nav-actions {
@@ -497,14 +510,14 @@ a { color: var(--accent-teal); }
 }
 
 :root[data-theme="dark"] .nav-main a,
-:root[data-theme="dark"] .nav-dropdown a { color: #eef4f8; }
+:root[data-theme="dark"] .nav-dropdown a { color: var(--text2); }
 
 :root[data-theme="dark"] .nav-main a:hover,
 :root[data-theme="dark"] .nav-main a.is-active,
 :root[data-theme="dark"] .nav-dropdown a:hover,
 :root[data-theme="dark"] .nav-dropdown a.is-active {
   background: color-mix(in srgb, var(--accent-blue) 10%, transparent);
-  color: #ffffff;
+  color: var(--accent-blue);
 }
 
 :root[data-theme="dark"] .nav-dropdown {
@@ -516,6 +529,13 @@ a { color: var(--accent-teal); }
 :root[data-theme="dark"] .nav-dd-icon { color: var(--accent-blue); }
 
 :root[data-theme="dark"] .nav-main a::after { background: var(--accent-blue); }
+
+:root[data-theme="dark"] .nav-home.is-active .nav-home-icon,
+:root[data-theme="dark"] .nav-home[aria-current="page"] .nav-home-icon {
+  color: var(--accent-blue);
+  border-color: color-mix(in srgb, var(--accent-blue) 44%, transparent);
+  background: color-mix(in srgb, var(--accent-blue) 14%, transparent);
+}
 
 /* HERO (NEW — creative) */
 .hero-new { padding: 4.4rem 0 3.2rem; position: relative; }

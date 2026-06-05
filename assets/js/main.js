@@ -91,13 +91,22 @@ function initModernNav() {
     writing: '/writing/'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
+  const homeLink = document.querySelector('.nav-home');
+  const isHome = bodyPage === 'home' || current === '/' || current === '';
   let matched = false;
+
+  if (homeLink && isHome) {
+    homeLink.classList.add('is-active');
+    homeLink.setAttribute('aria-current', 'page');
+    matched = true;
+  }
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
 
-    if (href === current || (current === '' && href === '/')) {
+    if (!isHome && href === current) {
       link.classList.add('is-active');
+      link.setAttribute('aria-current', 'page');
       matched = true;
     }
   });
@@ -108,6 +117,7 @@ function initModernNav() {
       const href = link.getAttribute('href');
       if (href === alias) {
         link.classList.add('is-active');
+        link.setAttribute('aria-current', 'page');
       }
     });
   }
