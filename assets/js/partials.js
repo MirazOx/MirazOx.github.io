@@ -21,7 +21,7 @@ function injectNav(activePage) {
 function injectFooter() {
   const footer = `
     <div class="container">
-      <p class="footer-text">© 2026 Md. Miraz Hossain · Dhaka, Bangladesh</p>
+      <p class="footer-text">© 2026 Miraz Hossain · Dhaka, Bangladesh</p>
       <div class="footer-links">
         <a href="mailto:miraz8395@gmail.com">email</a>
         <a href="https://linkedin.com/in/miraz-hossain" target="_blank">linkedin</a>

@@ -1,6 +1,6 @@
 # mirazhossain.com — full site
 
-Static website for Md. Miraz Hossain. The current information architecture keeps the public navigation focused on Research, Academic, Reportage, Interventions, and About, with services, credentials, projects, and the personal "Beyond the work" room tucked into those sections.
+Static website for Miraz Hossain. The current information architecture keeps the public navigation focused on Research, Academic, Reportage, Interventions, and About, with services, credentials, projects, and the personal "Beyond the work" room tucked into those sections.
 
 ## What's inside
 
