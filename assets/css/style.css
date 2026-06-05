@@ -4739,7 +4739,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .hero-action-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
   flex-wrap: wrap;
   margin-top: 0;
   margin-bottom: 2rem;
@@ -6667,7 +6667,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 .hero-fullbleed .hero-action-row {
   display: flex;
-  gap: 0.75rem;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
   flex-wrap: wrap;
   margin-top: 0;
   margin-bottom: 2rem;
