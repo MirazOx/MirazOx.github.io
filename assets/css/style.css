@@ -5625,6 +5625,24 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 .byline-list .writing-item a {
   align-items: center;
 }
+
+body[data-page="writing"] .july-movement-callout,
+body[data-page="writing"] .selected-article-copy,
+body[data-page="writing"] .writing-archive-cta {
+  font-family: var(--font-body);
+}
+
+body[data-page="writing"] .july-movement-callout h2,
+body[data-page="writing"] .selected-article-copy h2,
+body[data-page="writing"] .writing-archive-cta h3 {
+  font-family: var(--font-display);
+}
+
+body[data-page="writing"] .july-movement-callout p:not(.july-kicker),
+body[data-page="writing"] .selected-article-copy p:not(.selected-article-meta),
+body[data-page="writing"] .writing-archive-cta p {
+  font-family: var(--font-body);
+}
 .july-movement-callout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
