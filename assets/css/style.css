@@ -602,7 +602,7 @@ a { color: var(--accent-teal); }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.85rem;
   animation: fadeUp 0.8s ease-out 0.3s both;
 }
 .hero-tagline a {
@@ -632,6 +632,15 @@ a { color: var(--accent-teal); }
   background: none;
   border-radius: 0;
   text-wrap: pretty;
+}
+.hero-statement .hero-cta {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 0.85rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  padding: 6px 14px;
+  font-size: 10.5px;
 }
 
 /* ROTATING TAG WIDGET */
