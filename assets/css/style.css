@@ -706,9 +706,9 @@ a { color: var(--accent-teal); }
   height: 36px;
   min-width: 240px;
   overflow: hidden;
-  border: 0.5px solid var(--border2);
-  border-radius: 2px;
-  background: var(--bg2);
+  border: none;
+  border-radius: 0;
+  background: none;
   display: flex;
   align-items: center;
 }
@@ -721,7 +721,7 @@ a { color: var(--accent-teal); }
 }
 .rotating-tag-item {
   position: absolute;
-  left: 1rem; right: 1rem;
+  left: 0; right: 0;
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--accent-teal);
@@ -6751,10 +6751,10 @@ body[data-page="writing"] .writing-archive-cta * {
   color: rgba(238, 245, 246, 0.55);
 }
 .hero-fullbleed .rotating-tag-box {
-  background: rgba(8, 14, 18, 0.55);
-  border-color: color-mix(in srgb, var(--accent-teal) 28%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .hero-fullbleed .rotating-tag-item {
   color: var(--accent-teal);
