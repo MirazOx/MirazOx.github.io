@@ -7193,7 +7193,7 @@ body[data-page="writing"] .writing-archive-cta * {
    HERO — rhythm, standalone CTA, photo cohesion
    ========================================================== */
 
-.hero-fullbleed .hero-tagline { margin-bottom: 2.1rem; }
+.hero-fullbleed .hero-tagline { margin-top: 1rem; margin-bottom: 2.1rem; }
 .hero-fullbleed .hero-statement { margin-bottom: 1.5rem; max-width: 52ch; }
 .hero-fullbleed .rotating-tag-wrap { margin-bottom: 1.4rem; }
 
