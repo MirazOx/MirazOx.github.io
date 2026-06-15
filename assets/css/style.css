@@ -5650,16 +5650,44 @@ body[data-page="writing"] .july-movement-callout .hero-cta {
 }
 .july-movement-callout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.2rem;
-  align-items: end;
+  grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
   border: 0.5px solid color-mix(in srgb, var(--accent-amber) 38%, var(--border));
   border-radius: 16px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent-amber) 9%, transparent), transparent 58%),
-    var(--bg2);
-  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  background: var(--bg2);
+  padding: 0;
   margin: -1.3rem 0 2rem;
+  overflow: hidden;
+}
+.july-movement-visual {
+  position: relative;
+  min-height: 320px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+.july-movement-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.96) contrast(0.98);
+}
+.july-movement-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 58%, color-mix(in srgb, var(--bg2) 12%, transparent));
+  pointer-events: none;
+}
+.july-movement-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
 }
 .july-kicker {
   font-family: var(--font-body);
@@ -5679,10 +5707,17 @@ body[data-page="writing"] .july-movement-callout .hero-cta {
 }
 .july-movement-callout p:not(.july-kicker) {
   color: var(--text2);
-  max-width: 78ch;
+  max-width: 60ch;
   line-height: 1.75;
 }
+.july-movement-note {
+  margin-top: 0.6rem;
+  font-size: 13px;
+  color: var(--text3);
+}
 .july-movement-callout .hero-cta {
+  width: fit-content;
+  margin-top: 1rem;
   white-space: nowrap;
 }
 
@@ -6503,6 +6538,18 @@ body[data-page="writing"] .writing-archive-cta * {
     grid-template-columns: 1fr;
     align-items: start;
     margin-top: -1rem;
+  }
+  .july-movement-visual {
+    min-height: 190px;
+  }
+  .july-movement-visual::after {
+    background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--bg2) 18%, transparent));
+  }
+  .july-movement-copy {
+    padding: 1.1rem;
+  }
+  .july-movement-callout h2 {
+    font-size: clamp(1.35rem, 6vw, 1.65rem);
   }
   .july-movement-callout .hero-cta {
     width: 100%;
