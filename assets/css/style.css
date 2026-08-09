@@ -4258,26 +4258,32 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 /* Opened state — cards fan sideways */
 .award-fan-wrap.is-open .award-fan-card[data-wing="1"] {
   opacity: 1;
-  transform: translateX(-196px) rotate(-15deg) scale(0.78);
+  transform: translateX(-210px) rotate(-16deg) scale(0.76);
   z-index: 7;
   pointer-events: auto;
 }
 .award-fan-wrap.is-open .award-fan-card[data-wing="2"] {
   opacity: 1;
-  transform: translateX(-66px) rotate(-5deg) scale(0.84);
+  transform: translateX(-105px) rotate(-8deg) scale(0.82);
   z-index: 6;
   pointer-events: auto;
 }
 .award-fan-wrap.is-open .award-fan-card[data-wing="3"] {
   opacity: 1;
-  transform: translateX(66px) rotate(5deg) scale(0.84);
+  transform: translateX(0px) rotate(0deg) scale(0.88);
   z-index: 5;
   pointer-events: auto;
 }
 .award-fan-wrap.is-open .award-fan-card[data-wing="4"] {
   opacity: 1;
-  transform: translateX(196px) rotate(15deg) scale(0.78);
+  transform: translateX(105px) rotate(8deg) scale(0.82);
   z-index: 4;
+  pointer-events: auto;
+}
+.award-fan-wrap.is-open .award-fan-card[data-wing="5"] {
+  opacity: 1;
+  transform: translateX(210px) rotate(16deg) scale(0.76);
+  z-index: 3;
   pointer-events: auto;
 }
 .award-fan-hint {
@@ -6491,16 +6497,19 @@ body[data-page="writing"] .writing-archive-cta * {
     width: 136px;
   }
   .award-fan-wrap.is-open .award-fan-card[data-wing="1"] {
-    transform: translateX(-78px) translateY(-46px) rotate(-8deg) scale(0.92);
+    transform: translateX(-90px) translateY(-50px) rotate(-10deg) scale(0.9);
   }
   .award-fan-wrap.is-open .award-fan-card[data-wing="2"] {
-    transform: translateX(78px) translateY(-46px) rotate(8deg) scale(0.92);
+    transform: translateX(0px) translateY(-60px) rotate(0deg) scale(0.92);
   }
   .award-fan-wrap.is-open .award-fan-card[data-wing="3"] {
-    transform: translateX(-78px) translateY(108px) rotate(-5deg) scale(0.88);
+    transform: translateX(90px) translateY(-50px) rotate(10deg) scale(0.9);
   }
   .award-fan-wrap.is-open .award-fan-card[data-wing="4"] {
-    transform: translateX(78px) translateY(108px) rotate(5deg) scale(0.88);
+    transform: translateX(-45px) translateY(108px) rotate(-5deg) scale(0.88);
+  }
+  .award-fan-wrap.is-open .award-fan-card[data-wing="5"] {
+    transform: translateX(45px) translateY(108px) rotate(5deg) scale(0.88);
   }
   .award-fan-wrap.is-open .award-fan-hint {
     bottom: 14px;
