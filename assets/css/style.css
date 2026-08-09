@@ -4673,35 +4673,35 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   transform: scale(1.01);
 }
 
-.intervention-focus-card:nth-child(1) .intervention-focus-media img:first-child {
+.intervention-focus-card:nth-child(2) .intervention-focus-media img:first-child {
   object-position: center 42%;
 }
 
-/* Cure with Facts (2nd card) — banner is the smaller intro, session photo is the
+/* Cure with Facts (3rd card) — banner is the smaller intro, session photo is the
    visual centrepiece, so the second image gets the larger share of the row. */
-.intervention-focus-card:nth-child(2) .intervention-focus-media {
+.intervention-focus-card:nth-child(3) .intervention-focus-media {
   grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
 }
-.intervention-focus-card:nth-child(2) .intervention-focus-media img:first-child {
+.intervention-focus-card:nth-child(3) .intervention-focus-media img:first-child {
   object-position: center 30%;
 }
-.intervention-focus-card:nth-child(2) .intervention-focus-media img:last-child {
+.intervention-focus-card:nth-child(3) .intervention-focus-media img:last-child {
   object-position: center 40%;
 }
 
-/* HPL (3rd card now) — first image is a logo-style cover, needs contain + dark bg */
-.intervention-focus-card:nth-child(3) .intervention-focus-media img:first-child {
+/* HPL (4th card now) — first image is a logo-style cover, needs contain + dark bg */
+.intervention-focus-card:nth-child(4) .intervention-focus-media img:first-child {
   object-fit: contain;
   padding: 0.35rem;
   background: #05070a;
   object-position: center;
 }
-.intervention-focus-card:nth-child(3) .intervention-focus-media img:last-child {
+.intervention-focus-card:nth-child(4) .intervention-focus-media img:last-child {
   object-position: left center;
 }
 
-/* CLS Instructor (5th card now) */
-.intervention-focus-card:nth-child(5) .intervention-focus-media img {
+/* CLS Instructor (6th card now) */
+.intervention-focus-card:nth-child(6) .intervention-focus-media img {
   object-position: center 36%;
 }
 
