@@ -22,7 +22,7 @@
           "workTitle": "After the Aid",
           "type": "Reporting exercise",
           "desc": "A sourcing and gathering coursework document built around source maps, interview trails, and a compact reporting workflow.",
-          "externalUrl": "https://docs.google.com/document/d/1NI6o9lk_NdvhbuY6fXQM9XesdUmPkk6m/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ3151_After_the_Aid_duplicate_1.docx"
         },
         {
           "code": "MSJ2252",
@@ -33,7 +33,7 @@
           "type": "Framework essay",
           "desc": "A Digital Audience coursework essay on audience extraction, platform design, and the economics of attention.",
           "projectUrl": "/projects/easeparenting/",
-          "externalUrl": "https://docs.google.com/document/d/1j1UzcVSYFuE04D2Ftumv05vamLI0E5bn/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ2252_The_Extracted_Audience.docx"
         },
         {
           "code": "MSJ3151",
@@ -61,7 +61,7 @@
           "workTitle": "The Bachelor Economy",
           "type": "Data journalism project",
           "desc": "A data-journalism coursework document on bachelor housing, cost pressure, and the everyday economics of living solo in Dhaka.",
-          "externalUrl": "https://docs.google.com/document/d/14DKJ7odw9Y0kZ_r-bne5R5LSsP2HDTdP/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ3253_The_Bachelor_Economy.docx"
         },
         {
           "code": "MSJ3252",
@@ -105,7 +105,7 @@
           "workTitle": "Theory Notebook",
           "type": "Concept map",
           "desc": "A theory notebook for the core vocabulary of communication study.",
-          "externalUrl": "https://docs.google.com/document/d/1V5eL8byCyRkPqG4tWJI10uttTAHjqAmU/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ1101_Theory_Notebook.docx"
         },
         {
           "code": "MSJ1201",
@@ -115,7 +115,7 @@
           "workTitle": "Misinformation Science Reporting Proposal",
           "type": "Research proposal",
           "desc": "A communication research proposal on misinformation, science reporting, and public understanding.",
-          "externalUrl": "https://docs.google.com/document/d/197MHMwy_Yah2uQ-eHwusEWwPf5iyp-71/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ1201_Misinformation_Science_Reporting_Proposal.docx"
         },
         {
           "code": "MSJ4101",
@@ -124,8 +124,8 @@
           "grade": "A+",
           "workTitle": "Press Freedom on Trial",
           "type": "Comparative legal analysis",
-          "desc": "A comparative legal analysis examining how Bangladesh’s Digital Security Act (DSA) and Pakistan’s PECA weaponise cybercrime law against journalism.",
-          "externalUrl": "https://docs.google.com/document/d/1e_NuvtSLw0CsZVwAn1WFPxlj8MQdHqqA/edit",
+          "desc": "A comparative legal analysis examining how Bangladesh\u2019s Digital Security Act (DSA) and Pakistan\u2019s PECA weaponise cybercrime law against journalism.",
+          "externalUrl": "/assets/showcase/MSJ4101_Press_Freedom_on_Trial.docx",
           "linkLabel": "Open analysis"
         },
         {
@@ -136,7 +136,7 @@
           "workTitle": "Mass Communication Theory Notebook",
           "type": "Theory notebook",
           "desc": "A theory notebook covering models, institutions, effects, and public communication debates.",
-          "externalUrl": "https://docs.google.com/document/d/1hRffbgqxD8Qj2PjGXwx2edAsX0kUJppp/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ2201_Mass_Communication_Theory_Notebook.docx"
         },
         {
           "code": "MSJ2102",
@@ -147,7 +147,7 @@
           "type": "Production notebook",
           "desc": "A production notebook connecting scripting, planning, shooting, editing, and reflection.",
           "media": "video",
-          "externalUrl": "https://docs.google.com/document/d/1gZw2Y70F7uGqhUyMsbqJyByeVvoSG_wr/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/MSJ2102_Convergence_Communication_I_Production_Notebook.docx"
         },
         {
           "code": "MSJ2202",
@@ -167,8 +167,8 @@
           "grade": "A",
           "workTitle": "The Politics Embedded in Technical Systems",
           "type": "Theory essay",
-          "desc": "An analytical coursework essay applying Langdon Winner’s framework of technological politics to algorithmic content distribution systems.",
-          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true",
+          "desc": "An analytical coursework essay applying Langdon Winner\u2019s framework of technological politics to algorithmic content distribution systems.",
+          "externalUrl": "/assets/showcase/The_Politics_of_Promoting_Gender_Equity.pdf",
           "linkLabel": "Open essay"
         }
       ]
@@ -218,11 +218,11 @@
           "resources": [
             {
               "label": "Active Listening & Friendship Quality",
-              "url": "https://docs.google.com/document/d/1WMl5ZCdl1GgdabsW0U6b3o3hkgLde9L-/edit?usp=drivesdk&rtpof=true&sd=true"
+              "url": "/assets/showcase/GEF2101_Introduction_to_Data_and_Statistics_Research_Report_Active_Listening_and_Friendship_Quality_duplicate_1.docx"
             },
             {
               "label": "Statistics for Newsroom Decisions",
-              "url": "https://docs.google.com/document/d/1Zv_eYaE_jKQHWr7zNRhNeLLr7BFtaeOL/edit?usp=drivesdk&rtpof=true&sd=true"
+              "url": "/assets/showcase/GEF2101_Introduction_to_Data_and_Statistics_Research_Report_Active_Listening_and_Friendship_Quality_duplicate_1.docx"
             }
           ]
         },
@@ -298,7 +298,7 @@
           "workTitle": "Poverty Trap Photo Essay",
           "type": "Photo essay",
           "desc": "A photography coursework document using image sequence, captioning, and visual argument to examine poverty and constraint.",
-          "externalUrl": "https://docs.google.com/document/d/1BCY9P2g752qoDBVDsCglW-Sw98FHdkIu/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/HUM2112_Poverty_Trap_Photo_Essay.docx"
         },
         {
           "code": "HUM2204",
@@ -309,7 +309,7 @@
           "workTitle": "Astir: Two Essays",
           "type": "History essays",
           "desc": "Two coursework essays on South Asian history, memory, and public life.",
-          "externalUrl": "https://docs.google.com/document/d/11UeVmD_mXO86LnCX5xoty-6TWoM6fozi/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/HUM2204_Astir_Two_Essays.docx"
         },
         {
           "code": "HUM2111",
@@ -334,11 +334,11 @@
           "resources": [
             {
               "label": "Om-Dar-B-Dar Video Essay",
-              "url": "https://docs.google.com/document/d/1m0R8KDT4m7FpGTsZQy3Z8KLghW1iQwQ3/edit?usp=drivesdk&rtpof=true&sd=true"
+              "url": "/assets/showcase/HUM3101_Om_Dar_B_Dar_Video_Essay.docx"
             },
             {
               "label": "HUM3101 Article",
-              "url": "https://docs.google.com/document/d/1KeR2VgsLjOHRtpeYqwBXDnwdc5CkEO0h/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true"
+              "url": "/assets/showcase/HUM3101_Om_Dar_B_Dar_Video_Essay.docx"
             }
           ]
         },
@@ -351,7 +351,7 @@
           "workTitle": "The Long Shadow of Night and Fog",
           "type": "Analytical essay",
           "desc": "An anthropology coursework essay using cultural analysis, memory, and representation as its frame.",
-          "externalUrl": "https://docs.google.com/document/d/1kRPgL21mk93oNAOGdJPt_lNGSzjD0kbq/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/SSC2149_The_Long_Shadow_of_Night_and_Fog.docx"
         },
         {
           "code": "SSC3150",
@@ -362,7 +362,7 @@
           "workTitle": "The Miracle and the Mirror",
           "type": "Field essay",
           "desc": "A grassroots economic development essay on development narratives, local institutions, and the mirror they hold up to public policy.",
-          "externalUrl": "https://docs.google.com/document/d/1yLQRGyu7B3ovNd7F77gIu1cnJjTreUan/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/SSC3150_The_Miracle_and_the_Mirror.docx"
         },
         {
           "code": "SSC2252",
@@ -384,7 +384,7 @@
           "workTitle": "Precarity of Food Delivery Riders",
           "type": "Research proposal",
           "desc": "A social research proposal on platform work, labour precarity, and the everyday risks facing food delivery riders.",
-          "externalUrl": "https://docs.google.com/document/d/1w5l14XTT8EjQnNee4qr6ttu5FiR6LNZp/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/The Socio-Economic Precarity of App-Based Food Delivery Riders in Dhanmondi, Dhaka.docx"
         },
         {
           "code": "NSC2283",
@@ -395,7 +395,7 @@
           "workTitle": "Construction Pollution Brief",
           "type": "Science brief",
           "desc": "An environmental science brief translating construction pollution and urban risk into public-facing language.",
-          "externalUrl": "https://docs.google.com/document/d/1UhBK-29btU-EldGh79U1ep5a4Fx7_Vwt/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/NSC2283_Construction_Pollution_Brief.docx"
         },
         {
           "code": "NSC2282",
@@ -406,7 +406,7 @@
           "workTitle": "The Uncounted Forest",
           "type": "Science communication",
           "desc": "A biodiversity and conservation coursework document on ecological risk, loss, and public communication.",
-          "externalUrl": "https://docs.google.com/document/d/1tO5bz11i_O0glfzJ_18WmA3D29oAVNLY/edit?usp=drivesdk&rtpof=true&sd=true"
+          "externalUrl": "/assets/showcase/NSC2282_The_Uncounted_Forest.docx"
         },
         {
           "code": "NSC4182",
@@ -509,13 +509,13 @@
   "education": [
     {
       "institution": "University of Liberal Arts Bangladesh (ULAB)",
-      "detail": "BSS in Media Studies and Journalism · Major: Digital Journalism · Minor: Computer Science",
-      "date": "2023–2027"
+      "detail": "BSS in Media Studies and Journalism \u00b7 Major: Digital Journalism \u00b7 Minor: Computer Science",
+      "date": "2023\u20132027"
     },
     {
       "institution": "University of Dhaka",
-      "detail": "BA in English · President, English Dept. Art & Literary Club (2022–23)",
-      "date": "2017–2023"
+      "detail": "BA in English \u00b7 President, English Dept. Art & Literary Club (2022\u201323)",
+      "date": "2017\u20132023"
     }
   ]
 }
