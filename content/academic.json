@@ -188,7 +188,7 @@
           "resources": [
             {
               "label": "Academic English I Essay",
-              "url": "https://docs.google.com/document/d/1XS5tkPhZyNKKrZvfDX4azRoyYxnc2wme/edit"
+              "url": "/assets/showcase/GEF1101_The_Grammar_of_Honest_Writing.docx"
             }
           ]
         },
@@ -203,7 +203,7 @@
           "resources": [
             {
               "label": "Academic English II Essay",
-              "url": "https://docs.google.com/document/d/1eoTYUlNwnoLIuO9PZK_YxFg8ChrRsZqi/edit"
+              "url": "/assets/showcase/GEF1201_The_Exam_Passed_the_Mind_Unchanged.docx"
             }
           ]
         },
@@ -222,7 +222,7 @@
             },
             {
               "label": "Statistics for Newsroom Decisions",
-              "url": "/assets/showcase/GEF2101_Introduction_to_Data_and_Statistics_Research_Report_Active_Listening_and_Friendship_Quality_duplicate_1.docx"
+              "url": "/assets/showcase/GEF2101_Statistics_for_Newsroom_Decisions.docx"
             }
           ]
         },
