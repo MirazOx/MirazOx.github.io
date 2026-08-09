@@ -4654,7 +4654,9 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   min-height: 300px;
 }
 
-.intervention-focus-media:has(img[style*="display: none"]),
+.intervention-focus-media:has(img[style*="display: none"]) {
+  grid-template-columns: 1fr;
+}
 .intervention-focus-media.is-single {
   grid-template-columns: 1fr;
 }
