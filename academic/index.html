@@ -265,7 +265,14 @@ function renderCourseMap() {
             const isVideo = course.media === 'video';
             const resources = getCourseResources(course);
             const outcomes = resources.length
-              ? resources.map(resource => `<a class="course-resource-link" href="${escapeHTML(resource.url)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`).join('')
+              ? resources.map(resource => {
+                  let finalUrl = resource.url;
+                  if (finalUrl.toLowerCase().endsWith('.docx') || finalUrl.toLowerCase().endsWith('.doc')) {
+                    const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazox.github.io' + finalUrl;
+                    finalUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(absoluteUrl);
+                  }
+                  return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
+                }).join('')
               : '<span class="course-resource-placeholder">Work sample pending</span>';
 
             return `
@@ -350,7 +357,14 @@ fetch('/content/academic.json?v=15')
     if (fh) fh.innerHTML = featured.slice(0,6).map(c=> {
       const resources = c.resources || [];
       const outcomes = resources.length
-        ? resources.map(r => `<a class="fc-resource-link" href="${esc(r.url)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`).join('')
+        ? resources.map(r => {
+            let finalUrl = r.url;
+            if (finalUrl.toLowerCase().endsWith('.docx') || finalUrl.toLowerCase().endsWith('.doc')) {
+              const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazox.github.io' + finalUrl;
+              finalUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(absoluteUrl);
+            }
+            return `<a class="fc-resource-link" href="${esc(finalUrl)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`;
+          }).join('')
         : '<span class="fc-resource-placeholder">Work sample pending</span>';
       const showWork = !resources.length && c.work;
       const workHtml = showWork ? `<p class="fc-work">${esc(c.work)}</p>` : '';
