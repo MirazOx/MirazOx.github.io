@@ -294,7 +294,7 @@ function renderCourseMap() {
   host.innerHTML = sections || '<p class="result-count">No coursework matched that search.</p>';
 }
 
-fetch('/content/academic.json?v=14')
+fetch('/content/academic.json?v=15')
   .then(response => {
     if (!response.ok) throw new Error('Could not load academic content');
     return response.json();
@@ -315,7 +315,7 @@ fetch('/content/academic.json?v=14')
 // Academic record ledger + selected (A+) coursework — built from the same content source.
 (function () {
   function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
-  fetch('/content/academic.json?v=14').then(r=>r.json()).then(data=>{
+  fetch('/content/academic.json?v=15').then(r=>r.json()).then(data=>{
     const groups = data.courseGroups || [];
     let aplus = 0, a = 0, aminus = 0, completed = 0;
     const featured = [];
