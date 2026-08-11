@@ -7226,6 +7226,46 @@ body[data-page="writing"] .writing-archive-cta * {
   color: #ffffff;
   transform: translateY(-1.5px);
 }
+
+/* Logo Marquee */
+.logo-marquee {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 3.5rem auto 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+.logo-marquee-track {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+}
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+.logo-marquee-track img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  /* Make all logos a sleek semi-transparent white */
+  filter: grayscale(1) brightness(100) opacity(0.45);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.logo-marquee-track img:hover {
+  filter: grayscale(1) brightness(100) opacity(1);
+  transform: scale(1.05);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  /* Since we duplicated 10 logos, we translate exactly half the track width (plus half a gap) */
+  to { transform: translateX(calc(-50% - 2rem)); }
+}
 @media (max-width: 768px) {
   .credentials-strip {
     padding: 2.25rem 0;
