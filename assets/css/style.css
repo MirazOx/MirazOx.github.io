@@ -4220,8 +4220,9 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   justify-content: center;
   cursor: pointer;
   user-select: none;
+  perspective: 1000px;
 }
-.award-fan-card {
+.award-fan-card, .award-fan-cover {
   position: absolute;
   width: 146px;
   border: 0.5px solid var(--border);
@@ -4229,66 +4230,59 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   overflow: hidden;
   background: var(--bg);
   box-shadow: var(--shadow-md);
-  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
-              opacity 0.4s ease,
-              box-shadow 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.6s ease,
+              z-index 0s 0.15s;
   will-change: transform, opacity;
 }
-.award-fan-card.is-front {
+
+/* Stack positions */
+.award-fan-wrap [data-deck-pos="0"] {
   z-index: 10;
-  transform: translateX(0) rotate(0deg) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
 }
-.award-fan-card.is-front:hover {
+.award-fan-wrap [data-deck-pos="0"]:hover {
+  transform: translate3d(0, -6px, 0) scale(1.02);
   box-shadow: 0 12px 40px rgba(0,0,0,0.18);
 }
-.award-fan-cover .award-thumb img {
-  object-position: center 18%;
+.award-fan-wrap [data-deck-pos="1"] {
+  z-index: 9;
+  transform: translate3d(12px, 8px, -40px) scale(0.95);
+  opacity: 0.85;
 }
-.award-fan-wrap.is-open .award-fan-cover {
-  opacity: 0;
-  transform: translateY(-8px) rotate(0deg) scale(0.84);
-  pointer-events: none;
+.award-fan-wrap [data-deck-pos="2"] {
+  z-index: 8;
+  transform: translate3d(24px, 16px, -80px) scale(0.90);
+  opacity: 0.7;
 }
-.award-fan-card[data-wing] {
-  opacity: 0;
-  transform: translateX(0) rotate(0deg) scale(0.88);
-  z-index: 1;
-  pointer-events: none;
-}
-/* Opened state — cards fan sideways */
-.award-fan-wrap.is-open .award-fan-card[data-wing="1"] {
-  opacity: 1;
-  transform: translateX(-210px) rotate(-16deg) scale(0.76);
+.award-fan-wrap [data-deck-pos="3"] {
   z-index: 7;
-  pointer-events: auto;
+  transform: translate3d(36px, 24px, -120px) scale(0.85);
+  opacity: 0.5;
 }
-.award-fan-wrap.is-open .award-fan-card[data-wing="2"] {
-  opacity: 1;
-  transform: translateX(-105px) rotate(-8deg) scale(0.82);
+.award-fan-wrap [data-deck-pos="4"] {
   z-index: 6;
-  pointer-events: auto;
+  transform: translate3d(48px, 32px, -160px) scale(0.80);
+  opacity: 0.3;
 }
-.award-fan-wrap.is-open .award-fan-card[data-wing="3"] {
-  opacity: 1;
-  transform: translateX(0px) rotate(0deg) scale(0.88);
+.award-fan-wrap [data-deck-pos="5"] {
   z-index: 5;
-  pointer-events: auto;
+  transform: translate3d(60px, 40px, -200px) scale(0.75);
+  opacity: 0;
 }
-.award-fan-wrap.is-open .award-fan-card[data-wing="4"] {
-  opacity: 1;
-  transform: translateX(105px) rotate(8deg) scale(0.82);
-  z-index: 4;
-  pointer-events: auto;
+
+/* Shuffling out animation */
+.award-fan-wrap .is-shuffling {
+  transform: translate3d(-120%, -10%, 0) rotate(-15deg) scale(1) !important;
+  opacity: 0 !important;
+  z-index: 11 !important;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out !important;
 }
-.award-fan-wrap.is-open .award-fan-card[data-wing="5"] {
-  opacity: 1;
-  transform: translateX(210px) rotate(16deg) scale(0.76);
-  z-index: 3;
-  pointer-events: auto;
-}
+
 .award-fan-hint {
   position: absolute;
-  bottom: 2px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-mono);
@@ -4305,7 +4299,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   padding: 0.45rem 0.72rem;
 }
-.award-fan-wrap.is-open .award-fan-hint { opacity: 1; }
+.award-fan-wrap:hover .award-fan-hint { opacity: 1; }
 
 /* ==========================================================
    RESONANCE — Organic Blob Testimonial Bubbles

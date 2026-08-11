@@ -504,31 +504,43 @@
 document.addEventListener('DOMContentLoaded', () => {
   const fan = document.getElementById('awardFan');
   if (fan) {
+    const cards = Array.from(fan.querySelectorAll('.award-fan-cover, .award-fan-card'));
+    let currentIndex = 0;
+    let isAnimating = false;
     const hint = fan.querySelector('.award-fan-hint');
-    const toggle = () => {
-      const open = fan.classList.toggle('is-open');
-      fan.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (hint) hint.textContent = open ? 'Click to collapse' : 'Click to spread';
-    };
-    fan.addEventListener('click', toggle);
-    fan.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-    });
-    // Wing cards open a lightbox on click when fan is open
-    fan.querySelectorAll('[data-wing]').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (!fan.classList.contains('is-open')) return;
-        e.stopPropagation();
-        const lb = document.getElementById('lightbox');
-        if (!lb) return;
-        const src = card.getAttribute('data-full');
-        const cap = card.querySelector('.award-note')?.textContent || '';
-        lb.querySelector('.lightbox-img').src = src;
-        lb.querySelector('.lightbox-cap').textContent = cap;
-        lb.classList.add('is-open');
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+    if (hint) hint.textContent = 'Click to view next';
+
+    const updateDeck = () => {
+      cards.forEach((card, i) => {
+        let pos = (i - currentIndex + cards.length) % cards.length;
+        card.setAttribute('data-deck-pos', pos);
+        card.style.pointerEvents = pos === 0 ? 'auto' : 'none';
       });
+    };
+    
+    updateDeck();
+
+    fan.addEventListener('click', (e) => {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      // Find top card
+      const topCard = cards[currentIndex];
+      topCard.classList.add('is-shuffling');
+
+      setTimeout(() => {
+        topCard.classList.remove('is-shuffling');
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateDeck();
+        isAnimating = false;
+      }, 400); // Wait for shuffle animation to finish
+    });
+
+    fan.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { 
+        e.preventDefault(); 
+        fan.click(); 
+      }
     });
   }
 

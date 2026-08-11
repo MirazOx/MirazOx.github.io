@@ -229,7 +229,48 @@ function renderAcademicFilters(groups) {
       renderCourseMap();
     });
   });
-}
+
+  const fan = document.getElementById('awardFan');
+  if (fan) {
+    const cards = Array.from(fan.querySelectorAll('.award-fan-cover, .award-fan-card'));
+    let currentIndex = 0;
+    let isAnimating = false;
+    const hint = fan.querySelector('.award-fan-hint');
+    if (hint) hint.textContent = 'Click to view next';
+
+    const updateDeck = () => {
+      cards.forEach((card, i) => {
+        let pos = (i - currentIndex + cards.length) % cards.length;
+        card.setAttribute('data-deck-pos', pos);
+        card.style.pointerEvents = pos === 0 ? 'auto' : 'none';
+      });
+    };
+    
+    updateDeck();
+
+    fan.addEventListener('click', (e) => {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      // Find top card
+      const topCard = cards[currentIndex];
+      topCard.classList.add('is-shuffling');
+
+      setTimeout(() => {
+        topCard.classList.remove('is-shuffling');
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateDeck();
+        isAnimating = false;
+      }, 400); // Wait for shuffle animation to finish
+    });
+
+    fan.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { 
+        e.preventDefault(); 
+        fan.click(); 
+      }
+    });
+  }
 
 function renderCourseMap() {
   const query = document.getElementById('academicSearch').value.trim().toLowerCase();
