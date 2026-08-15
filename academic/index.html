@@ -230,13 +230,14 @@ function renderAcademicFilters(groups) {
     });
   });
 
+  // Fan gallery
   const fan = document.getElementById('awardFan');
   if (fan) {
     const cards = Array.from(fan.querySelectorAll('.award-fan-cover, .award-fan-card'));
     let currentIndex = 0;
     let isAnimating = false;
     const hint = fan.querySelector('.award-fan-hint');
-    if (hint) hint.textContent = 'Click to view next';
+    if (hint) hint.style.display = 'none';
 
     const updateDeck = () => {
       cards.forEach((card, i) => {
@@ -248,7 +249,7 @@ function renderAcademicFilters(groups) {
     
     updateDeck();
 
-    fan.addEventListener('click', (e) => {
+    const shuffleNext = () => {
       if (isAnimating) return;
       isAnimating = true;
 
@@ -262,15 +263,27 @@ function renderAcademicFilters(groups) {
         updateDeck();
         isAnimating = false;
       }, 400); // Wait for shuffle animation to finish
-    });
+    };
+
+    fan.addEventListener('click', shuffleNext);
 
     fan.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { 
         e.preventDefault(); 
-        fan.click(); 
+        shuffleNext(); 
       }
     });
+
+    // Autoplay functionality
+    let autoplayInterval = setInterval(shuffleNext, 3500);
+
+    // Pause on hover/interaction
+    fan.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    fan.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(shuffleNext, 3500);
+    });
   }
+}
 
 function renderCourseMap() {
   const query = document.getElementById('academicSearch').value.trim().toLowerCase();

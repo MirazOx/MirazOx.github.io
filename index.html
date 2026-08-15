@@ -152,7 +152,6 @@
                 </div>
                 <figcaption class="award-cap">
                   <span class="award-dept">Fall 2024</span>
-                  <span class="award-note">Dean's List Scholarship</span>
                 </figcaption>
               </figure>
 
@@ -162,7 +161,6 @@
                 </div>
                 <figcaption class="award-cap">
                   <span class="award-dept">Spring 2025</span>
-                  <span class="award-note">Dean's List Scholarship</span>
                 </figcaption>
               </figure>
 
@@ -172,7 +170,6 @@
                 </div>
                 <figcaption class="award-cap">
                   <span class="award-dept">Summer 2025</span>
-                  <span class="award-note">Dean's List Scholarship</span>
                 </figcaption>
               </figure>
 
@@ -182,7 +179,6 @@
                 </div>
                 <figcaption class="award-cap">
                   <span class="award-dept">Fall 2025</span>
-                  <span class="award-note">Dean's List Scholarship</span>
                 </figcaption>
               </figure>
 
@@ -192,7 +188,6 @@
                 </div>
                 <figcaption class="award-cap">
                   <span class="award-dept">Spring 2026</span>
-                  <span class="award-note">Dean's List Scholarship</span>
                 </figcaption>
               </figure>
 
@@ -536,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let isAnimating = false;
     const hint = fan.querySelector('.award-fan-hint');
-    if (hint) hint.textContent = 'Click to view next';
+    if (hint) hint.style.display = 'none';
 
     const updateDeck = () => {
       cards.forEach((card, i) => {
@@ -548,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateDeck();
 
-    fan.addEventListener('click', (e) => {
+    const shuffleNext = () => {
       if (isAnimating) return;
       isAnimating = true;
 
@@ -562,13 +557,24 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDeck();
         isAnimating = false;
       }, 400); // Wait for shuffle animation to finish
-    });
+    };
+
+    fan.addEventListener('click', shuffleNext);
 
     fan.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { 
         e.preventDefault(); 
-        fan.click(); 
+        shuffleNext(); 
       }
+    });
+
+    // Autoplay functionality
+    let autoplayInterval = setInterval(shuffleNext, 3500);
+
+    // Pause on hover/interaction
+    fan.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    fan.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(shuffleNext, 3500);
     });
   }
 
