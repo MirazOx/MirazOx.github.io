@@ -569,12 +569,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Autoplay functionality
-    let autoplayInterval = setInterval(shuffleNext, 1000);
+    let autoplayInterval = setInterval(shuffleNext, 1500);
 
     // Pause on hover/interaction
     fan.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
     fan.addEventListener('mouseleave', () => {
-      autoplayInterval = setInterval(shuffleNext, 1000);
+      autoplayInterval = setInterval(shuffleNext, 1500);
     });
   }
 
