@@ -439,6 +439,18 @@ fetch('/content/academic.json?v=15')
   }).catch(()=>{});
 
   // Document Preview Modal Interactions
+  function closeDocModal(modal, iframe) {
+    if (modal && modal.classList.contains('is-open')) {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        modal.style.display = 'none';
+        iframe.src = '';
+      }, 300);
+    }
+  }
+
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.doc-preview-trigger');
     const modal = document.getElementById('docPreviewModal');
@@ -450,17 +462,14 @@ fetch('/content/academic.json?v=15')
       const url = trigger.getAttribute('data-preview-url');
       if (url && iframe && modal) {
         iframe.src = url;
+        modal.style.display = 'flex';
+        void modal.offsetWidth; // force reflow
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden'; 
       }
     } else if (closeBtn || (e.target === modal)) {
-      if (modal && modal.classList.contains('is-open')) {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        iframe.src = '';
-        document.body.style.overflow = '';
-      }
+      closeDocModal(modal, iframe);
     }
   });
 
@@ -468,12 +477,7 @@ fetch('/content/academic.json?v=15')
     if (e.key === 'Escape') {
       const modal = document.getElementById('docPreviewModal');
       const iframe = document.getElementById('docPreviewIframe');
-      if (modal && modal.classList.contains('is-open')) {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        iframe.src = '';
-        document.body.style.overflow = '';
-      }
+      closeDocModal(modal, iframe);
     }
   });
 
