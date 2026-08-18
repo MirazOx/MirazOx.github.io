@@ -324,7 +324,8 @@ function renderCourseMap() {
                   const ext = finalUrl.toLowerCase().split('.').pop();
                   if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
                     const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
-                    finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=false';
+                    finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
+                    return `<button class="course-resource-link doc-preview-trigger" data-preview-url="${escapeHTML(finalUrl)}" type="button">${escapeHTML(resource.label)} ↗</button>`;
                   }
                   return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
                 }).join('')
@@ -417,7 +418,8 @@ fetch('/content/academic.json?v=15')
             const ext = finalUrl.toLowerCase().split('.').pop();
             if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
               const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
-              finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=false';
+              finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
+              return `<button class="fc-resource-link doc-preview-trigger" data-preview-url="${esc(finalUrl)}" type="button"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</button>`;
             }
             return `<a class="fc-resource-link" href="${esc(finalUrl)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`;
           }).join('')
@@ -435,8 +437,56 @@ fetch('/content/academic.json?v=15')
 
     if (window.__reInitReveal) window.__reInitReveal();
   }).catch(()=>{});
+
+  // Document Preview Modal Interactions
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.doc-preview-trigger');
+    const modal = document.getElementById('docPreviewModal');
+    const iframe = document.getElementById('docPreviewIframe');
+    const closeBtn = e.target.closest('.doc-preview-close');
+
+    if (trigger) {
+      e.preventDefault();
+      const url = trigger.getAttribute('data-preview-url');
+      if (url && iframe && modal) {
+        iframe.src = url;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; 
+      }
+    } else if (closeBtn || (e.target === modal)) {
+      if (modal && modal.classList.contains('is-open')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        iframe.src = '';
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('docPreviewModal');
+      const iframe = document.getElementById('docPreviewIframe');
+      if (modal && modal.classList.contains('is-open')) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        iframe.src = '';
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
 })();
 </script>
+
+<!-- Document Preview Modal -->
+<div class="doc-preview-modal" id="docPreviewModal" aria-hidden="true" role="dialog">
+  <button class="doc-preview-close" aria-label="Close preview">&times;</button>
+  <div class="doc-preview-content">
+    <iframe class="doc-preview-iframe" id="docPreviewIframe" src="" title="Document Preview" frameborder="0"></iframe>
+  </div>
+</div>
 
 </body>
 </html>
