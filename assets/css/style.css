@@ -7462,14 +7462,17 @@ body[data-page="writing"] .writing-archive-cta * {
   background: rgba(7, 11, 20, 0.85);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  display: none;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
   align-items: flex-end;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s;
 }
 .doc-preview-modal.is-open {
-  display: flex;
+  visibility: visible;
+  pointer-events: auto;
   opacity: 1;
 }
 .doc-preview-content {
