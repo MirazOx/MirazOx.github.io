@@ -3730,9 +3730,14 @@ footer { border-top: 0.5px solid var(--border); padding: 2rem 0; margin-top: 2re
 footer .container,
 footer .container-wide { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .footer-text { font-family: var(--font-mono); font-size: 11px; color: var(--text3); }
-.footer-links { display: flex; gap: 1.25rem; }
-.footer-links a { font-family: var(--font-mono); font-size: 11px; color: var(--text2); text-decoration: none; transition: color var(--trans); }
-.footer-links a:hover { color: var(--accent-blue); }
+.footer-links { display: flex; align-items: center; gap: 0.85rem 1rem; flex-wrap: wrap; }
+.footer-links a { display: inline-flex; align-items: center; gap: 0.36rem; font-family: var(--font-mono); font-size: 11px; line-height: 1; color: var(--text2); text-decoration: none; transition: color var(--trans), transform var(--trans); }
+.footer-links a:hover { color: var(--accent-blue); transform: translateY(-1px); }
+.footer-icon { width: 13px; height: 13px; fill: currentColor; flex: 0 0 auto; }
+@media (max-width: 640px) {
+  .footer-links { gap: 0.65rem 0.8rem; }
+  .footer-icon { width: 12px; height: 12px; }
+}
 
 /* UTILITIES */
 .text-mono { font-family: var(--font-mono); }
