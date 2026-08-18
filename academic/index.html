@@ -321,9 +321,10 @@ function renderCourseMap() {
             const outcomes = resources.length
               ? resources.map(resource => {
                   let finalUrl = resource.url;
-                  if (finalUrl.toLowerCase().endsWith('.docx') || finalUrl.toLowerCase().endsWith('.doc')) {
-                    const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazox.github.io' + finalUrl;
-                    finalUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(absoluteUrl);
+                  const ext = finalUrl.toLowerCase().split('.').pop();
+                  if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
+                    const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
+                    finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=false';
                   }
                   return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
                 }).join('')
@@ -413,9 +414,10 @@ fetch('/content/academic.json?v=15')
       const outcomes = resources.length
         ? resources.map(r => {
             let finalUrl = r.url;
-            if (finalUrl.toLowerCase().endsWith('.docx') || finalUrl.toLowerCase().endsWith('.doc')) {
-              const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazox.github.io' + finalUrl;
-              finalUrl = 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(absoluteUrl);
+            const ext = finalUrl.toLowerCase().split('.').pop();
+            if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
+              const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
+              finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=false';
             }
             return `<a class="fc-resource-link" href="${esc(finalUrl)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`;
           }).join('')
