@@ -61,7 +61,7 @@
         <h2>Selected coursework</h2>
         <span class="band-meta">top-graded projects</span>
       </div>
-      <div class="academic-featured-grid" id="academicFeatured"></div>
+      <div class="course-slot-grid" id="academicFeatured"></div>
     </section>
 
     <section>
@@ -120,7 +120,7 @@ function escapeHTML(value) {
 }
 
 let academicGroups = [];
-let globalCourseList = [];
+let globalCourseMap = {};
 let currentCourseIndex = 0;
 let activeAcademicFilter = 'all';
 
@@ -360,8 +360,8 @@ function renderCourseMap() {
               : '<span class="course-resource-placeholder">Work sample pending</span>';
 
             const iconSvg = getCourseIcon(course.type);
-            const courseId = globalCourseList.length;
-            globalCourseList.push({ ...course, iconSvg, outcomes });
+            const courseId = course.code.replace(/\s+/g, '-');
+            globalCourseMap[courseId] = { ...course, iconSvg, outcomes };
 
             return `
               <article class="course-slot ${isAPlus ? 'is-aplus' : ''}" style="--item-index: ${index};" data-course-id="${courseId}" role="button" tabindex="0">
@@ -417,7 +417,7 @@ fetch('/content/academic.json?v=15')
         if (gr==='A+'||gr==='A'||gr==='A-') completed++;
         if (gr==='A+') {
           const res = getCourseResources(c);
-          featured.push({code:c.code,name:c.name,work:c.workTitle,group:g.category,resources:res});
+          featured.push(c);
         }
       });
     });
@@ -436,28 +436,37 @@ fetch('/content/academic.json?v=15')
     ).join('');
 
     const fh = document.getElementById('academicFeatured');
-    if (fh) fh.innerHTML = featured.slice(0,6).map(c=> {
-      const resources = c.resources || [];
+    if (fh) fh.innerHTML = featured.slice(0,6).map((c, index) => {
+      const isVideo = c.media === 'video';
+      const resources = getCourseResources(c);
       const outcomes = resources.length
-        ? resources.map(r => {
-            let finalUrl = r.url;
+        ? resources.map(resource => {
+            let finalUrl = resource.url;
             const ext = finalUrl.toLowerCase().split('.').pop();
             if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
               const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
               finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
+              return `<div class="iframe-wrapper"><iframe src="${escapeHTML(finalUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
             }
-            return `<a class="fc-resource-link" href="${esc(finalUrl)}" target="_blank" rel="noopener"><span class="fc-bullet">&bull;</span>${esc(r.label)} ↗</a>`;
+            return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
           }).join('')
-        : '<span class="fc-resource-placeholder">Work sample pending</span>';
-      const showWork = !resources.length && c.work;
-      const workHtml = showWork ? `<p class="fc-work">${esc(c.work)}</p>` : '';
-      return `<article class="featured-course">
-        <div class="fc-top"><span class="fc-code">${esc(c.code)}</span><span class="fc-grade">A+</span></div>
-        <h3 class="fc-name">${esc(c.name)}</h3>
-        ${workHtml}
-        <div class="fc-outcome-list">${outcomes}</div>
-        <p class="fc-group">${esc(c.group)}</p>
-      </article>`;
+        : '<span class="course-resource-placeholder">Work sample pending</span>';
+
+      const iconSvg = getCourseIcon(c.type);
+      const courseId = c.code.replace(/\s+/g, '-');
+      globalCourseMap[courseId] = { ...c, iconSvg, outcomes };
+
+      return `
+        <article class="course-slot is-aplus" style="--item-index: ${index};" data-course-id="${courseId}" role="button" tabindex="0">
+          <div class="course-icon">
+            ${iconSvg}
+          </div>
+          <h4 class="course-project-title">${isVideo ? '▶ ' : ''}${escapeHTML(c.workTitle)}</h4>
+          <div class="course-slot-meta">
+            <span class="course-code">${escapeHTML(c.code)} &mdash; ${escapeHTML(c.name)}</span>
+          </div>
+        </article>
+      `;
     }).join('');
 
     if (window.__reInitReveal) window.__reInitReveal();
@@ -466,7 +475,7 @@ fetch('/content/academic.json?v=15')
   
   // Side Panel Logic
   function openCoursePanel(id) {
-    const data = globalCourseList[id];
+    const data = globalCourseMap[id];
     if (!data) return;
     
     const panelOverlay = document.getElementById('coursePanelOverlay');
