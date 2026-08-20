@@ -466,13 +466,12 @@ fetch('/content/academic.json?v=15')
 
   
   // Side Panel Logic
-  const panelOverlay = document.getElementById('coursePanelOverlay');
-  const detailsPanel = document.getElementById('courseDetailsPanel');
-  const panelCloseBtn = document.getElementById('coursePanelClose');
-
   function openCoursePanel(id) {
     const data = globalCourseList[id];
     if (!data) return;
+    
+    const panelOverlay = document.getElementById('coursePanelOverlay');
+    const detailsPanel = document.getElementById('courseDetailsPanel');
 
     document.getElementById('coursePanelIcon').innerHTML = data.iconSvg;
     document.getElementById('coursePanelCode').textContent = data.code;
@@ -490,6 +489,10 @@ fetch('/content/academic.json?v=15')
   }
 
   function closeCoursePanel() {
+    const panelOverlay = document.getElementById('coursePanelOverlay');
+    const detailsPanel = document.getElementById('courseDetailsPanel');
+    if (!panelOverlay || !detailsPanel) return;
+
     panelOverlay.classList.remove('is-open');
     detailsPanel.classList.remove('is-open');
     panelOverlay.setAttribute('aria-hidden', 'true');
@@ -502,15 +505,17 @@ fetch('/content/academic.json?v=15')
 
   document.addEventListener('click', (e) => {
     const slot = e.target.closest('.course-slot');
+    const panelOverlay = document.getElementById('coursePanelOverlay');
     if (slot && slot.hasAttribute('data-course-id')) {
       openCoursePanel(slot.getAttribute('data-course-id'));
-    } else if (e.target === panelOverlay || e.target.closest('#coursePanelClose')) {
+    } else if (panelOverlay && (e.target === panelOverlay || e.target.closest('#coursePanelClose'))) {
       closeCoursePanel();
     }
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && detailsPanel.classList.contains('is-open')) {
+    const detailsPanel = document.getElementById('courseDetailsPanel');
+    if (e.key === 'Escape' && detailsPanel && detailsPanel.classList.contains('is-open')) {
       // Prioritize closing doc modal first if both are open
       if (!document.getElementById('docPreviewModal').classList.contains('is-open')) {
         closeCoursePanel();
