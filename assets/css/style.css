@@ -7720,3 +7720,14 @@ body[data-page="writing"] .writing-archive-cta * {
 .course-desc, .course-outcome-list {
   display: none !important; /* Hide them on the card if any residual CSS tries to show them */
 }
+
+.course-slot-meta .course-code {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--text2);
+  line-height: 1.4;
+  display: inline-block;
+  max-width: 90%;
+}

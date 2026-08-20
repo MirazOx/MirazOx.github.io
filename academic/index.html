@@ -370,7 +370,7 @@ function renderCourseMap() {
                 </div>
                 <h4 class="course-project-title">${isVideo ? '▶ ' : ''}${escapeHTML(course.workTitle)}</h4>
                 <div class="course-slot-meta">
-                  <span class="course-code">${escapeHTML(course.code)}</span>
+                  <span class="course-code">${escapeHTML(course.code)} &mdash; ${escapeHTML(course.name)}</span>
                 </div>
               </article>
             `;
