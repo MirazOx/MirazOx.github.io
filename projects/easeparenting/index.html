@@ -138,10 +138,12 @@
     }
     .hero h1 {
       font-family: 'Literata', Georgia, serif;
-      font-size: clamp(56px, 8vw, 112px);
+      font-size: clamp(42px, 5.5vw, 92px);
       line-height: .90;
       letter-spacing: -0.04em;
-      max-width: 10ch;
+      max-width: 15ch;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .hero h1 em { color: var(--teal); font-style: normal; }
     .hero-lead {
@@ -152,7 +154,7 @@
     }
     .hero-meta {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 12px;
       margin-top: 8px;
     }
@@ -169,9 +171,8 @@
     .mosaic {
       display: grid;
       grid-template-columns: 1.08fr .92fr;
-      grid-template-rows: 360px 160px;
+      grid-template-rows: minmax(360px, auto) minmax(160px, auto);
       gap: 14px;
-      min-height: 540px;
     }
     .mosaic-primary {
       grid-row: span 2;
@@ -614,7 +615,7 @@
     }
     .footer strong { color: var(--ink); }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1180px) {
       .hero-grid,
       .section-grid,
       .info-row,
