@@ -5361,18 +5361,41 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 .course-slot {
   position: relative;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--bg2);
-  padding: 1rem;
-  min-height: 220px;
+  padding: 2.5rem 1.5rem;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
-  transition: transform var(--trans), border-color var(--trans), box-shadow var(--trans);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.course-slot::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-teal);
+  transition: width 0.4s ease;
+  border-radius: 3px 3px 0 0;
 }
 .course-slot:hover {
-  transform: translateY(-2px);
+  transform: translateY(-6px);
   border-color: color-mix(in srgb, var(--accent-teal) 34%, var(--border2));
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+:root[data-theme="dark"] .course-slot:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.course-slot:hover::before {
+  width: 100px;
 }
 .course-slot.is-aplus {
   border-color: color-mix(in srgb, var(--accent-amber) 58%, var(--border2));
@@ -5391,14 +5414,42 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: color-mix(in srgb, var(--accent-amber) 22%, transparent);
   pointer-events: none;
 }
-.course-slot-top,
 .course-slot-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
+.course-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 1.25rem;
+  color: var(--text2);
+  transition: transform 0.4s ease;
+}
+.course-slot:hover .course-icon {
+  transform: scale(1.1);
+}
+.course-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+
+/* Cycle icon colors using module math on item-index */
+.course-slot[style*="--item-index: 0"] .course-icon, .course-slot[style*="--item-index: 7"] .course-icon, .course-slot[style*="--item-index: 14"] .course-icon { color: #E63946; }
+.course-slot[style*="--item-index: 1"] .course-icon, .course-slot[style*="--item-index: 8"] .course-icon, .course-slot[style*="--item-index: 15"] .course-icon { color: #2A9D8F; }
+.course-slot[style*="--item-index: 2"] .course-icon, .course-slot[style*="--item-index: 9"] .course-icon, .course-slot[style*="--item-index: 16"] .course-icon { color: #E9C46A; }
+.course-slot[style*="--item-index: 3"] .course-icon, .course-slot[style*="--item-index: 10"] .course-icon, .course-slot[style*="--item-index: 17"] .course-icon { color: #F4A261; }
+.course-slot[style*="--item-index: 4"] .course-icon, .course-slot[style*="--item-index: 11"] .course-icon, .course-slot[style*="--item-index: 18"] .course-icon { color: #264653; }
+.course-slot[style*="--item-index: 5"] .course-icon, .course-slot[style*="--item-index: 12"] .course-icon, .course-slot[style*="--item-index: 19"] .course-icon { color: #8338EC; }
+.course-slot[style*="--item-index: 6"] .course-icon, .course-slot[style*="--item-index: 13"] .course-icon, .course-slot[style*="--item-index: 20"] .course-icon { color: #3A86FF; }
+
+:root[data-theme="dark"] .course-slot[style*="--item-index: 4"] .course-icon, 
+:root[data-theme="dark"] .course-slot[style*="--item-index: 11"] .course-icon,
+:root[data-theme="dark"] .course-slot[style*="--item-index: 18"] .course-icon { color: #48CAE4; }
 .course-code,
 .course-grade,
 .course-slot-meta span,
