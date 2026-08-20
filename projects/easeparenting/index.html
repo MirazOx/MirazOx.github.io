@@ -173,6 +173,9 @@
       gap: 14px;
       min-height: 540px;
     }
+    .mosaic-primary {
+      grid-row: span 2;
+    }
     .mosaic-card {
       position: relative;
       border-radius: 28px;
@@ -625,9 +628,36 @@
       .section-side { position: static; }
       .flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .flow-step:nth-child(2)::after,
-      .flow-step:nth-child(4)::after { display: none; }
+      .flow-step:nth-child(4)::after {
+        content: "↓";
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -11px;
+        transform: translateX(-50%);
+      }
     }
     @media (max-width: 760px) {
+      .mosaic-primary { grid-row: auto; }
+      .flow-step:not(:last-child)::after {
+        display: grid !important;
+        content: "↓";
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -11px;
+        transform: translateX(-50%);
+      }
+      .matrix > div:nth-child(3n+2)::before {
+        content: "Purposeful / shared use";
+        display: block; font-weight: 800; color: var(--teal); font-size: 11px; text-transform: uppercase; margin-bottom: 6px;
+      }
+      .matrix > div:nth-child(3n+3)::before {
+        content: "Default / pacifying use";
+        display: block; font-weight: 800; color: var(--red); font-size: 11px; text-transform: uppercase; margin-bottom: 6px;
+      }
+      .matrix .side { background: rgba(214,106,79,.12); min-height: unset; padding: 14px 18px; }
+      .matrix > div { min-height: unset; padding: 20px 18px; }
       .container { width: min(100% - 24px, 1220px); }
       .topnav { display: none; }
       .hero-meta,
@@ -638,7 +668,8 @@
       .flow { grid-template-columns: 1fr; }
       .mosaic {
         grid-template-columns: 1fr;
-        grid-template-rows: 320px 260px 160px;
+        grid-template-rows: 320px 320px auto;
+        min-height: unset;
       }
       .matrix { grid-template-columns: 1fr; }
       .matrix > div { border-right: none !important; }
@@ -686,7 +717,7 @@
         </div>
 
         <div class="mosaic" aria-label="Hero collage of article visuals">
-          <figure class="mosaic-card" style="grid-row: span 2;">
+          <figure class="mosaic-card mosaic-primary">
             <img src="assets/easeparenting-photo-1.png" alt="A domestic daytime scene where a child uses a tablet while adults are occupied in the background." />
             <figcaption class="mosaic-note">
               <strong>The room is the story.</strong>
