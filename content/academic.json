@@ -89,7 +89,17 @@
           "grade": "Registered",
           "workTitle": "Advanced Investigation Portfolio",
           "type": "Reporting dossier",
-          "desc": "Advanced investigation portfolio currently in progress."
+          "desc": "Advanced investigation portfolio currently in progress.",
+          "resources": [
+            {
+              "label": "Investigative Report",
+              "url": "/assets/showcase/Investigative report (text).pdf"
+            },
+            {
+              "label": "Production Report on Loan Trap",
+              "url": "/assets/showcase/Production Report on Loan Trap .pdf"
+            }
+          ]
         }
       ]
     },
@@ -158,7 +168,16 @@
           "type": "Video art project",
           "desc": "A second convergence coursework project focused on visual rhythm, production planning, and post-production choices.",
           "media": "video",
-          "externalUrl": "https://docs.google.com/document/d/1o_3gSeUG3gSluO1yV6blU8MSmS7zqDLF/edit?usp=drivesdk&rtpof=true&sd=true"
+          "resources": [
+            {
+              "label": "STILL: Video Art",
+              "url": "https://www.youtube.com/watch?v=hqjvG9Y-HQk"
+            },
+            {
+              "label": "Project Documentation",
+              "url": "/assets/showcase/MSJ2202_STILL_Video_Art.pdf"
+            }
+          ]
         },
         {
           "code": "MSJ2101",

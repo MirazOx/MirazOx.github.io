@@ -349,7 +349,17 @@ function renderCourseMap() {
             const outcomes = resources.length
               ? resources.map(resource => {
                   let finalUrl = resource.url;
-                  const ext = finalUrl.toLowerCase().split('.').pop();
+                  const ext = (finalUrl || '').toLowerCase().split('.').pop();
+                  if (finalUrl.includes('youtube.com/watch') || finalUrl.includes('youtu.be/')) {
+                    let videoId = '';
+                    if (finalUrl.includes('youtube.com/watch')) {
+                      videoId = new URL(finalUrl).searchParams.get('v');
+                    } else {
+                      videoId = finalUrl.split('/').pop().split('?')[0];
+                    }
+                    const embedUrl = 'https://www.youtube.com/embed/' + videoId;
+                    return `<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+                  }
                   if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
                     const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
                     finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
@@ -442,7 +452,17 @@ fetch('/content/academic.json?v=15')
       const outcomes = resources.length
         ? resources.map(resource => {
             let finalUrl = resource.url;
-            const ext = finalUrl.toLowerCase().split('.').pop();
+            const ext = (finalUrl || '').toLowerCase().split('.').pop();
+            if (finalUrl.includes('youtube.com/watch') || finalUrl.includes('youtu.be/')) {
+              let videoId = '';
+              if (finalUrl.includes('youtube.com/watch')) {
+                videoId = new URL(finalUrl).searchParams.get('v');
+              } else {
+                videoId = finalUrl.split('/').pop().split('?')[0];
+              }
+              const embedUrl = 'https://www.youtube.com/embed/' + videoId;
+              return `<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+            }
             if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
               const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
               finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
