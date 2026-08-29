@@ -508,6 +508,19 @@ fetch('/content/academic.json?v=15')
     document.getElementById('coursePanelTitle').textContent = data.workTitle || data.name;
     document.getElementById('coursePanelName').textContent = data.name;
     document.getElementById('coursePanelDesc').textContent = data.desc || 'No description available.';
+    
+    const extendedSection = document.getElementById('coursePanelExtendedSection');
+    if (data.details) {
+      document.getElementById('coursePanelExtDesc').innerHTML = escapeHTML(data.details.description || '').replace(/\n/g, '<br>');
+      document.getElementById('coursePanelJustification').innerHTML = escapeHTML(data.details.justification || '').replace(/\n/g, '<br>');
+      document.getElementById('coursePanelLearning').innerHTML = escapeHTML(data.details.learning || '').replace(/\n/g, '<br>');
+      extendedSection.style.display = 'block';
+      const accordion = extendedSection.querySelector('details');
+      if (accordion) accordion.removeAttribute('open');
+    } else {
+      extendedSection.style.display = 'none';
+    }
+
     document.getElementById('coursePanelOutcomes').innerHTML = data.outcomes || '';
     document.getElementById('coursePanelOutcomesSection').style.display = data.outcomes ? 'block' : 'none';
 
@@ -577,9 +590,26 @@ fetch('/content/academic.json?v=15')
       <p id="coursePanelName"></p>
     </div>
     <div class="course-panel-section">
-      <h4>Description</h4>
+      <h4>Brief</h4>
       <p id="coursePanelDesc"></p>
     </div>
+    
+    <div class="course-panel-section" id="coursePanelExtendedSection" style="display: none;">
+      <details class="extended-details-accordion" style="margin-top: 0.5rem; border: 1px solid var(--border); border-radius: 6px; padding: 0; background: var(--surface);">
+        <summary style="padding: 0.75rem 1rem; cursor: pointer; font-weight: 600; font-size: 0.9rem; background: var(--surface2); border-radius: 6px; user-select: none; border-bottom: 1px solid var(--border);">Project Details</summary>
+        <div style="padding: 1.25rem 1rem; font-size: 0.95rem; line-height: 1.6; color: var(--text2);">
+          <h5 style="margin: 0 0 0.5rem 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text);">Project Description</h5>
+          <p id="coursePanelExtDesc" style="margin-bottom: 1.5rem;"></p>
+          
+          <h5 style="margin: 0 0 0.5rem 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text);">Justification</h5>
+          <p id="coursePanelJustification" style="margin-bottom: 1.5rem;"></p>
+          
+          <h5 style="margin: 0 0 0.5rem 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text);">Learning</h5>
+          <p id="coursePanelLearning" style="margin-bottom: 0;"></p>
+        </div>
+      </details>
+    </div>
+
     <div class="course-panel-section" id="coursePanelOutcomesSection">
       <h4>Coursework & Media</h4>
       <div class="course-panel-outcomes" id="coursePanelOutcomes"></div>
