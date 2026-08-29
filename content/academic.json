@@ -87,10 +87,15 @@
           "name": "Investigative Journalism-II",
           "session": "Summer 2026",
           "grade": "Registered",
-          "workTitle": "Advanced Investigation Portfolio",
+          "workTitle": "Algorithm Mediated Loan Scam",
           "type": "Reporting dossier",
-          "desc": "Advanced investigation portfolio currently in progress.",
+          "desc": "An investigative report exposing how algorithmic lending platforms trap vulnerable borrowers.",
           "media": "video",
+          "details": {
+            "description": "This project investigates the predatory practices of algorithm-based loan applications that target financially vulnerable individuals. It explores how these platforms bypass traditional regulatory frameworks, trapping borrowers in a cycle of debt through aggressive collection tactics, hidden fees, and invasive data harvesting. The report pieces together evidence from victim testimonies, app permissions analysis, and financial records.",
+            "justification": "The rise of fintech has outpaced consumer protection laws, leaving a regulatory gray area where digital loan sharks operate with impunity. This investigation is crucial for public interest, as it holds these tech-driven financial services accountable and raises awareness among potential borrowers. By shining a light on these deceptive practices, the report aims to prompt regulatory bodies to enforce stricter oversight on digital lending platforms.",
+            "learning": "Conducting this investigation provided profound insights into the intersection of technology, finance, and journalism. It required developing skills in digital forensics, particularly in analyzing app permissions and tracking opaque financial flows. The process also highlighted the ethical challenges of interviewing vulnerable victims and the importance of robust source protection when investigating corporate entities operating in the digital shadows."
+          },
           "resources": [
             {
               "label": "Video Report",
