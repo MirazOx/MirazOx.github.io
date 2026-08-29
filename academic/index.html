@@ -347,9 +347,10 @@ function renderCourseMap() {
             const isVideo = course.media === 'video';
             const resources = getCourseResources(course);
             const outcomes = resources.length
-              ? resources.map(resource => {
+              ? resources.map((resource, i) => {
                   let finalUrl = resource.url;
                   const ext = (finalUrl || '').toLowerCase().split('.').pop();
+                  const labelHtml = `<div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; margin-top: ${i > 0 ? '2rem' : '0'}; margin-bottom: 0.5rem;">${escapeHTML(resource.label)}</div>`;
                   if (finalUrl.includes('youtube.com/watch') || finalUrl.includes('youtu.be/')) {
                     let videoId = '';
                     if (finalUrl.includes('youtube.com/watch')) {
@@ -358,14 +359,14 @@ function renderCourseMap() {
                       videoId = finalUrl.split('/').pop().split('?')[0];
                     }
                     const embedUrl = 'https://www.youtube.com/embed/' + videoId;
-                    return `<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+                    return `${labelHtml}<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
                   }
                   if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
                     const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
                     finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
-                    return `<div class="iframe-wrapper"><iframe src="${escapeHTML(finalUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+                    return `${labelHtml}<div class="iframe-wrapper"><iframe src="${escapeHTML(finalUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
                   }
-                  return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
+                  return `<a class="course-resource-link" style="margin-top: ${i > 0 ? '1rem' : '0'}" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
                 }).join('')
               : '<span class="course-resource-placeholder">Work sample pending</span>';
 
@@ -450,9 +451,10 @@ fetch('/content/academic.json?v=15')
       const isVideo = c.media === 'video';
       const resources = getCourseResources(c);
       const outcomes = resources.length
-        ? resources.map(resource => {
+        ? resources.map((resource, i) => {
             let finalUrl = resource.url;
             const ext = (finalUrl || '').toLowerCase().split('.').pop();
+            const labelHtml = `<div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; margin-top: ${i > 0 ? '2rem' : '0'}; margin-bottom: 0.5rem;">${escapeHTML(resource.label)}</div>`;
             if (finalUrl.includes('youtube.com/watch') || finalUrl.includes('youtu.be/')) {
               let videoId = '';
               if (finalUrl.includes('youtube.com/watch')) {
@@ -461,14 +463,14 @@ fetch('/content/academic.json?v=15')
                 videoId = finalUrl.split('/').pop().split('?')[0];
               }
               const embedUrl = 'https://www.youtube.com/embed/' + videoId;
-              return `<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+              return `${labelHtml}<div class="iframe-wrapper youtube-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;"><iframe src="${escapeHTML(embedUrl)}" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
             }
             if (['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) {
               const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
               finalUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(absoluteUrl) + '&embedded=true';
-              return `<div class="iframe-wrapper"><iframe src="${escapeHTML(finalUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+              return `${labelHtml}<div class="iframe-wrapper"><iframe src="${escapeHTML(finalUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
             }
-            return `<a class="course-resource-link" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
+            return `<a class="course-resource-link" style="margin-top: ${i > 0 ? '1rem' : '0'}" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
           }).join('')
         : '<span class="course-resource-placeholder">Work sample pending</span>';
 
