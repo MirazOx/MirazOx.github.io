@@ -90,7 +90,12 @@
           "workTitle": "Advanced Investigation Portfolio",
           "type": "Reporting dossier",
           "desc": "Advanced investigation portfolio currently in progress.",
+          "media": "video",
           "resources": [
+            {
+              "label": "Video Report",
+              "url": "https://youtu.be/z5aSMN3kmfk"
+            },
             {
               "label": "Investigative Report",
               "url": "/assets/showcase/Investigative report (text).pdf"
