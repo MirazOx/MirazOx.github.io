@@ -443,9 +443,16 @@
           "tier": "Natural Sciences",
           "session": "Summer 2026",
           "grade": "Registered",
-          "workTitle": "Mathematics Notebook",
-          "type": "Quantitative notes",
-          "desc": "A slot for mathematical foundations behind data and modelling."
+          "workTitle": "The Architecture of Logic: Learning Outcomes",
+          "type": "Curriculum Document",
+          "desc": "A slot for mathematical foundations behind data and modelling.",
+          "resources": [
+            {
+              "type": "pdf",
+              "title": "The Architecture of Logic: Learning Outcomes",
+              "url": "/assets/showcase/Mathematics_Learning_Outcomes.pdf"
+            }
+          ]
         },
         {
           "code": "NSC3282",
