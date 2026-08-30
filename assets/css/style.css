@@ -8052,3 +8052,33 @@ body[data-page="writing"] .writing-archive-cta * {
 .beyond-back-btn {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 4px 24px rgba(0, 0, 0, 0.3);
 }
+
+/* Impeccable: Add breathing room under hero cover */
+.beyond-hero {
+  margin-bottom: 6rem;
+}
+@media (max-width: 768px) {
+  .beyond-hero { margin-bottom: 4rem; }
+}
+
+/* Impeccable: Book Covers in Lists */
+.entry-cover-img {
+  width: 44px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.folder-entry-clean {
+  align-items: center; /* Override baseline so image centers vertically with meta */
+}
+.folder-entry-clean.has-cover {
+  padding: 1.25rem 0;
+}
+@media (max-width: 640px) {
+  .folder-entry-clean.has-cover .folder-entry-meta {
+    padding-left: calc(44px + 1.25rem); /* Align meta with text under image */
+  }
+}

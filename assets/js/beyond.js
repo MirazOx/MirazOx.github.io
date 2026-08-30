@@ -39,8 +39,11 @@
     }
 
     const items = (section.items || []).map((item) => `
-      <li class="folder-entry-clean">
-        <span class="folder-entry-text">${item.text || ''}</span>
+      <li class="folder-entry-clean ${item.cover ? 'has-cover' : ''}">
+        <div style="display:flex; align-items:center; flex:1;">
+          ${item.cover ? `<img src="${item.cover}" class="entry-cover-img" alt="">` : ''}
+          <span class="folder-entry-text">${item.text || ''}</span>
+        </div>
         ${item.meta ? `<span class="folder-entry-meta">${item.meta}</span>` : ''}
       </li>
     `).join('');
@@ -97,7 +100,7 @@
     if (window.__reInitReveal) window.__reInitReveal();
   }
 
-  fetch('/content/beyond.json?v=3')
+  fetch('/content/beyond.json?v=4')
     .then((response) => response.json())
     .then(render)
     .catch(() => {
