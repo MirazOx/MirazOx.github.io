@@ -1,116 +1,210 @@
 {
   "learning": {
     "slug": "learning",
-    "icon": "🌱",
+    "icon": "\ud83c\udf31",
     "title": "Learning log",
     "subtitle": "A shelf for the things I have learned, am learning, and still want to learn.",
-    "intro": "This folder is for the wider life of curiosity. I want it to eventually hold one hundred things I have learned, am learning, or still hope to learn — from cycling and cooking to speedcubing, pen spinning, web development, languages, and practical everyday skills. It is less a polished expertise page than an honest map of how I keep becoming.",
+    "intro": "This folder is for the wider life of curiosity. I want it to eventually hold one hundred things I have learned, am learning, or still hope to learn \u2014 from cycling and cooking to speedcubing, pen spinning, web development, languages, and practical everyday skills. It is less a polished expertise page than an honest map of how I keep becoming.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Learning now",
         "items": [
-          { "text": "Front-end web development", "meta": "Building this site section by section" },
-          { "text": "Spanish beyond the classroom", "meta": "Daily self-study · aiming for B1" },
-          { "text": "Cooking with more confidence", "meta": "Trying to make one new dish feel natural before adding another" }
+          {
+            "text": "Front-end web development",
+            "meta": "Building this site section by section"
+          },
+          {
+            "text": "Spanish beyond the classroom",
+            "meta": "Daily self-study \u00b7 aiming for B1"
+          },
+          {
+            "text": "Cooking with more confidence",
+            "meta": "Trying to make one new dish feel natural before adding another"
+          }
+        ]
+      },
+      {
+        "kind": "photo-grid",
+        "title": "Visual fragments",
+        "items": [
+          "https://picsum.photos/seed/learn1/600/400",
+          "https://picsum.photos/seed/learn2/600/400",
+          "https://picsum.photos/seed/learn3/600/400"
         ]
       },
       {
         "kind": "memory",
         "title": "Why this folder exists",
-        "body": "I do not like the idea that learning ends when coursework ends. Some of the most useful things in my life were learned sideways: how to ask better questions, how to cycle through a city, how to edit a sentence without flattening its voice, how to keep trying after being bad at something for a while. This page is for that slower education."
+        "body": "I do not like the idea that learning ends when coursework ends. Some of the most useful things in my life were learned sideways: how to ask better questions, how to cycle through a city, how to edit a sentence without flattening its voice, how to keep trying after being bad at something for a while. This page is for that slower education.",
+        "image": "https://picsum.photos/seed/learn-mem/800/400"
       },
       {
         "kind": "notes",
         "title": "Things on the 100-things list",
         "items": [
-          { "text": "Cycling", "meta": "confidence, endurance, city rhythm" },
-          { "text": "Speedcubing", "meta": "memory, algorithms, finger discipline" },
-          { "text": "Pen spinning", "meta": "small motor patience" },
-          { "text": "Cooking", "meta": "from surviving to actually enjoying it" },
-          { "text": "Web development", "meta": "design systems, structure, interaction" },
-          { "text": "Photography", "meta": "framing, light, restraint" },
-          { "text": "Language learning", "meta": "Spanish now, maybe more later" },
-          { "text": "Public speaking", "meta": "clearer voice, calmer delivery" }
+          {
+            "text": "Cycling",
+            "meta": "confidence, endurance, city rhythm"
+          },
+          {
+            "text": "Speedcubing",
+            "meta": "memory, algorithms, finger discipline"
+          },
+          {
+            "text": "Pen spinning",
+            "meta": "small motor patience"
+          },
+          {
+            "text": "Cooking",
+            "meta": "from surviving to actually enjoying it"
+          },
+          {
+            "text": "Web development",
+            "meta": "design systems, structure, interaction"
+          },
+          {
+            "text": "Photography",
+            "meta": "framing, light, restraint"
+          },
+          {
+            "text": "Language learning",
+            "meta": "Spanish now, maybe more later"
+          },
+          {
+            "text": "Public speaking",
+            "meta": "clearer voice, calmer delivery"
+          }
         ]
       }
     ]
   },
   "literature": {
     "slug": "literature",
-    "icon": "📚",
+    "icon": "\ud83d\udcda",
     "title": "Literature, Language & Theories",
     "subtitle": "On why we read, how languages open archives, and why narrative theory matters for journalism.",
-    "intro": "I came to media studies through literature. My undergraduate years at the University of Dhaka were spent inside English departments and little magazines, reading postcolonial fiction and narrative theory. Language learning is not separate from this — each new language opens a different archive of thought. Spanish gave me Bolaño and a Colombian journalist whose English was exquisite but whose Spanish was a whole other octave. This folder holds the books, essays, languages, and theories that still shape how I think about truth, narrative, and attention.",
+    "intro": "I came to media studies through literature. My undergraduate years at the University of Dhaka were spent inside English departments and little magazines, reading postcolonial fiction and narrative theory. Language learning is not separate from this \u2014 each new language opens a different archive of thought. Spanish gave me Bola\u00f1o and a Colombian journalist whose English was exquisite but whose Spanish was a whole other octave. This folder holds the books, essays, languages, and theories that still shape how I think about truth, narrative, and attention.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Reading now",
         "items": [
-          { "text": "Rebecca Solnit — <em>A Field Guide to Getting Lost</em>", "meta": "Essays · 2026" },
-          { "text": "Italo Calvino — <em>Six Memos for the Next Millennium</em>", "meta": "Revisiting · Lightness & Quickness" },
-          { "text": "María Dueñas — <em>El tiempo entre costuras</em>", "meta": "Spanish · A2 reading practice" }
+          {
+            "text": "Rebecca Solnit \u2014 <em>A Field Guide to Getting Lost</em>",
+            "meta": "Essays \u00b7 2026"
+          },
+          {
+            "text": "Italo Calvino \u2014 <em>Six Memos for the Next Millennium</em>",
+            "meta": "Revisiting \u00b7 Lightness & Quickness"
+          },
+          {
+            "text": "Mar\u00eda Due\u00f1as \u2014 <em>El tiempo entre costuras</em>",
+            "meta": "Spanish \u00b7 A2 reading practice"
+          }
+        ]
+      },
+      {
+        "kind": "photo-grid",
+        "title": "Books & Marginalia",
+        "items": [
+          "https://picsum.photos/seed/lit1/600/400",
+          "https://picsum.photos/seed/lit2/600/400"
         ]
       },
       {
         "kind": "memory",
         "title": "A memory",
-        "body": "2022. Presiding over the English Department Art and Literary Club at Dhaka University. We organised a weekly <em>chai o kobita</em> reading circle — Bangla poems in one hand, tea-stained photocopies of Seamus Heaney in the other. I learned more about cadence and silence in those evenings than in any seminar."
+        "body": "2022. Presiding over the English Department Art and Literary Club at Dhaka University. We organised a weekly <em>chai o kobita</em> reading circle \u2014 Bangla poems in one hand, tea-stained photocopies of Seamus Heaney in the other. I learned more about cadence and silence in those evenings than in any seminar.",
+        "image": "https://picsum.photos/seed/lit-mem/800/400"
       },
       {
         "kind": "notes",
         "title": "Essays I keep returning to",
         "items": [
-          { "text": "Zadie Smith — <em>Fail Better</em>", "meta": "The Guardian, 2007" },
-          { "text": "Amitav Ghosh — <em>The Great Derangement</em>", "meta": "On climate and the failure of literary imagination" },
-          { "text": "John Berger — <em>Ways of Seeing</em>, Ch. 1", "meta": "Still the best 15 minutes on the politics of the image" }
+          {
+            "text": "Zadie Smith \u2014 <em>Fail Better</em>",
+            "meta": "The Guardian, 2007"
+          },
+          {
+            "text": "Amitav Ghosh \u2014 <em>The Great Derangement</em>",
+            "meta": "On climate and the failure of literary imagination"
+          },
+          {
+            "text": "John Berger \u2014 <em>Ways of Seeing</em>, Ch. 1",
+            "meta": "Still the best 15 minutes on the politics of the image"
+          }
         ]
       },
       {
         "kind": "notes",
         "title": "Languages",
         "items": [
-          { "text": "Bangla — native", "meta": "First language, first archive" },
-          { "text": "English — fluent", "meta": "Working and academic language" },
-          { "text": "Spanish — A2, building toward B1", "meta": "Daily practice · News in Slow Spanish, Anki deck" }
+          {
+            "text": "Bangla \u2014 native",
+            "meta": "First language, first archive"
+          },
+          {
+            "text": "English \u2014 fluent",
+            "meta": "Working and academic language"
+          },
+          {
+            "text": "Spanish \u2014 A2, building toward B1",
+            "meta": "Daily practice \u00b7 News in Slow Spanish, Anki deck"
+          }
         ]
       }
     ]
   },
   "spanish": {
     "slug": "spanish",
-    "icon": "🌍",
+    "icon": "\ud83c\udf0d",
     "title": "Spanish & language learning",
     "subtitle": "Currently A2, aiming for B1 by end of 2026.",
-    "intro": "I fell in love with Spanish late — through Bolaño, through Almodóvar, through a trip I haven't taken yet. Tracking my progress honestly, including the plateaus.",
+    "intro": "I fell in love with Spanish late \u2014 through Bola\u00f1o, through Almod\u00f3var, through a trip I haven't taken yet. Tracking my progress honestly, including the plateaus.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Current practice",
         "items": [
-          { "text": "News in Slow Spanish — Intermediate", "meta": "3 episodes a week" },
-          { "text": "Anki — 1,200-card personal deck", "meta": "~20 min/day" },
-          { "text": "Language exchange on Tandem — Buenos Aires", "meta": "Weekly 30 min" }
+          {
+            "text": "News in Slow Spanish \u2014 Intermediate",
+            "meta": "3 episodes a week"
+          },
+          {
+            "text": "Anki \u2014 1,200-card personal deck",
+            "meta": "~20 min/day"
+          },
+          {
+            "text": "Language exchange on Tandem \u2014 Buenos Aires",
+            "meta": "Weekly 30 min"
+          }
         ]
       },
       {
         "kind": "memory",
         "title": "Why Spanish",
-        "body": "The short answer: I want to read <em>2666</em> in the original Spanish before I turn 30. The longer answer involves a Colombian journalist I interviewed in 2024 whose phrasing in English was exquisite but whose Spanish — I could tell from a single voice note — was a whole other octave. I wanted to hear her properly."
+        "body": "The short answer: I want to read <em>2666</em> in the original Spanish before I turn 30. The longer answer involves a Colombian journalist I interviewed in 2024 whose phrasing in English was exquisite but whose Spanish \u2014 I could tell from a single voice note \u2014 was a whole other octave. I wanted to hear her properly."
       },
       {
         "kind": "notes",
         "title": "Things I've written about language",
         "items": [
-          { "text": "Fossilized errors and fluency illusions", "meta": "Teaching notes · Quickblog" },
-          { "text": "Bangla → English → Spanish: what transfers", "meta": "Draft · coming soon" }
+          {
+            "text": "Fossilized errors and fluency illusions",
+            "meta": "Teaching notes \u00b7 Quickblog"
+          },
+          {
+            "text": "Bangla \u2192 English \u2192 Spanish: what transfers",
+            "meta": "Draft \u00b7 coming soon"
+          }
         ]
       }
     ]
   },
   "film": {
     "slug": "film",
-    "icon": "🎬",
+    "icon": "\ud83c\udfac",
     "title": "Film aesthetics",
     "subtitle": "On cinema as a way of looking, not just watching.",
     "intro": "Film has been my second education. I keep a running log of what I watch and what it taught me about framing, pacing, and truth.",
@@ -119,40 +213,74 @@
         "kind": "reading-now",
         "title": "Recent watches",
         "items": [
-          { "text": "<em>Perfect Days</em> — Wim Wenders (2023)", "meta": "Tokyo · on noticing" },
-          { "text": "<em>Aftersun</em> — Charlotte Wells (2022)", "meta": "Memory, grain, video" },
-          { "text": "<em>Matir Moina</em> — Tareque Masud (2002)", "meta": "Re-watch · always" }
+          {
+            "text": "<em>Perfect Days</em> \u2014 Wim Wenders (2023)",
+            "meta": "Tokyo \u00b7 on noticing"
+          },
+          {
+            "text": "<em>Aftersun</em> \u2014 Charlotte Wells (2022)",
+            "meta": "Memory, grain, video"
+          },
+          {
+            "text": "<em>Matir Moina</em> \u2014 Tareque Masud (2002)",
+            "meta": "Re-watch \u00b7 always"
+          }
         ]
       },
       {
         "kind": "memory",
         "title": "The frame that changed me",
-        "body": "Satyajit Ray's <em>Pather Panchali</em> — the scene where Apu and Durga see the train cut across the kaash flowers. I was fourteen, watching on a borrowed DVD with a scratched surface. The screen would stutter every few frames. Somehow that made it more real. It was the first time I understood that cinema could be a way of remembering things that had not yet happened."
+        "body": "Satyajit Ray's <em>Pather Panchali</em> \u2014 the scene where Apu and Durga see the train cut across the kaash flowers. I was fourteen, watching on a borrowed DVD with a scratched surface. The screen would stutter every few frames. Somehow that made it more real. It was the first time I understood that cinema could be a way of remembering things that had not yet happened."
       },
       {
         "kind": "notes",
         "title": "Writing about film",
         "items": [
-          { "text": "TBS feature — On Ruben Östlund and the comedy of inequality", "meta": "2024" },
-          { "text": "Notebook — staircase shots in Bangla cinema", "meta": "Unpublished, ongoing" }
+          {
+            "text": "TBS feature \u2014 On Ruben \u00d6stlund and the comedy of inequality",
+            "meta": "2024"
+          },
+          {
+            "text": "Notebook \u2014 staircase shots in Bangla cinema",
+            "meta": "Unpublished, ongoing"
+          }
         ]
       }
     ]
   },
   "photography": {
     "slug": "photography",
-    "icon": "📷",
+    "icon": "\ud83d\udcf7",
     "title": "Photography & travel",
     "subtitle": "Quiet frames from the places I get to stand still in.",
-    "intro": "I carry a Fujifilm X100V everywhere. Most of what I shoot I never publish. This folder is for the few I come back to — and for the trips behind them.",
+    "intro": "I carry a Fujifilm X100V everywhere. Most of what I shoot I never publish. This folder is for the few I come back to \u2014 and for the trips behind them.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Recent trips",
         "items": [
-          { "text": "Oxford, UK — Nov 2025", "meta": "Saïd Business School · UNESCO programme" },
-          { "text": "Sylhet, Bangladesh — Feb 2026", "meta": "Tea estate fieldwork, 3 days" },
-          { "text": "Kathmandu, Nepal — Dec 2024", "meta": "SANJ conference" }
+          {
+            "text": "Oxford, UK \u2014 Nov 2025",
+            "meta": "Sa\u00efd Business School \u00b7 UNESCO programme"
+          },
+          {
+            "text": "Sylhet, Bangladesh \u2014 Feb 2026",
+            "meta": "Tea estate fieldwork, 3 days"
+          },
+          {
+            "text": "Kathmandu, Nepal \u2014 Dec 2024",
+            "meta": "SANJ conference"
+          }
+        ]
+      },
+      {
+        "kind": "photo-grid",
+        "title": "Recent studies",
+        "items": [
+          "https://picsum.photos/seed/photo1/600/400",
+          "https://picsum.photos/seed/photo2/600/400",
+          "https://picsum.photos/seed/photo3/600/400",
+          "https://picsum.photos/seed/photo4/600/400"
         ]
       },
       {
@@ -164,27 +292,45 @@
         "kind": "notes",
         "title": "Kit & approach",
         "items": [
-          { "text": "Fujifilm X100V · 35mm equivalent · always", "meta": "One camera, one focal length" },
-          { "text": "Classic Chrome profile, no edits", "meta": "Discipline > flexibility" },
-          { "text": "Print contact sheets every quarter", "meta": "A4, matte, binder" }
+          {
+            "text": "Fujifilm X100V \u00b7 35mm equivalent \u00b7 always",
+            "meta": "One camera, one focal length"
+          },
+          {
+            "text": "Classic Chrome profile, no edits",
+            "meta": "Discipline > flexibility"
+          },
+          {
+            "text": "Print contact sheets every quarter",
+            "meta": "A4, matte, binder"
+          }
         ]
       }
     ]
   },
   "community": {
     "slug": "community",
-    "icon": "🏫",
+    "icon": "\ud83c\udfeb",
     "title": "Community education",
     "subtitle": "Teaching, translating, and passing things along.",
-    "intro": "Some of the most meaningful work I've done happens outside the newsroom — counselling students, editing SOPs for free, running OSINT workshops for fact-checkers. This folder gathers those threads.",
+    "intro": "Some of the most meaningful work I've done happens outside the newsroom \u2014 counselling students, editing SOPs for free, running OSINT workshops for fact-checkers. This folder gathers those threads.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Ongoing",
         "items": [
-          { "text": "<em>Tools for Journalists</em> — open OSINT resource hub", "meta": "Founded May 2025" },
-          { "text": "Academic English — ULAB CLS", "meta": "Two undergraduate cohorts" },
-          { "text": "Free SOP editing — UK applicants", "meta": "~50 students/year" }
+          {
+            "text": "<em>Tools for Journalists</em> \u2014 open OSINT resource hub",
+            "meta": "Founded May 2025"
+          },
+          {
+            "text": "Academic English \u2014 ULAB CLS",
+            "meta": "Two undergraduate cohorts"
+          },
+          {
+            "text": "Free SOP editing \u2014 UK applicants",
+            "meta": "~50 students/year"
+          }
         ]
       },
       {
@@ -196,26 +342,41 @@
         "kind": "notes",
         "title": "Workshops & talks",
         "items": [
-          { "text": "OSINT and digital verification training — 200+ journalism students and practitioners", "meta": "2023–2026 · Dhaka, Khulna, Chattogram" },
-          { "text": "Verification basics — BBC Media Action alumni", "meta": "Guest session · 2025" }
+          {
+            "text": "OSINT and digital verification training \u2014 200+ journalism students and practitioners",
+            "meta": "2023\u20132026 \u00b7 Dhaka, Khulna, Chattogram"
+          },
+          {
+            "text": "Verification basics \u2014 BBC Media Action alumni",
+            "meta": "Guest session \u00b7 2025"
+          }
         ]
       }
     ]
   },
   "philosophy": {
     "slug": "philosophy",
-    "icon": "🧩",
+    "icon": "\ud83e\udde9",
     "title": "Philosophy & Maths",
-    "subtitle": "The slow questions and the precise ones — logic, ethics, probability, and the structures underneath both.",
-    "intro": "Journalism throws up ethical puzzles every week. I've found that the tools to sit with them properly come from two places: philosophy, which teaches you to be precise about premises and consequences, and mathematics, which teaches you to be honest about uncertainty. I'm a serious amateur in both — building a reading group habit in philosophy and working through probability and graph theory on the maths side.",
+    "subtitle": "The slow questions and the precise ones \u2014 logic, ethics, probability, and the structures underneath both.",
+    "intro": "Journalism throws up ethical puzzles every week. I've found that the tools to sit with them properly come from two places: philosophy, which teaches you to be precise about premises and consequences, and mathematics, which teaches you to be honest about uncertainty. I'm a serious amateur in both \u2014 building a reading group habit in philosophy and working through probability and graph theory on the maths side.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Thinking about",
         "items": [
-          { "text": "Miranda Fricker — <em>Epistemic Injustice</em>", "meta": "Re-reading · testimonial injustice" },
-          { "text": "Shannon Vallor — <em>Technology and the Virtues</em>", "meta": "For the algorithm paper" },
-          { "text": "Nassim Nicholas Taleb — <em>The Black Swan</em>", "meta": "On probability and narrative fallacy" }
+          {
+            "text": "Miranda Fricker \u2014 <em>Epistemic Injustice</em>",
+            "meta": "Re-reading \u00b7 testimonial injustice"
+          },
+          {
+            "text": "Shannon Vallor \u2014 <em>Technology and the Virtues</em>",
+            "meta": "For the algorithm paper"
+          },
+          {
+            "text": "Nassim Nicholas Taleb \u2014 <em>The Black Swan</em>",
+            "meta": "On probability and narrative fallacy"
+          }
         ]
       },
       {
@@ -227,24 +388,39 @@
         "kind": "notes",
         "title": "Maths I'm actually using",
         "items": [
-          { "text": "Graph theory — NetworkX for media-citation networks", "meta": "Applied to the research pilot" },
-          { "text": "Basic probability and Bayesian reasoning", "meta": "For verification decision-making" },
-          { "text": "Statistics for social research", "meta": "Queen Mary University · Coursera" }
+          {
+            "text": "Graph theory \u2014 NetworkX for media-citation networks",
+            "meta": "Applied to the research pilot"
+          },
+          {
+            "text": "Basic probability and Bayesian reasoning",
+            "meta": "For verification decision-making"
+          },
+          {
+            "text": "Statistics for social research",
+            "meta": "Queen Mary University \u00b7 Coursera"
+          }
         ]
       },
       {
         "kind": "notes",
         "title": "Writing in progress",
         "items": [
-          { "text": "Algorithmic epistemic injustice in South Asian feeds", "meta": "Working paper · Fricker + Bhaskar" },
-          { "text": "On the virtue of slowness in investigative work", "meta": "Essay draft" }
+          {
+            "text": "Algorithmic epistemic injustice in South Asian feeds",
+            "meta": "Working paper \u00b7 Fricker + Bhaskar"
+          },
+          {
+            "text": "On the virtue of slowness in investigative work",
+            "meta": "Essay draft"
+          }
         ]
       }
     ]
   },
   "coffee": {
     "slug": "coffee",
-    "icon": "☕",
+    "icon": "\u2615",
     "title": "Coffee rituals",
     "subtitle": "A small engine for reading, reporting, and thinking out loud.",
     "intro": "Coffee is not a personality. It is a working rhythm: the table, the book, the draft, the second attempt at a difficult sentence. This folder can hold the cafes, cups, and rituals that quietly keep the work moving.",
@@ -253,9 +429,18 @@
         "kind": "reading-now",
         "title": "Current rituals",
         "items": [
-          { "text": "Coffee plus a book", "meta": "Best for slow reading and marginal notes" },
-          { "text": "One cafe, one draft", "meta": "Useful when a piece refuses to start" },
-          { "text": "No laptop for the first cup", "meta": "Thinking before typing" }
+          {
+            "text": "Coffee plus a book",
+            "meta": "Best for slow reading and marginal notes"
+          },
+          {
+            "text": "One cafe, one draft",
+            "meta": "Useful when a piece refuses to start"
+          },
+          {
+            "text": "No laptop for the first cup",
+            "meta": "Thinking before typing"
+          }
         ]
       },
       {
@@ -267,7 +452,7 @@
   },
   "running": {
     "slug": "running",
-    "icon": "🏃",
+    "icon": "\ud83c\udfc3",
     "title": "Running log",
     "subtitle": "Endurance, discipline, and the clean little happiness of finishing a run.",
     "intro": "Running gives the mind a different kind of order. It is not glamorous, which is exactly why it helps: lace up, go out, come back a little steadier. This folder is for pace notes, routes, and the ordinary discipline of showing up.",
@@ -276,9 +461,18 @@
         "kind": "reading-now",
         "title": "What I track",
         "items": [
-          { "text": "Weekly consistency", "meta": "Frequency before intensity" },
-          { "text": "Easy runs", "meta": "Building the base without drama" },
-          { "text": "Routes around Dhaka", "meta": "Finding breathable pockets in the city" }
+          {
+            "text": "Weekly consistency",
+            "meta": "Frequency before intensity"
+          },
+          {
+            "text": "Easy runs",
+            "meta": "Building the base without drama"
+          },
+          {
+            "text": "Routes around Dhaka",
+            "meta": "Finding breathable pockets in the city"
+          }
         ]
       },
       {
@@ -290,18 +484,27 @@
   },
   "newness": {
     "slug": "newness",
-    "icon": "✨",
+    "icon": "\u2728",
     "title": "Exploring newness",
-    "subtitle": "New food, new places, new people — every person is a story.",
+    "subtitle": "New food, new places, new people \u2014 every person is a story.",
     "intro": "I travel to be made unfamiliar. When I land somewhere I haven't been, three things keep me honest: try a dish I can't pronounce, walk a street that doesn't end at the hotel, and let one stranger talk longer than the conversation politely calls for. Newness isn't an aesthetic for me; it's a way of staying interested in the world. The reporting habit started here. So did most of the friendships I still keep.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "The three I look for",
         "items": [
-          { "text": "New food", "meta": "Whatever the table near me is having — start there." },
-          { "text": "New place", "meta": "The alley behind the famous street is usually where the place actually lives." },
-          { "text": "New people", "meta": "One real conversation is worth more than five photographs." }
+          {
+            "text": "New food",
+            "meta": "Whatever the table near me is having \u2014 start there."
+          },
+          {
+            "text": "New place",
+            "meta": "The alley behind the famous street is usually where the place actually lives."
+          },
+          {
+            "text": "New people",
+            "meta": "One real conversation is worth more than five photographs."
+          }
         ]
       },
       {
@@ -313,53 +516,98 @@
         "kind": "notes",
         "title": "Travel rules I keep coming back to",
         "items": [
-          { "text": "Eat where it's crowded and locals are smiling", "meta": "Tourist menus survive; tourist food rarely does." },
-          { "text": "Get lost for at least one afternoon", "meta": "Don't open the map until you have to." },
-          { "text": "Learn five words in the local language before you land", "meta": "Hello, thank you, please, sorry, delicious. That's the whole grammar of being a guest." },
-          { "text": "Sit at the counter, not the corner table", "meta": "The counter is where people talk." },
-          { "text": "Carry a notebook, not a checklist", "meta": "Trips are for noticing, not completing." }
+          {
+            "text": "Eat where it's crowded and locals are smiling",
+            "meta": "Tourist menus survive; tourist food rarely does."
+          },
+          {
+            "text": "Get lost for at least one afternoon",
+            "meta": "Don't open the map until you have to."
+          },
+          {
+            "text": "Learn five words in the local language before you land",
+            "meta": "Hello, thank you, please, sorry, delicious. That's the whole grammar of being a guest."
+          },
+          {
+            "text": "Sit at the counter, not the corner table",
+            "meta": "The counter is where people talk."
+          },
+          {
+            "text": "Carry a notebook, not a checklist",
+            "meta": "Trips are for noticing, not completing."
+          }
         ]
       },
       {
         "kind": "notes",
         "title": "Newness lately",
         "items": [
-          { "text": "First time eating jhol momo in Kathmandu", "meta": "The chilli outlasted the conversation." },
-          { "text": "Late-night ferry crossing of the Padma", "meta": "Two strangers, three cups of tea, one argument about cricket." },
-          { "text": "Working day from a Sylhet tea estate", "meta": "Got my best draft in three weeks done there." }
+          {
+            "text": "First time eating jhol momo in Kathmandu",
+            "meta": "The chilli outlasted the conversation."
+          },
+          {
+            "text": "Late-night ferry crossing of the Padma",
+            "meta": "Two strangers, three cups of tea, one argument about cricket."
+          },
+          {
+            "text": "Working day from a Sylhet tea estate",
+            "meta": "Got my best draft in three weeks done there."
+          }
         ]
       }
     ]
   },
   "history": {
     "slug": "history",
-    "icon": "🗺️",
+    "icon": "\ud83d\uddfa\ufe0f",
     "title": "History & Geopolitics",
-    "subtitle": "How the present got here — and what the map of power actually looks like.",
-    "intro": "I read history the way I read good journalism: as a method for understanding causation without collapsing complexity. South Asian history, the Cold War's long shadow over the Global South, the British Empire's archival traces in current media structures, and the geopolitics of the Indian Ocean — these are the threads I keep pulling. Geopolitics is not background reading. For anyone writing about platform power, algorithmic governance, or digital rights in Bangladesh, it is the context.",
+    "subtitle": "How the present got here \u2014 and what the map of power actually looks like.",
+    "intro": "I read history the way I read good journalism: as a method for understanding causation without collapsing complexity. South Asian history, the Cold War's long shadow over the Global South, the British Empire's archival traces in current media structures, and the geopolitics of the Indian Ocean \u2014 these are the threads I keep pulling. Geopolitics is not background reading. For anyone writing about platform power, algorithmic governance, or digital rights in Bangladesh, it is the context.",
     "sections": [
       {
         "kind": "reading-now",
         "title": "Reading now",
         "items": [
-          { "text": "Pankaj Mishra — <em>From the Ruins of Empire</em>", "meta": "On Asian intellectuals and Western modernity" },
-          { "text": "William Dalrymple — <em>The Anarchy</em>", "meta": "East India Company and corporate power" },
-          { "text": "Yuval Noah Harari — <em>Sapiens</em>", "meta": "Re-reading for the long arc argument" }
+          {
+            "text": "Pankaj Mishra \u2014 <em>From the Ruins of Empire</em>",
+            "meta": "On Asian intellectuals and Western modernity"
+          },
+          {
+            "text": "William Dalrymple \u2014 <em>The Anarchy</em>",
+            "meta": "East India Company and corporate power"
+          },
+          {
+            "text": "Yuval Noah Harari \u2014 <em>Sapiens</em>",
+            "meta": "Re-reading for the long arc argument"
+          }
         ]
       },
       {
         "kind": "memory",
         "title": "Why this started",
-        "body": "In 2022, covering the Ukrainian crisis for TBS, I kept encountering readers who had no framework for why NATO expansion mattered or why Bangladesh's position was what it was. I started reading geopolitics properly then — not as ideology, but as geography, history, and interest. Three years later I can't report on digital policy without it."
+        "body": "In 2022, covering the Ukrainian crisis for TBS, I kept encountering readers who had no framework for why NATO expansion mattered or why Bangladesh's position was what it was. I started reading geopolitics properly then \u2014 not as ideology, but as geography, history, and interest. Three years later I can't report on digital policy without it."
       },
       {
         "kind": "notes",
         "title": "Areas of particular interest",
         "items": [
-          { "text": "Partition of Bengal (1905, 1947) and its media legacy", "meta": "Archive research ongoing" },
-          { "text": "South China Sea and Indo-Pacific power shifts", "meta": "Regular reading · IISS, The Diplomat" },
-          { "text": "Cold War and Third World media systems", "meta": "For the platform-power research context" },
-          { "text": "Bangladesh's non-alignment tradition", "meta": "Foreign policy history, 1971–present" }
+          {
+            "text": "Partition of Bengal (1905, 1947) and its media legacy",
+            "meta": "Archive research ongoing"
+          },
+          {
+            "text": "South China Sea and Indo-Pacific power shifts",
+            "meta": "Regular reading \u00b7 IISS, The Diplomat"
+          },
+          {
+            "text": "Cold War and Third World media systems",
+            "meta": "For the platform-power research context"
+          },
+          {
+            "text": "Bangladesh's non-alignment tradition",
+            "meta": "Foreign policy history, 1971\u2013present"
+          }
         ]
       }
     ]

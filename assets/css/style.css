@@ -7823,3 +7823,146 @@ body[data-page="writing"] .writing-archive-cta * {
   font-weight: 400;
   padding-left: 0.1em;
 }
+
+/* Impeccable Refinement for Beyond Lists (Anti-card) */
+.folder-list-clean {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder-entry-clean {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 0.5px solid var(--border);
+  transition: opacity var(--trans);
+}
+
+.folder-entry-clean:last-child {
+  border-bottom: none;
+}
+
+.folder-entry-clean:hover {
+  opacity: 0.8;
+}
+
+.folder-entry-clean .folder-entry-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.folder-entry-clean .folder-entry-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text3);
+  white-space: nowrap;
+  padding-left: 2rem;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .folder-entry-clean {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .folder-entry-clean .folder-entry-meta {
+    padding-left: 0;
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+/* Impeccable Refinement for Beyond Intro */
+.beyond-intro {
+  max-width: 720px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 4rem;
+  border-left: none;
+  padding-left: 0;
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .beyond-intro {
+    font-size: 20px;
+    margin-bottom: 3rem;
+  }
+}
+
+/* Impeccable Refinement for Beyond Memory */
+.beyond-memory {
+  background: none;
+  border: none;
+  border-left: none;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 2rem;
+}
+.beyond-memory-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+.beyond-memory-body {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text2);
+  margin: 0;
+}
+
+/* Impeccable Refinement for Beyond Hero */
+.beyond-hero {
+  min-height: 480px;
+  border-radius: 16px;
+  border: none;
+}
+.beyond-hero-copy {
+  min-height: 480px;
+}
+.beyond-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+.beyond-meta-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0;
+  border-radius: 0;
+  color: rgba(255,255,255,0.6);
+  border: none;
+}
+.beyond-meta-chip:not(:last-child)::after {
+  content: '·';
+  margin-left: 0.5rem;
+  color: rgba(255,255,255,0.3);
+}
+@media (max-width: 768px) {
+  .beyond-hero, .beyond-hero-copy { min-height: 380px; }
+}
+
+/* Impeccable: Section Spacing */
+.beyond-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}

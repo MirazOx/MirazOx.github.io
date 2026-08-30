@@ -12,15 +12,34 @@
   function sectionMarkup(section) {
     if (section.kind === 'memory') {
       return `
-        <section class="beyond-memory reveal">
-          <p class="beyond-memory-label">${section.title || 'A memory'}</p>
-          <blockquote class="beyond-memory-body">${section.body || ''}</blockquote>
+        <section class="beyond-memory reveal" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+          ${section.image ? `<img src="${section.image}" style="width:100%; border-radius:12px; height: 260px; object-fit: cover;" alt="">` : ''}
+          <div>
+            <p class="beyond-memory-label">${section.title || 'A memory'}</p>
+            <blockquote class="beyond-memory-body">${section.body || ''}</blockquote>
+          </div>
+        </section>
+      `;
+    }
+
+    if (section.kind === 'photo-grid') {
+      const items = (section.items || []).map((img) => `
+        <div style="aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;">
+          <img src="${img}" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.1);" alt="Placeholder">
+        </div>
+      `).join('');
+      return `
+        <section class="beyond-list reveal">
+          <h2 class="section-subtitle">${section.title || ''}</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+            ${items}
+          </div>
         </section>
       `;
     }
 
     const items = (section.items || []).map((item) => `
-      <li class="folder-entry">
+      <li class="folder-entry-clean">
         <span class="folder-entry-text">${item.text || ''}</span>
         ${item.meta ? `<span class="folder-entry-meta">${item.meta}</span>` : ''}
       </li>
@@ -29,7 +48,7 @@
     return `
       <section class="beyond-list reveal">
         <h2 class="section-subtitle">${section.title || ''}</h2>
-        <ul class="folder-list">${items}</ul>
+        <ul class="folder-list-clean">${items}</ul>
       </section>
     `;
   }
@@ -45,7 +64,6 @@
     }
 
     const breadcrumbSlug = document.getElementById('bc-slug');
-    const icon = document.getElementById('b-icon');
     const title = document.getElementById('b-title');
     const subtitle = document.getElementById('b-subtitle');
     const intro = document.getElementById('b-intro');
@@ -55,7 +73,6 @@
     const addLabel = document.getElementById('b-folder-label');
 
     if (breadcrumbSlug) breadcrumbSlug.textContent = entry.title;
-    if (icon) icon.textContent = entry.icon || '•';
     if (title) title.innerHTML = entry.title || '';
     if (subtitle) subtitle.textContent = entry.subtitle || '';
     if (intro) intro.innerHTML = entry.intro || '';
@@ -68,9 +85,8 @@
     if (heroMeta) {
       const listCount = (entry.sections || []).filter((section) => Array.isArray(section.items)).length;
       heroMeta.innerHTML = `
-        <span class="beyond-meta-chip">${entry.icon || '•'} beyond the work</span>
-        <span class="beyond-meta-chip">${(entry.sections || []).length} story blocks</span>
-        <span class="beyond-meta-chip">${listCount} list sections</span>
+        <span class="beyond-meta-chip">Beyond the work</span>
+        <span class="beyond-meta-chip">${(entry.sections || []).length} blocks</span>
       `;
     }
 
