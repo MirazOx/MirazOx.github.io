@@ -6831,7 +6831,7 @@ body[data-page="writing"] .writing-archive-cta * {
   width: min(48vw, 720px);
   z-index: 1;
   pointer-events: none;
-  opacity: 0.86;
+  opacity: 0.98;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 60%, transparent 100%);
   mask-image: linear-gradient(90deg, #000 0%, #000 60%, transparent 100%);
 }
@@ -6842,7 +6842,7 @@ body[data-page="writing"] .writing-archive-cta * {
   object-fit: cover;
   object-position: 48% center;
   display: block;
-  filter: grayscale(10%) contrast(1.08) brightness(0.72) saturate(0.85);
+  filter: grayscale(5%) contrast(1.05) brightness(0.98) saturate(0.95);
 }
 
 .hero-fullbleed-inner {
@@ -7405,7 +7405,7 @@ body[data-page="writing"] .writing-archive-cta * {
 .hero-fullbleed .hero-cta-row .hero-inline-cta .arrow { font-size: 1.1em; }
 
 .hero-fullbleed-portrait img {
-  filter: grayscale(36%) contrast(1.05) brightness(0.66) saturate(0.72);
+  filter: grayscale(15%) contrast(1.05) brightness(0.92) saturate(0.85);
 }
 .hero-fullbleed-portrait::after {
   content: '';
