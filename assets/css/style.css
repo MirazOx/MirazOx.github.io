@@ -7966,3 +7966,56 @@ body[data-page="writing"] .writing-archive-cta * {
   flex-direction: column;
   gap: 5rem;
 }
+
+/* Impeccable: Justified Alignment */
+.beyond-intro, .beyond-memory-body, .folder-entry-clean .folder-entry-text {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Impeccable: Full Cover Page Hero for Subpages */
+.beyond-hero {
+  min-height: 90vh; /* Make it a full cover page */
+  border-radius: 0;
+  border: none;
+  margin: 0 calc(-50vw + 50%); /* Full bleed horizontally */
+  width: 100vw;
+  max-width: 100vw;
+  padding: 0 max(5vw, calc((100vw - 1200px) / 2)); /* Keep content centered */
+}
+
+.beyond-hero-copy {
+  min-height: 90vh;
+  justify-content: center; /* Center the text vertically for a book cover feel */
+  padding-top: 10vh;
+  margin: 0 auto;
+}
+
+.beyond-hero-media {
+  border-radius: 0;
+}
+
+.beyond-hero::after {
+  /* Soften the overlay so it's not too dim */
+  background: linear-gradient(180deg, rgba(7, 14, 20, 0.20), rgba(7, 14, 20, 0.65));
+}
+
+.beyond-hero .page-title {
+  font-size: clamp(48px, 8vw, 84px); /* Massive cover typography */
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.beyond-hero .page-subtitle {
+  font-size: clamp(18px, 3vw, 24px);
+  max-width: 48ch;
+  line-height: 1.6;
+}
+
+.beyond-shell {
+  /* Adjust margins since hero is full bleed now */
+  padding-top: 0;
+}
+
+
