@@ -8082,3 +8082,27 @@ body[data-page="writing"] .writing-archive-cta * {
     padding-left: calc(44px + 1.25rem); /* Align meta with text under image */
   }
 }
+
+/* Impeccable: Memory Block Split Layout */
+.beyond-memory {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.beyond-memory-img {
+  width: 100%;
+  border-radius: 12px;
+  height: 340px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  .beyond-memory {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .beyond-memory-img {
+    height: 240px;
+  }
+}

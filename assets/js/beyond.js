@@ -12,8 +12,8 @@
   function sectionMarkup(section) {
     if (section.kind === 'memory') {
       return `
-        <section class="beyond-memory reveal" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
-          ${section.image ? `<img src="${section.image}" style="width:100%; border-radius:12px; height: 260px; object-fit: cover;" alt="">` : ''}
+        <section class="beyond-memory reveal">
+          ${section.image ? `<img src="${section.image}" class="beyond-memory-img" alt="">` : ''}
           <div>
             <p class="beyond-memory-label">${section.title || 'A memory'}</p>
             <blockquote class="beyond-memory-body">${section.body || ''}</blockquote>
@@ -100,7 +100,7 @@
     if (window.__reInitReveal) window.__reInitReveal();
   }
 
-  fetch('/content/beyond.json?v=4')
+  fetch('/content/beyond.json?v=5')
     .then((response) => response.json())
     .then(render)
     .catch(() => {
