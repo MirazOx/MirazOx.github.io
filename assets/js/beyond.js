@@ -97,7 +97,7 @@
     if (window.__reInitReveal) window.__reInitReveal();
   }
 
-  fetch('/content/beyond.json')
+  fetch('/content/beyond.json?v=3')
     .then((response) => response.json())
     .then(render)
     .catch(() => {
