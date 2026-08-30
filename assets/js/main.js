@@ -364,3 +364,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initRotatingTags();
   initLightbox();
 });
+
+// Impeccable: Live Timezone (Dhaka)
+function updateDhakaTime() {
+  const timeEl = document.getElementById('dhaka-time');
+  if (!timeEl) return;
+  const now = new Date();
+  const options = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', hour12: true };
+  const formatter = new Intl.DateTimeFormat('en-US', options);
+  timeEl.textContent = formatter.format(now);
+}
+setInterval(updateDhakaTime, 1000);
+updateDhakaTime();
