@@ -130,6 +130,12 @@
   
   .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--fg); color: var(--bg); font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; padding: 0.75rem 1rem; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; pointer-events: none; z-index: 50; }
   .toast.show { opacity: 1; transform: translateY(0); }
+
+  .mcq-opts { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 2rem; width: 100%; }
+  .mcq-btn { background: transparent; border: 1px solid var(--border); color: var(--fg); font-family: var(--font-mono); font-size: 0.8rem; padding: 1.25rem; text-align: left; cursor: pointer; transition: 0.15s ease; text-transform: uppercase; letter-spacing: 0.05em; }
+  .mcq-btn:hover { border-color: var(--muted); }
+  .mcq-btn.correct { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .mcq-btn.wrong { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -162,6 +168,7 @@
       <div class="word" id="q-word">—</div>
       <div class="pos" id="q-pos"></div>
       <div class="ipa" id="q-ipa"></div>
+      <div id="q-mcq" style="display:none; width: 100%;"></div>
       <div class="reveal" id="q-reveal" style="display:none">
         <p class="def" id="q-def"></p>
         <div class="gre" id="q-gre" style="display:none"></div>
@@ -179,6 +186,9 @@
         <button data-r="correct">Got it</button>
         <button class="b-miss" data-r="miss">Missed</button>
         <button data-r="confused">Confused</button>
+      </div>
+      <div class="btns" id="q-btns-next" style="display:none">
+        <button id="btn-next" style="grid-column: 1 / -1;">Next Word</button>
       </div>
       <div class="flash" id="q-flash"></div>
     </div>
@@ -389,6 +399,19 @@ function loadNext(){
   }
   const W=WORDS[i], s=st(i);
   
+  el('q-def').textContent=W.def;
+  const g=el('q-gre');
+  if(W.gre){ g.style.display='block'; g.innerHTML='GRE TRAP: '+esc(W.gre); }
+  else g.style.display='none';
+  el('q-reveal').style.display='none';
+  el('q-flash').textContent='';
+  
+  el('q-mcq').innerHTML = '';
+  el('q-mcq').style.display = 'none';
+  el('q-btns-next').style.display = 'none';
+  el('q-btns-front').style.display = 'none';
+  el('q-btns-back').style.display = 'none';
+
   if(studyMode === 'word') {
       el('q-word').style.fontSize = '3.5rem';
       el('q-word').textContent = W.word;
@@ -398,32 +421,39 @@ function loadNext(){
       el('q-ipa').style.display = 'inline-block';
       document.querySelector('.prompt').textContent = 'Recall the meaning';
       el('q-ex').innerHTML = esc(W.ex);
+      el('q-btns-front').style.display='grid';
   } else {
       el('q-word').style.fontSize = '1.35rem';
       el('q-pos').style.display = 'none';
       el('q-ipa').style.display = 'none';
       
-      // Blank out the word (and basic variants like -s, -ed, -ing if possible, but mostly just the base word)
       let blanked = W.ex;
       if (W.ex) {
           const reg = new RegExp(W.word.substring(0, W.word.length-1) + "[a-z]*", "gi");
           blanked = W.ex.replace(reg, '_______');
       }
       el('q-word').textContent = blanked || "No example sentence available.";
-      document.querySelector('.prompt').textContent = 'Recall the word';
+      document.querySelector('.prompt').textContent = 'Fill in the blank';
       
       const posIpa = `<span style="font-family:var(--font-mono); color:var(--muted); font-size:0.75rem;">[${W.pos}] ${W.ipa || ''}</span>`;
       el('q-ex').innerHTML = `<strong>Word:</strong> ${W.word} ${posIpa}<br><br><strong>Context:</strong> ${esc(W.ex)}`;
+      
+      // Generate MCQ Options
+      let opts = [W.word];
+      while(opts.length < 4) {
+          let rand = WORDS[Math.floor(Math.random()*WORDS.length)].word;
+          if(!opts.includes(rand)) opts.push(rand);
+      }
+      opts.sort(() => Math.random() - 0.5);
+      
+      let optsHtml = '<div class="mcq-opts">';
+      opts.forEach(o => {
+          optsHtml += `<button class="mcq-btn" onclick="mcqAnswer('${o}')">${o}</button>`;
+      });
+      optsHtml += '</div>';
+      el('q-mcq').innerHTML = optsHtml;
+      el('q-mcq').style.display = 'block';
   }
-  
-  el('q-def').textContent=W.def;
-  const g=el('q-gre');
-  if(W.gre){ g.style.display='block'; g.innerHTML='GRE TRAP: '+esc(W.gre); }
-  else g.style.display='none';
-  el('q-reveal').style.display='none';
-  el('q-btns-front').style.display='grid';
-  el('q-btns-back').style.display='none';
-  el('q-flash').textContent='';
   
   let dh=''; for(let k=0;k<5;k++) dh+='<span class="dot'+(k<s.streak?' on':'')+'"></span>';
   el('q-dots').innerHTML=dh;
@@ -564,6 +594,38 @@ function resetOneMastered(){
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>switchView(b.dataset.v));
 el('btn-show').onclick=showDef;
 
+window.mcqAnswer = function(selectedWord) {
+    if(shown) return;
+    const W = WORDS[STATE.cur];
+    const isCorrect = (selectedWord === W.word);
+    
+    document.querySelectorAll('.mcq-btn').forEach(btn => {
+        if(btn.textContent === W.word) btn.classList.add('correct');
+        else if(btn.textContent === selectedWord) btn.classList.add('wrong');
+        btn.style.pointerEvents = 'none';
+    });
+    
+    el('q-reveal').style.display='block';
+    
+    record(isCorrect ? 'correct' : 'miss');
+    const s = st(STATE.cur);
+    let f = '';
+    if(isCorrect) f='LOGGED CORRECT — STREAK '+s.streak+'/5'+(s.mastered?' · MASTERED':'');
+    else f='LOGGED MISSED — STREAK RESET';
+    el('q-flash').textContent = f;
+    
+    shown = true;
+    el('q-btns-next').style.display = 'grid';
+};
+
+if(el('btn-next')) {
+  el('btn-next').onclick = () => {
+      loadNext();
+      el('q-flash').textContent='';
+  };
+}
+
+
 el('btn-theme').onclick = () => {
   theme = theme === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', theme);
@@ -617,10 +679,14 @@ document.body.addEventListener('click',e=>{
 
 document.addEventListener('keydown',e=>{
   if(!el('v-learn').classList.contains('show') || e.target.tagName==='INPUT') return;
-  if(e.code==='Space'){ if(!shown){ e.preventDefault(); showDef(); } }
-  else if(shown && e.key==='1') answer('correct');
-  else if(shown && e.key==='2') answer('miss');
-  else if(shown && e.key==='3') answer('confused');
+  if(studyMode === 'word') {
+      if(e.code==='Space'){ if(!shown){ e.preventDefault(); showDef(); } }
+      else if(shown && e.key==='1') answer('correct');
+      else if(shown && e.key==='2') answer('miss');
+      else if(shown && e.key==='3') answer('confused');
+  } else {
+      if(shown && e.code==='Space'){ e.preventDefault(); loadNext(); }
+  }
 });
 
 // Boot
