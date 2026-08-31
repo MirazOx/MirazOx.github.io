@@ -382,10 +382,16 @@ function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>
 function ago(t){ const d=Date.now()-t,m=Math.floor(d/6e4); if(m<1)return'JUST NOW'; if(m<60)return m+'M AGO'; const h=Math.floor(m/60); if(h<24)return h+'H AGO'; return Math.floor(h/24)+'D AGO'; }
 
 let shown=false;
-function loadNext(){
-  const i=pick();
-  STATE.cur=i;
-  shown=false;
+function loadNext(keepCurrent = false){
+  let i;
+  if (keepCurrent && STATE.cur != null) {
+      i = STATE.cur;
+  } else {
+      i = pick();
+      STATE.cur = i;
+      shown = false;
+  }
+  
   if(i==null){
     el('q-word').textContent= STATE.focus ? 'DECK CLEARED' : 'ALL 500 MASTERED';
     el('q-pos').textContent='';
@@ -393,6 +399,8 @@ function loadNext(){
     el('q-reveal').style.display='none';
     el('q-btns-front').style.display='none';
     el('q-btns-back').style.display='none';
+    el('q-mcq').style.display='none';
+    el('q-btns-next').style.display='none';
     el('q-flash').textContent='Review decks or reset a word.';
     el('q-dots').innerHTML=''; el('q-seen').textContent='';
     updateProg(); return;
@@ -635,7 +643,8 @@ el('btn-theme').onclick = () => {
 el('btn-mode').onclick = () => {
   studyMode = studyMode === 'word' ? 'context' : 'word';
   el('btn-mode').textContent = studyMode === 'word' ? 'Switch to Context Mode' : 'Switch to Word Mode';
-  loadNext();
+  shown = false;
+  loadNext(true);
 };
 
 el('btn-import').onclick = () => el('file-import').click();
