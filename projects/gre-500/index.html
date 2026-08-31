@@ -193,7 +193,7 @@
       <div class="flash" id="q-flash"></div>
     </div>
     <div class="tools">
-      <button id="btn-mode">Mode: Word First</button>
+      <button id="btn-mode">Switch to Context Mode</button>
       <button id="btn-skip">Skip Word</button>
       <button id="btn-reset-active" class="danger">Reset Mastered Word</button>
     </div>
@@ -634,7 +634,7 @@ el('btn-theme').onclick = () => {
 
 el('btn-mode').onclick = () => {
   studyMode = studyMode === 'word' ? 'context' : 'word';
-  el('btn-mode').textContent = studyMode === 'word' ? 'Mode: Word First' : 'Mode: Context First';
+  el('btn-mode').textContent = studyMode === 'word' ? 'Switch to Context Mode' : 'Switch to Word Mode';
   loadNext();
 };
 
