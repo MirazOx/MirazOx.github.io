@@ -1,0 +1,33 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0A0A0C"/>
+  <rect width="1598" height="898" x="1" y="1" stroke="#22252A" stroke-width="2"/>
+  
+  <rect x="200" y="200" width="1200" height="500" fill="#0A0A0C" stroke="#22252A" stroke-width="2"/>
+  <line x1="200" y1="350" x2="1400" y2="350" stroke="#22252A" stroke-width="2"/>
+  <line x1="1000" y1="350" x2="1000" y2="700" stroke="#22252A" stroke-width="2"/>
+  
+  <rect x="250" y="270" width="400" height="4" fill="#E2E4E9"/>
+  <rect x="650" y="270" width="500" height="4" fill="#22252A"/>
+  
+  <text x="250" y="250" fill="#737882" font-family="'JetBrains Mono', Courier, monospace" font-size="28" font-weight="500" letter-spacing="2">ACTIVE: 499 / 500</text>
+  <text x="1350" y="250" fill="#737882" font-family="'JetBrains Mono', Courier, monospace" font-size="28" font-weight="500" letter-spacing="2" text-anchor="end">RECALL THE MEANING</text>
+  
+  <text x="250" y="520" fill="#E2E4E9" font-family="Literata, Georgia, serif" font-size="140" font-weight="300" letter-spacing="-2">abase</text>
+  <text x="250" y="600" fill="#737882" font-family="'JetBrains Mono', Courier, monospace" font-size="28" letter-spacing="1" stroke="#22252A" stroke-width="1">[ v ]</text>
+  
+  <rect x="1060" y="420" width="220" height="40" fill="transparent" stroke="#22252A" stroke-width="2"/>
+  <text x="1075" y="448" fill="#D94A38" font-family="'JetBrains Mono', Courier, monospace" font-size="20" letter-spacing="1">GRE TRAP SENSE</text>
+  
+  <text x="1060" y="520" fill="#E2E4E9" font-family="Literata, Georgia, serif" font-size="34" font-weight="300">to lower in rank, prestige, or</text>
+  <text x="1060" y="570" fill="#E2E4E9" font-family="Literata, Georgia, serif" font-size="34" font-weight="300">self-esteem; humble or degrade</text>
+  
+  <!-- UI Buttons -->
+  <rect x="200" y="730" width="1200" height="120" fill="#22252A"/>
+  <rect x="202" y="732" width="1196" height="116" fill="#0A0A0C"/>
+  <text x="800" y="805" fill="#E2E4E9" font-family="'JetBrains Mono', Courier, monospace" font-size="36" font-weight="500" text-anchor="middle" letter-spacing="2">SHOW DEFINITION</text>
+
+  <!-- Title overlay -->
+  <text x="800" y="120" fill="#E2E4E9" font-family="Literata, Georgia, serif" font-size="64" font-weight="300" text-anchor="middle" letter-spacing="-1">GRE 500</text>
+  <text x="800" y="160" fill="#737882" font-family="'JetBrains Mono', Courier, monospace" font-size="20" font-weight="500" text-anchor="middle" letter-spacing="4">ADAPTIVE VOCABULARY TRAINER</text>
+
+</svg>
