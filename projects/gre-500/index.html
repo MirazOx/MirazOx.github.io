@@ -143,7 +143,7 @@
   <section id="v-learn" class="view show">
     <div class="prog">
       <div class="prog-text">
-        <span id="p-active">Active: 0</span>
+        <span id="p-active">Active: 0</span> <button id="btn-clear-focus" style="display:none; background:none; border:1px solid var(--accent); color:var(--accent); padding:2px 6px; font-size:0.6rem; margin-left:10px; cursor:pointer;">EXIT FOCUS</button>
         <span id="p-txt">0 / 500 mastered</span>
       </div>
       <div class="bar"><div id="p-bar"></div></div>
@@ -247,7 +247,7 @@ const N = WORDS.length;
 const IDX = {}; WORDS.forEach((w,i)=>IDX[w.word]=i);
 
 // State
-let STATE = { stats:{}, log:[], cur:null, v:1 };
+let STATE = { stats:{}, log:[], cur:null, v:1, focus:null };
 const KEY = 'gre500_v1';
 let ready = false;
 
@@ -255,10 +255,10 @@ function blank(i){ return {seen:0,correct:0,wrong:0,confused:0,streak:0,mastered
 function st(i){ if(!STATE.stats[i]) STATE.stats[i]=blank(i); return STATE.stats[i]; }
 
 // Storage
-async function save(){ try{ await window.storage.set(KEY, JSON.stringify(STATE)); }catch(e){} }
-async function load(){
-  try{ const r = await window.storage.get(KEY); if(r && r.value){ STATE = JSON.parse(r.value); } }catch(e){}
-  if(!STATE.stats) STATE.stats={}; if(!STATE.log) STATE.log=[]; ready=true;
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(STATE)); }catch(e){} }
+function load(){
+  try{ const r = localStorage.getItem(KEY); if(r){ STATE = JSON.parse(r); } }catch(e){}
+  if(!STATE.stats) STATE.stats={}; if(!STATE.log) STATE.log=[]; if(!STATE.focus) STATE.focus=null; ready=true;
 }
 
 // Weighting Engine
@@ -275,12 +275,43 @@ function weight(i){
 
 function pick(){
   let pool=[], tot=0;
-  for(let i=0;i<N;i++){ const w=weight(i); if(w>0){ pool.push([i,w]); tot+=w; } }
+  for(let i=0;i<N;i++){
+    const s=st(i);
+    let valid = false;
+    if(STATE.focus === 'nem') {
+       if(s.wrong + s.confused >= 4 && !s.mastered) valid = true;
+    } else if(STATE.focus === 'shk') {
+       if(s.wrong + s.confused >= 1 && s.wrong + s.confused <= 3 && !s.mastered) valid = true;
+    } else if(STATE.focus === 'unt') {
+       if(s.seen === 0 && !s.mastered) valid = true;
+    } else {
+       if(!s.mastered) valid = true;
+    }
+    
+    if(valid){
+        const w=weight(i); 
+        if(w>0){ pool.push([i,w]); tot+=w; }
+    }
+  }
   if(!pool.length) return null;
   let r=Math.random()*tot;
   for(const [i,w] of pool){ r-=w; if(r<=0) return i; }
   return pool[pool.length-1][0];
 }
+
+function setFocus(f) {
+  STATE.focus = f;
+  save();
+  switchView('learn');
+  loadNext();
+}
+
+function clearFocus() {
+  STATE.focus = null;
+  save();
+  loadNext();
+}
+
 
 // Logic
 function record(result){
@@ -329,7 +360,7 @@ function loadNext(){
   STATE.cur=i;
   shown=false;
   if(i==null){
-    el('q-word').textContent='ALL 500 MASTERED';
+    el('q-word').textContent= STATE.focus ? 'DECK CLEARED' : 'ALL 500 MASTERED';
     el('q-pos').textContent='';
     el('q-ipa').textContent='';
     el('q-reveal').style.display='none';
@@ -383,7 +414,14 @@ function updateProg(){
   let mas=0,active=0;
   for(let i=0;i<N;i++){ const s=STATE.stats[i]; if(s&&s.mastered)mas++; }
   active=N-mas;
-  el('p-active').textContent='ACTIVE: '+active;
+  if(STATE.focus) {
+      const labels = {nem: 'NEMESIS', shk: 'SHAKY', unt: 'UNTOUCHED'};
+      el('p-active').innerHTML = `FOCUS: ${labels[STATE.focus]}`;
+      el('btn-clear-focus').style.display = 'inline-block';
+  } else {
+      el('p-active').textContent='ACTIVE: '+active;
+      if(el('btn-clear-focus')) el('btn-clear-focus').style.display = 'none';
+  }
   el('p-txt').textContent=mas+' / '+N+' MASTERED';
   el('p-bar').style.width=(mas/N*100)+'%';
 }
@@ -408,7 +446,14 @@ function fillDeck(bodyId,cntId,arr,meta,plain){
   el(cntId).textContent=arr.length;
   const body=el(bodyId);
   if(!arr.length){ body.innerHTML='<div class="empty">Empty</div>'; return; }
-  body.innerHTML=arr.map(i=>{
+  
+  let h = '';
+  if(bodyId !== 'd-mas') {
+     let type = bodyId.replace('d-', '');
+     h += `<button style="background:var(--fg); color:var(--bg); border:none; padding:8px 16px; margin-bottom:1rem; font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; cursor:pointer;" onclick="setFocus('${type}')">Practice This Deck (${arr.length} words)</button>`;
+  }
+  
+  body.innerHTML = h + arr.map(i=>{
     const W=WORDS[i];
     return '<div class="row"><span class="w">'+esc(W.word)+(W.gre?' *':'')+' <span class="muted" style="font-weight:400">— '+esc(W.def)+'</span></span><span class="m">'+esc(meta(i))+'</span></div>';
   }).join('');
@@ -461,7 +506,7 @@ function exportData(){
 async function resetAll(){
   if(!confirm('Hard reset? All progress will be erased.')) return;
   STATE={stats:{},log:[],cur:null,v:1};
-  await save(); loadNext(); renderDecks(); toast('RESET COMPLETE');
+  save(); loadNext(); renderDecks(); toast('RESET COMPLETE');
 }
 
 function resetOneMastered(){
@@ -482,6 +527,7 @@ el('btn-skip').onclick=()=>{ loadNext(); el('q-flash').textContent='SKIPPED.'; }
 el('btn-reset-active').onclick=resetOneMastered;
 el('btn-export').onclick=exportData;
 el('btn-reset').onclick=resetAll;
+if(el('btn-clear-focus')) el('btn-clear-focus').onclick=clearFocus;
 
 document.querySelectorAll('#log-filter button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#log-filter button').forEach(x=>x.classList.remove('active'));b.classList.add('active');logFilter=b.dataset.f;renderLog();});
 document.querySelectorAll('#browse-filter button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#browse-filter button').forEach(x=>x.classList.remove('active'));b.classList.add('active');browseFilter=b.dataset.f;renderBrowse();});
@@ -500,7 +546,7 @@ document.addEventListener('keydown',e=>{
 });
 
 // Boot
-(async function(){ await load(); loadNext(); updateProg(); })();
+(async function(){ load(); loadNext(); updateProg(); })();
 </script>
 </body>
 </html>
