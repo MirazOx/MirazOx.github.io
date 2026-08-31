@@ -13,11 +13,19 @@
     --fg: #e2e4e9;
     --muted: #737882;
     --border: #22252a;
-    --accent: #d94a38; /* Editorial vermilion for emphasis/errors */
+    --accent: #d94a38;
     --accent-hover: #f1523e;
     --font-serif: 'Literata', Georgia, serif;
     --font-mono: 'JetBrains Mono', Menlo, monospace;
     --font-sans: 'Inter', -apple-system, sans-serif;
+  }
+  
+  html[data-theme="light"] {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #666666;
+    --border: #e2e4e9;
+    --accent: #d94a38;
   }
   
   * { box-sizing: border-box; }
@@ -136,6 +144,7 @@
       <button data-v="decks">Decks</button>
       <button data-v="log">Error Log</button>
       <button data-v="browse">Browse</button>
+      <button id="btn-theme" style="margin-left:auto; border-bottom:none;">Light/Dark</button>
     </nav>
   </header>
 
@@ -174,6 +183,7 @@
       <div class="flash" id="q-flash"></div>
     </div>
     <div class="tools">
+      <button id="btn-mode">Mode: Word First</button>
       <button id="btn-skip">Skip Word</button>
       <button id="btn-reset-active" class="danger">Reset Mastered Word</button>
     </div>
@@ -206,7 +216,9 @@
     </div>
     
     <div class="tools" style="margin-top: 3rem;">
-      <button id="btn-export">Export Progress (JSON)</button>
+      <button id="btn-export">Export Progress</button>
+      <button id="btn-import">Import JSON</button>
+      <input type="file" id="file-import" accept=".json" style="display:none">
       <button id="btn-reset" class="danger">Hard Reset</button>
     </div>
   </section>
@@ -250,6 +262,11 @@ const IDX = {}; WORDS.forEach((w,i)=>IDX[w.word]=i);
 let STATE = { stats:{}, log:[], cur:null, v:1, focus:null };
 const KEY = 'gre500_v1';
 let ready = false;
+let studyMode = 'word';
+
+let theme = localStorage.getItem('gre500_theme') || 'dark';
+document.documentElement.setAttribute('data-theme', theme);
+
 
 function blank(i){ return {seen:0,correct:0,wrong:0,confused:0,streak:0,mastered:false,last:0}; }
 function st(i){ if(!STATE.stats[i]) STATE.stats[i]=blank(i); return STATE.stats[i]; }
@@ -371,11 +388,35 @@ function loadNext(){
     updateProg(); return;
   }
   const W=WORDS[i], s=st(i);
-  el('q-word').textContent=W.word;
-  el('q-pos').textContent=W.pos;
-  el('q-ipa').textContent=W.ipa || '';
+  
+  if(studyMode === 'word') {
+      el('q-word').style.fontSize = '3.5rem';
+      el('q-word').textContent = W.word;
+      el('q-pos').textContent = W.pos;
+      el('q-ipa').textContent = W.ipa || '';
+      el('q-pos').style.display = 'inline-block';
+      el('q-ipa').style.display = 'inline-block';
+      document.querySelector('.prompt').textContent = 'Recall the meaning';
+      el('q-ex').innerHTML = esc(W.ex);
+  } else {
+      el('q-word').style.fontSize = '1.35rem';
+      el('q-pos').style.display = 'none';
+      el('q-ipa').style.display = 'none';
+      
+      // Blank out the word (and basic variants like -s, -ed, -ing if possible, but mostly just the base word)
+      let blanked = W.ex;
+      if (W.ex) {
+          const reg = new RegExp(W.word.substring(0, W.word.length-1) + "[a-z]*", "gi");
+          blanked = W.ex.replace(reg, '_______');
+      }
+      el('q-word').textContent = blanked || "No example sentence available.";
+      document.querySelector('.prompt').textContent = 'Recall the word';
+      
+      const posIpa = `<span style="font-family:var(--font-mono); color:var(--muted); font-size:0.75rem;">[${W.pos}] ${W.ipa || ''}</span>`;
+      el('q-ex').innerHTML = `<strong>Word:</strong> ${W.word} ${posIpa}<br><br><strong>Context:</strong> ${esc(W.ex)}`;
+  }
+  
   el('q-def').textContent=W.def;
-  el('q-ex').textContent=W.ex;
   const g=el('q-gre');
   if(W.gre){ g.style.display='block'; g.innerHTML='GRE TRAP: '+esc(W.gre); }
   else g.style.display='none';
@@ -522,6 +563,43 @@ function resetOneMastered(){
 // Binds
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>switchView(b.dataset.v));
 el('btn-show').onclick=showDef;
+
+el('btn-theme').onclick = () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('gre500_theme', theme);
+};
+
+el('btn-mode').onclick = () => {
+  studyMode = studyMode === 'word' ? 'context' : 'word';
+  el('btn-mode').textContent = studyMode === 'word' ? 'Mode: Word First' : 'Mode: Context First';
+  loadNext();
+};
+
+el('btn-import').onclick = () => el('file-import').click();
+el('file-import').onchange = (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if(data && data.stats) {
+        STATE = data;
+        save();
+        loadNext();
+        if(el('v-decks').classList.contains('show')) renderDecks();
+        toast('PROGRESS IMPORTED');
+      } else {
+        toast('INVALID FILE');
+      }
+    } catch(err) {
+      toast('ERROR READING FILE');
+    }
+  };
+  reader.readAsText(file);
+};
+
 document.querySelectorAll('#q-btns-back button').forEach(b=>b.onclick=()=>answer(b.dataset.r));
 el('btn-skip').onclick=()=>{ loadNext(); el('q-flash').textContent='SKIPPED.'; };
 el('btn-reset-active').onclick=resetOneMastered;
