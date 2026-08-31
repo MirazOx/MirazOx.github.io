@@ -168,6 +168,7 @@
       <div class="word" id="q-word">—</div>
       <div class="pos" id="q-pos"></div>
       <div class="ipa" id="q-ipa"></div>
+      <div id="q-hint" style="display:none; font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: var(--muted); margin-top: 1.5rem; text-align: center;"></div>
       <div id="q-mcq" style="display:none; width: 100%;"></div>
       <div class="reveal" id="q-reveal" style="display:none">
         <p class="def" id="q-def"></p>
@@ -180,7 +181,8 @@
         <span id="q-seen"></span>
       </div>
       <div class="btns" id="q-btns-front">
-        <button id="btn-show">Show definition</button>
+        <button id="btn-hint" style="grid-column: 1 / 2;">Context Hint</button>
+        <button id="btn-show" style="grid-column: 2 / -1;">Show definition</button>
       </div>
       <div class="btns" id="q-btns-back" style="display:none">
         <button data-r="correct">Got it</button>
@@ -397,7 +399,7 @@ function loadNext(keepCurrent = false){
     el('q-pos').textContent='';
     el('q-ipa').textContent='';
     el('q-reveal').style.display='none';
-    el('q-btns-front').style.display='none';
+    el('q-btns-front').style.display='none'; el('q-hint').style.display='none';
     el('q-btns-back').style.display='none';
     el('q-mcq').style.display='none';
     el('q-btns-next').style.display='none';
@@ -429,8 +431,20 @@ function loadNext(keepCurrent = false){
       el('q-ipa').style.display = 'inline-block';
       document.querySelector('.prompt').textContent = 'Recall the meaning';
       el('q-ex').innerHTML = esc(W.ex);
+      
+      el('q-hint').style.display = 'none';
+      el('btn-hint').style.display = 'block';
+      el('btn-show').style.gridColumn = '2 / -1';
       el('q-btns-front').style.display='grid';
+      
+      el('btn-hint').onclick = () => {
+          el('q-hint').innerHTML = esc(W.ex).replace(new RegExp(W.word, 'gi'), '_______');
+          el('q-hint').style.display = 'block';
+          el('btn-hint').style.display = 'none';
+          el('btn-show').style.gridColumn = '1 / -1';
+      };
   } else {
+      el('q-hint').style.display = 'none';
       el('q-word').style.fontSize = '1.35rem';
       el('q-pos').style.display = 'none';
       el('q-ipa').style.display = 'none';
@@ -472,7 +486,7 @@ function loadNext(keepCurrent = false){
 function showDef(){
   shown=true;
   el('q-reveal').style.display='block';
-  el('q-btns-front').style.display='none';
+  el('q-btns-front').style.display='none'; el('q-hint').style.display='none';
   el('q-btns-back').style.display='grid';
 }
 
