@@ -8,7 +8,7 @@
           "code": "MSJ2251",
           "name": "Journalism and Society",
           "session": "Summer 2026",
-          "grade": "Registered",
+          "grade": "A+",
           "workTitle": "Journalism and Society Reading Dossier",
           "type": "Reading dossier",
           "desc": "A reading dossier connecting journalism, institutions, public accountability, and the social role of the press.",
@@ -66,8 +66,8 @@
         {
           "code": "MSJ3252",
           "name": "News Editing and Translation",
-          "session": "TBD",
-          "grade": "Not taken yet",
+          "session": "Fall 2026",
+          "grade": "Registered",
           "workTitle": "Editing Desk Portfolio",
           "type": "Editing portfolio",
           "desc": "A slot for headline discipline, translation judgement, and copy-editing decisions."
@@ -75,8 +75,8 @@
         {
           "code": "MSJ4151",
           "name": "Investigative Journalism-I",
-          "session": "TBD",
-          "grade": "Not taken yet",
+          "session": "Fall 2026",
+          "grade": "Registered",
           "workTitle": "Investigation Design Dossier",
           "type": "Reporting dossier",
           "desc": "A dossier for source protection, evidence chains, investigation planning, and the architecture of a serious reporting project.",
@@ -86,7 +86,7 @@
           "code": "MSJ4152",
           "name": "Investigative Journalism-II",
           "session": "Summer 2026",
-          "grade": "Registered",
+          "grade": "A",
           "workTitle": "Algorithm Mediated Loan Scam",
           "type": "Reporting dossier",
           "desc": "An investigative report exposing how algorithmic lending platforms trap vulnerable borrowers.",
@@ -442,7 +442,7 @@
           "name": "Mathematics",
           "tier": "Natural Sciences",
           "session": "Summer 2026",
-          "grade": "Registered",
+          "grade": "A",
           "workTitle": "The Architecture of Logic: Learning Outcomes",
           "type": "Curriculum Document",
           "desc": "A slot for mathematical foundations behind data and modelling.",
@@ -459,7 +459,7 @@
           "name": "Public Health and Epidemiology",
           "tier": "Natural Sciences",
           "session": "Summer 2026",
-          "grade": "Registered",
+          "grade": "A",
           "workTitle": "Public Health Explainers",
           "type": "Science communication",
           "desc": "A slot for health data, epidemiological reasoning, and public explanation."
@@ -471,10 +471,28 @@
       "summary": "5 courses / 15 credits",
       "courses": [
         {
+          "code": "CSE1201",
+          "name": "Structured Programming",
+          "session": "Fall 2026",
+          "grade": "Registered",
+          "workTitle": "Algorithm Design Portfolio",
+          "type": "Code portfolio",
+          "desc": "A slot for fundamental programming logic and algorithm design."
+        },
+        {
+          "code": "CSE2301",
+          "name": "Database Management System",
+          "session": "Fall 2026",
+          "grade": "Registered",
+          "workTitle": "Database Schema Design",
+          "type": "Technical project",
+          "desc": "A slot for relational databases, schema design, and SQL."
+        },
+        {
           "code": "CSE1202",
           "name": "Structured Programming Lab",
-          "session": "TBD",
-          "grade": "Not taken yet",
+          "session": "Fall 2026",
+          "grade": "Registered",
           "workTitle": "Programming Lab Archive",
           "type": "Code portfolio",
           "desc": "A slot for structured programming exercises and debugging practice."

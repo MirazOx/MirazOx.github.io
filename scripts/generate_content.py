@@ -402,8 +402,8 @@ services = {
 academic = {
     "stats": [
         {"label": "CGPA", "value": "3.99"},
-        {"label": "Credits completed", "value": "81"},
-        {"label": "Completed courses", "value": "27"},
+        {"label": "Credits completed", "value": "93"},
+        {"label": "Completed courses", "value": "31"},
         {"label": "Dean's List", "value": "4x"},
     ],
     "showcase": [
