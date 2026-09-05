@@ -36,7 +36,7 @@ mirazhossain-site/
 │   ├── miraz_cv.pdf
 │   ├── miraz_cv_one_page.pdf
 │   ├── advanced-english-writing-feature-layout.pdf
-│   ├── algorithmic-news-feeds-misinformation-susceptibility-v10.pdf
+│   ├── algorithmic-news-feeds.pdf
 │   ├── writing-without-writing-v6.pdf
 │   ├── team-data-decoder.pdf
 │   ├── campus-leader-english-olympiad.pdf
