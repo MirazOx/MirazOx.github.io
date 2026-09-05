@@ -3,9 +3,9 @@
     "slug": "algorithmic-news-feeds",
     "status": "in-progress",
     "year": "2026",
-    "type": "Mixed methods · ULAB, Dhaka",
+    "type": "Mixed methods \u00b7 ULAB, Dhaka",
     "title": "Algorithmic News Feeds and Misinformation Susceptibility Among Young Urban News Consumers in Dhaka",
-    "desc": "A sequential explanatory mixed-methods study examining how algorithmically curated social media shapes epistemic vulnerability among university students. Uses a validated survey (n=130–150) and qualitative interviews to measure the structural, behavioural, and cognitive dimensions of algorithmic misinformation exposure.",
+    "desc": "A sequential explanatory mixed-methods study examining how algorithmically curated social media shapes epistemic vulnerability among university students. Uses a validated survey (n=130\u2013150) and qualitative interviews to measure the structural, behavioural, and cognitive dimensions of algorithmic misinformation exposure.",
     "tags": [
       "platform studies",
       "media literacy",
@@ -14,13 +14,15 @@
       "Facebook"
     ],
     "supervisor": "Andalib Rubayat (ULAB)",
-    "methods": "Python data handling, qualitative interviews, validated media literacy survey instruments"
+    "methods": "Python data handling, qualitative interviews, validated media literacy survey instruments",
+    "file": "/pdfs/algorithmic-news-feeds.pdf",
+    "fileLabel": "Read Proposal"
   },
   {
     "slug": "saalwatch",
     "status": "planned",
     "year": "2026",
-    "type": "Platform audit · Independent",
+    "type": "Platform audit \u00b7 Independent",
     "title": "SAALWatch: South Asian Algorithmic Literacy Audit",
     "desc": "A pilot platform audit framework for South Asian newsrooms. Each audit focuses on one event and one platform, combining scraped data, manual coding, and replication-ready code published on GitHub.",
     "tags": [
@@ -36,7 +38,7 @@
     "slug": "thesis-2027",
     "status": "planned",
     "year": "2027",
-    "type": "Undergraduate thesis · ULAB",
+    "type": "Undergraduate thesis \u00b7 ULAB",
     "title": "Algorithms, media literacy and education in Bangladesh",
     "desc": "Final-year thesis extending the 2026 pilot study into a larger, education-policy-facing argument: how curriculum design in Bangladeshi schools and universities can be rebuilt around algorithmic literacy.",
     "tags": [
