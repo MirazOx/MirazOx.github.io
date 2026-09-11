@@ -2005,7 +2005,10 @@ a.timeline-item-title:hover {
   border-radius: 8px;
   padding: 1rem;
   background: var(--bg2);
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   transition: transform var(--trans), border-color var(--trans);
 }
 .stat-card:hover { transform: translateY(-2px); border-color: var(--accent-teal); }
@@ -4136,7 +4139,10 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   gap: 1.25rem;
 }
 .sh-item {
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   padding: 1.25rem 0.5rem;
   background: transparent;
   border: none;
@@ -5122,7 +5128,10 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: var(--text2);
   font-size: 18px;
   line-height: 1.86;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 .essay-body > p:first-child::first-letter {
   float: left;
@@ -5232,7 +5241,10 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: var(--text);
   padding: 0.55rem 0.75rem;
   cursor: pointer;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 .academic-filter-toggle span {
   display: block;
@@ -5291,7 +5303,10 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   text-transform: uppercase;
   padding: 0.65rem 0.75rem;
   cursor: pointer;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 .academic-filter-kicker {
   display: block;
@@ -6103,7 +6118,10 @@ body[data-page="writing"] .writing-archive-cta * {
 .service-price-table th {
   color: var(--text3);
   font-size: 10px;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   padding: 0.9rem 1rem;
   border-bottom: 0.5px solid var(--border2);
 }
@@ -6732,7 +6750,10 @@ body[data-page="writing"] .writing-archive-cta * {
   }
   .service-price-table td,
   .service-price-table td:last-child {
-    text-align: left;
+    text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
     border-bottom: 0.5px solid var(--border);
     padding: 0.9rem 1rem;
   }
@@ -7725,7 +7746,10 @@ body[data-page="writing"] .writing-archive-cta * {
   transition: all var(--trans);
   position: relative;
   overflow: hidden;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .interests-bento .interest-card:hover {
@@ -7872,7 +7896,10 @@ body[data-page="writing"] .writing-archive-cta * {
   }
   .folder-entry-clean .folder-entry-meta {
     padding-left: 0;
-    text-align: left;
+    text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
     white-space: normal;
   }
 }
