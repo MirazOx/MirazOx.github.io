@@ -527,11 +527,23 @@
           "tier": "Natural Sciences",
           "session": "Spring 2025",
           "grade": "A+",
-          "workTitle": "Construction Pollution Brief",
-          "type": "Science brief",
-          "desc": "An environmental science brief translating construction pollution and urban risk into public-facing language.",
-          "externalUrl": "/assets/showcase/NSC2283_Construction_Pollution_Brief.docx",
-          "icon": "bookmark"
+          "workTitle": "Construction Pollution — Documentary",
+          "type": "Documentary + science brief",
+          "desc": "A short documentary and companion science brief on construction pollution and urban environmental risk, translating the issue into public-facing language.",
+          "icon": "video",
+          "media": "video",
+          "resources": [
+            {
+              "label": "Documentary",
+              "type": "video",
+              "url": "https://youtu.be/PvkRLinhKmk"
+            },
+            {
+              "label": "Science brief",
+              "type": "docx",
+              "url": "/assets/showcase/NSC2283_Construction_Pollution_Brief.docx"
+            }
+          ]
         },
         {
           "code": "NSC2282",
