@@ -5047,7 +5047,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 
 .essay-page {
-  width: min(1180px, calc(100% - 2rem));
+  width: min(860px, calc(100% - 2rem));
   margin: 0 auto;
   padding: 4.5rem 0 3rem;
 }
@@ -5057,8 +5057,8 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 }
 .essay-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 8vw, 7.4rem);
-  line-height: 0.92;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  line-height: 1.1;
   max-width: 1080px;
   color: var(--text);
   margin: 0.6rem 0 1rem;
@@ -5099,7 +5099,6 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   object-fit: cover;
 }
 .essay-layout {
-  max-width: 820px;
   margin: 2.5rem auto 0;
 }
 .essay-tags-row {
@@ -5123,9 +5122,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   color: var(--text2);
   font-size: 18px;
   line-height: 1.86;
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
+  text-align: left;
 }
 .essay-body > p:first-child::first-letter {
   float: left;
