@@ -8130,3 +8130,194 @@ body[data-page="writing"] .writing-archive-cta * {
     height: 240px;
   }
 }
+
+/* ==========================================================================
+   CV PAGE (PDF EXACT REPLICA)
+   ========================================================================== */
+
+.cv-page-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 4rem 1rem 6rem;
+}
+.cv-document {
+  /* Enforce standard LaTeX academic aesthetic */
+  font-family: "Times New Roman", Times, serif;
+  color: var(--text);
+  line-height: 1.45;
+  font-size: 16px;
+  background: var(--bg);
+}
+.cv-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.cv-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  font-family: "Times New Roman", Times, serif;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.cv-contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  border-bottom: 1.5px solid #2a5d8c; /* Classic LaTeX blue */
+  padding-bottom: 0.6rem;
+}
+.cv-contact span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+}
+.cv-contact i {
+  width: 14px;
+  height: 14px;
+  color: var(--text2);
+}
+.cv-contact a {
+  text-decoration: none;
+  color: inherit;
+}
+.cv-section {
+  margin-bottom: 1.4rem;
+}
+.cv-section h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2a5d8c;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #2a5d8c;
+}
+.cv-section h2 span {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--text2);
+}
+.cv-body-text {
+  padding: 0.2rem 0;
+  font-size: 15px;
+}
+.cv-item {
+  margin-bottom: 1rem;
+}
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cv-item-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.cv-item-date {
+  font-size: 15px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.cv-item-subtitle {
+  font-size: 15px;
+  font-style: normal;
+  margin-bottom: 0.3rem;
+  color: var(--text2);
+}
+.cv-item-desc {
+  font-size: 15px;
+  margin-top: 0.2rem;
+}
+.cv-list {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 15px;
+}
+.cv-list li {
+  margin-bottom: 0.25rem;
+}
+.cv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-top: 0.5rem;
+}
+.cv-table td {
+  padding: 0.3rem 0;
+  vertical-align: top;
+}
+.cv-table-key {
+  font-weight: 700;
+  width: 25%;
+  padding-right: 1rem;
+}
+.cv-references {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 0.8rem;
+}
+.cv-ref-block .cv-item-subtitle {
+  margin-bottom: 0;
+  color: var(--text);
+}
+.cv-ref-block a {
+  color: var(--text);
+  text-decoration: underline;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .cv-item-header {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .cv-item-date {
+    text-align: left;
+    font-size: 14px;
+    color: var(--text2);
+    margin-bottom: 0.2rem;
+  }
+  .cv-table, .cv-table tbody, .cv-table tr, .cv-table td {
+    display: block;
+    width: 100%;
+  }
+  .cv-table td {
+    padding: 0.1rem 0;
+  }
+  .cv-table-key {
+    padding-top: 0.5rem;
+  }
+}
+
+.nav-resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.nav-resume-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.nav-resume-btn:hover {
+  background: var(--bg2);
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+}
