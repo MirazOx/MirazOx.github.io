@@ -218,7 +218,7 @@ function hydrateFilters(data) {
   document.getElementById(id).addEventListener('change', renderArchive);
 });
 
-fetch('/content/articles.json?v=18')
+fetch('/content/articles.json?v=19')
   .then(response => {
     if (!response.ok) throw new Error('Could not load archive');
     return response.json();
