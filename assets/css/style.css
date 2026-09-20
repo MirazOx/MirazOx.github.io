@@ -8321,3 +8321,44 @@ body[data-page="writing"] .writing-archive-cta * {
   color: var(--accent-teal);
   border-color: var(--accent-teal);
 }
+
+/* ==========================================================================
+   CV PRINT STYLES
+   ========================================================================== */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  nav, footer, .nav-modern, .footer-details-grid, .section-divider {
+    display: none !important;
+  }
+  .cv-page-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  .cv-document {
+    background: white !important;
+    color: black !important;
+  }
+  .cv-section {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, p, span, div, a {
+    color: black !important;
+  }
+  .cv-section h2 {
+    color: #1f497d !important;
+    border-bottom: 1px solid #1f497d !important;
+  }
+  .cv-contact {
+    border-bottom: 1.5px solid #1f497d !important;
+  }
+  .cv-contact i {
+    color: #1f497d !important;
+  }
+}
