@@ -8379,3 +8379,8 @@ body[data-page="writing"] .writing-archive-cta * {
     grid-template-columns: 1fr;
   }
 }
+
+/* Override the 58ch max-width for stacked cards so text flattens across the whole space */
+.intervention-focus-card.is-stacked .intervention-focus-copy p:not(.intervention-focus-kicker) {
+  max-width: none;
+}
