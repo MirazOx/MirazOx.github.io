@@ -8362,3 +8362,20 @@ body[data-page="writing"] .writing-archive-cta * {
     color: #1f497d !important;
   }
 }
+
+/* FactFest Card (is-stacked) */
+.intervention-focus-card.is-stacked {
+  grid-template-columns: 1fr;
+}
+
+/* Make the wider shot full width if it's the only one, or keep a nice ratio */
+.intervention-focus-card.is-stacked .intervention-focus-media {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  min-height: 380px;
+}
+
+@media (max-width: 900px) {
+  .intervention-focus-card.is-stacked .intervention-focus-media {
+    grid-template-columns: 1fr;
+  }
+}
