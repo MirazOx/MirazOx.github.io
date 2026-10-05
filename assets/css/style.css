@@ -8392,3 +8392,20 @@ body[data-page="writing"] .writing-archive-cta * {
 .intervention-focus-card.card-german-embassy .intervention-focus-media img:first-child {
   object-position: center;
 }
+
+/* ULAB Foundation Day 2x2 Photo Grid */
+.intervention-focus-card.card-ulab-foundation .intervention-focus-media {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .intervention-focus-card.card-ulab-foundation .intervention-focus-media {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+.intervention-focus-card.card-ulab-foundation .intervention-focus-media img {
+  min-height: 140px;
+}
