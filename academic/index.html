@@ -375,6 +375,10 @@ function renderCourseMap() {
                     const viewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(absoluteUrl);
                     return `${labelHtml}<div style="margin-bottom: 0.5rem; text-align: right;"><a href="${escapeHTML(absoluteUrl)}" target="_blank" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: underline;">Download original file ↗</a></div><div class="iframe-wrapper"><iframe src="${escapeHTML(viewerUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
                   }
+                  if (['html'].includes(ext) || finalUrl.includes('/projects/')) {
+                    const projectUrl = finalUrl;
+                    return `${labelHtml}<div style="margin-bottom: 0.5rem; text-align: right;"><a href="${escapeHTML(projectUrl)}" target="_blank" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: underline;">Open interactive project in full window ↗</a></div><div class="iframe-wrapper" style="height: 520px;"><iframe src="${escapeHTML(projectUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+                  }
                   return `<a class="course-resource-link" style="margin-top: ${i > 0 ? '1rem' : '0'}" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
                 }).join('')
               : '<span class="course-resource-placeholder">Work sample pending</span>';
@@ -404,7 +408,7 @@ function renderCourseMap() {
   if (window.lucide) lucide.createIcons();
 }
 
-fetch('/content/academic.json?v=48')
+fetch('/content/academic.json?v=49')
   .then(response => {
     if (!response.ok) throw new Error('Could not load academic content');
     return response.json();
@@ -426,7 +430,7 @@ fetch('/content/academic.json?v=48')
 // Academic record ledger + selected (A+) coursework — built from the same content source.
 (function () {
   function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
-  fetch('/content/academic.json?v=48').then(r=>r.json()).then(data=>{
+  fetch('/content/academic.json?v=49').then(r=>r.json()).then(data=>{
     const groups = data.courseGroups || [];
     let aplus = 0, a = 0, aminus = 0, completed = 0;
     const featured = [];
@@ -487,6 +491,10 @@ fetch('/content/academic.json?v=48')
                     const absoluteUrl = finalUrl.startsWith('http') ? finalUrl : 'https://mirazhossain.com' + finalUrl;
                     const viewerUrl = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(absoluteUrl);
                     return `${labelHtml}<div style="margin-bottom: 0.5rem; text-align: right;"><a href="${escapeHTML(absoluteUrl)}" target="_blank" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: underline;">Download original file ↗</a></div><div class="iframe-wrapper"><iframe src="${escapeHTML(viewerUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
+                  }
+                  if (['html'].includes(ext) || finalUrl.includes('/projects/')) {
+                    const projectUrl = finalUrl;
+                    return `${labelHtml}<div style="margin-bottom: 0.5rem; text-align: right;"><a href="${escapeHTML(projectUrl)}" target="_blank" style="font-size: 0.8rem; color: var(--accent-teal); text-decoration: underline;">Open interactive project in full window ↗</a></div><div class="iframe-wrapper" style="height: 520px;"><iframe src="${escapeHTML(projectUrl)}" frameborder="0" title="${escapeHTML(resource.label)}" loading="lazy"></iframe></div>`;
                   }
             return `<a class="course-resource-link" style="margin-top: ${i > 0 ? '1rem' : '0'}" href="${escapeHTML(finalUrl)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`;
           }).join('')
@@ -586,9 +594,13 @@ fetch('/content/academic.json?v=48')
     }
   });
 
-  
-
-  
+  // Deep-link: automatically open course panel if hash is in URL (e.g. #MSJ3151)
+  const hash = window.location.hash.replace(/^#/, '');
+  if (hash) {
+    setTimeout(() => {
+      if (globalCourseMap[hash]) openCoursePanel(hash);
+    }, 250);
+  }
 
 })();
 </script>

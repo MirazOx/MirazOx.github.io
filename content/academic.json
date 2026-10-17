@@ -30,12 +30,17 @@
           "name": "News Sourcing and Gathering",
           "session": "Spring 2026",
           "grade": "A+",
-          "workTitle": "Death of Local NGO",
-          "type": "Reporting exercise",
-          "desc": "A sourcing and gathering coursework document investigating the collapse of local NGOs and analyzing field data trails. <br><br><a href=\"https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376\" target=\"_blank\" class=\"hero-cta\" style=\"display: inline-block; padding: 0.5rem 1.25rem; font-size: 0.8rem; margin-top: 1rem;\">Read published story on TBS ↗</a>",
+          "workTitle": "Road to the Final — Transmedia Pitch",
+          "type": "Transmedia storytelling & sourcing project",
+          "desc": "An interactive transmedia sports journalism pitch and tactical multi-platform coverage strategy for the ICC Women's T20 World Cup 2028 applying Henry Jenkins' 7 principles of transmedia storytelling, paired with investigative field reporting on NGO aid collapses.<br><br><a href=\"https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376\" target=\"_blank\" class=\"hero-cta\" style=\"display: inline-block; padding: 0.5rem 1.25rem; font-size: 0.8rem; margin-top: 1rem;\">Read published story on TBS ↗</a>",
+          "projectUrl": "/projects/campaign/",
           "resources": [
             {
-              "label": "Reporting Exercise (PDF)",
+              "label": "Interactive Transmedia Project (Road to the Final)",
+              "url": "/projects/campaign/"
+            },
+            {
+              "label": "Reporting Exercise (Death of Local NGO PDF)",
               "url": "/assets/showcase/MSJ3151_Death_of_Local_NGO.pdf"
             }
           ],
@@ -54,19 +59,13 @@
           "icon": "book-open"
         },
         {
-          "code": "MSJ3151",
+          "code": "MSJ2154",
           "name": "Mobile Journalism",
           "session": "TBD",
           "grade": "Not taken yet",
-          "workTitle": "Death of Local NGO",
+          "workTitle": "Mobile-first Story Package",
           "type": "Production project",
-          "desc": "A sourcing and gathering coursework document investigating the collapse of local NGOs and analyzing field data trails. <br><br><a href=\"https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376\" target=\"_blank\" class=\"hero-cta\" style=\"display: inline-block; padding: 0.5rem 1.25rem; font-size: 0.8rem; margin-top: 1rem;\">Read published story on TBS ↗</a>",
-          "resources": [
-            {
-              "label": "Reporting Exercise (PDF)",
-              "url": "/assets/showcase/MSJ3151_Death_of_Local_NGO.pdf"
-            }
-          ],
+          "desc": "A slot for mobile reporting kits, smartphone workflows, field video, and rapid verification.",
           "icon": "library"
         },
         {
