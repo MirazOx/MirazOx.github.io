@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dean's List Award Gallery — Animation &amp; Strategy Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,600;1,7..72,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  :root {
+    --lab-bg: #090d16;
+    --lab-surface: #111726;
+    --lab-card: #151d30;
+    --lab-border: #222d47;
+    --lab-text: #f0f4fc;
+    --lab-muted: #8c9bb9;
+    --lab-amber: #f59e0b;
+    --lab-teal: #14b8a6;
+    --lab-blue: #3b82f6;
+  }
+  [data-theme="light"] {
+    --lab-bg: #f4f6fa;
+    --lab-surface: #ffffff;
+    --lab-card: #f8fafc;
+    --lab-border: #e2e8f0;
+    --lab-text: #0f172a;
+    --lab-muted: #64748b;
+    --lab-amber: #d97706;
+    --lab-teal: #0d9488;
+    --lab-blue: #2563eb;
+  }
+
+  body {
+    background: var(--lab-bg);
+    color: var(--lab-text);
+    font-family: 'Public Sans', system-ui, sans-serif;
+    margin: 0;
+    padding: 0 0 5rem;
+    line-height: 1.5;
+  }
+
+  .lab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--lab-surface) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--lab-border);
+    padding: 0.9rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .lab-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .lab-back {
+    color: var(--lab-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--lab-border);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .lab-back:hover { color: var(--lab-text); border-color: var(--lab-muted); }
+  .lab-title-strip {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .lab-badge {
+    background: color-mix(in srgb, var(--lab-amber) 18%, transparent);
+    color: var(--lab-amber);
+    border: 1px solid color-mix(in srgb, var(--lab-amber) 40%, transparent);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .theme-toggle-btn {
+    background: var(--lab-card);
+    border: 1px solid var(--lab-border);
+    color: var(--lab-text);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+
+  .lab-header {
+    max-width: 1280px;
+    margin: 2.5rem auto 1.5rem;
+    padding: 0 2rem;
+  }
+  .lab-header h1 {
+    font-family: 'Literata', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .lab-header h1 em {
+    font-style: italic;
+    color: var(--lab-amber);
+  }
+  .lab-header p {
+    color: var(--lab-muted);
+    font-size: 16px;
+    max-width: 76ch;
+    margin: 0;
+  }
+
+  .lab-tabs {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 1280px;
+    margin: 1.5rem auto 2.5rem;
+    padding: 0 2rem;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--lab-border);
+    padding-bottom: 0.75rem;
+  }
+  .lab-tab-btn {
+    background: transparent;
+    border: 1px solid var(--lab-border);
+    color: var(--lab-muted);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lab-tab-btn:hover {
+    color: var(--lab-text);
+    border-color: var(--lab-muted);
+  }
+  .lab-tab-btn.is-active {
+    background: var(--lab-surface);
+    color: var(--lab-text);
+    border-color: var(--lab-amber);
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  }
+
+  /* Grid of comparisons */
+  .lab-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2.5rem 2rem;
+    align-items: start;
+  }
+
+  .strategy-card {
+    background: var(--lab-surface);
+    border: 1px solid var(--lab-border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transition: border-color 0.2s;
+  }
+  .strategy-card:hover {
+    border-color: color-mix(in srgb, var(--lab-muted) 50%, transparent);
+  }
+  .strategy-meta {
+    padding: 1.25rem 1.4rem;
+    border-bottom: 1px solid var(--lab-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--lab-card);
+  }
+  .strategy-title-wrap h2 {
+    font-family: 'Literata', Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .strategy-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lab-teal);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .strategy-desc {
+    padding: 1rem 1.4rem;
+    font-size: 13.5px;
+    color: var(--lab-muted);
+    border-bottom: 1px solid var(--lab-border);
+    background: color-mix(in srgb, var(--lab-surface) 60%, transparent);
+  }
+  .strategy-desc ul {
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+  .strategy-desc li {
+    margin-bottom: 3px;
+  }
+
+  /* Stage holding the card */
+  .strategy-stage {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 25%, color-mix(in srgb, var(--lab-card) 60%, transparent), transparent 75%);
+    min-height: 440px;
+  }
+
+  /* Authentic simulated homepage card container */
+  .sim-col-card {
+    width: 100%;
+    max-width: 370px;
+    background: var(--surface, #161b22);
+    border: 1px solid var(--border, #30363d);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+  [data-theme="light"] .sim-col-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+  }
+  .sim-col-copy {
+    padding: 1rem 1.1rem 1.2rem;
+    display: grid;
+    gap: 0.5rem;
+    border-top: 1px solid var(--border, #30363d);
+  }
+  [data-theme="light"] .sim-col-copy {
+    border-top-color: #e2e8f0;
+  }
+  .sim-kicker {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-teal, #2dd4bf);
+  }
+  .sim-col-copy h3 {
+    margin: 0;
+    font-family: 'Literata', Georgia, serif;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+  .sim-col-copy h3 span {
+    color: var(--accent-amber, #fbbf24);
+    font-style: italic;
+  }
+  .sim-col-copy p {
+    margin: 0;
+    color: var(--text2, #8b949e);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  /* Controls row */
+  .strategy-controls {
+    padding: 0.9rem 1.25rem;
+    border-top: 1px solid var(--lab-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--lab-card);
+    font-size: 12px;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .ctrl-btn {
+    background: var(--lab-surface);
+    border: 1px solid var(--lab-border);
+    color: var(--lab-text);
+    padding: 5px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .ctrl-btn:hover { border-color: var(--lab-amber); color: var(--lab-amber); }
+  .ctrl-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--lab-muted);
+  }
+
+  /* ==========================================================
+     STYLE 1: 3D COVERFLOW WITH TIMELINE TRACK
+     ========================================================== */
+  .cf-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 0.5rem 0.75rem;
+    position: relative;
+  }
+  .cf-viewport {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    perspective: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cf-card {
+    position: absolute;
+    width: 170px;
+    height: 236px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, filter 0.45s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #000;
+  }
+  .cf-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .cf-card .cf-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* Coverflow positions */
+  .cf-card[data-cf="0"] {
+    transform: translateX(0) translateZ(50px) scale(1);
+    z-index: 10;
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  }
+  .cf-card[data-cf="-1"] {
+    transform: translateX(-75px) translateZ(-30px) rotateY(32deg) scale(0.88);
+    z-index: 8;
+    opacity: 0.75;
+    filter: brightness(0.65);
+  }
+  .cf-card[data-cf="1"] {
+    transform: translateX(75px) translateZ(-30px) rotateY(-32deg) scale(0.88);
+    z-index: 8;
+    opacity: 0.75;
+    filter: brightness(0.65);
+  }
+  .cf-card[data-cf="-2"] {
+    transform: translateX(-125px) translateZ(-80px) rotateY(45deg) scale(0.75);
+    z-index: 6;
+    opacity: 0.35;
+    filter: brightness(0.4);
+  }
+  .cf-card[data-cf="2"] {
+    transform: translateX(125px) translateZ(-80px) rotateY(-45deg) scale(0.75);
+    z-index: 6;
+    opacity: 0.35;
+    filter: brightness(0.4);
+  }
+  .cf-card[data-cf="hidden"] {
+    transform: translateZ(-160px) scale(0.6);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Timeline navigation track */
+  .cf-timeline {
+    display: flex;
+    gap: 4px;
+    margin-top: 14px;
+    background: color-mix(in srgb, var(--lab-border) 40%, transparent);
+    padding: 3px;
+    border-radius: 20px;
+    border: 1px solid var(--lab-border);
+  }
+  .cf-dot {
+    border: 0;
+    background: transparent;
+    color: var(--lab-muted);
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 3px 8px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cf-dot:hover { color: var(--lab-text); }
+  .cf-dot.is-active {
+    background: var(--lab-amber);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* ==========================================================
+     STYLE 2: SPLAYED ARC POKER FAN
+     ========================================================== */
+  .fan-arc-container {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    padding-top: 25px;
+    overflow: visible;
+  }
+  .fan-arc-anchor {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 224px;
+  }
+  .fan-arc-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 224px;
+    border-radius: 8px;
+    overflow: hidden;
+    transform-origin: 50% 125%;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28), filter 0.3s ease, z-index 0s;
+    background: #000;
+  }
+  .fan-arc-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .fan-arc-card .fan-cap {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    padding: 2.5px 0;
+    border-radius: 4px;
+  }
+
+  /* Splay positions */
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="0"] { transform: rotate(-25deg) translateY(-8px); z-index: 1; }
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="1"] { transform: rotate(-15deg) translateY(-14px); z-index: 2; }
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="2"] { transform: rotate(-5deg) translateY(-18px); z-index: 3; }
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="3"] { transform: rotate(5deg) translateY(-18px); z-index: 4; }
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="4"] { transform: rotate(15deg) translateY(-14px); z-index: 5; }
+  .fan-arc-anchor[data-state="spread"] .fan-arc-card[data-card="5"] { transform: rotate(25deg) translateY(-8px); z-index: 6; }
+
+  /* Stacked fallback */
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="0"] { transform: translate(-10px, -4px) rotate(-3deg); z-index: 1; }
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="1"] { transform: translate(-6px, -2px) rotate(-1.5deg); z-index: 2; }
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="2"] { transform: translate(-2px, 0) rotate(0deg); z-index: 3; }
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="3"] { transform: translate(2px, 2px) rotate(1.5deg); z-index: 4; }
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="4"] { transform: translate(6px, 4px) rotate(3deg); z-index: 5; }
+  .fan-arc-anchor[data-state="stacked"] .fan-arc-card[data-card="5"] { transform: translate(10px, 6px) rotate(4deg); z-index: 6; }
+
+  /* Hover highlight lifts card up high */
+  .fan-arc-anchor .fan-arc-card:hover {
+    transform: translateY(-46px) scale(1.16) rotate(0deg) !important;
+    z-index: 20 !important;
+    box-shadow: 0 24px 50px rgba(0,0,0,0.6);
+    border-color: var(--lab-amber);
+  }
+  .fan-arc-hint {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--lab-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ==========================================================
+     STYLE 3: HORIZONTAL SHINGLE ACCORDION
+     ========================================================== */
+  .shingle-container {
+    width: 100%;
+    padding: 1.25rem 0.75rem 1rem;
+    box-sizing: border-box;
+  }
+  .shingle-track {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    padding: 4px;
+    border: 1px solid var(--lab-border);
+  }
+  .shingle-item {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #000;
+    filter: brightness(0.75) grayscale(0.2);
+  }
+  .shingle-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .shingle-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 4px;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 75%, transparent 100%);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .shingle-tab-label {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #fff;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .shingle-item.is-expanded {
+    flex: 5.5;
+    filter: brightness(1) grayscale(0);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-color: var(--lab-amber);
+  }
+  .shingle-item.is-expanded .shingle-tab-label {
+    opacity: 0;
+  }
+
+  /* ==========================================================
+     STYLE 4: KINETIC STACK-TO-GRID (2x3 UNROLL)
+     ========================================================== */
+  .grid-fold-container {
+    width: 100%;
+    padding: 1.25rem 0.75rem 1rem;
+    box-sizing: border-box;
+  }
+  .grid-fold-wrap {
+    width: 100%;
+    min-height: 260px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+  /* State A: Compact Stack */
+  .grid-fold-wrap[data-mode="stack"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 260px;
+  }
+  .grid-fold-wrap[data-mode="stack"] .gf-card {
+    position: absolute;
+    width: 172px;
+    height: 240px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    cursor: pointer;
+    transition: transform 0.35s ease, opacity 0.3s ease;
+    background: #000;
+  }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="0"] { transform: translate(0, 0) scale(1); z-index: 6; }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="1"] { transform: translate(8px, 6px) scale(0.96); z-index: 5; opacity: 0.85; }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="2"] { transform: translate(16px, 12px) scale(0.92); z-index: 4; opacity: 0.7; }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="3"] { transform: translate(24px, 18px) scale(0.88); z-index: 3; opacity: 0.5; }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="4"] { transform: translate(32px, 24px) scale(0.84); z-index: 2; opacity: 0.3; }
+  .grid-fold-wrap[data-mode="stack"] .gf-card[data-i="5"] { transform: translate(40px, 30px) scale(0.80); z-index: 1; opacity: 0; }
+
+  /* State B: Expanded 2x3 Grid */
+  .grid-fold-wrap[data-mode="grid"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    height: auto;
+  }
+  .grid-fold-wrap[data-mode="grid"] .gf-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 160 / 224;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--lab-border);
+    cursor: pointer;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    background: #000;
+  }
+  .grid-fold-wrap[data-mode="grid"] .gf-card:hover {
+    transform: scale(1.03) !important;
+    border-color: var(--lab-amber);
+    z-index: 10 !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  .gf-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .gf-card .gf-cap {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 9.5px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    padding: 2.5px 0;
+    border-radius: 4px;
+  }
+  .grid-toggle-btn {
+    width: 100%;
+    background: var(--lab-card);
+    border: 1px dashed var(--lab-border);
+    color: var(--lab-amber);
+    padding: 7px 0;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .grid-toggle-btn:hover {
+    background: color-mix(in srgb, var(--lab-amber) 10%, transparent);
+    border-color: var(--lab-amber);
+  }
+
+  /* ==========================================================
+     STYLE 5: REFINED 6-PETAL ORBITAL BLOSSOM
+     ========================================================== */
+  .blossom-container {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .blossom-center {
+    width: 140px;
+    height: 196px;
+    position: relative;
+  }
+  .blossom-card {
+    position: absolute;
+    inset: 0;
+    width: 140px;
+    height: 196px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    cursor: pointer;
+    background: #000;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  }
+  .blossom-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .blossom-card .bl-cap {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 4px;
+  }
+
+  /* Flower blossom spread */
+  .blossom-center[data-open="true"] .blossom-card[data-p="0"] { transform: translate(-85px, -55px) rotate(-14deg) scale(0.88); z-index: 2; }
+  .blossom-center[data-open="true"] .blossom-card[data-p="1"] { transform: translate(0px, -70px) rotate(0deg) scale(0.92); z-index: 3; }
+  .blossom-center[data-open="true"] .blossom-card[data-p="2"] { transform: translate(85px, -55px) rotate(14deg) scale(0.88); z-index: 2; }
+  .blossom-center[data-open="true"] .blossom-card[data-p="3"] { transform: translate(-80px, 45px) rotate(-8deg) scale(0.86); z-index: 4; }
+  .blossom-center[data-open="true"] .blossom-card[data-p="4"] { transform: translate(0px, 60px) rotate(0deg) scale(0.90); z-index: 5; }
+  .blossom-center[data-open="true"] .blossom-card[data-p="5"] { transform: translate(80px, 45px) rotate(8deg) scale(0.86); z-index: 4; }
+
+  /* Stacked initial */
+  .blossom-center[data-open="false"] .blossom-card[data-p="0"] { transform: translate(0, 0); z-index: 6; }
+  .blossom-center[data-open="false"] .blossom-card[data-p="1"] { transform: translate(3px, 3px) rotate(1deg); z-index: 5; opacity: 0.9; }
+  .blossom-center[data-open="false"] .blossom-card[data-p="2"] { transform: translate(6px, 6px) rotate(2deg); z-index: 4; opacity: 0.8; }
+  .blossom-center[data-open="false"] .blossom-card[data-p="3"] { transform: translate(9px, 9px) rotate(3deg); z-index: 3; opacity: 0.7; }
+  .blossom-center[data-open="false"] .blossom-card[data-p="4"] { transform: translate(12px, 12px) rotate(4deg); z-index: 2; opacity: 0.6; }
+  .blossom-center[data-open="false"] .blossom-card[data-p="5"] { transform: translate(15px, 15px) rotate(5deg); z-index: 1; opacity: 0.5; }
+
+  .blossom-center .blossom-card:hover {
+    transform: scale(1.18) !important;
+    z-index: 25 !important;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    border-color: var(--lab-amber);
+  }
+
+  /* ==========================================================
+     STYLE 6: TIMELINE RAIL TRACK
+     ========================================================== */
+  .rail-container {
+    width: 100%;
+    padding: 2.2rem 0.5rem 1.25rem;
+    box-sizing: border-box;
+  }
+  .rail-track {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    padding-top: 55px;
+  }
+  .rail-line {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: calc(55px + 72px + 12px + 5px);
+    height: 2px;
+    background: var(--lab-border);
+    transform: translateY(-50%);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .rail-line-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background: var(--lab-amber);
+    border-radius: 2px;
+    transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .rail-stop {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+  }
+  .rail-thumb {
+    width: 46px;
+    height: 66px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--lab-border);
+    background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transform-origin: bottom center;
+    opacity: 0.7;
+    filter: grayscale(0.6) brightness(0.9);
+    transition: transform 0.4s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.3s, filter 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .rail-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rail-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--lab-surface);
+    border: 2px solid var(--lab-border);
+    margin: 12px 0 8px;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .rail-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--lab-muted);
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+  .rail-stop.is-active .rail-thumb {
+    transform: scale(1.68) translateY(-10px);
+    opacity: 1;
+    filter: none;
+    border-color: var(--lab-amber);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.5);
+    z-index: 10;
+  }
+  .rail-stop.is-active .rail-dot {
+    background: var(--lab-amber);
+    border-color: var(--lab-amber);
+    transform: scale(1.25);
+  }
+  .rail-stop.is-active .rail-label {
+    color: var(--lab-amber);
+    font-weight: 600;
+  }
+
+  /* Lightbox Modal */
+  .lab-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    cursor: zoom-out;
+  }
+  .lab-modal.is-open { display: flex; }
+  .lab-modal-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    background: #000;
+  }
+  .lab-modal-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lab-modal-cap {
+    padding: 12px 18px;
+    background: #111;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="lab-nav">
+  <div class="lab-nav-left">
+    <a href="index.html" class="lab-back">← Back to Site</a>
+    <span class="lab-title-strip">Dean's List Gallery Strategy Lab</span>
+    <span class="lab-badge">6 Awards Tested</span>
+  </div>
+  <div>
+    <button class="theme-toggle-btn" id="themeBtn">Toggle Theme (Dark / Light)</button>
+  </div>
+</nav>
+
+<header class="lab-header">
+  <h1>Compare &amp; pick the best <em>animation strategy</em></h1>
+  <p>With 6 consecutive Dean's List scholarships, here are 5 distinct presentation strategies shown inside the actual column card width (~360px). Interact with each one directly to see how it feels.</p>
+</header>
+
+<div class="lab-tabs">
+  <button class="lab-tab-btn is-active" data-filter="all">All Styles</button>
+  <button class="lab-tab-btn" data-filter="style-1">1 · 3D Coverflow (Recommended)</button>
+  <button class="lab-tab-btn" data-filter="style-2">2 · Splayed Arc Poker Fan</button>
+  <button class="lab-tab-btn" data-filter="style-3">3 · Shingle Accordion</button>
+  <button class="lab-tab-btn" data-filter="style-4">4 · Kinetic 2×3 Unfold</button>
+  <button class="lab-tab-btn" data-filter="style-5">5 · Refined Blossom</button>
+  <button class="lab-tab-btn" data-filter="style-6">6 · Timeline Rail Track</button>
+</div>
+
+<main class="lab-grid" id="strategyGrid">
+
+  <!-- ==================== STYLE 1 ==================== -->
+  <article class="strategy-card" data-style="style-1">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>1 · 3D Coverflow Carousel</h2>
+        <span class="strategy-sub">Linear Streak · Perspective 3D · Direct Scrub</span>
+      </div>
+      <span class="lab-badge" style="border-color:var(--lab-teal);color:var(--lab-teal)">Recommended</span>
+    </div>
+    <div class="strategy-desc">
+      Features the active certificate front-and-center with 3D angled neighbors.
+      <ul>
+        <li><strong>Interaction:</strong> Click/drag cards, or tap the semester pills at bottom to jump directly.</li>
+        <li><strong>Why it works:</strong> Crystal clear chronology without visual clutter. Shows each certificate large and legible.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <!-- Simulated Card -->
+      <div class="sim-col-card">
+        <div class="cf-container" id="cfStage">
+          <div class="cf-viewport" id="cfViewport">
+            <!-- 6 cards dynamically managed -->
+          </div>
+          <div class="cf-timeline" id="cfTimeline">
+            <!-- 6 dots dynamically populated -->
+          </div>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <button class="ctrl-btn" id="cfPrevBtn">← Previous Term</button>
+      <button class="ctrl-btn" id="cfAutoBtn">Autoplay: ON</button>
+      <button class="ctrl-btn" id="cfNextBtn">Next Term →</button>
+    </div>
+  </article>
+
+
+  <!-- ==================== STYLE 2 ==================== -->
+  <article class="strategy-card" data-style="style-2">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>2 · Splayed Arc Poker Fan</h2>
+        <span class="strategy-sub">Playing-Card Hand · Tactile Hover · Arc</span>
+      </div>
+    </div>
+    <div class="strategy-desc">
+      Splays all 6 awards in a neat, symmetrical -25° to +25° playing-card arc anchored at the bottom.
+      <ul>
+        <li><strong>Interaction:</strong> Hovering or dragging across any card glides it forward and lifts it up high.</li>
+        <li><strong>Why it works:</strong> Feels physical and prestigious ("holding a royal flush"), without clipping out of the card.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <div class="sim-col-card">
+        <div class="fan-arc-container">
+          <div class="fan-arc-anchor" id="fanArcAnchor" data-state="spread">
+            <!-- populated by JS -->
+          </div>
+          <div class="fan-arc-hint">Hover / scrub across cards to inspect</div>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <span class="ctrl-pill">Mode: Splayed Arc</span>
+      <button class="ctrl-btn" id="fanToggleBtn">Toggle Stack / Spread</button>
+    </div>
+  </article>
+
+
+  <!-- ==================== STYLE 3 ==================== -->
+  <article class="strategy-card" data-style="style-3">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>3 · Horizontal Shingle Accordion</h2>
+        <span class="strategy-sub">All 6 Visible · Flex Accordion · Zero Hidden</span>
+      </div>
+    </div>
+    <div class="strategy-desc">
+      All 6 certificates sit in an overlapping horizontal row. Each card exposes its vertical term spine.
+      <ul>
+        <li><strong>Interaction:</strong> Hovering or tapping any card expands it wide while compressing the others.</li>
+        <li><strong>Why it works:</strong> Immediate visual proof that all 6 terms are present before any interaction.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <div class="sim-col-card">
+        <div class="shingle-container">
+          <div class="shingle-track" id="shingleTrack">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <span class="ctrl-pill">Action: Hover or tap any slice</span>
+      <button class="ctrl-btn" id="shingleNextBtn">Expand Next</button>
+    </div>
+  </article>
+
+
+  <!-- ==================== STYLE 4 ==================== -->
+  <article class="strategy-card" data-style="style-4">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>4 · Kinetic 2×3 Unfold Grid</h2>
+        <span class="strategy-sub">Clean Stack → Full Gallery Unroll</span>
+      </div>
+    </div>
+    <div class="strategy-desc">
+      Starts as a neat single stack showing the latest award. On tap, it smoothly unrolls into a 2-column by 3-row grid.
+      <ul>
+        <li><strong>Interaction:</strong> Tap "View all 6 terms" to unfold; tap again to fold back.</li>
+        <li><strong>Why it works:</strong> High editorial polish. Gives visitors full readability of all certificates side-by-side.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <div class="sim-col-card">
+        <div class="grid-fold-container">
+          <div class="grid-fold-wrap" id="gridFoldWrap" data-mode="stack">
+            <!-- populated by JS -->
+          </div>
+          <button class="grid-toggle-btn" id="gridToggleBtn">
+            <span>⊞</span> <span id="gridToggleText">Unfold all 6 terms</span>
+          </button>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <span class="ctrl-pill" id="gridStatus">State: Stacked</span>
+      <button class="ctrl-btn" id="gridShuffleBtn">Shuffle Top Card</button>
+    </div>
+  </article>
+
+
+  <!-- ==================== STYLE 5 ==================== -->
+  <article class="strategy-card" data-style="style-5">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>5 · Refined 6-Petal Blossom</h2>
+        <span class="strategy-sub">Modernized Flower Spread · Radial Orbit</span>
+      </div>
+    </div>
+    <div class="strategy-desc">
+      A modernized version of the original "flower/spread" animation calibrated for 6 cards on an ellipse.
+      <ul>
+        <li><strong>Interaction:</strong> Click the center stack to blossom; click again to retract.</li>
+        <li><strong>Why it works:</strong> Delivers the exact blossom effect you had, but mathematically arranged in a 3-top / 3-bottom orbital ring so cards don't collide.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <div class="sim-col-card">
+        <div class="blossom-container">
+          <div class="blossom-center" id="blossomCenter" data-open="true">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <span class="ctrl-pill">Action: Click cards to blossom</span>
+      <button class="ctrl-btn" id="blossomToggleBtn">Toggle Blossom</button>
+    </div>
+  </article>
+
+
+  <!-- ==================== STYLE 6 ==================== -->
+  <article class="strategy-card" data-style="style-6">
+    <div class="strategy-meta">
+      <div class="strategy-title-wrap">
+        <h2>6 · Timeline Rail Track</h2>
+        <span class="strategy-sub">Linear Rail · Connecting Line · Scale Pop</span>
+      </div>
+    </div>
+    <div class="strategy-desc">
+      A continuous horizontal rail connecting all 6 terms with an animated progress line and miniature certificates.
+      <ul>
+        <li><strong>Interaction:</strong> Hover or focus any term dot to scale that certificate up by 1.7× and fill the line.</li>
+        <li><strong>Why it works:</strong> Emphasizes the unbroken 6-term continuum as a single journey from Fall '24 to Summer '26.</li>
+      </ul>
+    </div>
+
+    <div class="strategy-stage">
+      <div class="sim-col-card">
+        <div class="rail-container">
+          <div class="rail-track" id="railTrack">
+            <div class="rail-line">
+              <div class="rail-line-fill" id="railLineFill"></div>
+            </div>
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="sim-col-copy">
+          <p class="sim-kicker">Academic recognition</p>
+          <h3><span>6</span> consecutive Dean&rsquo;s Scholarships</h3>
+          <p>One student per department, per term.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-controls">
+      <span class="ctrl-pill" id="railActiveLabel">Active: Summer 2026</span>
+      <button class="ctrl-btn" id="railAutoBtn">Autoplay: ON</button>
+    </div>
+  </article>
+
+</main>
+
+<!-- Lightbox Modal -->
+<div class="lab-modal" id="labModal">
+  <div class="lab-modal-content">
+    <img id="modalImg" src="" alt="Award poster">
+    <div class="lab-modal-cap">
+      <span id="modalTitle">Dean's List Scholarship</span>
+      <span style="color:var(--lab-muted);font-size:11px">Click anywhere outside to close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const AWARDS = [
+  { term: "Fall 2024",   short: "F24",  img: "assets/images/awards/deans-list-fall-2024.jpg" },
+  { term: "Spring 2025", short: "S25",  img: "assets/images/awards/deans-list-spring-2025.jpg" },
+  { term: "Summer 2025", short: "Su25", img: "assets/images/awards/deans-list-summer-2025.jpg" },
+  { term: "Fall 2025",   short: "F25",  img: "assets/images/awards/deans-list-fall-2025.jpg" },
+  { term: "Spring 2026", short: "S26",  img: "assets/images/awards/deans-list-spring-2026.jpg" },
+  { term: "Summer 2026", short: "Su26", img: "assets/images/awards/deans-list-summer-2026.jpg" }
+];
+
+// Lightbox helper
+const modal = document.getElementById('labModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+function openLightbox(item) {
+  modalImg.src = item.img;
+  modalTitle.textContent = "Dean's List Scholarship · " + item.term;
+  modal.classList.add('is-open');
+}
+modal.addEventListener('click', (e) => {
+  if (e.target !== modalImg) modal.classList.remove('is-open');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') modal.classList.remove('is-open');
+});
+
+// Theme toggle
+const themeBtn = document.getElementById('themeBtn');
+let currentTheme = localStorage.getItem('miraz-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', currentTheme);
+themeBtn.addEventListener('click', () => {
+  currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  localStorage.setItem('miraz-theme', currentTheme);
+});
+
+// Category filter
+const filterBtns = document.querySelectorAll('.lab-tab-btn');
+const cards = document.querySelectorAll('.strategy-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const f = btn.dataset.filter;
+    cards.forEach(card => {
+      if (f === 'all' || card.dataset.style === f) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+/* ==========================================================
+   STYLE 1: 3D COVERFLOW LOGIC
+   ========================================================== */
+(function initCoverflow() {
+  const vp = document.getElementById('cfViewport');
+  const tl = document.getElementById('cfTimeline');
+  let activeIdx = AWARDS.length - 1; // start on latest (Summer 2026)
+  let autoplay = true;
+  let timer = null;
+
+  // Render cards
+  AWARDS.forEach((award, i) => {
+    const el = document.createElement('div');
+    el.className = 'cf-card';
+    el.innerHTML = `<img src="${award.img}" alt="${award.term}"><span class="cf-badge">${award.term}</span>`;
+    el.addEventListener('click', () => {
+      if (activeIdx === i) openLightbox(award);
+      else { activeIdx = i; updateCoverflow(); }
+    });
+    vp.appendChild(el);
+
+    // dot
+    const dot = document.createElement('button');
+    dot.className = 'cf-dot';
+    dot.textContent = award.short;
+    dot.title = award.term;
+    dot.addEventListener('click', () => { activeIdx = i; updateCoverflow(); });
+    tl.appendChild(dot);
+  });
+
+  const cardEls = vp.querySelectorAll('.cf-card');
+  const dotEls = tl.querySelectorAll('.cf-dot');
+
+  function updateCoverflow() {
+    cardEls.forEach((el, i) => {
+      let offset = i - activeIdx;
+      // Handle cyclical wrapping
+      if (offset > 2) offset = offset - AWARDS.length;
+      if (offset < -2) offset = offset + AWARDS.length;
+
+      if (offset === 0) el.dataset.cf = "0";
+      else if (offset === -1) el.dataset.cf = "-1";
+      else if (offset === 1) el.dataset.cf = "1";
+      else if (offset === -2) el.dataset.cf = "-2";
+      else if (offset === 2) el.dataset.cf = "2";
+      else el.dataset.cf = "hidden";
+    });
+
+    dotEls.forEach((d, i) => d.classList.toggle('is-active', i === activeIdx));
+  }
+
+  function next() {
+    activeIdx = (activeIdx + 1) % AWARDS.length;
+    updateCoverflow();
+  }
+  function prev() {
+    activeIdx = (activeIdx - 1 + AWARDS.length) % AWARDS.length;
+    updateCoverflow();
+  }
+
+  function startTimer() {
+    if (timer) clearInterval(timer);
+    if (autoplay) timer = setInterval(next, 2400);
+  }
+
+  document.getElementById('cfNextBtn').addEventListener('click', () => { next(); startTimer(); });
+  document.getElementById('cfPrevBtn').addEventListener('click', () => { prev(); startTimer(); });
+  const autoBtn = document.getElementById('cfAutoBtn');
+  autoBtn.addEventListener('click', () => {
+    autoplay = !autoplay;
+    autoBtn.textContent = 'Autoplay: ' + (autoplay ? 'ON' : 'OFF');
+    if (autoplay) startTimer(); else clearInterval(timer);
+  });
+
+  vp.addEventListener('mouseenter', () => clearInterval(timer));
+  vp.addEventListener('mouseleave', () => startTimer());
+
+  updateCoverflow();
+  startTimer();
+})();
+
+
+/* ==========================================================
+   STYLE 2: SPLAYED ARC POKER FAN LOGIC
+   ========================================================== */
+(function initFanArc() {
+  const anchor = document.getElementById('fanArcAnchor');
+  AWARDS.forEach((award, i) => {
+    const card = document.createElement('div');
+    card.className = 'fan-arc-card';
+    card.dataset.card = i;
+    card.innerHTML = `<img src="${award.img}" alt="${award.term}"><span class="fan-cap">${award.term}</span>`;
+    card.addEventListener('click', () => openLightbox(award));
+    anchor.appendChild(card);
+  });
+
+  const toggleBtn = document.getElementById('fanToggleBtn');
+  toggleBtn.addEventListener('click', () => {
+    const cur = anchor.dataset.state;
+    anchor.dataset.state = cur === 'spread' ? 'stacked' : 'spread';
+    toggleBtn.textContent = anchor.dataset.state === 'spread' ? 'Mode: Stacked' : 'Mode: Splayed Arc';
+  });
+})();
+
+
+/* ==========================================================
+   STYLE 3: HORIZONTAL SHINGLE ACCORDION LOGIC
+   ========================================================== */
+(function initShingle() {
+  const track = document.getElementById('shingleTrack');
+  AWARDS.forEach((award, i) => {
+    const item = document.createElement('div');
+    item.className = 'shingle-item' + (i === AWARDS.length - 1 ? ' is-expanded' : '');
+    item.dataset.index = i;
+    item.innerHTML = `
+      <img src="${award.img}" alt="${award.term}">
+      <span class="shingle-tab-label">${award.short}</span>
+      <span class="shingle-strip">${award.term}</span>
+    `;
+    item.addEventListener('mouseenter', () => expand(i));
+    item.addEventListener('click', () => {
+      if (item.classList.contains('is-expanded')) openLightbox(award);
+      else expand(i);
+    });
+    track.appendChild(item);
+  });
+
+  const items = track.querySelectorAll('.shingle-item');
+  let currentExpanded = AWARDS.length - 1;
+  function expand(index) {
+    currentExpanded = index;
+    items.forEach((it, idx) => it.classList.toggle('is-expanded', idx === index));
+  }
+
+  document.getElementById('shingleNextBtn').addEventListener('click', () => {
+    currentExpanded = (currentExpanded + 1) % AWARDS.length;
+    expand(currentExpanded);
+  });
+})();
+
+
+/* ==========================================================
+   STYLE 4: KINETIC 2x3 UNROLL GRID LOGIC
+   ========================================================== */
+(function initGridFold() {
+  const wrap = document.getElementById('gridFoldWrap');
+  const toggleBtn = document.getElementById('gridToggleBtn');
+  const toggleText = document.getElementById('gridToggleText');
+  const statusPill = document.getElementById('gridStatus');
+
+  let order = [5, 4, 3, 2, 1, 0]; // latest first in stack
+
+  function renderGridCards() {
+    wrap.innerHTML = '';
+    order.forEach((awardIdx, stackPos) => {
+      const award = AWARDS[awardIdx];
+      const card = document.createElement('div');
+      card.className = 'gf-card';
+      card.dataset.i = stackPos;
+      card.innerHTML = `<img src="${award.img}" alt="${award.term}"><span class="gf-cap">${award.term}</span>`;
+      card.addEventListener('click', () => {
+        if (wrap.dataset.mode === 'stack') {
+          // shuffle in stack mode
+          shuffle();
+        } else {
+          openLightbox(award);
+        }
+      });
+      wrap.appendChild(card);
+    });
+  }
+
+  function shuffle() {
+    // move top to back
+    const top = order.shift();
+    order.push(top);
+    renderGridCards();
+  }
+
+  function toggle() {
+    const isStack = wrap.dataset.mode === 'stack';
+    wrap.dataset.mode = isStack ? 'grid' : 'stack';
+    toggleText.textContent = isStack ? 'Fold back to stack' : 'Unfold all 6 terms';
+    statusPill.textContent = 'State: ' + (isStack ? 'Unfolded 2×3' : 'Stacked');
+    renderGridCards();
+  }
+
+  toggleBtn.addEventListener('click', toggle);
+  document.getElementById('gridShuffleBtn').addEventListener('click', () => {
+    if (wrap.dataset.mode !== 'stack') toggle();
+    shuffle();
+  });
+
+  renderGridCards();
+})();
+
+
+/* ==========================================================
+   STYLE 5: REFINED 6-PETAL BLOSSOM LOGIC
+   ========================================================== */
+(function initBlossom() {
+  const center = document.getElementById('blossomCenter');
+  AWARDS.forEach((award, i) => {
+    const card = document.createElement('div');
+    card.className = 'blossom-card';
+    card.dataset.p = i;
+    card.innerHTML = `<img src="${award.img}" alt="${award.term}"><span class="bl-cap">${award.term}</span>`;
+    card.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox(award);
+    });
+    center.appendChild(card);
+  });
+
+  const toggleBtn = document.getElementById('blossomToggleBtn');
+  function toggleBlossom() {
+    const isOpen = center.dataset.open === 'true';
+    center.dataset.open = String(!isOpen);
+    toggleBtn.textContent = !isOpen ? 'Retract Stack' : 'Blossom';
+  }
+  center.addEventListener('click', toggleBlossom);
+  toggleBtn.addEventListener('click', toggleBlossom);
+})();
+
+
+/* ==========================================================
+   STYLE 6: TIMELINE RAIL TRACK LOGIC
+   ========================================================== */
+(function initRailTrack() {
+  const track = document.getElementById('railTrack');
+  const fill = document.getElementById('railLineFill');
+  const label = document.getElementById('railActiveLabel');
+  const autoBtn = document.getElementById('railAutoBtn');
+  let active = AWARDS.length - 1;
+  let autoplay = true;
+  let timer = null;
+
+  AWARDS.forEach((award, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rail-stop' + (i === active ? ' is-active' : '');
+    btn.innerHTML = `
+      <div class="rail-thumb"><img src="${award.img}" alt="${award.term}"></div>
+      <div class="rail-dot"></div>
+      <span class="rail-label">${award.short}</span>
+    `;
+    btn.addEventListener('mouseenter', () => setActive(i));
+    btn.addEventListener('click', () => {
+      if (active === i) openLightbox(award);
+      else setActive(i);
+    });
+    track.appendChild(btn);
+  });
+
+  const stops = track.querySelectorAll('.rail-stop');
+  function setActive(index) {
+    active = index;
+    stops.forEach((s, idx) => s.classList.toggle('is-active', idx === index));
+    const pct = (index / (AWARDS.length - 1)) * 100;
+    fill.style.width = pct + '%';
+    label.textContent = 'Active: ' + AWARDS[index].term;
+  }
+
+  function next() {
+    active = (active + 1) % AWARDS.length;
+    setActive(active);
+  }
+
+  function startTimer() {
+    if (timer) clearInterval(timer);
+    if (autoplay) timer = setInterval(next, 2800);
+  }
+
+  autoBtn.addEventListener('click', () => {
+    autoplay = !autoplay;
+    autoBtn.textContent = 'Autoplay: ' + (autoplay ? 'ON' : 'OFF');
+    if (autoplay) startTimer(); else clearInterval(timer);
+  });
+
+  track.addEventListener('mouseenter', () => clearInterval(timer));
+  track.addEventListener('mouseleave', () => startTimer());
+
+  setActive(active);
+  startTimer();
+})();
+</script>
+</body>
+</html>

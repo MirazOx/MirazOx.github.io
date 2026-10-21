@@ -8590,46 +8590,164 @@ body[data-page="writing"] .writing-archive-cta * {
   .deans-band .recognition-column-copy p { max-width: none; margin-inline: auto; }
 }
 
-/* Phone: fold into a vertical timeline */
+/* ==========================================================
+   DEAN'S LIST — 3D Coverflow for Phone (< 640px)
+   ========================================================== */
+.deans-coverflow {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cf-viewport {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  perspective: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+}
+
+.cf-card {
+  position: absolute;
+  width: 165px;
+  height: 230px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, filter 0.45s ease;
+  border: 1px solid var(--border);
+  background: var(--bg2, #000);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cf-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cf-card .cf-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: color-mix(in srgb, var(--surface, #0f172a) 88%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--text, #fff);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* Coverflow positions */
+.cf-card[data-cf="0"] {
+  transform: translateX(0) translateZ(40px) scale(1);
+  z-index: 10;
+  opacity: 1;
+  filter: none;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+.cf-card[data-cf="-1"] {
+  transform: translateX(-70px) translateZ(-30px) rotateY(30deg) scale(0.86);
+  z-index: 8;
+  opacity: 0.72;
+  filter: brightness(0.65) grayscale(0.2);
+}
+.cf-card[data-cf="1"] {
+  transform: translateX(70px) translateZ(-30px) rotateY(-30deg) scale(0.86);
+  z-index: 8;
+  opacity: 0.72;
+  filter: brightness(0.65) grayscale(0.2);
+}
+.cf-card[data-cf="-2"] {
+  transform: translateX(-120px) translateZ(-80px) rotateY(42deg) scale(0.72);
+  z-index: 6;
+  opacity: 0.3;
+  filter: brightness(0.4) grayscale(0.4);
+}
+.cf-card[data-cf="2"] {
+  transform: translateX(120px) translateZ(-80px) rotateY(-42deg) scale(0.72);
+  z-index: 6;
+  opacity: 0.3;
+  filter: brightness(0.4) grayscale(0.4);
+}
+.cf-card[data-cf="hidden"] {
+  transform: translateZ(-160px) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Timeline navigation track */
+.cf-timeline {
+  display: flex;
+  gap: 3px;
+  margin-top: 12px;
+  background: color-mix(in srgb, var(--surface2, #1f2937) 60%, transparent);
+  padding: 3px 4px;
+  border-radius: 20px;
+  border: 1px solid var(--border2, var(--border));
+}
+
+.cf-dot {
+  border: 0;
+  background: transparent;
+  color: var(--text3, #8b949e);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cf-dot:hover { color: var(--text); }
+.cf-dot.is-active {
+  background: var(--accent);
+  color: var(--bg, #000);
+  font-weight: 700;
+}
+
+.cf-hint {
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--text3);
+  text-align: center;
+}
+
+/* Responsive display switches: PC Timeline vs Phone Coverflow */
 @media (max-width: 640px) {
-  .deans-timeline { --cert-h: 76px; }
-  .deans-track {
-    grid-auto-flow: row;
-    grid-auto-columns: auto;
-    padding-top: 0;
-    row-gap: 14px;
+  .deans-timeline { display: none !important; }
+  .deans-coverflow { display: flex !important; }
+  .recognition-has-feature .deans-band {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    padding: 1rem 0.5rem 1.25rem;
   }
-  .deans-rail {
-    left: calc(var(--dot) / 2);
-    right: auto;
-    top: 14px;
-    bottom: 14px;
-    width: 1.5px;
-    height: auto;
-    transform: translateX(-50%);
+  .deans-band .recognition-column-copy {
+    text-align: center;
   }
-  .deans-rail-fill {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: auto;
-    width: auto;
-    height: var(--deans-fill, 0%);
-    transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  .deans-band .recognition-column-copy p {
+    max-width: none;
+    margin-inline: auto;
   }
-  .deans-stop {
-    grid-template-rows: auto;
-    grid-template-columns: var(--dot) var(--cert-w) 1fr;
-    align-items: center;
-    justify-items: start;
-    column-gap: 16px;
-  }
-  .deans-cert { grid-row: 1; grid-column: 2; align-self: center; margin-bottom: 0; }
-  .deans-dot { grid-row: 1; grid-column: 1; justify-self: center; }
-  .deans-term { grid-row: 1; grid-column: 3; margin-top: 0; font-size: 12px; }
-  .deans-stop.is-active .deans-cert {
-    transform: none;
-    box-shadow: var(--shadow-md);
-  }
-  .deans-hint { text-align: left; padding-left: calc(var(--dot) + 16px); }
+}
+@media (min-width: 641px) {
+  .deans-coverflow { display: none !important; }
 }

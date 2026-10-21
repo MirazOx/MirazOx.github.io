@@ -62,7 +62,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,300;1,7..72,400;1,7..72,500;1,7..72,600;1,7..72,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=48">
+<link rel="stylesheet" href="/assets/css/style.css?v=49">
 </head>
 <body data-page="home">
 
@@ -231,6 +231,45 @@
               </button>
             </div>
             <p class="deans-hint">Hover a term · click to enlarge</p>
+          </div>
+
+          <!-- Mobile Phone: 3D Coverflow Reel -->
+          <div class="deans-coverflow" id="deansCoverflow" role="group" aria-label="Dean's List Scholarships — swipe or tap to explore">
+            <div class="cf-viewport" id="cfMobileViewport">
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-fall-2024.jpg" data-caption="Dean's List Scholarship · Fall 2024">
+                <img src="/assets/images/awards/deans-list-fall-2024.jpg" alt="Dean's List Scholarship certificate, Fall 2024" loading="lazy">
+                <span class="cf-badge">Fall 2024</span>
+              </div>
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-spring-2025.jpg" data-caption="Dean's List Scholarship · Spring 2025">
+                <img src="/assets/images/awards/deans-list-spring-2025.jpg" alt="Dean's List Scholarship certificate, Spring 2025" loading="lazy">
+                <span class="cf-badge">Spring 2025</span>
+              </div>
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-summer-2025.jpg" data-caption="Dean's List Scholarship · Summer 2025">
+                <img src="/assets/images/awards/deans-list-summer-2025.jpg" alt="Dean's List Scholarship certificate, Summer 2025" loading="lazy">
+                <span class="cf-badge">Summer 2025</span>
+              </div>
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-fall-2025.jpg" data-caption="Dean's List Scholarship · Fall 2025">
+                <img src="/assets/images/awards/deans-list-fall-2025.jpg" alt="Dean's List Scholarship certificate, Fall 2025" loading="lazy">
+                <span class="cf-badge">Fall 2025</span>
+              </div>
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-spring-2026.jpg" data-caption="Dean's List Scholarship · Spring 2026">
+                <img src="/assets/images/awards/deans-list-spring-2026.jpg" alt="Dean's List Scholarship certificate, Spring 2026" loading="lazy">
+                <span class="cf-badge">Spring 2026</span>
+              </div>
+              <div class="cf-card recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-summer-2026.jpg" data-caption="Dean's List Scholarship · Summer 2026">
+                <img src="/assets/images/awards/deans-list-summer-2026.jpg" alt="Dean's List Scholarship certificate, Summer 2026" loading="lazy">
+                <span class="cf-badge">Summer 2026</span>
+              </div>
+            </div>
+            <div class="cf-timeline" id="cfMobileTimeline">
+              <button type="button" class="cf-dot" data-idx="0">F24</button>
+              <button type="button" class="cf-dot" data-idx="1">S25</button>
+              <button type="button" class="cf-dot" data-idx="2">Su25</button>
+              <button type="button" class="cf-dot" data-idx="3">F25</button>
+              <button type="button" class="cf-dot" data-idx="4">S26</button>
+              <button type="button" class="cf-dot" data-idx="5">Su26</button>
+            </div>
+            <p class="cf-hint">Swipe cards · tap to enlarge</p>
           </div>
           <div class="recognition-column-copy">
             <p class="recognition-kicker">Academic recognition</p>
@@ -744,6 +783,109 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     visible = true;
     startTimer();
+  }
+});
+</script>
+<script>
+// Dean's List — 3D Coverflow for Phone (< 640px)
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('deansCoverflow');
+  if (!container) return;
+  const vp = document.getElementById('cfMobileViewport');
+  const tl = document.getElementById('cfMobileTimeline');
+  if (!vp || !tl) return;
+  const cards = Array.from(vp.querySelectorAll('.cf-card'));
+  const dots = Array.from(tl.querySelectorAll('.cf-dot'));
+  const n = cards.length;
+  if (!n) return;
+
+  let activeIdx = n - 1; // Start on newest award (Summer 2026)
+  let timer = null;
+  let isTouching = false;
+  let startX = 0, currentX = 0;
+
+  const update = () => {
+    cards.forEach((el, i) => {
+      let offset = i - activeIdx;
+      if (offset > 2) offset = offset - n;
+      if (offset < -2) offset = offset + n;
+
+      if (offset === 0) el.dataset.cf = "0";
+      else if (offset === -1) el.dataset.cf = "-1";
+      else if (offset === 1) el.dataset.cf = "1";
+      else if (offset === -2) el.dataset.cf = "-2";
+      else if (offset === 2) el.dataset.cf = "2";
+      else el.dataset.cf = "hidden";
+    });
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === activeIdx));
+  };
+
+  const next = () => { activeIdx = (activeIdx + 1) % n; update(); };
+  const prev = () => { activeIdx = (activeIdx - 1 + n) % n; update(); };
+
+  const startTimer = () => {
+    if (timer) clearInterval(timer);
+    if (!isTouching && window.innerWidth <= 640) {
+      timer = setInterval(next, 3200);
+    }
+  };
+  const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+  // Card click: if already active, open lightbox; if not active, bring to center
+  cards.forEach((card, i) => {
+    card.addEventListener('click', (e) => {
+      if (activeIdx !== i) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        activeIdx = i;
+        update();
+        stopTimer();
+      }
+    });
+  });
+
+  // Timeline dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      activeIdx = i;
+      update();
+      stopTimer();
+    });
+  });
+
+  // Touch Swipe
+  vp.addEventListener('touchstart', (e) => {
+    isTouching = true;
+    stopTimer();
+    startX = e.touches[0].clientX;
+    currentX = startX;
+  }, { passive: true });
+
+  vp.addEventListener('touchmove', (e) => {
+    currentX = e.touches[0].clientX;
+  }, { passive: true });
+
+  vp.addEventListener('touchend', () => {
+    isTouching = false;
+    const diff = currentX - startX;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) next();
+      else prev();
+    }
+    startTimer();
+  }, { passive: true });
+
+  update();
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting && window.innerWidth <= 640) startTimer();
+        else stopTimer();
+      });
+    }, { threshold: 0.25 });
+    io.observe(container);
   }
 });
 </script>
