@@ -62,7 +62,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,300;1,7..72,400;1,7..72,500;1,7..72,600;1,7..72,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=47">
+<link rel="stylesheet" href="/assets/css/style.css?v=48">
 </head>
 <body data-page="home">
 
@@ -188,72 +188,49 @@
         <span class="section-meta">selected highlights</span>
       </div>
 
-      <div class="recognition-triad">
-        <article class="recognition-column-card recognition-deans-card">
-          <div class="award-fan-section" aria-label="Dean's List Scholarship gallery">
-            <div class="award-fan-wrap" id="awardFan" role="button" tabindex="0" aria-expanded="false" aria-label="Click to spread Dean's List awards">
-              <figure class="award-fan-card award-card award-fan-cover is-front">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list.jpg" alt="Dean's List Scholarship cover">
-                </div>
-              </figure>
+      <div class="recognition-triad recognition-has-feature">
+        <article class="recognition-column-card recognition-deans-card deans-band">
+          <div class="deans-timeline" id="deansTimeline" role="group" aria-label="Dean's List Scholarships, term by term — hover a term, click to enlarge">
+            <div class="deans-track">
+              <span class="deans-rail" aria-hidden="true"><span class="deans-rail-fill"></span></span>
 
-              <figure class="award-fan-card award-card" data-wing="1" data-full="/assets/images/awards/deans-list-fall-2024.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-fall-2024.jpg" alt="Dean's List Scholarship, Fall 2024">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Fall 2024</span>
-                </figcaption>
-              </figure>
+              <button type="button" class="deans-stop recognition-lightbox-trigger is-active" data-full="/assets/images/awards/deans-list-fall-2024.jpg" data-caption="Dean's List Scholarship · Fall 2024" aria-label="Enlarge Dean's List Scholarship certificate, Fall 2024">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-fall-2024.jpg" alt="Dean's List Scholarship certificate, Fall 2024" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Fall 2024</span>
+              </button>
 
-              <figure class="award-fan-card award-card" data-wing="2" data-full="/assets/images/awards/deans-list-spring-2025.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-spring-2025.jpg" alt="Dean's List Scholarship, Spring 2025">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Spring 2025</span>
-                </figcaption>
-              </figure>
+              <button type="button" class="deans-stop recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-spring-2025.jpg" data-caption="Dean's List Scholarship · Spring 2025" aria-label="Enlarge Dean's List Scholarship certificate, Spring 2025">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-spring-2025.jpg" alt="Dean's List Scholarship certificate, Spring 2025" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Spring 2025</span>
+              </button>
 
-              <figure class="award-fan-card award-card" data-wing="3" data-full="/assets/images/awards/deans-list-summer-2025.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-summer-2025.jpg" alt="Dean's List Scholarship, Summer 2025">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Summer 2025</span>
-                </figcaption>
-              </figure>
+              <button type="button" class="deans-stop recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-summer-2025.jpg" data-caption="Dean's List Scholarship · Summer 2025" aria-label="Enlarge Dean's List Scholarship certificate, Summer 2025">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-summer-2025.jpg" alt="Dean's List Scholarship certificate, Summer 2025" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Summer 2025</span>
+              </button>
 
-              <figure class="award-fan-card award-card" data-wing="4" data-full="/assets/images/awards/deans-list-fall-2025.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-fall-2025.jpg" alt="Dean's List Scholarship, Fall 2025">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Fall 2025</span>
-                </figcaption>
-              </figure>
+              <button type="button" class="deans-stop recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-fall-2025.jpg" data-caption="Dean's List Scholarship · Fall 2025" aria-label="Enlarge Dean's List Scholarship certificate, Fall 2025">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-fall-2025.jpg" alt="Dean's List Scholarship certificate, Fall 2025" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Fall 2025</span>
+              </button>
 
-              <figure class="award-fan-card award-card" data-wing="5" data-full="/assets/images/awards/deans-list-spring-2026.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-spring-2026.jpg" alt="Dean's List Scholarship, Spring 2026">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Spring 2026</span>
-                </figcaption>
-              </figure>
+              <button type="button" class="deans-stop recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-spring-2026.jpg" data-caption="Dean's List Scholarship · Spring 2026" aria-label="Enlarge Dean's List Scholarship certificate, Spring 2026">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-spring-2026.jpg" alt="Dean's List Scholarship certificate, Spring 2026" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Spring 2026</span>
+              </button>
 
-              <figure class="award-fan-card award-card" data-wing="6" data-full="/assets/images/awards/deans-list-summer-2026.jpg">
-                <div class="award-thumb">
-                  <img src="/assets/images/awards/deans-list-summer-2026.jpg" alt="Dean's List Scholarship, Summer 2026">
-                </div>
-                <figcaption class="award-cap">
-                  <span class="award-dept">Summer 2026</span>
-                </figcaption>
-              </figure>
-
-              <span class="award-fan-hint">Click to spread</span>
+              <button type="button" class="deans-stop recognition-lightbox-trigger" data-full="/assets/images/awards/deans-list-summer-2026.jpg" data-caption="Dean's List Scholarship · Summer 2026" aria-label="Enlarge Dean's List Scholarship certificate, Summer 2026">
+                <span class="deans-cert"><img src="/assets/images/awards/deans-list-summer-2026.jpg" alt="Dean's List Scholarship certificate, Summer 2026" loading="lazy"></span>
+                <span class="deans-dot" aria-hidden="true"></span>
+                <span class="deans-term">Summer 2026</span>
+              </button>
             </div>
+            <p class="deans-hint">Hover a term · click to enlarge</p>
           </div>
           <div class="recognition-column-copy">
             <p class="recognition-kicker">Academic recognition</p>
@@ -693,6 +670,81 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = 'hidden';
     });
   });
+});
+</script>
+<script>
+// Dean's List — consecutive-terms timeline
+document.addEventListener('DOMContentLoaded', () => {
+  const tl = document.getElementById('deansTimeline');
+  if (!tl) return;
+  const stops = Array.from(tl.querySelectorAll('.deans-stop'));
+  if (!stops.length) return;
+  const rail = tl.querySelector('.deans-rail');
+  const fill = tl.querySelector('.deans-rail-fill');
+  const n = stops.length;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Anchor the rail between the first and last dot centres.
+  const firstC = (0.5 / n) * 100;
+  const lastC = ((n - 0.5) / n) * 100;
+  if (rail) {
+    rail.style.setProperty('--rail-start', firstC.toFixed(3) + '%');
+    rail.style.setProperty('--rail-end', (100 - lastC).toFixed(3) + '%');
+  }
+
+  let active = -1, timer = null, paused = false, visible = false;
+
+  const setActive = (i) => {
+    active = ((i % n) + n) % n;
+    stops.forEach((s, j) => s.classList.toggle('is-active', j === active));
+    const pct = n > 1 ? (active / (n - 1)) * 100 : 0;
+    if (fill) fill.style.setProperty('--deans-fill', pct.toFixed(2) + '%');
+  };
+
+  const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
+  const startTimer = () => {
+    stopTimer();
+    if (reduce || paused || !visible || n < 2) return;
+    timer = setInterval(() => setActive(active + 1), 3000);
+  };
+
+  stops.forEach((s, i) => {
+    s.addEventListener('mouseenter', () => setActive(i));
+    s.addEventListener('focus', () => setActive(i));
+  });
+
+  tl.addEventListener('mouseenter', () => { paused = true; stopTimer(); });
+  tl.addEventListener('mouseleave', () => { paused = false; startTimer(); });
+  tl.addEventListener('focusin', () => { paused = true; stopTimer(); });
+  tl.addEventListener('focusout', (e) => {
+    if (!tl.contains(e.relatedTarget)) { paused = false; startTimer(); }
+  });
+
+  tl.addEventListener('keydown', (e) => {
+    let dir = 0;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') dir = 1;
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') dir = -1;
+    else return;
+    e.preventDefault();
+    const next = (((active + dir) % n) + n) % n;
+    stops[next].focus();
+    setActive(next);
+  });
+
+  setActive(0);
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        visible = en.isIntersecting;
+        if (visible) startTimer(); else stopTimer();
+      });
+    }, { threshold: 0.35 });
+    io.observe(tl);
+  } else {
+    visible = true;
+    startTimer();
+  }
 });
 </script>
 <script>
