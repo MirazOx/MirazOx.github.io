@@ -80,24 +80,21 @@ The site uses `fetch()` to load JSON, so opening the HTML directly via `file://`
    ```
    then open http://localhost:8000
 
-2. **Or just upload it to ExonHost** — everything works as soon as it's on a real web server.
+2. **Or just push to GitHub** — the live site rebuilds automatically (see below). Everything works as soon as it's served over HTTP.
 
-## Deploy to ExonHost
+## Deploy (GitHub Pages)
 
-Two options:
+This repo **is** the live site: `MirazOx/MirazOx.github.io`, served at **mirazhossain.com** (set by the `CNAME` file in the repo root). There's no separate host and no build step — deploying is just pushing to `main`, and GitHub Pages republishes automatically, usually within a minute or two.
 
-**Option A — File Manager (easiest)**
-1. Log into your ExonHost cPanel.
-2. Open **File Manager** → navigate to `public_html/`.
-3. (Optional) Back up your existing files first — download them as a ZIP from File Manager.
-4. Upload the `mirazhossain-site.zip` into `public_html/`.
-5. Right-click the ZIP → **Extract** → extract directly into `public_html/` (or a subfolder if you want to keep the old site temporarily).
-6. If extracted into a subfolder, move the files up one level or update your domain root.
-7. Visit mirazhossain.com — you should see the new site.
+```
+git add -A
+git commit -m "Describe your change"
+git push origin main
+```
 
-**Option B — FTP**
-Use FileZilla or similar. Connect with the FTP credentials from your ExonHost welcome email. Upload all files from this folder into `public_html/`.
+Then visit mirazhossain.com. If a change doesn't show up, hard-refresh (caching) — and when you edit CSS, bump the `?v=` number on the `style.css` link in `index.html` so browsers fetch the new file.
 
-## Keeping the old site as a fallback
-
-While testing, you can deploy the new site to a subfolder like `public_html/new/` and view it at `mirazhossain.com/new/` — once you're happy, move it to the root.
+**Notes**
+- Don't delete the `CNAME` file — it's what points GitHub Pages at the custom domain.
+- What's committed to `main` is exactly what's live, so review before pushing.
+- Never commit secrets (tokens, API keys) or leave a token in the git remote URL — everything pushed is public.
