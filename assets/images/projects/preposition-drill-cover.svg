@@ -1,0 +1,53 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0E1525"/>
+  
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="300" x2="1600" y2="300" stroke="#1C2844" stroke-width="2"/>
+  <line x1="0" y1="600" x2="1600" y2="600" stroke="#1C2844" stroke-width="2"/>
+  <line x1="533" y1="0" x2="533" y2="900" stroke="#1C2844" stroke-width="2"/>
+  <line x1="1066" y1="0" x2="1066" y2="900" stroke="#1C2844" stroke-width="2"/>
+  
+  <!-- Massive faint 500 watermark -->
+  <text x="800" y="650" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="480" font-weight="800" text-anchor="middle" letter-spacing="-15">500</text>
+  
+  <!-- Red accent box with copy-editor symbol -->
+  <rect x="220" y="320" width="74" height="74" rx="10" fill="#C41E3A"/>
+  <text x="257" y="370" fill="#FFFFFF" font-family="'Newsreader', Georgia, serif" font-size="48" font-weight="700" font-style="italic" text-anchor="middle">P</text>
+  
+  <!-- Title & Subtitle -->
+  <text x="320" y="385" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="86" font-weight="500" letter-spacing="-1.5">Preposition Drill</text>
+  <text x="220" y="460" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="24" font-weight="600" letter-spacing="4">500-QUESTION ADAPTIVE MASTERY ENGINE</text>
+  
+  <!-- Interactive sentence preview card -->
+  <rect x="220" y="515" width="860" height="125" rx="14" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+  <text x="255" y="585" fill="#9FAACB" font-family="'Newsreader', Georgia, serif" font-size="34">She is good </text>
+  
+  <!-- Red strike-through del -->
+  <text x="445" y="585" fill="#FF7487" font-family="'Newsreader', Georgia, serif" font-size="34" text-decoration="line-through">in</text>
+  <line x1="442" y1="575" x2="475" y2="575" stroke="#FF7487" stroke-width="3"/>
+  
+  <!-- Green ins correction -->
+  <rect x="438" y="530" width="38" height="28" rx="4" fill="#0F7A5B"/>
+  <text x="457" y="550" fill="#E2F4EC" font-family="'Newsreader', Georgia, serif" font-size="22" font-weight="600" text-anchor="middle">at</text>
+  
+  <text x="495" y="585" fill="#9FAACB" font-family="'Newsreader', Georgia, serif" font-size="34"> mathematics.</text>
+  
+  <!-- Status badge inside card -->
+  <rect x="920" y="555" width="130" height="38" rx="8" fill="#0F7A5B" fill-opacity="0.2" stroke="#0F7A5B" stroke-width="1.5"/>
+  <text x="985" y="580" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5" text-anchor="middle">FIXED · 3-STREAK</text>
+  
+  <!-- Feature pills bottom row -->
+  <g transform="translate(220, 680)">
+    <rect x="0" y="0" width="230" height="44" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="115" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">3 TIERS · 5 KINDS</text>
+    
+    <rect x="245" y="0" width="285" height="44" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="387" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">SPACED RECHECKS: 3 · 10 · 30d</text>
+    
+    <rect x="545" y="0" width="255" height="44" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="672" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">PRINTABLE ERROR PDF</text>
+  </g>
+  
+  <!-- Watermark -->
+  <text x="1380" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // INTERVENTIONS · MIRAZ HOSSAIN</text>
+</svg>

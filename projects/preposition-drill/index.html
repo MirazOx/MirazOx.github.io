@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preposition Drill — Adaptive Mastery Engine | Miraz Hossain</title>
+<meta name="description" content="Preposition Drill — Adaptive Mastery Engine for 500 high-frequency English preposition traps with copy-editor markup, sentence rotation, spaced repetition rechecks (3, 10, 30 days), and PDF worksheet generation by Miraz Hossain.">
+<link rel="canonical" href="https://mirazhossain.com/projects/preposition-drill/">
+<meta property="og:title" content="Preposition Drill — Adaptive Mastery Engine | Miraz Hossain">
+<meta property="og:description" content="500 high-frequency English preposition traps across three difficulty tiers with active error recovery, spaced repetition, and diagnostic insights.">
+<meta property="og:image" content="https://mirazhossain.com/assets/images/projects/preposition-drill-cover.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<script>try{var _t=localStorage.getItem("preposition-drill-theme");if(_t==="dark"||_t==="light")document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
+<style>
+:root{
+  --paper:#EEF1F6; --card:#FFFFFF; --ink:#16213A; --ink2:#4B5775; --line:#D6DCE8;
+  --red:#C41E3A; --redbg:#FCE9EC; --green:#0F7A5B; --greenbg:#E2F4EC; --mark:#FFE36B; --btn:#16213A; --btntext:#FFFFFF;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
+    --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00; --btn:#E9EDF7; --btntext:#0E1525;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
+  --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00; --btn:#E9EDF7; --btntext:#0E1525;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+.wrap{max-width:760px;margin:0 auto;padding:20px 18px 48px}
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:500;font-size:26px;margin:0;letter-spacing:-.01em}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.ghost{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink2)}
+.ghost:hover{border-color:var(--ink2);color:var(--ink)}
+
+/* progress strip */
+.strip{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line)}
+.strip i{display:block;height:100%}
+.strip .s-ok{background:var(--ink2)} .strip .s-err{background:var(--red)} .strip .s-fix{background:var(--green)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0;font-size:14px;color:var(--ink2)}
+.legend b{color:var(--ink);font-weight:600}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+
+/* tabs */
+nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
+.badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
+.badge.green{background:var(--green)}
+:root[data-theme="dark"] .badge{color:#0E1525}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge{color:#0E1525}}
+:root[data-theme="dark"]{color-scheme:dark}
+:root[data-theme="light"]{color-scheme:light}
+
+/* question card */
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px 22px}
+.meta{margin:0 0 18px;font-size:14px;color:var(--ink2);display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.sentence{font-family:var(--serif);font-size:clamp(25px,4.6vw,38px);line-height:1.95;margin:0;padding-top:6px;overflow-wrap:anywhere}
+.slot{display:inline-block;position:relative;vertical-align:baseline;margin:0 .12em}
+input.blank{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:3px solid var(--ink);border-radius:0;padding:0 .1em;width:5.5ch;min-width:4ch;max-width:100%;text-align:center;line-height:1.1;outline:none}
+input.blank:focus{background:var(--mark);outline:none}
+.slot.ok{color:var(--green);font-weight:500;border-bottom:3px solid var(--green);padding:0 .15em}
+.slot.bad{padding:0 .15em;border-bottom:3px solid transparent}
+.slot.bad del{color:var(--red);text-decoration:line-through;text-decoration-thickness:3px}
+.slot.bad ins{position:absolute;left:50%;transform:translateX(-50%);top:-1.15em;font-size:.78em;font-weight:500;text-decoration:none;color:var(--ink);white-space:nowrap;line-height:1}
+.slot.bad ins::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:2px;border:5px solid transparent;border-top-color:var(--red);border-bottom:0}
+.slot.bad.solo{border-bottom:3px dashed var(--red);min-width:3ch}
+.slot.bad.solo ins{position:static;transform:none;font-size:1em;color:var(--ink)}
+.slot.bad.solo ins::after{display:none}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+.btn{background:var(--btn);color:var(--btntext);border:0;border-radius:9px;padding:11px 22px;font-weight:600;min-height:44px}
+.btn:hover{opacity:.9}
+.link{background:none;border:0;padding:8px 4px;color:var(--ink2);text-decoration:underline;text-underline-offset:3px;min-height:44px}
+.link:hover{color:var(--ink)}
+.hint{font-size:14px;color:var(--ink2)}
+.fb{margin-top:20px;padding:14px 16px;border-radius:10px;font-size:16px}
+.fb.ok{background:var(--greenbg)} .fb.bad{background:var(--redbg)}
+.fb p{margin:0 0 4px} .fb p:last-child{margin:0}
+.fb strong{font-weight:700}
+.pips{display:inline-flex;gap:5px;vertical-align:middle}
+.pip{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink2);background:transparent}
+.pip.on{background:var(--green);border-color:var(--green)}
+.celebrate{font-weight:600;color:var(--green)}
+
+/* options + explanation */
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-height:54px;font-size:19px;font-family:var(--serif)}
+.opt:hover{border-color:var(--ink)}
+.opt kbd{font:600 13px var(--sans);color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:1px 7px;background:var(--card)}
+.why{color:var(--ink);margin-top:6px}
+.why span{color:var(--ink2)}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:13px;color:var(--ink2)}
+.tag.D{border-color:var(--ink2);color:var(--ink)}
+.tag.H{background:var(--ink);border-color:var(--ink);color:var(--btntext)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 14px}
+li.item .x{margin:6px 0 0;font-size:14px;color:var(--ink2)}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+/* reset buttons */
+.reset-row{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap;margin:0 0 14px}
+.reset-row p{margin:0;flex:1 1 260px}
+.reset-row p b{display:block;font-weight:600}
+.warnbtn{background:none;border:1px solid var(--red);color:var(--red);border-radius:8px;padding:8px 14px;min-height:40px}
+.warnbtn[disabled]{opacity:.45;cursor:default;border-color:var(--line);color:var(--ink2)}
+.warnbtn[data-armed]{background:var(--red);color:var(--card)}
+/* session timer */
+.timerbar{display:flex;align-items:center;gap:14px;margin:0 0 14px}
+.timerbar[hidden]{display:none}
+.timernum{font-family:var(--sans);font-weight:700;font-size:clamp(46px,12vw,76px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 22px}
+.timerbar.paused .timernum{color:var(--ink2)}
+.timerctl{display:flex;flex-direction:column;gap:6px}
+.hdrbtns{display:flex;gap:8px}
+.ghost[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--btntext)}
+@media (max-width:520px){.timerctl{flex-direction:row;flex-wrap:wrap}}
+/* insights + mock */
+.bar-row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 64px;gap:12px;align-items:center;margin:10px 0;font-size:15px}
+.bar{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink2);border-radius:6px}
+.bar.weak i{background:var(--red)}
+.bar-row small{display:block;color:var(--ink2);font-size:13px}
+.num{text-align:right;font-weight:600}
+.prog{height:6px;background:var(--line);border-radius:3px;margin:0 0 14px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ink)}
+.score{font-family:var(--serif);font-size:60px;line-height:1;margin:4px 0 2px}
+.callout{background:var(--redbg);border-radius:10px;padding:12px 16px;margin:0 0 18px}
+.callout p{margin:0 0 8px}
+.hist{margin:0;padding:0;list-style:none;font-size:15px;color:var(--ink2)}
+@media (max-width:520px){.bar-row{grid-template-columns:1fr 56px}.bar-row .bar{grid-column:1/-1;order:3}}
+/* lists */
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:28px 24px}
+.empty h2{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 6px}
+.empty p{margin:0 0 16px;color:var(--ink2);max-width:52ch}
+ul.items{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+li.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+li.item .q{font-family:var(--serif);font-size:20px;line-height:1.5;margin:0 0 6px}
+li.item .q b{color:var(--green);font-weight:600;border-bottom:2px solid var(--green)}
+li.item .m{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;font-size:14px;color:var(--ink2)}
+li.item .m .w{color:var(--red);text-decoration:line-through;text-decoration-thickness:2px}
+.chips{margin:0 0 14px;font-size:14px;color:var(--ink2)}
+.chips b{color:var(--ink)}
+.section-note{margin:0 0 14px;color:var(--ink2);font-size:15px}
+
+/* settings */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:18px}
+.panel h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 12px}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 12px}
+.row label{min-width:190px;font-weight:500}
+select,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:40px}
+textarea{width:100%;min-height:110px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.panel hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.danger{border:1px solid var(--red);color:var(--red);background:none;border-radius:8px;padding:8px 14px}
+.small{font-size:14px;color:var(--ink2);margin:0 0 10px}
+footer{margin-top:26px;font-size:13px;color:var(--ink2)}
+@media (max-width:520px){.card{padding:20px 16px 18px}.wrap{padding:16px 12px 40px}.row label{min-width:100%}}
+@media (prefers-reduced-motion:no-preference){.slot.bad ins{animation:drop .22s ease-out}@keyframes drop{from{opacity:0;top:-.6em}to{opacity:1;top:-1.15em}}}
+
+/* info / how it works */
+.info-lead{font-family:var(--serif);font-size:18px;line-height:1.6;margin:0 0 18px;color:var(--ink)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px}
+.info-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.info-card h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:0 0 8px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:8px}
+.info-card h3 .pill-tag{font-family:var(--sans);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:6px;background:var(--line);color:var(--ink)}
+.info-card p{font-size:14px;line-height:1.6;color:var(--ink2);margin:0 0 8px}
+.info-card p:last-child{margin-bottom:0}
+.info-card ul{margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--ink2);line-height:1.6}
+.info-card li{margin-bottom:6px}
+.info-card li:last-child{margin-bottom:0}
+.info-card strong{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="timerbar" id="timerBar" hidden>
+    <div class="timernum" id="timerNum" role="timer" aria-label="Session time">00:00</div>
+    <div class="timerctl"><button class="ghost" id="timerPause">Pause</button><button class="ghost" id="timerReset">Reset</button></div>
+  </div>
+  <header class="top">
+    <div>
+      <a href="/interventions/" class="ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:4px 10px;margin-bottom:8px">← All Interventions</a>
+      <h1 style="font-size:26px">Preposition Drill</h1>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Adaptive Mastery Engine · 500 Traps &amp; Spaced Error Recovery</p>
+    </div>
+    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
+  </header>
+  <div id="settings" hidden></div>
+  <div id="overview"></div>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  <main id="main"></main>
+  <footer id="foot" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px;padding-top:16px;border-top:1px solid var(--line)">
+    <span>Developed by <a href="/" style="color:inherit;text-decoration:underline">Miraz Hossain</a> · Part of <a href="/interventions/" style="color:inherit;text-decoration:underline">Interventions</a></span>
+    <span id="remoteStatus">Saved on this device only</span>
+  </footer>
+</div>
+
+<script>
+const BANK = [{"id":"1-1","lv":"C","q":"She is good ___ mathematics.","a":["at"],"x":"good at: use at after good for skills and subjects.","c":"A","p":"good at"},{"id":"1-2","lv":"C","q":"He arrived ___ the airport at 7 p.m.","a":["at"],"x":"arrive at a specific point such as an airport or station; arrive in a city or country.","c":"P","p":"arrive at","w":"The train arrived ___ the station on time.","wa":["at"]},{"id":"1-3","lv":"C","q":"We have been waiting ___ two hours.","a":["for"],"x":"for + a length of time: for two hours.","c":"T","p":"for (duration)"},{"id":"1-4","lv":"C","q":"The book is ___ the table.","a":["on","under","above","over","beside","near","by","next to","behind","beneath"],"x":"on shows contact with a surface; under, beside or near also fit this sentence.","c":"P","p":"on (surface)"},{"id":"1-5","lv":"C","q":"He is afraid ___ spiders.","a":["of"],"x":"afraid of + the thing you fear.","c":"A","p":"afraid of"},{"id":"1-6","lv":"C","q":"She is interested ___ journalism.","a":["in"],"x":"interested in + a topic.","c":"A","p":"interested in"},{"id":"1-7","lv":"C","q":"I am looking ___ my keys.","a":["for"],"x":"look for = search; look at = direct your eyes.","c":"V","p":"look for","w":"She is looking ___ a new apartment.","wa":["for"]},{"id":"1-8","lv":"C","q":"They went ___ the library after class.","a":["to"],"x":"go to + destination.","c":"P","p":"to (destination)"},{"id":"1-9","lv":"C","q":"He depends ___ his parents.","a":["on","upon"],"x":"depend on (or upon), never depend of.","c":"V","p":"depend on"},{"id":"1-10","lv":"C","q":"She apologized ___ being late.","a":["for"],"x":"apologize for + the offence; apologize to + the person.","c":"V","p":"apologize for"},{"id":"1-11","lv":"C","q":"The train leaves ___ 6:30 a.m.","a":["at"],"x":"at + clock time: at 6:30.","c":"T","p":"at (clock time)"},{"id":"1-12","lv":"C","q":"We walked ___ the river.","a":["along","by","beside","alongside","to","toward","towards"],"x":"along = following the line of the river; by, beside or to also work.","c":"P","p":"along"},{"id":"1-13","lv":"C","q":"He was born ___ 2001.","a":["in"],"x":"in + year, month or season.","c":"T","p":"in (year/month)"},{"id":"1-14","lv":"C","q":"She has lived here ___ five years.","a":["for"],"x":"for + duration; since + starting point.","c":"T","p":"for (duration)"},{"id":"1-15","lv":"C","q":"The cat jumped ___ the wall.","a":["over","onto","off","across"],"x":"over = passing above and across the wall; onto or off are possible with other meanings.","c":"P","p":"over"},{"id":"1-16","lv":"C","q":"He is responsible ___ the project.","a":["for"],"x":"responsible for + the thing you are in charge of.","c":"A","p":"responsible for"},{"id":"1-17","lv":"C","q":"I agree ___ you.","a":["with"],"x":"agree with + a person or opinion; agree to a plan; agree on a decision.","c":"V","p":"agree with"},{"id":"1-18","lv":"C","q":"She is married ___ a doctor.","a":["to"],"x":"married to + the spouse, never married with.","c":"A","p":"married to"},{"id":"1-19","lv":"C","q":"They are proud ___ their achievement.","a":["of"],"x":"proud of + an achievement.","c":"A","p":"proud of"},{"id":"1-20","lv":"C","q":"He suffers ___ back pain.","a":["from"],"x":"suffer from + an illness or problem.","c":"V","p":"suffer from","w":"Many people suffer ___ headaches.","wa":["from"]},{"id":"1-21","lv":"C","q":"Put the books ___ the shelf.","a":["on","onto"],"x":"on a shelf: resting on a surface.","c":"P","p":"on (surface)"},{"id":"1-22","lv":"C","q":"We arrived ___ Dhaka yesterday.","a":["in","at"],"x":"arrive in a city or country; at a smaller point such as a station.","c":"P","p":"arrive in"},{"id":"1-23","lv":"C","q":"She works ___ a newspaper.","a":["for","at"],"x":"work for an employer; work at a place also works.","c":"V","p":"work for"},{"id":"1-24","lv":"C","q":"He is afraid ___ making mistakes.","a":["of"],"x":"afraid of + -ing: afraid of making mistakes.","c":"A","p":"afraid of"},{"id":"1-25","lv":"C","q":"I am tired ___ waiting.","a":["of"],"x":"tired of + -ing means fed up with it; tired from means worn out by effort.","c":"A","p":"tired of"},{"id":"1-26","lv":"C","q":"The students are sitting ___ the classroom.","a":["in"],"x":"in a classroom: inside an enclosed space.","c":"P","p":"in (inside)"},{"id":"1-27","lv":"C","q":"He went ___ the stairs quickly.","a":["up","down"],"x":"up or down the stairs, depending on the direction.","c":"P","p":"up/down"},{"id":"1-28","lv":"C","q":"She borrowed a pen ___ her friend.","a":["from"],"x":"borrow from the lender; lend to the borrower.","c":"V","p":"borrow from"},{"id":"1-29","lv":"C","q":"This letter is ___ my professor.","a":["for","to","from"],"x":"for the professor (intended recipient); to and from also fit a letter.","c":"F","p":"for (recipient)"},{"id":"1-30","lv":"C","q":"He apologized ___ his teacher.","a":["to"],"x":"apologize to + the person you apologize to.","c":"V","p":"apologize to"},{"id":"1-31","lv":"C","q":"The meeting starts ___ Monday.","a":["on"],"x":"on + day of the week.","c":"T","p":"on (day)"},{"id":"1-32","lv":"C","q":"We usually study ___ night.","a":["at","during"],"x":"at night is a fixed phrase; compare in the morning, in the evening.","c":"T","p":"at night"},{"id":"1-33","lv":"C","q":"She has been working here ___ January.","a":["since"],"x":"since + a point in time, with perfect tenses.","c":"T","p":"since"},{"id":"1-34","lv":"D","q":"He divided the cake ___ the children.","a":["among","between"],"x":"among for a group of three or more; between for two.","c":"F","p":"among/between"},{"id":"1-35","lv":"C","q":"The village is located ___ two mountains.","a":["between"],"x":"between + two things: two mountains.","c":"P","p":"between"},{"id":"1-36","lv":"D","q":"She is different ___ her sister.","a":["from","to","than"],"x":"different from is standard; different to in British English, different than in American.","c":"A","p":"different from"},{"id":"1-37","lv":"C","q":"He is famous ___ his research.","a":["for"],"x":"famous for + the reason; famous as + a role.","c":"A","p":"famous for"},{"id":"1-38","lv":"C","q":"I am worried ___ the exam.","a":["about"],"x":"worried about + the concern.","c":"A","p":"worried about"},{"id":"1-39","lv":"C","q":"They congratulated him ___ his success.","a":["on"],"x":"congratulate someone on + their success.","c":"V","p":"congratulate on","w":"We congratulated her ___ her promotion.","wa":["on"]},{"id":"1-40","lv":"D","q":"She insisted ___ paying the bill.","a":["on"],"x":"insist on + -ing.","c":"V","p":"insist on","w":"He insisted ___ walking home.","wa":["on"]},{"id":"1-41","lv":"D","q":"He is capable ___ solving the problem.","a":["of"],"x":"capable of + -ing.","c":"A","p":"capable of"},{"id":"1-42","lv":"C","q":"We are looking forward ___ meeting you.","a":["to"],"x":"look forward to + -ing: this to is a preposition, so a verb takes -ing.","c":"V","p":"look forward to"},{"id":"1-43","lv":"C","q":"She is responsible ___ organizing the event.","a":["for"],"x":"responsible for + -ing.","c":"A","p":"responsible for"},{"id":"1-44","lv":"C","q":"He is interested ___ learning Spanish.","a":["in"],"x":"interested in + -ing.","c":"A","p":"interested in"},{"id":"1-45","lv":"C","q":"The teacher explained the lesson ___ the students.","a":["to"],"x":"explain something to someone.","c":"V","p":"explain to"},{"id":"1-46","lv":"C","q":"She arrived ___ time for the interview.","a":["in","on"],"x":"in time for = early enough for; on time = punctual.","c":"T","p":"in time"},{"id":"1-47","lv":"C","q":"He came ___ bus.","a":["by"],"x":"by + means of transport: by bus.","c":"F","p":"by (transport)"},{"id":"1-48","lv":"C","q":"We traveled ___ train.","a":["by"],"x":"by + means of transport: by train; on foot is the exception.","c":"F","p":"by (transport)"},{"id":"1-49","lv":"C","q":"The children ran ___ the playground.","a":["across","around","through","to","into"],"x":"across the playground = from one side to the other; through and around also fit.","c":"P","p":"across"},{"id":"1-50","lv":"C","q":"She walked ___ the room and sat down.","a":["across","into","through","around"],"x":"across the room = from side to side; into the room = entering it.","c":"P","p":"across"},{"id":"1-51","lv":"C","q":"He jumped ___ the swimming pool.","a":["into","in"],"x":"into shows movement from outside to inside.","c":"P","p":"into"},{"id":"1-52","lv":"C","q":"The plane flew ___ the clouds.","a":["above","over","through","into","beyond","past"],"x":"above or over = higher than something, without touching.","c":"P","p":"over"},{"id":"1-53","lv":"C","q":"She looked ___ the window.","a":["through","out of","out"],"x":"look through a window: the gaze passes from one side to the other.","c":"P","p":"through"},{"id":"1-54","lv":"C","q":"He took the book ___ the bag.","a":["from","out of"],"x":"take something from or out of a container.","c":"P","p":"out of"},{"id":"1-55","lv":"C","q":"We went ___ the bridge.","a":["over","across","under","through","by","past","along"],"x":"go over or across a bridge; under and through are possible with other meanings.","c":"P","p":"over"},{"id":"1-56","lv":"C","q":"The shop is ___ the bank and the pharmacy.","a":["between"],"x":"between + two named places.","c":"P","p":"between"},{"id":"1-57","lv":"C","q":"She sat ___ me during the lecture.","a":["beside","next to","by","near"],"x":"beside = next to; by and near also fit.","c":"P","p":"beside"},{"id":"1-58","lv":"C","q":"He stood ___ the door.","a":["at","by","near"],"x":"at the door: at marks the point where he stood.","c":"P","p":"at (point)"},{"id":"1-59","lv":"C","q":"The picture is hanging ___ the wall.","a":["on"],"x":"on the wall: attached to a surface.","c":"P","p":"on (surface)"},{"id":"1-60","lv":"C","q":"We stayed ___ a hotel.","a":["at","in"],"x":"stay at a hotel: at for a place used as a service.","c":"P","p":"at (place)"},{"id":"1-61","lv":"C","q":"She lives ___ her parents.","a":["with"],"x":"live with + the people you share a home with.","c":"V","p":"live with"},{"id":"1-62","lv":"C","q":"He is sitting ___ the chair.","a":["on","in"],"x":"on a chair for sitting on its seat; in an armchair.","c":"P","p":"on (surface)"},{"id":"1-63","lv":"C","q":"The keys are ___ my pocket.","a":["in"],"x":"in a pocket: inside a container.","c":"P","p":"in (inside)"},{"id":"1-64","lv":"C","q":"The dog is hiding ___ the bed.","a":["under","behind","beneath","below"],"x":"under = beneath or hidden below.","c":"P","p":"under"},{"id":"1-65","lv":"C","q":"She walked ___ the street carefully.","a":["across","along","down","up"],"x":"across = to the other side; along or down = following the street.","c":"P","p":"across"},{"id":"1-66","lv":"C","q":"He drove ___ the tunnel.","a":["through","into","in"],"x":"through a tunnel: from one end to the other.","c":"P","p":"through"},{"id":"1-67","lv":"C","q":"We went ___ the mountain.","a":["up","down","to","toward","towards"],"x":"up the mountain = ascending; down and to also work.","c":"P","p":"up/down"},{"id":"1-68","lv":"C","q":"The bird flew ___ the house.","a":["over","above","around","past","into","toward","towards"],"x":"over the house = passing above it.","c":"P","p":"over"},{"id":"1-69","lv":"C","q":"She moved ___ London last year.","a":["to","from"],"x":"move to + the new place; move from + the old place.","c":"V","p":"move to"},{"id":"1-70","lv":"C","q":"He is traveling ___ Bangladesh.","a":["to","through","around","across","in"],"x":"travel to + destination; through or around describe a route.","c":"P","p":"to (destination)"},{"id":"1-71","lv":"C","q":"They walked ___ the beach.","a":["along","on","to","toward","towards","across","by"],"x":"along the beach = following its length.","c":"P","p":"along"},{"id":"1-72","lv":"C","q":"The students went ___ the classroom.","a":["into","to"],"x":"into = entering the classroom; to also works.","c":"P","p":"into"},{"id":"1-73","lv":"C","q":"She is waiting ___ the bus.","a":["for"],"x":"wait for + what or whom you wait for.","c":"V","p":"wait for"},{"id":"1-74","lv":"C","q":"He is talking ___ his friend.","a":["to","with"],"x":"talk to or with + a person.","c":"V","p":"talk to"},{"id":"1-75","lv":"C","q":"I borrowed this book ___ the library.","a":["from"],"x":"borrow from + the source.","c":"V","p":"borrow from"},{"id":"1-76","lv":"C","q":"She received a message ___ her brother.","a":["from"],"x":"receive something from + the sender.","c":"V","p":"receive from"},{"id":"1-77","lv":"C","q":"He works ___ a software company.","a":["for","at"],"x":"work for a company; work at a company also works.","c":"V","p":"work for"},{"id":"1-78","lv":"C","q":"We discussed the problem ___ the meeting.","a":["during","at","in"],"x":"during + an event: during the meeting.","c":"T","p":"during"},{"id":"1-79","lv":"C","q":"She was absent ___ class yesterday.","a":["from"],"x":"absent from + a place or event.","c":"A","p":"absent from"},{"id":"1-80","lv":"C","q":"He succeeded ___ passing the exam.","a":["in"],"x":"succeed in + -ing.","c":"V","p":"succeed in"},{"id":"1-81","lv":"C","q":"They are talking ___ politics.","a":["about"],"x":"talk about + a topic.","c":"V","p":"talk about"},{"id":"1-82","lv":"C","q":"I am thinking ___ my future.","a":["about","of"],"x":"think about + a subject; think of = have an idea about.","c":"V","p":"think about"},{"id":"1-83","lv":"C","q":"She complained ___ the noise.","a":["about","of"],"x":"complain about + the problem; complain to + the person.","c":"V","p":"complain about"},{"id":"1-84","lv":"C","q":"He believes ___ hard work.","a":["in"],"x":"believe in = trust the value of; believe someone = accept their word.","c":"V","p":"believe in"},{"id":"1-85","lv":"C","q":"We are searching ___ a solution.","a":["for"],"x":"search for = look for.","c":"V","p":"search for"},{"id":"1-86","lv":"C","q":"She is worried ___ her results.","a":["about","over"],"x":"worried about + the concern; over is also possible.","c":"A","p":"worried about"},{"id":"1-87","lv":"C","q":"He is responsible ___ the mistake.","a":["for"],"x":"responsible for + a mistake means to blame for it.","c":"A","p":"responsible for"},{"id":"1-88","lv":"D","q":"They are familiar ___ the procedure.","a":["with"],"x":"familiar with + something you know well.","c":"A","p":"familiar with"},{"id":"1-89","lv":"C","q":"I am grateful ___ your help.","a":["for"],"x":"grateful for + the help; grateful to + the person.","c":"A","p":"grateful for"},{"id":"1-90","lv":"C","q":"She is angry ___ her brother.","a":["with","at"],"x":"angry with a person; angry at or about a thing.","c":"A","p":"angry with"},{"id":"1-91","lv":"C","q":"He is famous ___ his novels.","a":["for"],"x":"famous for + the reason.","c":"A","p":"famous for"},{"id":"1-92","lv":"C","q":"We are pleased ___ the results.","a":["with","about"],"x":"pleased with + the results.","c":"A","p":"pleased with"},{"id":"1-93","lv":"C","q":"She is married ___ an engineer.","a":["to"],"x":"married to + the spouse.","c":"A","p":"married to"},{"id":"1-94","lv":"D","q":"He is addicted ___ social media.","a":["to"],"x":"addicted to: this to is a preposition, so a noun or -ing follows.","c":"A","p":"addicted to","w":"She is addicted ___ chocolate.","wa":["to"]},{"id":"1-95","lv":"C","q":"I am disappointed ___ the service.","a":["with","by","in","at"],"x":"disappointed with, by, in or at + the cause.","c":"A","p":"disappointed with","w":"We were disappointed ___ the film.","wa":["with","by","in","at"]},{"id":"1-96","lv":"C","q":"They are excited ___ the trip.","a":["about","for"],"x":"excited about + the event.","c":"A","p":"excited about"},{"id":"1-97","lv":"D","q":"She is keen ___ learning new skills.","a":["on"],"x":"keen on + noun or -ing; keen to + a verb is a different pattern.","c":"A","p":"keen on","w":"He is keen ___ cricket.","wa":["on"]},{"id":"1-98","lv":"D","q":"He is opposed ___ the proposal.","a":["to"],"x":"opposed to + a noun or -ing.","c":"A","p":"opposed to"},{"id":"1-99","lv":"C","q":"We are interested ___ your research.","a":["in"],"x":"interested in + a topic.","c":"A","p":"interested in"},{"id":"1-100","lv":"C","q":"She is proud ___ her daughter.","a":["of"],"x":"proud of + a person or achievement.","c":"A","p":"proud of"},{"id":"1-101","lv":"C","q":"He is dependent ___ his parents.","a":["on"],"x":"dependent on is the adjective; depend on is the verb.","c":"A","p":"dependent on","w":"The farmers are dependent ___ the rain.","wa":["on","upon"]},{"id":"1-102","lv":"D","q":"The professor is an expert ___ media studies.","a":["in","on"],"x":"expert in a field; expert on a subject.","c":"A","p":"expert in","w":"She is an expert ___ climate science.","wa":["in","on"]},{"id":"1-103","lv":"C","q":"Please concentrate ___ your work.","a":["on"],"x":"concentrate on + the task.","c":"V","p":"concentrate on","w":"I can’t concentrate ___ the lesson.","wa":["on"]},{"id":"1-104","lv":"C","q":"He apologized ___ the mistake.","a":["for"],"x":"apologize for + the mistake.","c":"V","p":"apologize for"},{"id":"1-105","lv":"C","q":"She is responsible ___ the final report.","a":["for"],"x":"responsible for + a task or its outcome.","c":"A","p":"responsible for"},{"id":"1-106","lv":"C","q":"The students complained ___ the difficult assignment.","a":["about"],"x":"complain about + the problem.","c":"V","p":"complain about"},{"id":"1-107","lv":"D","q":"He was accused ___ cheating.","a":["of"],"x":"accuse someone of + the wrongdoing.","c":"V","p":"accuse of","w":"They accused him ___ lying.","wa":["of"]},{"id":"1-108","lv":"C","q":"She succeeded ___ convincing the committee.","a":["in"],"x":"succeed in + -ing.","c":"V","p":"succeed in"},{"id":"1-109","lv":"D","q":"We should protect children ___ online harm.","a":["from","against"],"x":"protect someone from harm; against is also used.","c":"V","p":"protect from","w":"Sunscreen protects your skin ___ the sun.","wa":["from","against"]},{"id":"1-110","lv":"C","q":"He has been absent ___ Monday.","a":["since"],"x":"since + a point in time with the present perfect: has been absent since Monday.","c":"T","p":"since"},{"id":"1-111","lv":"C","q":"The office is closed ___ Fridays.","a":["on"],"x":"on + a day of the week; Fridays means every Friday.","c":"T","p":"on (day)"},{"id":"2-1","lv":"D","q":"She excels ___ chemistry.","a":["in","at"],"x":"excel in a subject; excel at also works.","c":"V","p":"excel in","w":"He excels ___ mathematics.","wa":["in","at"]},{"id":"2-2","lv":"C","q":"He is scared ___ the dark.","a":["of"],"x":"scared of + the thing you fear.","c":"A","p":"afraid of"},{"id":"2-3","lv":"C","q":"We have known each other ___ 2010.","a":["since"],"x":"since + a starting point with perfect tenses.","c":"T","p":"since"},{"id":"2-4","lv":"C","q":"The remote is ___ the sofa cushions.","a":["under","beneath","between","in","inside","behind","among"],"x":"under = beneath or hidden below; between, behind and in also fit.","c":"P","p":"under"},{"id":"2-5","lv":"C","q":"He is allergic ___ peanuts.","a":["to"],"x":"allergic to + the substance, never allergic of.","c":"A","p":"allergic to"},{"id":"2-6","lv":"C","q":"She is curious ___ history.","a":["about"],"x":"curious about + a topic.","c":"A","p":"curious about"},{"id":"2-7","lv":"C","q":"I am waiting ___ the bus.","a":["for"],"x":"wait for + what you wait for.","c":"V","p":"wait for"},{"id":"2-8","lv":"C","q":"They headed ___ the market after work.","a":["to","toward","towards","for"],"x":"head to or toward + a destination.","c":"P","p":"to (destination)"},{"id":"2-9","lv":"C","q":"He relies ___ his savings.","a":["on","upon"],"x":"rely on (or upon), never rely of.","c":"V","p":"depend on"},{"id":"2-10","lv":"C","q":"She apologized ___ forgetting the appointment.","a":["for"],"x":"apologize for + -ing.","c":"V","p":"apologize for"},{"id":"2-11","lv":"C","q":"The flight departs ___ 9 a.m.","a":["at"],"x":"at + clock time.","c":"T","p":"at (clock time)"},{"id":"2-12","lv":"C","q":"We strolled ___ the park.","a":["through","around","in","across"],"x":"stroll through a park: moving within it; around also fits.","c":"P","p":"through"},{"id":"2-13","lv":"C","q":"He was born ___ March.","a":["in"],"x":"in + month.","c":"T","p":"in (year/month)"},{"id":"2-14","lv":"C","q":"She has taught here ___ ten years.","a":["for"],"x":"for + duration.","c":"T","p":"for (duration)"},{"id":"2-15","lv":"C","q":"The squirrel climbed ___ the tree.","a":["up","into","down"],"x":"climb up a tree: up = moving upward.","c":"P","p":"up/down"},{"id":"2-16","lv":"D","q":"He is in charge ___ the budget.","a":["of"],"x":"in charge of + what you manage.","c":"F","p":"in charge of","w":"Who is in charge ___ the office?","wa":["of"]},{"id":"2-17","lv":"C","q":"I disagree ___ your assessment.","a":["with"],"x":"disagree with + a person or view.","c":"V","p":"agree with"},{"id":"2-18","lv":"D","q":"She is engaged ___ a lawyer.","a":["to"],"x":"engaged to + the fiance(e).","c":"A","p":"married to"},{"id":"2-19","lv":"C","q":"They are ashamed ___ their behaviour.","a":["of"],"x":"ashamed of + the behaviour.","c":"A","p":"ashamed of","w":"He felt ashamed ___ his mistake.","wa":["of"]},{"id":"2-20","lv":"C","q":"He struggles ___ insomnia.","a":["with"],"x":"struggle with + a problem.","c":"V","p":"struggle with","w":"She struggles ___ shyness.","wa":["with"]},{"id":"2-21","lv":"C","q":"Place the folder ___ the drawer.","a":["in","into","inside"],"x":"in a drawer: inside a container.","c":"P","p":"in (inside)"},{"id":"2-22","lv":"C","q":"We landed ___ Chattogram last night.","a":["in","at"],"x":"land in a city; at for an airport.","c":"P","p":"arrive in"},{"id":"2-23","lv":"C","q":"She writes ___ a magazine.","a":["for","in"],"x":"write for a magazine = contribute to it.","c":"V","p":"work for"},{"id":"2-24","lv":"C","q":"He is nervous ___ public speaking.","a":["about"],"x":"nervous about + the worry.","c":"A","p":"nervous about"},{"id":"2-25","lv":"D","q":"I am exhausted ___ studying.","a":["from","by"],"x":"exhausted from + the cause of tiredness.","c":"A","p":"exhausted from"},{"id":"2-26","lv":"C","q":"The children are playing ___ the yard.","a":["in"],"x":"in the yard: inside a bounded area.","c":"P","p":"in (inside)"},{"id":"2-27","lv":"C","q":"He ran ___ the corridor.","a":["along","down","through"],"x":"along a corridor = following its length.","c":"P","p":"along"},{"id":"2-28","lv":"C","q":"She borrowed an umbrella ___ her neighbour.","a":["from"],"x":"borrow from + the lender.","c":"V","p":"borrow from"},{"id":"2-29","lv":"C","q":"This parcel is ___ my supervisor.","a":["for","to","from"],"x":"for = intended for the supervisor; to and from also fit.","c":"F","p":"for (recipient)"},{"id":"2-30","lv":"C","q":"He apologized ___ the committee.","a":["to"],"x":"apologize to + the person.","c":"V","p":"apologize to"},{"id":"2-31","lv":"C","q":"The workshop begins ___ Sunday.","a":["on"],"x":"on + day.","c":"T","p":"on (day)"},{"id":"2-32","lv":"C","q":"We normally revise ___ dawn.","a":["at","before","after","around","by","until"],"x":"at dawn: at + a point in the day; before and after change the meaning.","c":"T","p":"at night"},{"id":"2-33","lv":"C","q":"She has volunteered here ___ March.","a":["since"],"x":"since + the start point.","c":"T","p":"since"},{"id":"2-34","lv":"D","q":"He split the profits ___ the partners.","a":["among","between"],"x":"split among for three or more people; between for two.","c":"F","p":"among/between"},{"id":"2-35","lv":"C","q":"The town lies ___ two rivers.","a":["between"],"x":"between + two things.","c":"P","p":"between"},{"id":"2-36","lv":"D","q":"She differs ___ her twin in temperament.","a":["from"],"x":"differ from + the other thing.","c":"A","p":"different from"},{"id":"2-37","lv":"D","q":"He is renowned ___ his editorials.","a":["for"],"x":"renowned for + what you are known for.","c":"A","p":"famous for"},{"id":"2-38","lv":"C","q":"I am anxious ___ the results.","a":["about","over"],"x":"anxious about + the worry.","c":"A","p":"worried about"},{"id":"2-39","lv":"C","q":"They praised her ___ her courage.","a":["for"],"x":"praise someone for + a quality.","c":"V","p":"praise for","w":"The teacher praised him ___ his effort.","wa":["for"]},{"id":"2-40","lv":"D","q":"She persisted ___ finishing the draft.","a":["in","with"],"x":"persist in + -ing; with also works.","c":"V","p":"persist in","w":"He persisted ___ asking questions.","wa":["in","with"]},{"id":"2-41","lv":"D","q":"He is capable ___ leading the team.","a":["of"],"x":"capable of + -ing.","c":"A","p":"capable of"},{"id":"2-42","lv":"C","q":"We are looking forward ___ the ceremony.","a":["to"],"x":"look forward to + noun or -ing; to is a preposition here.","c":"V","p":"look forward to"},{"id":"2-43","lv":"D","q":"She is accountable ___ the outcome.","a":["for"],"x":"accountable for + the outcome; accountable to + a person.","c":"A","p":"responsible for"},{"id":"2-44","lv":"C","q":"He is fond ___ old films.","a":["of"],"x":"fond of + the thing you like.","c":"A","p":"fond of","w":"She is fond ___ her grandmother.","wa":["of"]},{"id":"2-45","lv":"D","q":"The editor clarified the policy ___ the interns.","a":["to"],"x":"clarify something to someone.","c":"V","p":"explain to"},{"id":"2-46","lv":"C","q":"She arrived ___ time for the briefing.","a":["in","on"],"x":"in time for = early enough; on time = punctual.","c":"T","p":"in time"},{"id":"2-47","lv":"C","q":"He came ___ rickshaw.","a":["by"],"x":"by + transport: by rickshaw.","c":"F","p":"by (transport)"},{"id":"2-48","lv":"C","q":"We travelled ___ ferry.","a":["by"],"x":"by + transport: by ferry.","c":"F","p":"by (transport)"},{"id":"2-49","lv":"C","q":"The kids dashed ___ the field.","a":["across","over","through","around","to","into"],"x":"dash across a field: from one side to the other.","c":"P","p":"across"},{"id":"2-50","lv":"C","q":"She walked ___ the office and greeted everyone.","a":["into","across","through","around"],"x":"walk into a room = enter it.","c":"P","p":"into"},{"id":"2-51","lv":"C","q":"He dove ___ the lake.","a":["into","in"],"x":"dive into water; in is also heard.","c":"P","p":"into"},{"id":"2-52","lv":"C","q":"The kite soared ___ the rooftops.","a":["over","above","across","past"],"x":"soar over rooftops: passing above them.","c":"P","p":"over"},{"id":"2-53","lv":"D","q":"She peered ___ the curtain.","a":["through","behind","around","past","over"],"x":"peer through a curtain: look through a gap.","c":"P","p":"through"},{"id":"2-54","lv":"D","q":"He pulled the notebook ___ the drawer.","a":["out of","from","off"],"x":"pull something out of a drawer: out of = removal from inside.","c":"P","p":"out of"},{"id":"2-55","lv":"D","q":"We crossed ___ the overpass.","a":["over","across","under","by","along","through"],"x":"cross over a bridge: over = passing above; across also fits.","c":"P","p":"over"},{"id":"2-56","lv":"C","q":"The café is ___ the pharmacy and the bookstore.","a":["between"],"x":"between + two places.","c":"P","p":"between"},{"id":"2-57","lv":"C","q":"She sat ___ him at the ceremony.","a":["beside","next to","by","near","opposite","behind","with"],"x":"sit beside someone = next to them.","c":"P","p":"beside"},{"id":"2-58","lv":"C","q":"He waited ___ the gate.","a":["at","by","near","outside","inside","beside"],"x":"wait at the gate: at marks the point.","c":"P","p":"at (point)"},{"id":"2-59","lv":"C","q":"The mirror hangs ___ the wall.","a":["on"],"x":"on the wall: attached to a surface.","c":"P","p":"on (surface)"},{"id":"2-60","lv":"C","q":"We lodged ___ a guesthouse.","a":["in","at"],"x":"lodge in or at a guesthouse; in for the building itself.","c":"P","p":"at (place)"},{"id":"2-61","lv":"D","q":"She resides ___ her grandparents.","a":["with"],"x":"reside with + the people you live with.","c":"V","p":"live with"},{"id":"2-62","lv":"D","q":"He is seated ___ the bench.","a":["on","in"],"x":"on the bench: seated on a surface.","c":"P","p":"on (surface)"},{"id":"2-63","lv":"C","q":"The receipts are ___ the folder.","a":["in"],"x":"in a folder: inside a container.","c":"P","p":"in (inside)"},{"id":"2-64","lv":"C","q":"The kitten is hiding ___ the sofa.","a":["under","behind","beneath","below"],"x":"under the sofa = beneath it.","c":"P","p":"under"},{"id":"2-65","lv":"C","q":"She crossed ___ the road cautiously.","a":["across","over"],"x":"across and over both fit; strictly, cross already means go across, so many writers use no preposition.","c":"P","p":"across"},{"id":"2-66","lv":"D","q":"He steered ___ the underpass.","a":["through","into","under","along"],"x":"steer through an underpass: from one end to the other.","c":"P","p":"through"},{"id":"2-67","lv":"C","q":"We hiked ___ the hill.","a":["up","down","to","towards","toward","over","across"],"x":"hike up a hill = climb it.","c":"P","p":"up/down"},{"id":"2-68","lv":"D","q":"The sparrow flew ___ the balcony.","a":["onto","on","over","towards","toward","to","into"],"x":"onto the balcony = landing on its surface.","c":"P","p":"onto","w":"The cat jumped ___ the roof.","wa":["onto","on"]},{"id":"2-69","lv":"C","q":"She relocated ___ Sylhet last year.","a":["to"],"x":"relocate to + the new place.","c":"V","p":"move to"},{"id":"2-70","lv":"D","q":"He is reporting ___ the flood zone.","a":["from","in","at"],"x":"report from + the place you report from.","c":"V","p":"report from"},{"id":"2-71","lv":"C","q":"They wandered ___ the shoreline.","a":["along","on","by","across","to","beside"],"x":"along the shoreline = following its edge.","c":"P","p":"along"},{"id":"2-72","lv":"C","q":"The interns went ___ the newsroom.","a":["into","to","inside"],"x":"go into a newsroom = enter it.","c":"P","p":"into"},{"id":"2-73","lv":"C","q":"She is waiting ___ the editor’s call.","a":["for"],"x":"wait for + a call.","c":"V","p":"wait for"},{"id":"2-74","lv":"C","q":"He is chatting ___ his colleague.","a":["with","to"],"x":"chat with + a person.","c":"V","p":"talk to"},{"id":"2-75","lv":"C","q":"I borrowed this journal ___ the archive.","a":["from"],"x":"borrow from + the source.","c":"V","p":"borrow from"},{"id":"2-76","lv":"C","q":"She got a text ___ her cousin.","a":["from"],"x":"get a text from + the sender.","c":"V","p":"receive from"},{"id":"2-77","lv":"D","q":"He is employed ___ a design studio.","a":["at","for","by"],"x":"employed at a place; employed by or for an employer.","c":"V","p":"work for"},{"id":"2-78","lv":"C","q":"We debated the issue ___ the seminar.","a":["during","at","in"],"x":"during + an event: during the seminar.","c":"T","p":"during"},{"id":"2-79","lv":"C","q":"She was absent ___ the workshop yesterday.","a":["from"],"x":"absent from + a place or event.","c":"A","p":"absent from"},{"id":"2-80","lv":"C","q":"He succeeded ___ finishing the assignment on time.","a":["in"],"x":"succeed in + -ing.","c":"V","p":"succeed in"},{"id":"2-81","lv":"C","q":"They are debating ___ the new policy.","a":["about","over"],"x":"debate about + a topic; over also fits.","c":"V","p":"talk about"},{"id":"2-82","lv":"C","q":"I keep thinking ___ the deadline.","a":["about"],"x":"think about + a subject; of also fits.","c":"V","p":"think about"},{"id":"2-83","lv":"C","q":"She grumbled ___ the delay.","a":["about","over"],"x":"grumble about + the problem.","c":"V","p":"complain about"},{"id":"2-84","lv":"C","q":"He believes ___ second chances.","a":["in"],"x":"believe in = trust the value of.","c":"V","p":"believe in"},{"id":"2-85","lv":"D","q":"We are hunting ___ an answer.","a":["for"],"x":"hunt for = search for.","c":"V","p":"search for"},{"id":"2-86","lv":"C","q":"She is anxious ___ her scores.","a":["about"],"x":"anxious about + the worry.","c":"A","p":"worried about"},{"id":"2-87","lv":"D","q":"He is answerable ___ the error.","a":["for"],"x":"answerable for + an action; answerable to + a person.","c":"A","p":"responsible for"},{"id":"2-88","lv":"D","q":"They are acquainted ___ the routine.","a":["with"],"x":"acquainted with + something you know.","c":"A","p":"familiar with"},{"id":"2-89","lv":"C","q":"I am thankful ___ your guidance.","a":["for"],"x":"thankful for + the help.","c":"A","p":"grateful for"},{"id":"2-90","lv":"D","q":"She is furious ___ her cousin.","a":["with","at"],"x":"furious with + a person; at also works.","c":"A","p":"angry with"},{"id":"2-91","lv":"D","q":"He is celebrated ___ his essays.","a":["for"],"x":"celebrated for + what you are known for.","c":"A","p":"famous for"},{"id":"2-92","lv":"C","q":"We are satisfied ___ the outcome.","a":["with"],"x":"satisfied with + the outcome.","c":"A","p":"pleased with"},{"id":"2-93","lv":"D","q":"She is wedded ___ a professor.","a":["to"],"x":"wedded to + a spouse (or an idea).","c":"A","p":"married to"},{"id":"2-94","lv":"D","q":"He is hooked ___ his phone.","a":["on"],"x":"hooked on + an activity or habit.","c":"A","p":"hooked on","w":"He is hooked ___ video games.","wa":["on"]},{"id":"2-95","lv":"D","q":"I am let down ___ the coverage.","a":["by"],"x":"let down by + the cause.","c":"A","p":"let down by","w":"She felt let down ___ her friends.","wa":["by"]},{"id":"2-96","lv":"C","q":"They are thrilled ___ the excursion.","a":["about","by","with"],"x":"thrilled about + an event.","c":"A","p":"excited about"},{"id":"2-97","lv":"D","q":"She is enthusiastic ___ picking up new skills.","a":["about"],"x":"enthusiastic about + noun or -ing.","c":"A","p":"excited about"},{"id":"2-98","lv":"C","q":"He is opposed ___ the plan.","a":["to"],"x":"opposed to + a noun.","c":"A","p":"opposed to"},{"id":"2-99","lv":"C","q":"We are curious ___ your findings.","a":["about"],"x":"curious about + a topic.","c":"A","p":"curious about"},{"id":"2-100","lv":"C","q":"She is proud ___ her son.","a":["of"],"x":"proud of + a person or achievement.","c":"A","p":"proud of"},{"id":"3-1","lv":"D","q":"She specializes ___ international law.","a":["in"],"x":"specialise in + a field.","c":"V","p":"specialise in","w":"He specialises ___ tax law.","wa":["in"]},{"id":"3-2","lv":"C","q":"He is terrified ___ heights.","a":["of"],"x":"terrified of + the thing you fear.","c":"A","p":"afraid of"},{"id":"3-3","lv":"C","q":"We have lived here ___ three months.","a":["for"],"x":"for + duration: for three months.","c":"T","p":"for (duration)"},{"id":"3-4","lv":"C","q":"The lamp is ___ the desk.","a":["on","under","above","over","beside","near","by","next to","behind","beneath"],"x":"on the desk = on its surface; beside, under and near also fit.","c":"P","p":"on (surface)"},{"id":"3-5","lv":"C","q":"He is allergic ___ dust.","a":["to"],"x":"allergic to + the substance.","c":"A","p":"allergic to"},{"id":"3-6","lv":"C","q":"She is passionate ___ photography.","a":["about","for"],"x":"passionate about + an interest.","c":"A","p":"passionate about","w":"He is passionate ___ music.","wa":["about"]},{"id":"3-7","lv":"C","q":"I am searching ___ my glasses.","a":["for"],"x":"search for + what you look for.","c":"V","p":"search for"},{"id":"3-8","lv":"C","q":"They rushed ___ the station.","a":["to","toward","towards","into","for"],"x":"rush to + a destination.","c":"P","p":"to (destination)"},{"id":"3-9","lv":"D","q":"He counts ___ his colleagues for support.","a":["on"],"x":"count on = rely on.","c":"V","p":"depend on"},{"id":"3-10","lv":"C","q":"She apologized ___ interrupting the meeting.","a":["for"],"x":"apologize for + -ing.","c":"V","p":"apologize for"},{"id":"3-11","lv":"C","q":"The ceremony starts ___ noon.","a":["at"],"x":"at noon: at + a point in time.","c":"T","p":"at (clock time)"},{"id":"3-12","lv":"C","q":"We wandered ___ the old town.","a":["around","through","in","about"],"x":"wander around a town; through and in also fit.","c":"P","p":"around","w":"We walked ___ the lake.","wa":["around","along","by"]},{"id":"3-13","lv":"C","q":"He graduated ___ 2015.","a":["in"],"x":"graduate in + a year; graduate from + a school.","c":"T","p":"in (year/month)"},{"id":"3-14","lv":"C","q":"She has been teaching ___ 2018.","a":["since"],"x":"since + a start point with the present perfect continuous.","c":"T","p":"since"},{"id":"3-15","lv":"C","q":"The kite rose ___ the trees.","a":["above","over","beyond","past","through","into"],"x":"rise above the trees = higher than them.","c":"P","p":"over"},{"id":"3-16","lv":"D","q":"He is in favour ___ the new policy.","a":["of"],"x":"in favour of + a policy.","c":"F","p":"in favour of","w":"Most members are in favour ___ the change.","wa":["of"]},{"id":"3-17","lv":"C","q":"I agree ___ the proposal.","a":["with","to"],"x":"agree with + a person or view; agree to a proposal also works.","c":"V","p":"agree with"},{"id":"3-18","lv":"D","q":"She is devoted ___ her students.","a":["to"],"x":"devoted to + a person or cause.","c":"A","p":"devoted to"},{"id":"3-19","lv":"D","q":"They are guilty ___ negligence.","a":["of"],"x":"guilty of + the offence.","c":"A","p":"guilty of","w":"He was found guilty ___ theft.","wa":["of"]},{"id":"3-20","lv":"D","q":"He copes ___ stress well.","a":["with"],"x":"cope with + a difficulty.","c":"V","p":"cope with","w":"She copes ___ pressure well.","wa":["with"]},{"id":"3-21","lv":"C","q":"Slide the tray ___ the oven.","a":["into","in","inside"],"x":"slide something into an oven: movement inside.","c":"P","p":"into"},{"id":"3-22","lv":"C","q":"We touched down ___ Sylhet at midnight.","a":["in","at"],"x":"touch down in a city; at an airport.","c":"P","p":"arrive in"},{"id":"3-23","lv":"D","q":"She reports ___ a local channel.","a":["for"],"x":"report for a channel = work as its reporter.","c":"V","p":"work for"},{"id":"3-24","lv":"D","q":"He is uneasy ___ the new schedule.","a":["about","with","over"],"x":"uneasy about + the worry.","c":"A","p":"nervous about"},{"id":"3-25","lv":"D","q":"I am drained ___ the commute.","a":["from","by"],"x":"drained from or by + the cause.","c":"A","p":"exhausted from"},{"id":"3-26","lv":"C","q":"The vendors are gathered ___ the square.","a":["in","at","around"],"x":"gathered in a square: inside a bounded space.","c":"P","p":"in (inside)"},{"id":"3-27","lv":"D","q":"He wandered ___ the alley.","a":["down","along","through","into","up"],"x":"wander down an alley; along and through also fit.","c":"P","p":"up/down"},{"id":"3-28","lv":"C","q":"She borrowed a charger ___ her roommate.","a":["from"],"x":"borrow from + the lender.","c":"V","p":"borrow from"},{"id":"3-29","lv":"D","q":"This note is ___ the accountant.","a":["for","to","from"],"x":"for the accountant = intended for; to and from also fit a note.","c":"F","p":"for (recipient)"},{"id":"3-30","lv":"C","q":"He apologized ___ the misunderstanding.","a":["for"],"x":"apologize for + the misunderstanding.","c":"V","p":"apologize for"},{"id":"3-31","lv":"C","q":"The seminar resumes ___ Tuesday.","a":["on"],"x":"on + day.","c":"T","p":"on (day)"},{"id":"3-32","lv":"C","q":"We usually jog ___ sunrise.","a":["at","before","after","around"],"x":"at sunrise: at + a point in the day.","c":"T","p":"at night"},{"id":"3-33","lv":"C","q":"She has interned there ___ June.","a":["since"],"x":"since + a start point.","c":"T","p":"since"},{"id":"3-34","lv":"D","q":"He shared the credit ___ his team.","a":["with","among","between"],"x":"share something with + a person; among or between a group.","c":"V","p":"share with","w":"She shared her lunch ___ a friend.","wa":["with"]},{"id":"3-35","lv":"D","q":"The clinic is situated ___ two schools.","a":["between"],"x":"between + two things: two schools.","c":"P","p":"between"},{"id":"3-36","lv":"D","q":"She diverges ___ the mainstream view.","a":["from"],"x":"diverge from + the main path or view.","c":"A","p":"different from"},{"id":"3-37","lv":"D","q":"He is noted ___ his investigative pieces.","a":["for"],"x":"noted for + what you are known for.","c":"A","p":"famous for"},{"id":"3-38","lv":"D","q":"I am uncertain ___ the timeline.","a":["about"],"x":"uncertain about + the matter.","c":"A","p":"uncertain about","w":"He is uncertain ___ his plans.","wa":["about","of"]},{"id":"3-39","lv":"C","q":"They thanked her ___ her patience.","a":["for"],"x":"thank someone for + what they did.","c":"V","p":"thank for"},{"id":"3-40","lv":"D","q":"She succeeded ___ securing funding.","a":["in"],"x":"succeed in + -ing.","c":"V","p":"succeed in"},{"id":"3-41","lv":"D","q":"He is skilled ___ negotiation.","a":["at","in"],"x":"skilled at (or in) + an activity.","c":"A","p":"good at"},{"id":"3-42","lv":"C","q":"We are excited ___ the launch.","a":["about","for"],"x":"excited about (or for) + an event.","c":"A","p":"excited about"},{"id":"3-43","lv":"D","q":"She is liable ___ the damages.","a":["for"],"x":"liable for + damages.","c":"A","p":"responsible for"},{"id":"3-44","lv":"C","q":"He is tired ___ excuses.","a":["of"],"x":"tired of + something you are fed up with.","c":"A","p":"tired of"},{"id":"3-45","lv":"C","q":"The manager outlined the plan ___ the staff.","a":["to"],"x":"outline something to someone.","c":"V","p":"explain to"},{"id":"3-46","lv":"D","q":"She arrived ___ the nick of time.","a":["in"],"x":"in the nick of time is a fixed idiom.","c":"T","p":"in the nick of time","w":"The firefighters arrived ___ the nick of time.","wa":["in"]},{"id":"3-47","lv":"C","q":"He came ___ motorbike.","a":["by"],"x":"by + transport: by motorbike.","c":"F","p":"by (transport)"},{"id":"3-48","lv":"C","q":"We travelled ___ boat.","a":["by"],"x":"by + transport: by boat.","c":"F","p":"by (transport)"},{"id":"3-49","lv":"C","q":"The dog bounded ___ the garden.","a":["across","through","around","in","into","over"],"x":"bound across the garden: from one side to the other.","c":"P","p":"across"},{"id":"3-50","lv":"D","q":"She slipped ___ the meeting quietly.","a":["into","out of","from"],"x":"slip into a meeting = enter unnoticed.","c":"P","p":"into"},{"id":"3-51","lv":"D","q":"He plunged ___ the river.","a":["into","in"],"x":"plunge into water = movement inward.","c":"P","p":"into"},{"id":"3-52","lv":"D","q":"The drone hovered ___ the field.","a":["over","above","across"],"x":"hover over a field; above also fits.","c":"P","p":"over"},{"id":"3-53","lv":"D","q":"She glanced ___ the keyhole.","a":["through","at","into"],"x":"glance through a keyhole.","c":"P","p":"through"},{"id":"3-54","lv":"D","q":"He lifted the file ___ the cabinet.","a":["out of","from","into"],"x":"lift something out of a cabinet.","c":"P","p":"out of"},{"id":"3-55","lv":"D","q":"We passed ___ the checkpoint.","a":["through","past","by","across"],"x":"pass through a checkpoint.","c":"P","p":"through"},{"id":"3-56","lv":"C","q":"The stall is ___ the tailor and the grocer.","a":["between"],"x":"between + two shops.","c":"P","p":"between"},{"id":"3-57","lv":"D","q":"She stood ___ him during the photo.","a":["beside","next to","by","near","opposite","behind","with"],"x":"stand beside someone = next to them.","c":"P","p":"beside"},{"id":"3-58","lv":"D","q":"He lingered ___ the entrance.","a":["at","by","near","inside","outside","in"],"x":"linger at the entrance: at marks the point.","c":"P","p":"at (point)"},{"id":"3-59","lv":"C","q":"The clock hangs ___ the wall.","a":["on"],"x":"on the wall: attached to a surface.","c":"P","p":"on (surface)"},{"id":"3-60","lv":"D","q":"We camped ___ the riverside.","a":["by","at","near","along","on","beside"],"x":"camp by a river = near it.","c":"P","p":"by (near)"},{"id":"3-61","lv":"C","q":"She stays ___ her aunt during holidays.","a":["with"],"x":"stay with + the host.","c":"V","p":"live with"},{"id":"3-62","lv":"D","q":"He perched ___ the railing.","a":["on","upon"],"x":"perch on a railing: resting on top.","c":"P","p":"on (surface)"},{"id":"3-63","lv":"C","q":"The documents are ___ the cabinet.","a":["in"],"x":"in a cabinet: inside a container.","c":"P","p":"in (inside)"},{"id":"3-64","lv":"D","q":"The lizard vanished ___ the crack.","a":["into","in","through","down","under","behind"],"x":"vanish into a crack: movement inward.","c":"P","p":"into"},{"id":"3-65","lv":"D","q":"She darted ___ the lane.","a":["across","along","down","through","into"],"x":"dart across a lane: from side to side.","c":"P","p":"across"},{"id":"3-66","lv":"D","q":"He navigated ___ the traffic.","a":["through","in"],"x":"navigate through traffic.","c":"P","p":"through"},{"id":"3-67","lv":"D","q":"We trekked ___ the ridge.","a":["along","across","up","down","over"],"x":"trek along a ridge: following its length.","c":"P","p":"along"},{"id":"3-68","lv":"D","q":"The pigeon landed ___ the ledge.","a":["on","onto","upon"],"x":"land on a ledge: on its surface.","c":"P","p":"on (surface)"},{"id":"3-69","lv":"D","q":"She transferred ___ the Chattogram bureau.","a":["to"],"x":"transfer to + the new place.","c":"V","p":"move to"},{"id":"3-70","lv":"D","q":"He is broadcasting ___ the venue.","a":["from","in"],"x":"broadcast from + the venue.","c":"V","p":"report from"},{"id":"3-71","lv":"D","q":"They strolled ___ the promenade.","a":["along","on","across","by","down"],"x":"stroll along a promenade.","c":"P","p":"along"},{"id":"3-72","lv":"D","q":"The reporters filed ___ the press room.","a":["into","to","toward","towards","inside"],"x":"file into a room = walk in a line.","c":"P","p":"into"},{"id":"3-73","lv":"D","q":"She is hoping ___ a positive response.","a":["for"],"x":"hope for + what you want.","c":"V","p":"hope for","w":"We are hoping ___ good weather.","wa":["for"]},{"id":"3-74","lv":"D","q":"He is arguing ___ his editor.","a":["with"],"x":"argue with + a person; argue about + a topic.","c":"V","p":"argue with","w":"She argued ___ her brother all day.","wa":["with"]},{"id":"3-75","lv":"C","q":"I borrowed this data ___ the census bureau.","a":["from"],"x":"borrow from + the source.","c":"V","p":"borrow from"},{"id":"3-76","lv":"C","q":"She received feedback ___ her mentor.","a":["from"],"x":"receive feedback from + the giver.","c":"V","p":"receive from"},{"id":"3-77","lv":"D","q":"He is contracted ___ a production house.","a":["to","with","by"],"x":"contracted to or with an employer.","c":"V","p":"contract to","w":"The firm is contracted ___ the government.","wa":["to","with"]},{"id":"3-78","lv":"D","q":"We deliberated the matter ___ the retreat.","a":["during","at","in"],"x":"deliberate during + an event.","c":"T","p":"during"},{"id":"3-79","lv":"D","q":"She was missing ___ roll call.","a":["from","at","during"],"x":"missing from + a list or roll call.","c":"A","p":"absent from"},{"id":"3-80","lv":"D","q":"He excelled ___ cross-examining witnesses.","a":["at","in"],"x":"excel at + an activity; in also works.","c":"V","p":"excel at","w":"She excelled ___ public speaking.","wa":["at","in"]},{"id":"3-81","lv":"D","q":"They are arguing ___ the verdict.","a":["about","over"],"x":"argue about + a topic; over also fits.","c":"V","p":"talk about"},{"id":"3-82","lv":"D","q":"I am uneasy ___ the arrangement.","a":["about","with","over"],"x":"uneasy about + the worry.","c":"A","p":"nervous about"},{"id":"3-83","lv":"D","q":"She fretted ___ the outcome.","a":["over","about"],"x":"fret over or about + the worry.","c":"V","p":"fret over","w":"Don’t fret ___ small problems.","wa":["over","about"]},{"id":"3-84","lv":"D","q":"He swears ___ herbal remedies.","a":["by"],"x":"swear by = trust completely.","c":"V","p":"swear by","w":"My grandmother swears ___ ginger tea.","wa":["by"]},{"id":"3-85","lv":"D","q":"We are pushing ___ reform.","a":["for"],"x":"push for = campaign for.","c":"V","p":"push for","w":"Activists are pushing ___ new laws.","wa":["for"]},{"id":"3-86","lv":"C","q":"She is nervous ___ the presentation.","a":["about"],"x":"nervous about + the worry.","c":"A","p":"nervous about"},{"id":"3-87","lv":"D","q":"He is culpable ___ the leak.","a":["for"],"x":"culpable for + the wrongdoing.","c":"A","p":"responsible for"},{"id":"3-88","lv":"D","q":"They are unfamiliar ___ the software.","a":["with"],"x":"unfamiliar with + something new.","c":"A","p":"familiar with"},{"id":"3-89","lv":"D","q":"I am indebted ___ my mentors.","a":["to"],"x":"indebted to + the person you owe.","c":"A","p":"indebted to","w":"I am indebted ___ you for your kindness.","wa":["to"]},{"id":"3-90","lv":"D","q":"She is irritated ___ the delays.","a":["by","with","at"],"x":"irritated by + the cause.","c":"A","p":"irritated by","w":"He was irritated ___ the noise.","wa":["by","with","at"]},{"id":"3-91","lv":"D","q":"He is distinguished ___ his commentary.","a":["for","by"],"x":"distinguished for + what you are known for.","c":"A","p":"famous for"},{"id":"3-92","lv":"D","q":"We are content ___ the arrangement.","a":["with"],"x":"content with + the arrangement.","c":"A","p":"pleased with"},{"id":"3-93","lv":"D","q":"She is paired ___ a senior editor.","a":["with"],"x":"paired with + a partner.","c":"A","p":"paired with","w":"The new reporter was paired ___ an experienced editor.","wa":["with"]},{"id":"3-94","lv":"D","q":"He is glued ___ the screen.","a":["to"],"x":"glued to + the screen: stuck to it.","c":"A","p":"glued to","w":"The children were glued ___ the television.","wa":["to"]},{"id":"3-95","lv":"D","q":"I am unimpressed ___ the response.","a":["by","with"],"x":"unimpressed by or with + the cause.","c":"A","p":"unimpressed by","w":"She was unimpressed ___ his excuses.","wa":["by","with"]},{"id":"3-96","lv":"C","q":"They are nervous ___ the audit.","a":["about"],"x":"nervous about + the worry.","c":"A","p":"nervous about"},{"id":"3-97","lv":"D","q":"She is committed ___ the cause.","a":["to"],"x":"committed to + a cause.","c":"A","p":"devoted to"},{"id":"3-98","lv":"D","q":"He is critical ___ the decision.","a":["of","about"],"x":"critical of + the thing criticised.","c":"A","p":"critical of","w":"The report is critical ___ the police.","wa":["of","about"]},{"id":"3-99","lv":"D","q":"We are hopeful ___ a resolution.","a":["about","of"],"x":"hopeful about or of + the outcome.","c":"A","p":"hopeful about","w":"She is hopeful ___ the future.","wa":["about","of"]},{"id":"3-100","lv":"D","q":"She is devoted ___ her craft.","a":["to"],"x":"devoted to + a person or cause.","c":"A","p":"devoted to"},{"id":"C1","lv":"C","q":"I will see you ___ Monday.","a":["on"],"x":"on + day of the week.","c":"T","p":"on (day)"},{"id":"C2","lv":"C","q":"She wakes up ___ six every morning.","a":["at"],"x":"at + clock time.","c":"T","p":"at (clock time)"},{"id":"C3","lv":"C","q":"We usually have dinner ___ the evening.","a":["in"],"x":"in the morning, afternoon or evening; but at night.","c":"T","p":"in (year/month)"},{"id":"C4","lv":"C","q":"They live ___ Dhaka.","a":["in"],"x":"in + a city or country.","c":"P","p":"in (inside)"},{"id":"C5","lv":"C","q":"The children are listening ___ music.","a":["to"],"x":"listen to + what you hear.","c":"V","p":"listen to","w":"Please listen ___ the teacher.","wa":["to"]},{"id":"C6","lv":"C","q":"Look ___ the board, please.","a":["at"],"x":"look at = direct your eyes to something.","c":"V","p":"look at","w":"Look ___ that bird!","wa":["at"]},{"id":"C7","lv":"C","q":"Thank you ___ your help.","a":["for"],"x":"thank someone for + what they did.","c":"V","p":"thank for"},{"id":"C8","lv":"C","q":"He is not ___ home today.","a":["at"],"x":"at home is a fixed phrase.","c":"F","p":"at home"},{"id":"C9","lv":"C","q":"She asked ___ a glass of water.","a":["for"],"x":"ask for = request something.","c":"V","p":"ask for","w":"He asked ___ some help.","wa":["for"]},{"id":"C10","lv":"C","q":"I paid ___ the tickets.","a":["for"],"x":"pay for + the thing bought.","c":"V","p":"pay for","w":"Who will pay ___ the dinner?","wa":["for"]},{"id":"C11","lv":"C","q":"This pen belongs ___ me.","a":["to"],"x":"belong to + the owner.","c":"V","p":"belong to","w":"Does this bag belong ___ you?","wa":["to"]},{"id":"C12","lv":"C","q":"Don’t laugh ___ him.","a":["at"],"x":"laugh at = mock; laugh with = share the joke.","c":"V","p":"laugh at","w":"They laughed ___ the joke.","wa":["at"]},{"id":"C13","lv":"C","q":"We went to the market ___ foot.","a":["on"],"x":"on foot is the exception to by + transport.","c":"F","p":"on foot","w":"She goes to school ___ foot.","wa":["on"]},{"id":"C14","lv":"C","q":"The shop is open from nine ___ five.","a":["to","until","till"],"x":"from … to marks the start and end of a period.","c":"T","p":"to (range)","w":"The office is open from Monday ___ Friday.","wa":["to","until","till","through"]},{"id":"C15","lv":"C","q":"The glass is full ___ water.","a":["of"],"x":"full of + what fills it.","c":"A","p":"full of","w":"The room was full ___ people.","wa":["of"]},{"id":"C16","lv":"C","q":"This table is made ___ wood.","a":["of","from"],"x":"made of when the material is still visible; made from when it is transformed.","c":"F","p":"made of","w":"The bridge is made ___ steel.","wa":["of","from"]},{"id":"C17","lv":"C","q":"I am ready ___ the exam.","a":["for"],"x":"ready for + an event.","c":"A","p":"ready for","w":"Are you ready ___ the trip?","wa":["for"]},{"id":"C18","lv":"C","q":"He is late ___ school.","a":["for"],"x":"late for + an event or place.","c":"A","p":"late for","w":"I was late ___ work.","wa":["for"]},{"id":"C19","lv":"C","q":"She put her bag ___ the floor.","a":["on"],"x":"on the floor: resting on a surface.","c":"P","p":"on (surface)"},{"id":"C20","lv":"C","q":"The children are playing ___ the garden.","a":["in"],"x":"in the garden: inside a bounded area.","c":"P","p":"in (inside)"},{"id":"C21","lv":"C","q":"The teacher is standing ___ the class.","a":["in front of","before"],"x":"in front of = facing; behind is the opposite.","c":"P","p":"in front of","w":"He is standing ___ the mirror.","wa":["in front of","before","at"]},{"id":"C22","lv":"C","q":"The bank is ___ the post office and the school.","a":["between"],"x":"between + two named places.","c":"P","p":"between"},{"id":"C23","lv":"C","q":"He was born ___ 5 May.","a":["on"],"x":"on + a specific date.","c":"T","p":"on (day)"},{"id":"C24","lv":"C","q":"We have a long holiday ___ December.","a":["in"],"x":"in + month.","c":"T","p":"in (year/month)"},{"id":"C25","lv":"C","q":"The match starts ___ 7 p.m.","a":["at"],"x":"at + clock time.","c":"T","p":"at (clock time)"},{"id":"C26","lv":"C","q":"I have been here ___ morning.","a":["since"],"x":"since + start point, with perfect tenses.","c":"T","p":"since"},{"id":"C27","lv":"C","q":"She has been ill ___ three days.","a":["for"],"x":"for + duration.","c":"T","p":"for (duration)"},{"id":"C28","lv":"C","q":"The sun rises ___ the east.","a":["in"],"x":"in the east: in a direction or region.","c":"P","p":"in (inside)"},{"id":"C29","lv":"C","q":"Is this gift ___ me?","a":["for"],"x":"for + the intended recipient.","c":"F","p":"for (recipient)"},{"id":"C30","lv":"C","q":"Let’s go ___ a walk.","a":["for"],"x":"go for a walk is a fixed phrase.","c":"F","p":"go for a walk","w":"We often go ___ a run in the morning.","wa":["for"]},{"id":"C31","lv":"C","q":"He goes to work ___ car.","a":["by"],"x":"by + means of transport.","c":"F","p":"by (transport)"},{"id":"C32","lv":"C","q":"There is a bridge ___ the river.","a":["over","across"],"x":"a bridge goes over or across a river.","c":"P","p":"over"},{"id":"C33","lv":"C","q":"She cut the cake ___ a knife.","a":["with"],"x":"with + the tool used.","c":"F","p":"with (tool)","w":"He wrote the letter ___ a pencil.","wa":["with"]},{"id":"C34","lv":"C","q":"The film is ___ English.","a":["in"],"x":"in + a language.","c":"F","p":"in (language)","w":"She sings ___ Spanish.","wa":["in"]},{"id":"C35","lv":"C","q":"I spoke to her ___ the phone.","a":["on"],"x":"on the phone, on the radio, on TV.","c":"F","p":"on (phone)","w":"He is ___ the phone right now.","wa":["on"]},{"id":"C36","lv":"C","q":"She is ___ holiday this week.","a":["on"],"x":"on holiday is a fixed phrase.","c":"F","p":"on holiday","w":"They are ___ holiday in Cox’s Bazar.","wa":["on"]},{"id":"C37","lv":"C","q":"He plays ___ the school team.","a":["for","on"],"x":"play for a team = represent it; on the team is common in American English.","c":"V","p":"play for","w":"She plays ___ the national team.","wa":["for","on"]},{"id":"C38","lv":"C","q":"We are waiting ___ the bus stop.","a":["at"],"x":"at + a specific point.","c":"P","p":"at (point)"},{"id":"C39","lv":"C","q":"I’ll be there ___ ten minutes.","a":["in","within"],"x":"in ten minutes = ten minutes from now.","c":"T","p":"in (from now)","w":"The bus will arrive ___ five minutes.","wa":["in","within"]},{"id":"C40","lv":"C","q":"She was sitting ___ the window.","a":["by","near","beside","at"],"x":"by = next to; at suggests sitting at it like a desk.","c":"P","p":"by (near)"},{"id":"C41","lv":"C","q":"She spoke ___ a loud voice.","a":["in"],"x":"in a loud voice: the manner of speaking.","c":"F","p":"in (manner)","w":"He spoke ___ a low voice.","wa":["in"]},{"id":"C42","lv":"C","q":"We stayed ___ home all day.","a":["at"],"x":"at home is a fixed phrase.","c":"F","p":"at home"},{"id":"D1","lv":"D","q":"The report consists ___ three sections.","a":["of"],"x":"consist of + the parts.","c":"V","p":"consist of","w":"The team consists ___ five players.","wa":["of"]},{"id":"D2","lv":"D","q":"The accident resulted ___ serious injuries.","a":["in"],"x":"result in = cause; result from = be caused by.","c":"V","p":"result in","w":"The storm resulted ___ heavy damage.","wa":["in"]},{"id":"D3","lv":"D","q":"His illness resulted ___ overwork.","a":["from"],"x":"result from = be caused by; result in = lead to.","c":"V","p":"result from","w":"The delay resulted ___ a technical fault.","wa":["from"]},{"id":"D4","lv":"D","q":"She contributed ___ the discussion.","a":["to"],"x":"contribute to + what you add to.","c":"V","p":"contribute to","w":"Everyone contributed ___ the project.","wa":["to"]},{"id":"D5","lv":"D","q":"Small businesses benefit ___ lower taxes.","a":["from"],"x":"benefit from + the source of advantage.","c":"V","p":"benefit from","w":"Students benefit ___ small classes.","wa":["from"]},{"id":"D6","lv":"D","q":"Many residents object ___ the new road.","a":["to"],"x":"object to + the thing opposed.","c":"V","p":"object to","w":"I object ___ being treated like this.","wa":["to"]},{"id":"D7","lv":"D","q":"The article refers ___ a recent study.","a":["to"],"x":"refer to = mention.","c":"V","p":"refer to","w":"Please refer ___ the manual.","wa":["to"]},{"id":"D8","lv":"D","q":"All drivers must comply ___ the rules.","a":["with"],"x":"comply with + a rule.","c":"V","p":"comply with","w":"Companies must comply ___ the law.","wa":["with"]},{"id":"D9","lv":"D","q":"We must conform ___ the standards.","a":["to","with"],"x":"conform to or with + a standard.","c":"V","p":"conform to","w":"The building must conform ___ safety codes.","wa":["to","with"]},{"id":"D10","lv":"D","q":"Employers must not discriminate ___ women.","a":["against"],"x":"discriminate against + the group treated unfairly.","c":"V","p":"discriminate against","w":"It is illegal to discriminate ___ older workers.","wa":["against"]},{"id":"D11","lv":"D","q":"The company adheres ___ strict ethical codes.","a":["to"],"x":"adhere to + a rule or principle.","c":"V","p":"adhere to","w":"Please adhere ___ the instructions.","wa":["to"]},{"id":"D12","lv":"D","q":"She attributes her success ___ her mentor.","a":["to"],"x":"attribute something to + its cause.","c":"V","p":"attribute to","w":"He attributed his failure ___ bad luck.","wa":["to"]},{"id":"D13","lv":"D","q":"They blamed the manager ___ the delay.","a":["for"],"x":"blame someone for + the fault.","c":"V","p":"blame for","w":"Don’t blame me ___ your mistake.","wa":["for"]},{"id":"D14","lv":"D","q":"The delay was blamed ___ the manager.","a":["on"],"x":"blame something on someone; blame someone for something.","c":"V","p":"blame on","w":"Don’t blame the mistake ___ me.","wa":["on"]},{"id":"D15","lv":"D","q":"They deprived him ___ his rights.","a":["of"],"x":"deprive someone of + what is taken.","c":"V","p":"deprive of","w":"The storm deprived the town ___ electricity.","wa":["of"]},{"id":"D16","lv":"D","q":"The hospital provided the refugees ___ blankets.","a":["with"],"x":"provide someone with + the supply.","c":"V","p":"provide with","w":"The school provides every student ___ a laptop.","wa":["with"]},{"id":"D17","lv":"D","q":"The lab is equipped ___ modern instruments.","a":["with"],"x":"equipped with + the equipment.","c":"A","p":"equipped with","w":"The kitchen is equipped ___ a new oven.","wa":["with"]},{"id":"D18","lv":"D","q":"She reacted ___ the news calmly.","a":["to"],"x":"react to + the stimulus.","c":"V","p":"react to","w":"How did she react ___ the news?","wa":["to"]},{"id":"D19","lv":"D","q":"He responded ___ my email quickly.","a":["to"],"x":"respond to + the message.","c":"V","p":"respond to","w":"He did not respond ___ my question.","wa":["to"]},{"id":"D20","lv":"D","q":"She is recovering ___ a serious illness.","a":["from"],"x":"recover from + an illness.","c":"V","p":"recover from","w":"He is slowly recovering ___ the flu.","wa":["from"]},{"id":"D21","lv":"D","q":"He resigned ___ his post last week.","a":["from"],"x":"resign from + a position.","c":"V","p":"resign from","w":"She resigned ___ the board in May.","wa":["from"]},{"id":"D22","lv":"D","q":"She graduated ___ Dhaka University.","a":["from"],"x":"graduate from + a school.","c":"V","p":"graduate from","w":"He graduated ___ Chittagong University.","wa":["from"]},{"id":"D23","lv":"D","q":"I subscribe ___ several journals.","a":["to"],"x":"subscribe to + a publication.","c":"V","p":"subscribe to","w":"Do you subscribe ___ any newspaper?","wa":["to"]},{"id":"D24","lv":"D","q":"Everyone participated ___ the debate.","a":["in"],"x":"participate in + an activity.","c":"V","p":"participate in","w":"All students must participate ___ the drill.","wa":["in"]},{"id":"D25","lv":"D","q":"He indulged ___ expensive hobbies.","a":["in"],"x":"indulge in + a pleasure.","c":"V","p":"indulge in","w":"She indulged ___ a long nap.","wa":["in"]},{"id":"D26","lv":"D","q":"He invested heavily ___ real estate.","a":["in"],"x":"invest in + what you put money into.","c":"V","p":"invest in","w":"They want to invest ___ renewable energy.","wa":["in"]},{"id":"D27","lv":"D","q":"I confided ___ my sister.","a":["in"],"x":"confide in + the person you trust.","c":"V","p":"confide in","w":"She confided ___ her best friend.","wa":["in"]},{"id":"D28","lv":"D","q":"She elaborated ___ her proposal.","a":["on","upon"],"x":"elaborate on + the topic.","c":"V","p":"elaborate on","w":"Could you elaborate ___ that point?","wa":["on","upon"]},{"id":"D29","lv":"D","q":"Please comment ___ the draft.","a":["on"],"x":"comment on + the thing discussed.","c":"V","p":"comment on","w":"He declined to comment ___ the rumour.","wa":["on","upon"]},{"id":"D30","lv":"D","q":"He dwelt ___ his past mistakes.","a":["on","upon"],"x":"dwell on = keep thinking about.","c":"V","p":"dwell on","w":"Don’t dwell ___ the past.","wa":["on","upon"]},{"id":"D31","lv":"D","q":"They embarked ___ a new project.","a":["on","upon"],"x":"embark on + a new undertaking.","c":"V","p":"embark on","w":"She embarked ___ a career in law.","wa":["on","upon"]},{"id":"D32","lv":"D","q":"I stumbled ___ an old photograph.","a":["across","upon","on"],"x":"stumble across or upon = find by chance.","c":"V","p":"stumble across","w":"I stumbled ___ a rare book in the market.","wa":["across","upon","on"]},{"id":"D33","lv":"D","q":"The police are looking ___ the matter.","a":["into"],"x":"look into = investigate.","c":"V","p":"look into","w":"The committee will look ___ the complaint.","wa":["into"]},{"id":"D34","lv":"D","q":"How do you account ___ the results?","a":["for"],"x":"account for = explain.","c":"V","p":"account for","w":"Nothing can account ___ his absence.","wa":["for"]},{"id":"D35","lv":"D","q":"The plan must allow ___ delays.","a":["for"],"x":"allow for = take into consideration.","c":"V","p":"allow for","w":"Please allow ___ traffic when you plan your trip.","wa":["for"]},{"id":"D36","lv":"D","q":"The café caters ___ vegetarians.","a":["to","for"],"x":"cater to or for + the customers served.","c":"V","p":"cater to","w":"The hotel caters ___ business travellers.","wa":["to","for"]},{"id":"D37","lv":"D","q":"I can vouch ___ his honesty.","a":["for"],"x":"vouch for = guarantee.","c":"V","p":"vouch for","w":"I can vouch ___ her character.","wa":["for"]},{"id":"D38","lv":"D","q":"What does UN stand ___?","a":["for"],"x":"stand for = represent.","c":"V","p":"stand for","w":"What does NGO stand ___?","wa":["for"]},{"id":"D39","lv":"D","q":"She opted ___ the cheaper plan.","a":["for"],"x":"opt for = choose.","c":"V","p":"opt for","w":"Most voters opted ___ change.","wa":["for"]},{"id":"D40","lv":"D","q":"He qualifies ___ a scholarship.","a":["for"],"x":"qualify for + what you are eligible for.","c":"V","p":"qualify for","w":"She qualifies ___ free tuition.","wa":["for"]},{"id":"D41","lv":"D","q":"They applied ___ a visa.","a":["for"],"x":"apply for + what you request.","c":"V","p":"apply for","w":"He applied ___ a job at the bank.","wa":["for"]},{"id":"D42","lv":"D","q":"She yearns ___ freedom.","a":["for"],"x":"yearn for = long for.","c":"V","p":"yearn for","w":"They yearn ___ peace.","wa":["for"]},{"id":"D43","lv":"D","q":"The lion preys ___ small animals.","a":["on"],"x":"prey on = hunt as food.","c":"V","p":"prey on","w":"Owls prey ___ mice.","wa":["on","upon"]},{"id":"D44","lv":"D","q":"The bird feeds ___ insects.","a":["on","off"],"x":"feed on + the food source.","c":"V","p":"feed on","w":"Cows feed ___ grass.","wa":["on","off"]},{"id":"D45","lv":"D","q":"Some people thrive ___ pressure.","a":["on"],"x":"thrive on = flourish because of.","c":"V","p":"thrive on","w":"She thrives ___ challenges.","wa":["on"]},{"id":"D46","lv":"D","q":"Please reflect ___ your choices.","a":["on","upon"],"x":"reflect on = think carefully about.","c":"V","p":"reflect on","w":"Take a moment to reflect ___ what you learned.","wa":["on","upon"]},{"id":"D47","lv":"D","q":"He is intruding ___ my privacy.","a":["on","upon"],"x":"intrude on + someone’s space.","c":"V","p":"intrude on","w":"I don’t want to intrude ___ your time.","wa":["on","upon"]},{"id":"D48","lv":"D","q":"Don’t impose your views ___ others.","a":["on","upon"],"x":"impose something on someone.","c":"V","p":"impose on","w":"Don’t impose ___ your neighbours.","wa":["on","upon"]},{"id":"D49","lv":"D","q":"The decision hinges ___ one vote.","a":["on","upon"],"x":"hinge on = depend on.","c":"V","p":"hinge on","w":"The whole case hinges ___ this evidence.","wa":["on","upon"]},{"id":"D50","lv":"D","q":"Their proposal is akin ___ a bribe.","a":["to"],"x":"akin to = similar to.","c":"A","p":"akin to","w":"Her feeling was akin ___ grief.","wa":["to"]},{"id":"D51","lv":"D","q":"The two methods are analogous ___ each other.","a":["to","with"],"x":"analogous to = comparable to.","c":"A","p":"analogous to","w":"The heart is analogous ___ a pump.","wa":["to","with"]},{"id":"D52","lv":"D","q":"The plan is subject ___ approval.","a":["to"],"x":"subject to = depending on.","c":"A","p":"subject to","w":"All prices are subject ___ change.","wa":["to"]},{"id":"D53","lv":"D","q":"She is prone ___ headaches.","a":["to"],"x":"prone to = likely to suffer from.","c":"A","p":"prone to","w":"Old pipes are prone ___ leaks.","wa":["to"]},{"id":"D54","lv":"D","q":"Children are susceptible ___ infection.","a":["to"],"x":"susceptible to = easily affected by.","c":"A","p":"susceptible to","w":"He is susceptible ___ colds.","wa":["to"]},{"id":"D55","lv":"D","q":"Small islands are vulnerable ___ flooding.","a":["to"],"x":"vulnerable to = open to harm from.","c":"A","p":"vulnerable to","w":"Young plants are vulnerable ___ frost.","wa":["to"]},{"id":"D56","lv":"D","q":"The bacteria are resistant ___ antibiotics.","a":["to"],"x":"resistant to + the thing resisted.","c":"A","p":"resistant to","w":"The wood is resistant ___ water.","wa":["to"]},{"id":"D57","lv":"D","q":"He seems indifferent ___ other people’s feelings.","a":["to","toward","towards"],"x":"indifferent to = unconcerned by.","c":"A","p":"indifferent to","w":"She is indifferent ___ praise.","wa":["to","toward","towards"]},{"id":"D58","lv":"D","q":"They are hostile ___ outsiders.","a":["to","toward","towards"],"x":"hostile to + the target of hostility.","c":"A","p":"hostile to","w":"The crowd was hostile ___ the speaker.","wa":["to","toward","towards"]},{"id":"D59","lv":"D","q":"She remained loyal ___ her friends.","a":["to"],"x":"loyal to + the person you are faithful to.","c":"A","p":"loyal to","w":"A good friend is loyal ___ you in hard times.","wa":["to"]},{"id":"D60","lv":"D","q":"This model is superior ___ the old one.","a":["to"],"x":"superior to, never superior than.","c":"A","p":"superior to","w":"This brand is superior ___ the others.","wa":["to"]},{"id":"D61","lv":"D","q":"I find tea preferable ___ coffee.","a":["to"],"x":"preferable to, never preferable than.","c":"A","p":"preferable to","w":"Walking is preferable ___ driving here.","wa":["to"]},{"id":"D62","lv":"D","q":"This result is identical ___ last year’s.","a":["to","with"],"x":"identical to or with.","c":"A","p":"identical to","w":"Her bag is identical ___ mine.","wa":["to","with"]},{"id":"D63","lv":"D","q":"The two terms are not equivalent ___ each other.","a":["to"],"x":"equivalent to = equal in value.","c":"A","p":"equivalent to","w":"One mile is roughly equivalent ___ 1.6 kilometres.","wa":["to"]},{"id":"D64","lv":"D","q":"Your point is relevant ___ the topic.","a":["to"],"x":"relevant to + the subject.","c":"A","p":"relevant to","w":"That detail is not relevant ___ the case.","wa":["to"]},{"id":"D65","lv":"D","q":"Sleep is essential ___ good health.","a":["to","for"],"x":"essential to or for + what needs it.","c":"A","p":"essential to","w":"Water is essential ___ life.","wa":["to","for"]},{"id":"D66","lv":"D","q":"Exercise is beneficial ___ the heart.","a":["to","for"],"x":"beneficial to or for + what benefits.","c":"A","p":"beneficial to","w":"Fruit is beneficial ___ your health.","wa":["to","for"]},{"id":"D67","lv":"D","q":"Smoking is detrimental ___ health.","a":["to"],"x":"detrimental to = harmful to.","c":"A","p":"detrimental to","w":"Stress is detrimental ___ sleep.","wa":["to"]},{"id":"D68","lv":"D","q":"A quiet room is conducive ___ study.","a":["to"],"x":"conducive to = helpful for.","c":"A","p":"conducive to","w":"A calm mood is conducive ___ learning.","wa":["to"]},{"id":"D69","lv":"D","q":"She is aware ___ the risks.","a":["of"],"x":"aware of + what you know about.","c":"A","p":"aware of","w":"Are you aware ___ the new rules?","wa":["of"]},{"id":"D70","lv":"D","q":"He was conscious ___ being watched.","a":["of"],"x":"conscious of + what you notice.","c":"A","p":"conscious of","w":"She is conscious ___ her accent.","wa":["of"]},{"id":"D71","lv":"D","q":"They are suspicious ___ strangers.","a":["of","about"],"x":"suspicious of + the person distrusted.","c":"A","p":"suspicious of","w":"He is suspicious ___ free offers.","wa":["of","about"]},{"id":"D72","lv":"D","q":"She is jealous ___ her sister’s success.","a":["of"],"x":"jealous of + what someone has.","c":"A","p":"jealous of","w":"He is jealous ___ his brother’s fame.","wa":["of"]},{"id":"D73","lv":"D","q":"He is envious ___ my new job.","a":["of"],"x":"envious of + what someone has.","c":"A","p":"envious of","w":"I am envious ___ her talent.","wa":["of"]},{"id":"D74","lv":"D","q":"I am weary ___ his excuses.","a":["of"],"x":"weary of = tired of.","c":"A","p":"weary of","w":"They grew weary ___ waiting.","wa":["of"]},{"id":"D75","lv":"D","q":"She is ignorant ___ the facts.","a":["of","about"],"x":"ignorant of + what you do not know.","c":"A","p":"ignorant of","w":"He was ignorant ___ the law.","wa":["of","about"]},{"id":"D76","lv":"D","q":"The jury found him innocent ___ the crime.","a":["of"],"x":"innocent of + the offence.","c":"A","p":"innocent of","w":"She is innocent ___ any wrongdoing.","wa":["of"]},{"id":"D77","lv":"D","q":"The soil is rich ___ minerals.","a":["in","with"],"x":"rich in + what it contains.","c":"A","p":"rich in","w":"Spinach is rich ___ iron.","wa":["in","with"]},{"id":"D78","lv":"D","q":"The report is deficient ___ detail.","a":["in"],"x":"deficient in = lacking.","c":"A","p":"deficient in","w":"His diet is deficient ___ vitamins.","wa":["in"]},{"id":"D79","lv":"D","q":"She is fluent ___ three languages.","a":["in"],"x":"fluent in + a language.","c":"A","p":"fluent in","w":"He is fluent ___ French.","wa":["in"]},{"id":"D80","lv":"D","q":"He is proficient ___ data analysis.","a":["in","at"],"x":"proficient in + a skill.","c":"A","p":"proficient in","w":"She is proficient ___ Excel.","wa":["in","at"]},{"id":"D81","lv":"D","q":"The town is steeped ___ history.","a":["in"],"x":"steeped in = full of a quality.","c":"A","p":"steeped in","w":"The village is steeped ___ tradition.","wa":["in"]},{"id":"D82","lv":"D","q":"She was absorbed ___ her book.","a":["in"],"x":"absorbed in = fully engaged with.","c":"A","p":"absorbed in","w":"He was absorbed ___ his work.","wa":["in"]},{"id":"D83","lv":"D","q":"He is deeply involved ___ the scheme.","a":["in","with"],"x":"involved in + an activity.","c":"A","p":"involved in","w":"She is involved ___ several charities.","wa":["in","with"]},{"id":"D84","lv":"D","q":"Several officials were implicated ___ the scandal.","a":["in"],"x":"implicated in = shown to be connected with a wrongdoing.","c":"A","p":"implicated in","w":"He was implicated ___ the fraud.","wa":["in"]},{"id":"D85","lv":"D","q":"She is preoccupied ___ her exams.","a":["with","by"],"x":"preoccupied with + the worry.","c":"A","p":"preoccupied with","w":"He seems preoccupied ___ money.","wa":["with","by"]},{"id":"D86","lv":"D","q":"He is obsessed ___ fitness.","a":["with","about"],"x":"obsessed with + the fixation.","c":"A","p":"obsessed with","w":"She is obsessed ___ cleanliness.","wa":["with","about","by"]},{"id":"D87","lv":"D","q":"The document is riddled ___ errors.","a":["with","by"],"x":"riddled with = full of something bad.","c":"A","p":"riddled with","w":"The old wall is riddled ___ holes.","wa":["with","by"]},{"id":"D88","lv":"D","q":"The journey was fraught ___ danger.","a":["with"],"x":"fraught with = full of problems.","c":"A","p":"fraught with","w":"The plan is fraught ___ risk.","wa":["with"]},{"id":"D89","lv":"D","q":"The city is plagued ___ traffic.","a":["by","with"],"x":"plagued by or with + the problem.","c":"A","p":"plagued by","w":"The region is plagued ___ drought.","wa":["by","with"]},{"id":"D90","lv":"D","q":"The office was inundated ___ complaints.","a":["with","by"],"x":"inundated with = flooded with.","c":"A","p":"inundated with","w":"The shop was inundated ___ orders.","wa":["with","by"]},{"id":"D91","lv":"D","q":"He was overwhelmed ___ grief.","a":["by","with"],"x":"overwhelmed by or with + the feeling.","c":"A","p":"overwhelmed by","w":"She was overwhelmed ___ the support.","wa":["by","with"]},{"id":"D92","lv":"D","q":"She is saddled ___ debt.","a":["with"],"x":"saddled with = burdened with.","c":"A","p":"saddled with","w":"He is saddled ___ a huge loan.","wa":["with"]},{"id":"D93","lv":"D","q":"They arrived armed ___ cameras.","a":["with"],"x":"armed with + what they carry.","c":"A","p":"armed with","w":"He came armed ___ facts.","wa":["with","by"]},{"id":"D94","lv":"D","q":"I’m fed up ___ the noise.","a":["with"],"x":"fed up with = tired of.","c":"A","p":"fed up with","w":"I am fed up ___ waiting.","wa":["with"]},{"id":"D95","lv":"D","q":"He is intent ___ winning.","a":["on","upon"],"x":"intent on + what you are set on doing.","c":"A","p":"intent on","w":"She is intent ___ finishing today.","wa":["on","upon"]},{"id":"D96","lv":"D","q":"She is bent ___ proving them wrong.","a":["on","upon"],"x":"bent on = determined to do.","c":"A","p":"bent on","w":"He is bent ___ revenge.","wa":["on","upon"]},{"id":"D97","lv":"D","q":"He is focused ___ his goals.","a":["on"],"x":"focused on + the target.","c":"A","p":"focused on","w":"Stay focused ___ your studies.","wa":["on"]},{"id":"H1","lv":"H","q":"The committee is composed ___ twelve members.","a":["of"],"x":"be composed of + the members; compose is passive here.","c":"A","p":"composed of","w":"Water is composed ___ hydrogen and oxygen.","wa":["of"]},{"id":"H2","lv":"H","q":"He was oblivious ___ the danger.","a":["to","of"],"x":"oblivious to = unaware of.","c":"A","p":"oblivious to","w":"She was oblivious ___ the noise around her.","wa":["to","of"]},{"id":"H3","lv":"H","q":"The outcome is contingent ___ funding.","a":["on","upon"],"x":"contingent on = dependent on.","c":"A","p":"contingent on","w":"The trip is contingent ___ the weather.","wa":["on","upon"]},{"id":"H4","lv":"H","q":"She took umbrage ___ the remark.","a":["at"],"x":"take umbrage at = be offended by.","c":"V","p":"take umbrage at","w":"He took umbrage ___ her tone.","wa":["at"]},{"id":"H5","lv":"H","q":"He is averse ___ risk.","a":["to"],"x":"averse to = strongly opposed to; the to is a preposition.","c":"A","p":"averse to","w":"She is averse ___ change.","wa":["to"]},{"id":"H6","lv":"H","q":"The report is bereft ___ detail.","a":["of"],"x":"bereft of = completely lacking.","c":"A","p":"bereft of","w":"The room was bereft ___ furniture.","wa":["of"]},{"id":"H7","lv":"H","q":"The minister is impervious ___ criticism.","a":["to"],"x":"impervious to = unaffected by.","c":"A","p":"impervious to","w":"The fabric is impervious ___ water.","wa":["to"]},{"id":"H8","lv":"H","q":"She is conversant ___ three languages.","a":["with"],"x":"conversant with = familiar with.","c":"A","p":"conversant with","w":"He is conversant ___ modern methods.","wa":["with"]},{"id":"H9","lv":"H","q":"He was exonerated ___ all blame.","a":["from","of"],"x":"exonerate someone from or of + the blame.","c":"V","p":"exonerate from","w":"The evidence exonerated her ___ any wrongdoing.","wa":["from","of"]},{"id":"H10","lv":"H","q":"They were absolved ___ responsibility.","a":["of","from"],"x":"absolve someone of or from + the guilt.","c":"V","p":"absolve of","w":"The priest absolved him ___ his sins.","wa":["of","from"]},{"id":"H11","lv":"H","q":"She is wary ___ strangers.","a":["of"],"x":"wary of = cautious about.","c":"A","p":"wary of","w":"Be wary ___ unknown emails.","wa":["of"]},{"id":"H12","lv":"H","q":"She is adept ___ handling crises.","a":["at","in"],"x":"adept at + a skill.","c":"A","p":"adept at","w":"He is adept ___ solving puzzles.","wa":["at","in"]},{"id":"H13","lv":"H","q":"The two proposals are tantamount ___ a ban.","a":["to"],"x":"tantamount to = equivalent in effect to.","c":"A","p":"tantamount to","w":"His silence was tantamount ___ a confession.","wa":["to"]},{"id":"H14","lv":"H","q":"The law is in accordance ___ the constitution.","a":["with"],"x":"in accordance with = following.","c":"F","p":"in accordance with","w":"Act in accordance ___ the rules.","wa":["with"]},{"id":"H15","lv":"H","q":"The firm is in compliance ___ the regulations.","a":["with"],"x":"in compliance with = obeying.","c":"F","p":"in compliance with","w":"The plant operates in compliance ___ the permit.","wa":["with"]},{"id":"H16","lv":"H","q":"She prides herself ___ her punctuality.","a":["on","upon"],"x":"pride oneself on + a quality.","c":"V","p":"pride on","w":"He prides himself ___ his honesty.","wa":["on","upon"]},{"id":"H17","lv":"H","q":"He abstained ___ voting.","a":["from"],"x":"abstain from + -ing.","c":"V","p":"abstain from","w":"Patients should abstain ___ alcohol.","wa":["from"]},{"id":"H18","lv":"H","q":"They are at odds ___ each other.","a":["with"],"x":"at odds with = in disagreement with.","c":"F","p":"at odds with","w":"Her story is at odds ___ the facts.","wa":["with"]},{"id":"H19","lv":"H","q":"The results are at variance ___ the forecast.","a":["with"],"x":"at variance with = differing from.","c":"F","p":"at variance with","w":"His actions are at variance ___ his words.","wa":["with"]},{"id":"H20","lv":"H","q":"Submit the form ___ the deadline, or it will be rejected.","a":["by","before"],"x":"by = no later than; until means continuing up to.","c":"T","p":"by (deadline)","w":"Send me the file ___ noon at the latest.","wa":["by","before"]},{"id":"H21","lv":"H","q":"The shop will stay open ___ midnight.","a":["until","till","past","after"],"x":"until = continuing up to; by would mean no later than.","c":"T","p":"until","w":"She worked ___ dawn without a break.","wa":["until","till"]},{"id":"H22","lv":"H","q":"He is privy ___ the secret.","a":["to"],"x":"privy to = sharing secret knowledge of.","c":"A","p":"privy to","w":"Only two people were privy ___ the plan.","wa":["to"]},{"id":"H23","lv":"H","q":"The case was predicated ___ one assumption.","a":["on","upon"],"x":"predicated on = based on.","c":"A","p":"predicated on","w":"The theory is predicated ___ a single idea.","wa":["on","upon"]},{"id":"H24","lv":"H","q":"Her success is attributable ___ hard work.","a":["to"],"x":"attributable to = caused by.","c":"A","p":"attributable to","w":"The rise in prices is attributable ___ fuel costs.","wa":["to"]},{"id":"H25","lv":"H","q":"He capitalised ___ the opportunity.","a":["on","upon"],"x":"capitalise on = take advantage of.","c":"V","p":"capitalise on","w":"The shop capitalised ___ the festival crowds.","wa":["on","upon"]},{"id":"H26","lv":"H","q":"The government clamped down ___ protests.","a":["on"],"x":"clamp down on = act firmly against.","c":"V","p":"clamp down on","w":"Police plan to clamp down ___ speeding.","wa":["on"]},{"id":"H27","lv":"H","q":"He reneged ___ the deal.","a":["on"],"x":"renege on = fail to keep a promise.","c":"V","p":"renege on","w":"The company reneged ___ its promise.","wa":["on"]},{"id":"H28","lv":"H","q":"The firms colluded ___ each other to fix prices.","a":["with"],"x":"collude with + the partner in secret.","c":"V","p":"collude with","w":"Officials colluded ___ the smugglers.","wa":["with"]},{"id":"H29","lv":"H","q":"She has become inured ___ the noise.","a":["to"],"x":"inured to = accustomed to something unpleasant.","c":"A","p":"inured to","w":"Nurses become inured ___ suffering.","wa":["to"]},{"id":"H30","lv":"H","q":"He is cognisant ___ the risks.","a":["of"],"x":"cognisant of = aware of.","c":"A","p":"cognisant of","w":"The board is cognisant ___ public concern.","wa":["of"]},{"id":"H31","lv":"H","q":"The staff were apprised ___ the changes.","a":["of"],"x":"apprise someone of = inform them about.","c":"V","p":"apprise of","w":"Please apprise me ___ any changes.","wa":["of"]},{"id":"H32","lv":"H","q":"The speech was replete ___ clichés.","a":["with"],"x":"replete with = filled with.","c":"A","p":"replete with","w":"The report is replete ___ statistics.","wa":["with"]},{"id":"H33","lv":"H","q":"The city is teeming ___ tourists.","a":["with"],"x":"teem with = be full of moving things.","c":"A","p":"teeming with","w":"The pond is teeming ___ fish.","wa":["with"]},{"id":"H34","lv":"H","q":"The dispute stems ___ a land issue.","a":["from"],"x":"stem from = originate from.","c":"V","p":"stem from","w":"Her fear stems ___ a childhood accident.","wa":["from"]},{"id":"H35","lv":"H","q":"She was reprimanded ___ arriving late.","a":["for"],"x":"reprimand someone for + the fault.","c":"V","p":"reprimand for","w":"He was reprimanded ___ missing the meeting.","wa":["for"]},{"id":"H36","lv":"H","q":"He was convicted ___ fraud.","a":["of"],"x":"convict someone of + the crime.","c":"V","p":"convict of","w":"She was convicted ___ murder.","wa":["of"]},{"id":"H37","lv":"H","q":"She was acquitted ___ all charges.","a":["of"],"x":"acquit someone of + the charge.","c":"V","p":"acquit of","w":"The jury acquitted him ___ the charge.","wa":["of"]},{"id":"H38","lv":"H","q":"The defendant pleaded guilty ___ manslaughter.","a":["to"],"x":"plead guilty to + the charge.","c":"V","p":"plead guilty to","w":"He pleaded guilty ___ theft.","wa":["to"]},{"id":"H39","lv":"H","q":"I am beholden ___ no one.","a":["to"],"x":"beholden to = owing a debt to someone.","c":"A","p":"beholden to","w":"She is beholden ___ her donors.","wa":["to"]},{"id":"H40","lv":"H","q":"The committee will inquire ___ the causes of the crash.","a":["into"],"x":"inquire into = investigate; inquire about = ask.","c":"V","p":"inquire into","w":"A panel will inquire ___ the cause of the fire.","wa":["into"]},{"id":"H41","lv":"H","q":"There is no substitute ___ experience.","a":["for"],"x":"substitute for + what it replaces.","c":"F","p":"substitute for","w":"Nothing is a substitute ___ hard work.","wa":["for"]},{"id":"H42","lv":"H","q":"With regard ___ your request, we are reviewing it.","a":["to"],"x":"with regard to = concerning.","c":"F","p":"with regard to","w":"I am writing with regard ___ your application.","wa":["to"]},{"id":"H43","lv":"H","q":"He has a penchant ___ drama.","a":["for"],"x":"penchant for = a strong liking for.","c":"F","p":"penchant for","w":"She has a penchant ___ red shoes.","wa":["for"]},{"id":"H44","lv":"H","q":"She succeeded at the expense ___ her health.","a":["of"],"x":"at the expense of = harming something to gain.","c":"F","p":"at the expense of","w":"He won at the expense ___ his friends.","wa":["of"]},{"id":"H45","lv":"H","q":"There is a discrepancy ___ the two accounts.","a":["between"],"x":"discrepancy between + two things.","c":"F","p":"discrepancy between","w":"There is a discrepancy ___ the budget and the bill.","wa":["between"]},{"id":"H46","lv":"H","q":"He has no authority ___ the staff.","a":["over"],"x":"authority over + the people controlled.","c":"F","p":"authority over","w":"The manager has authority ___ all staff.","wa":["over"]},{"id":"H47","lv":"H","q":"He got the job by virtue ___ his experience.","a":["of"],"x":"by virtue of = because of.","c":"F","p":"by virtue of","w":"She qualified by virtue ___ her degree.","wa":["of"]},{"id":"H48","lv":"H","q":"The decision was made in the wake ___ the scandal.","a":["of"],"x":"in the wake of = following.","c":"F","p":"in the wake of","w":"Prices rose in the wake ___ the storm.","wa":["of"]},{"id":"H49","lv":"H","q":"She donated money in lieu ___ flowers.","a":["of"],"x":"in lieu of = instead of.","c":"F","p":"in lieu of","w":"He accepted cash in lieu ___ a gift.","wa":["of"]},{"id":"H50","lv":"H","q":"He spoke on behalf ___ the committee.","a":["of"],"x":"on behalf of = representing.","c":"F","p":"on behalf of","w":"I accept this prize on behalf ___ my team.","wa":["of"]}];
+const BY = Object.fromEntries(BANK.map(b => [b.id, b]));
+const LV = {C:"Common", D:"Difficult", H:"Hardest"};
+const CAT = {T:"Time", P:"Place and movement", V:"Verb + preposition", A:"Adjective + preposition", F:"Fixed phrases and nouns"};
+const DAY = 86400000, INT = [3, 10, 30];
+const KEY = "preposition-drill-v1";
+const DEFAULTS = {need:3, reset:true, level:"all", style:"choice", focus:"all"};
+const fresh = () => ({v:1, upd:0, settings:{...DEFAULTS}, q:{}, mocks:[]});
+
+/* ---------- storage ---------- */
+function normalize(s){
+  if(!s || s.v !== 1 || typeof s.q !== "object") return fresh();
+  s.settings = {...DEFAULTS, ...(s.settings||{})};
+  delete s.settings.set; delete s.settings.order;
+  if(!Array.isArray(s.mocks)) s.mocks = [];
+  for(const id in s.q){
+    const r = s.q[id];
+    if(r.st === "fixed" && r.stage === undefined && r.due === undefined){ r.stage = 0; r.due = (r.fixedAt || Date.now()) + INT[0]*DAY; }
+  }
+  return s;
+}
+function loadLocal(){
+  try{ const raw = localStorage.getItem(KEY); if(raw) return normalize(JSON.parse(raw)); }catch(e){}
+  return fresh();
+}
+let state = loadLocal();
+const remote = {doc:null, busy:false, dirty:false, timer:null, status:"Saved on this device only"};
+function saveLocal(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function persist(){
+  state.upd = Date.now();
+  saveLocal();
+  if(remote.doc){ remote.dirty = true; clearTimeout(remote.timer); remote.timer = setTimeout(flush, 1200); }
+}
+async function flush(){
+  if(!remote.doc) return;
+  if(remote.busy){ remote.dirty = true; return; }
+  remote.busy = true; remote.dirty = false;
+  try{
+    await remote.doc.set({json: JSON.stringify(state), upd: state.upd});
+    setStatus("Synced to your account");
+  }catch(e){ setStatus("Account sync failed; saved on this device"); }
+  remote.busy = false;
+  if(remote.dirty){ clearTimeout(remote.timer); remote.timer = setTimeout(flush, 1200); }
+}
+function setStatus(t){ remote.status = t; const f = document.getElementById("remoteStatus") || document.getElementById("foot"); if(f) f.textContent = t; }
+(async () => {
+  try{
+    if(!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if(!db || !user) return;
+    const id = await user.id();
+    if(!id) return;
+    remote.doc = db.collection("data/users/" + id).doc("progress");
+    const snap = await remote.doc.get();
+    if(snap.exists){
+      const d = snap.data() || {};
+      let rs = null;
+      try{ rs = normalize(JSON.parse(d.json)); }catch(e){}
+      if(rs && (rs.upd||0) > (state.upd||0)){ state = rs; saveLocal(); cur = null; render(); }
+      else if((state.upd||0) > ((rs && rs.upd)||0)){ flush(); }
+    }else if((state.upd||0) > 0){ flush(); }
+    setStatus("Synced to your account");
+  }catch(e){ setStatus("Account sync unavailable; saved on this device only"); }
+})();
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s||"").toLowerCase().replace(/[^a-z ]/g," ").replace(/\s+/g," ").trim();
+const rand = n => Math.floor(Math.random()*n);
+const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j = rand(i+1); [a[i],a[j]] = [a[j],a[i]]; } return a; };
+const fmtDate = ts => ts ? new Date(ts).toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "";
+const need = () => state.settings.need;
+const inLevel = b => { const l = state.settings.level; return l==="all" || (l==="C" && b.lv==="C") || (l==="D" && b.lv!=="C") || (l==="H" && b.lv==="H"); };
+const inFocus = b => state.settings.focus==="all" || b.c === state.settings.focus;
+const sentenceFilled = b => { const [pre,post] = b.q.split("___"); return esc(pre) + "<b>" + esc(b.a[0]) + "</b>" + esc(post); };
+const pips = n => '<span class="pips" aria-hidden="true">' + Array.from({length:need()},(_,i)=>'<span class="pip'+(i<n?' on':'')+'"></span>').join("") + "</span>";
+const tag = b => '<span class="tag '+b.lv+'">'+LV[b.lv]+'</span>';
+const isDue = r => r && r.st==="fixed" && r.due && r.due <= Date.now();
+
+const poolPractice = () => BANK.filter(b => inLevel(b) && inFocus(b) && !state.q[b.id]);
+const poolReview   = () => BANK.filter(b => inLevel(b) && inFocus(b) && state.q[b.id] && state.q[b.id].st !== "err");
+const poolErr      = () => BANK.filter(b => state.q[b.id] && state.q[b.id].st === "err");
+const poolDue      = () => BANK.filter(b => isDue(state.q[b.id]));
+const poolFix      = () => poolErr().concat(poolDue());
+
+/* ---------- options for multiple choice ---------- */
+const CLASSIC = ["at","in","on","of","for","to","from","with","by","about","over","into","upon","against","through","under","between","across","since","during","up","off"];
+const SAFE = ["of","for","since","about","against","during","with","from","to"];
+function makeOptions(a){
+  const pool = (a.length >= 4 ? SAFE : CLASSIC).filter(x => !a.includes(x));
+  return shuffle([a[0]].concat(shuffle(pool).slice(0,3)));
+}
+
+/* ---------- same phrase, different sentence ---------- */
+function pickVariant(b, r){
+  const vs = [{k:"o", q:b.q, a:b.a}];
+  BANK.forEach(s => { if(s.id !== b.id && s.p === b.p) vs.push({k:s.id, q:s.q, a:s.a}); });
+  if(b.w) vs.push({k:"w", q:b.w, a:b.wa});
+  const last = (r && r.lastV) || "o";
+  const pool = vs.filter(v => v.k !== last);
+  const list = pool.length ? pool : vs;
+  return list[rand(list.length)];
+}
+
+/* ---------- session ---------- */
+let tab = "practice";
+let cur = null;               // {mode,id,phase,q,a,vk,options,typed,ok,retired,passed,skipped,guessed}
+let lastSnap = null;
+let lastFixId = null;
+let reviewMode = false;
+let mock = {phase:"start", style:null};
+let ui = {settings:false, backup:false, restore:false, confirmReset:false};
+
+function pickNext(){
+  if(tab === "fix"){
+    let p = poolFix(); if(!p.length) return null;
+    if(p.length > 1) p = p.filter(b => b.id !== lastFixId);
+    const b = p[rand(p.length)], r = state.q[b.id], v = pickVariant(b, r);
+    return {mode: r.st==="err" ? "fix" : "recheck", id:b.id, phase:"ask", q:v.q, a:v.a, vk:v.k};   // recall: always typed
+  }
+  if(tab === "practice"){
+    const p = reviewMode ? poolReview() : poolPractice();
+    if(!p.length) return null;
+    const b = p[rand(p.length)];                      // always random: no order by set, level or topic
+    const c = {mode:reviewMode?"review":"practice", id:b.id, phase:"ask", q:b.q, a:b.a, vk:"o"};
+    if(state.settings.style === "choice") c.options = makeOptions(b.a);
+    return c;
+  }
+  return null;
+}
+
+/* record an answer on an item; shared by practice, fix, recheck and mock */
+function applyResult(b, ok, t, skipped, mode){
+  let r = state.q[b.id];
+  if(!r) r = state.q[b.id] = {st:"ok", att:0, miss:0, first:ok, streak:0, wrong:[]};
+  r.att++;
+  const out = {retired:false, passed:false};
+  if(ok){
+    if(r.st === "err" && mode === "fix"){
+      r.streak++;
+      if(r.streak >= need()){ r.st = "fixed"; r.fixedAt = Date.now(); r.stage = 0; r.due = Date.now() + INT[0]*DAY; delete r.shaky; out.retired = true; }
+    }else if(r.st === "fixed" && mode === "recheck"){
+      r.stage = (r.stage||0) + 1;
+      r.due = r.stage < INT.length ? Date.now() + INT[r.stage]*DAY : null;
+      out.passed = true;
+    }
+  }else{
+    r.miss++; r.lastMiss = Date.now();
+    if(t && !skipped && !r.wrong.includes(t)) r.wrong.push(t);
+    if(r.st === "fixed") r.relapses = (r.relapses||0) + 1;
+    r.st = "err"; delete r.due; delete r.stage;
+    if(state.settings.reset || mode !== "fix") r.streak = 0;
+  }
+  return out;
+}
+function submit(typed, skipped){
+  if(!cur || cur.phase !== "ask") return;
+  if(cur.mode === "mock") return mockAnswer(typed, skipped);
+  const b = BY[cur.id];
+  const t = norm(typed);
+  const ok = !skipped && cur.a.includes(t);
+  lastSnap = {id:b.id, prev: state.q[b.id] ? JSON.parse(JSON.stringify(state.q[b.id])) : null};
+  const res = applyResult(b, ok, t, skipped, cur.mode);
+  const r = state.q[b.id];
+  if(cur.mode === "fix" || cur.mode === "recheck"){ r.lastV = cur.vk; lastFixId = b.id; }
+  cur.phase = "done"; cur.ok = ok; cur.typed = t; cur.skipped = !!skipped; cur.retired = res.retired; cur.passed = res.passed;
+  persist(); render();
+}
+function undo(){
+  if(!lastSnap) return;
+  if(lastSnap.prev) state.q[lastSnap.id] = lastSnap.prev; else delete state.q[lastSnap.id];
+  const c = {mode:cur.mode, id:cur.id, phase:"ask", q:cur.q, a:cur.a, vk:cur.vk};
+  if(cur.options) c.options = makeOptions(cur.a);
+  cur = c; lastSnap = null; persist(); render();
+}
+function markGuess(){
+  if(!cur || !cur.ok || cur.guessed || !lastSnap) return;
+  const id = cur.id;
+  if(lastSnap.prev) state.q[id] = lastSnap.prev; else delete state.q[id];
+  let r = state.q[id];
+  if(!r){
+    r = state.q[id] = {st:"err", att:1, miss:0, first:false, streak:Math.min(1, need()-1), wrong:[], shaky:true, lastMiss:Date.now()};
+  }else{
+    r.att++;
+    if(cur.mode === "fix"){ r.shaky = true; }
+    else if(cur.mode === "recheck"){ r.due = Date.now() + DAY; }
+    else if(r.st !== "err"){ r.st = "err"; r.streak = Math.min(1, need()-1); r.shaky = true; r.lastMiss = Date.now(); delete r.due; delete r.stage; }
+  }
+  if(cur.mode === "fix" || cur.mode === "recheck") r.lastV = cur.vk;
+  cur.guessed = true; cur.retired = false; cur.passed = false; lastSnap = null;
+  persist(); render();
+}
+function next(){ cur = pickNext(); render(); }
+
+/* ---------- mock test ---------- */
+function startMock(){
+  const pick = (lv, n) => shuffle(BANK.filter(b => b.lv === lv)).slice(0, n);
+  const style = mock.style || state.settings.style;
+  const qs = shuffle([...pick("C",12), ...pick("D",10), ...pick("H",3)]);
+  mock = {phase:"run", style, i:0, ans:[], qs: qs.map(b => ({id:b.id, options: style==="choice" ? makeOptions(b.a) : null}))};
+  mockCur(); render();
+}
+function mockCur(){
+  const m = mock.qs[mock.i], b = BY[m.id];
+  cur = {mode:"mock", id:b.id, phase:"ask", q:b.q, a:b.a, vk:"o", options:m.options || undefined};
+}
+function mockAnswer(typed, skipped){
+  mock.ans.push({typed:norm(typed), skipped:!!skipped});
+  mock.i++;
+  if(mock.i >= mock.qs.length) finishMock(); else mockCur();
+  render();
+}
+function finishMock(){
+  let score = 0; const byLv = {}, byCat = {}, missed = [];
+  mock.qs.forEach((m, i) => {
+    const b = BY[m.id], a = mock.ans[i];
+    const ok = !a.skipped && b.a.includes(a.typed);
+    applyResult(b, ok, a.typed, a.skipped, "mock");
+    if(ok) score++; else missed.push({b, typed:a.typed, skipped:a.skipped});
+    [[byLv,b.lv],[byCat,b.c]].forEach(([o,k]) => { o[k] = o[k] || {n:0, ok:0}; o[k].n++; if(ok) o[k].ok++; });
+  });
+  state.mocks.push({ts:Date.now(), score, total:mock.qs.length});
+  state.mocks = state.mocks.slice(-20);
+  persist();
+  mock.phase = "done"; mock.result = {score, total:mock.qs.length, byLv, byCat, missed};
+  cur = null;
+}
+
+/* ---------- views ---------- */
+function renderOverview(){
+  const total = BANK.length;
+  let ok=0, err=0, fix=0, first=0, answered=0;
+  for(const id in state.q){
+    const r = state.q[id]; if(!BY[id]) continue;
+    answered++; if(r.first) first++;
+    if(r.st==="ok") ok++; else if(r.st==="err") err++; else if(r.st==="fixed") fix++;
+  }
+  const due = poolDue().length;
+  const unseen = total - answered;
+  const pct = n => (n/total*100).toFixed(2) + "%";
+  const acc = answered ? Math.round(first/answered*100) : null;
+  $("#overview").innerHTML =
+    '<div class="strip" role="img" aria-label="'+answered+' of '+total+' questions answered, '+err+' open errors, '+fix+' fixed">' +
+      '<i class="s-fix" style="width:'+pct(fix)+'"></i><i class="s-ok" style="width:'+pct(ok)+'"></i><i class="s-err" style="width:'+pct(err)+'"></i></div>' +
+    '<p class="legend">' +
+      '<span><span class="dot" style="background:var(--green)"></span><b>'+fix+'</b> fixed</span>' +
+      '<span><span class="dot" style="background:var(--ink2)"></span><b>'+ok+'</b> right first time</span>' +
+      '<span><span class="dot" style="background:var(--red)"></span><b>'+err+'</b> open errors</span>' +
+      '<span><span class="dot" style="background:var(--line)"></span><b>'+unseen+'</b> not yet asked</span>' +
+      (due ? '<span><b>'+due+'</b> due for recheck</span>' : '') +
+      (acc!==null ? '<span>First-try accuracy <b>'+acc+'%</b></span>' : '') +
+    '</p>';
+  return {fixN: err + due, fix};
+}
+function renderTabs(c){
+  const t = [["practice","Practice",0,""],["fix","Fix errors",c.fixN,""],["log","Error log",0,""],["fixed","Fixed list",c.fix,"green"],["insights","Insights",0,""],["mock","Mock test",0,""],["info","How it works",0,""]];
+  $("#tabs").innerHTML = t.map(([k,l,n,cl]) =>
+    '<button data-tab="'+k+'"'+(tab===k?' aria-current="true"':'')+'>'+l+(n?'<span class="badge '+cl+'">'+n+'</span>':'')+'</button>').join("");
+}
+const MODE_LABEL = {practice:"Practice", review:"Review", fix:"Fix errors", recheck:"Recheck", mock:"Mock test"};
+function questionCard(){
+  const b = BY[cur.id], r = state.q[b.id];
+  const [pre, post] = cur.q.split("___");
+  let left = "";
+  if(cur.mode==="practice") left = poolPractice().length + " not yet asked in this pool";
+  if(cur.mode==="fix" || cur.mode==="recheck"){ const n = poolErr().length, d = poolDue().length; left = n + " open " + (n===1?"error":"errors") + (d ? ", " + d + " to recheck" : ""); }
+  if(cur.mode==="mock") left = "Question " + (mock.i+1) + " of " + mock.qs.length;
+  let extraMeta = "";
+  if((cur.mode==="fix" || cur.mode==="recheck") && cur.vk !== "o") extraMeta += '<span>Same phrase, new sentence</span>';
+  if((cur.mode==="practice" || cur.mode==="review") && state.settings.focus !== "all") extraMeta += '<span>Focus: '+esc(CAT[state.settings.focus])+' <button class="link" data-clearfocus="1" style="min-height:0;padding:0">clear</button></span>';
+  const lvl = cur.phase==="done" ? tag(b) : "";
+  const choice = cur.phase==="ask" && cur.options;
+  let slot;
+  if(cur.phase==="ask"){
+    slot = choice
+      ? '<span class="slot"><span style="display:inline-block;width:3.2ch;border-bottom:3px solid var(--ink)">&nbsp;</span></span>'
+      : '<span class="slot"><input class="blank" id="ans" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Your answer, the missing preposition"></span>';
+  }else if(cur.ok){
+    slot = '<span class="slot ok">'+esc(cur.typed)+'</span>';
+  }else if(cur.skipped || !cur.typed){
+    slot = '<span class="slot bad solo"><ins>'+esc(cur.a[0])+'</ins></span>';
+  }else{
+    slot = '<span class="slot bad"><del>'+esc(cur.typed)+'</del><ins>'+esc(cur.a[0])+'</ins></span>';
+  }
+  let fb = "";
+  if(cur.phase==="done"){
+    const alts = cur.a.slice(1);
+    const altLine = alts.length ? '<p>Also accepted: '+alts.map(esc).join(", ")+'.</p>' : "";
+    const why = '<p class="why"><span>Why:</span> '+esc(b.x)+'</p>';
+    if(cur.ok){
+      const gave = cur.a.indexOf(cur.typed) > 0 ? '<p>Your answer works; the main one is <strong>'+esc(cur.a[0])+'</strong>.</p>' : "";
+      let extra = "";
+      if(cur.guessed) extra = '<p>Marked as a guess, so it does not count as known.'+(cur.mode==="recheck"?' You will see it again tomorrow.':(cur.mode==="fix"?' No credit toward fixing this one.':' It is in your error log with a head start of '+state.q[b.id].streak+' of '+need()+'.'))+'</p>';
+      else if(cur.mode==="fix") extra = cur.retired
+        ? '<p class="celebrate">Fixed. It moves to your fixed list and comes back for a recheck on '+fmtDate(r.due)+'.</p>'
+        : '<p>'+pips(r.streak)+' &nbsp;'+r.streak+' of '+need()+' correct toward fixing this one.</p>';
+      else if(cur.mode==="recheck") extra = r.due
+        ? '<p class="celebrate">Recheck passed. Next one on '+fmtDate(r.due)+'.</p>'
+        : '<p class="celebrate">Recheck passed. All rechecks done: this one is mastered.</p>';
+      fb = '<div class="fb ok" role="status"><p><strong>'+(cur.guessed?'Correct, but a guess.':'Correct.')+'</strong></p>'+gave+why+extra+'</div>';
+    }else{
+      const extra = cur.mode==="fix"
+        ? '<p>'+pips(r.streak)+' &nbsp;'+(state.settings.reset?'Count reset to 0 of '+need()+'.':r.streak+' of '+need()+' correct so far.')+'</p>'
+        : cur.mode==="recheck" ? '<p>Back in your error log, so you can fix it again.</p>' : '<p>Added to your error log.</p>';
+      fb = '<div class="fb bad" role="status"><p><strong>Not quite.</strong> The answer is <strong>'+esc(cur.a[0])+'</strong>.</p>'+altLine+why+extra+'</div>';
+    }
+  }
+  let body;
+  if(choice){
+    body = '<div class="opts" role="group" aria-label="Choose the missing preposition">' +
+      cur.options.map((o,i) => '<button class="opt" data-opt="'+i+'"><kbd>'+(i+1)+'</kbd>'+esc(o)+'</button>').join("") +
+      '</div><div class="actions" style="margin-top:14px"><button class="link" id="skip">I don’t know</button></div>';
+  }else if(cur.phase==="ask"){
+    body = '<div class="actions"><button class="btn" id="check">'+(cur.mode==="mock"?"Next":"Check")+'</button><button class="link" id="skip">I don’t know</button></div>';
+  }else{
+    body = '<div class="actions"><button class="btn" id="nextBtn">Next question</button>' +
+      (cur.ok && !cur.guessed && lastSnap ? '<button class="link" id="guess">I guessed this</button>' : '') +
+      (!cur.ok && !cur.skipped && cur.typed && lastSnap ? '<button class="link" id="undo">That was a slip, undo</button>' : '') + '</div>';
+  }
+  const prog = cur.mode==="mock" ? '<div class="prog" aria-hidden="true"><i style="width:'+(mock.i/mock.qs.length*100)+'%"></i></div><p class="hint" style="margin:0 0 10px"><button class="link" data-reset="quitmock" style="min-height:0;padding:0">Quit this mock test</button></p>' : "";
+  return prog + '<section class="card" aria-live="polite">' +
+    '<p class="meta"><span>'+MODE_LABEL[cur.mode]+'</span><span>'+left+'</span>'+extraMeta+(lvl?lvl:'')+'</p>' +
+    '<p class="sentence">'+esc(pre)+slot+esc(post)+'</p>' + fb + body + '</section>';
+}
+function emptyBlock(h, p, btns){ return '<section class="empty"><h2>'+h+'</h2><p>'+p+'</p>'+(btns||"")+'</section>'; }
+function viewPractice(){
+  if(!cur){
+    if(reviewMode) return emptyBlock("No review questions yet","Answer some new questions first, then come back to repeat the ones you got right.",'<button class="btn" data-act="newq">Back to new questions</button>');
+    const seen = BANK.filter(b => inLevel(b) && inFocus(b) && state.q[b.id]).length;
+    const hasReview = poolReview().length > 0;
+    return emptyBlock("Every question in this pool has been asked",
+      seen ? "Open errors are waiting in Fix errors. You can also repeat questions you got right, or change the level or focus in Settings." : "There are no questions with this level and focus.",
+      '<div class="actions" style="margin-top:0"><button class="btn" data-tab="fix">Go to Fix errors</button>'+(hasReview?'<button class="link" data-act="review">Review questions I got right</button>':'')+(BANK.some(b=>inLevel(b)&&inFocus(b)&&state.q[b.id]&&state.q[b.id].st==="ok")?'<button class="warnbtn" data-reset="poolround">Start a new round</button>':'')+'</div>');
+  }
+  return questionCard();
+}
+function viewFix(){
+  if(!cur) return emptyBlock("Nothing to fix or recheck right now","Questions you miss land here. Get one right "+need()+" times and it moves to the fixed list, then returns for rechecks after "+INT.join(", ")+" days.",'<button class="btn" data-tab="practice">Go to Practice</button>');
+  return questionCard();
+}
+function viewLog(){
+  const items = poolErr().sort((a,b) => (state.q[b.id].lastMiss||0) - (state.q[a.id].lastMiss||0));
+  if(!items.length) return emptyBlock("The error log is empty","Every miss is recorded here with the wrong answers you tried, until you fix it.");
+  const tally = {};
+  BANK.forEach(b => { const r = state.q[b.id]; if(r && r.miss) tally[b.a[0]] = (tally[b.a[0]]||0) + r.miss; });
+  const top = Object.entries(tally).sort((a,b) => b[1]-a[1]).slice(0,6).map(([k,v]) => '<b>'+esc(k)+'</b> ('+v+')').join(", ");
+  return '<div class="toolbar"><button class="btn" id="pdfBtn">Download PDF worksheet</button><button class="warnbtn" data-reset="errors">Clear error log</button><span class="hint" id="pdfMsg">'+items.length+(items.length===1?' question':' questions')+', sentences first, answer key with explanations after.</span></div>' +
+    (top ? '<p class="chips">Most-missed prepositions, counting every miss: '+top+'.</p>' : '') +
+    '<ul class="items">'+items.map(b => {
+      const r = state.q[b.id];
+      const wrong = r.wrong.length ? 'You wrote: '+r.wrong.map(w=>'<span class="w">'+esc(w)+'</span>').join(", ") : (r.shaky ? 'Marked as a guess' : 'Skipped');
+      return '<li class="item"><p class="q">'+sentenceFilled(b)+'</p><div class="m"><span>'+wrong+'</span>'+(r.miss?'<span>Missed '+r.miss+(r.miss===1?' time':' times')+'</span>':'')+'<span>'+pips(r.streak)+' '+r.streak+' of '+need()+'</span>'+tag(b)+'<span class="tag">'+esc(CAT[b.c])+'</span></div><p class="x">'+esc(b.x)+'</p></li>';
+    }).join("")+'</ul>';
+}
+function viewFixed(){
+  const items = BANK.filter(b => state.q[b.id] && state.q[b.id].st==="fixed").sort((a,b) => state.q[b.id].fixedAt - state.q[a.id].fixedAt);
+  if(!items.length) return emptyBlock("No fixed questions yet","A question lands here after you answer it correctly "+need()+" times in Fix errors. It then returns for rechecks after "+INT.join(", ")+" days.");
+  return '<div class="toolbar"><button class="warnbtn" data-reset="fixed">Clear fixed list</button></div><ul class="items">'+items.map(b => {
+    const r = state.q[b.id];
+    const rc = r.due ? (r.due <= Date.now() ? '<span><b>Recheck due now</b></span>' : '<span>Next recheck '+fmtDate(r.due)+'</span>') : '<span>Mastered: all rechecks passed</span>';
+    return '<li class="item"><p class="q">'+sentenceFilled(b)+'</p><div class="m"><span>Fixed '+fmtDate(r.fixedAt)+'</span>'+rc+(r.relapses?'<span>Slipped back '+r.relapses+'×</span>':'')+tag(b)+'<button class="link" data-reopen="'+b.id+'" style="min-height:0;padding:0">Move back to error log</button></div><p class="x">'+esc(b.x)+'</p></li>';
+  }).join("")+'</ul>';
+}
+function viewInsights(){
+  const cat = {}, lv = {};
+  let answered = 0;
+  for(const id in state.q){
+    const r = state.q[id], b = BY[id]; if(!b) continue;
+    answered++;
+    [[cat,b.c],[lv,b.lv]].forEach(([o,k]) => { const x = o[k] = o[k] || {items:0, att:0, miss:0, open:0}; x.items++; x.att += r.att; x.miss += r.miss; if(r.st==="err") x.open++; });
+  }
+  if(!answered) return emptyBlock("Nothing to show yet","Answer some questions in Practice and this page will show which kinds of preposition you get right and which need work.",'<button class="btn" data-tab="practice">Go to Practice</button>');
+  const acc = x => x && x.att ? Math.round((x.att - x.miss)/x.att*100) : null;
+  let weakK = null, weakV = 101;
+  Object.keys(CAT).forEach(k => { const x = cat[k]; if(x && x.att >= 5){ const a = acc(x); if(a < weakV){ weakV = a; weakK = k; } } });
+  const row = (label, x, weak) => {
+    const a = acc(x);
+    return '<div class="bar-row"><div>'+label+'<small>'+(x ? x.att+' attempts, '+x.open+' open '+(x.open===1?'error':'errors') : 'not started')+'</small></div>' +
+      '<div class="bar'+(weak?' weak':'')+'" role="img" aria-label="'+(a===null?'no data':a+' percent correct')+'"><i style="width:'+(a===null?0:a)+'%"></i></div><div class="num">'+(a===null?'–':a+'%')+'</div></div>';
+  };
+  let out = "";
+  if(weakK && weakV < 100) out += '<div class="callout"><p><strong>Weakest area so far: '+esc(CAT[weakK])+'</strong> ('+weakV+'% correct). Practice stays random; this limits it to that area until you clear the filter.</p><button class="btn" data-focus="'+weakK+'">Drill this area</button></div>';
+  else if(answered < 15) out += '<p class="section-note">A clearer picture appears after about 15 answers.</p>';
+  out += '<section class="panel"><h2>By kind of preposition</h2>' + Object.keys(CAT).map(k => row(esc(CAT[k]), cat[k], k===weakK && weakV<100)).join("") + '</section>';
+  out += '<section class="panel"><h2>By level</h2>' + ["C","D","H"].map(k => row(LV[k], lv[k], false)).join("") + '</section>';
+  if(state.mocks.length) out += '<section class="panel"><h2>Mock test scores</h2><ul class="hist">'+state.mocks.slice(-6).reverse().map(m => '<li>'+fmtDate(m.ts)+': <b>'+m.score+' of '+m.total+'</b> ('+Math.round(m.score/m.total*100)+'%)</li>').join("")+'</ul></section>';
+  out += '<p class="small">Accuracy counts every attempt, including rechecks. A level or kind needs a few attempts before the percentage means much.</p>';
+  return out;
+}
+function viewMock(){
+  if(mock.phase === "start"){
+    const sel = mock.style || state.settings.style;
+    const hist = state.mocks.length ? '<ul class="hist" style="margin:14px 0 0">'+state.mocks.slice(-3).reverse().map(m => '<li>Last scores: '+fmtDate(m.ts)+', '+m.score+' of '+m.total+'</li>').join("")+'</ul>' : "";
+    return '<section class="panel"><h2>Mock test</h2><p class="small">25 mixed questions: 12 common, 10 difficult and 3 of the hardest 50. No feedback until the end, then a score, a breakdown and every miss explained. Misses go into your error log. Level and focus settings do not apply here.</p>' +
+      '<div class="row"><label for="mockStyleSel">Format</label><select id="mockStyleSel"><option value="choice"'+(sel==="choice"?" selected":"")+'>Choose from 4 options</option><option value="type"'+(sel==="type"?" selected":"")+'>Type the preposition</option></select></div>' +
+      '<div class="actions" style="margin-top:6px"><button class="btn" id="startMock">Start mock test</button>'+(state.mocks.length?'<button class="warnbtn" data-reset="mocks">Clear saved scores</button>':'')+'</div>'+hist+'</section>';
+  }
+  if(mock.phase === "run"){ if(!cur || cur.mode !== "mock") mockCur(); return questionCard(); }
+  const R = mock.result, pct = Math.round(R.score/R.total*100);
+  const part = (o, names) => Object.keys(names).filter(k => o[k]).map(k => names[k]+' '+o[k].ok+'/'+o[k].n).join(" · ");
+  return '<section class="panel"><h2>Mock test result</h2><p class="score">'+R.score+' / '+R.total+'</p><p class="small" style="margin-bottom:12px">'+pct+'% correct</p>' +
+    '<p class="small">By level: '+part(R.byLv, LV)+'</p><p class="small">By kind: '+part(R.byCat, CAT)+'</p>' +
+    '<div class="actions" style="margin-top:6px"><button class="btn" id="againMock">Take another mock test</button>'+(R.missed.length?'<button class="link" data-tab="fix">Fix the '+R.missed.length+' misses</button>':'')+'</div></section>' +
+    (R.missed.length ? '<ul class="items">'+R.missed.map(m => {
+      const b = m.b, [pre, post] = b.q.split("___");
+      const mark = (m.skipped || !m.typed) ? '<span class="slot bad solo"><ins>'+esc(b.a[0])+'</ins></span>' : '<span class="slot bad"><del>'+esc(m.typed)+'</del><ins>'+esc(b.a[0])+'</ins></span>';
+      return '<li class="item"><p class="q" style="line-height:2.1">'+esc(pre)+mark+esc(post)+'</p><div class="m">'+tag(b)+(b.a.length>1?'<span>Also accepted: '+b.a.slice(1).map(esc).join(", ")+'</span>':'')+'</div><p class="x">'+esc(b.x)+'</p></li>';
+    }).join("")+'</ul>' : '<p class="section-note">No misses. Nothing to add to the error log.</p>');
+}
+
+function viewInfo(){
+  return '<section class="panel">' +
+    '<h2>How the drill works</h2>' +
+    '<p class="info-lead">An adaptive diagnostic engine designed to systematically dismantle bad habits in English prepositions and replace guesswork with active, permanent recall.</p>' +
+    '<div class="info-grid">' +
+      '<div class="info-card">' +
+        '<h3>500-question corpus <span class="pill-tag">Core Bank</span></h3>' +
+        '<p>A curated curriculum of 500 questions arranged across three difficulty tiers: <strong>250 Common</strong>, <strong>200 Difficult</strong>, and <strong>50 Hardest</strong>.</p>' +
+        '<ul>' +
+          '<li><strong>5 linguistic domains:</strong> Time, Place &amp; Movement, Verb collocations, Adjective collocations, and Fixed phrases &amp; nouns.</li>' +
+          '<li><strong>Linguistic rationale:</strong> Every question includes an immediate grammatical explanation displayed after answering.</li>' +
+          '<li><strong>Syntactic flexibility:</strong> Accepts all valid alternate prepositions (e.g. <em>depend on/upon</em>, <em>arrive in/at</em>) and highlights them as &ldquo;also accepted&rdquo;.</li>' +
+          '<li><strong>Shuffled delivery:</strong> Questions are randomized with no sequential bias by set, topic, or level.</li>' +
+        '</ul>' +
+      '</div>' +
+
+      '<div class="info-card">' +
+        '<h3>Answering &amp; markup <span class="pill-tag">Feedback</span></h3>' +
+        '<p>Tactile editorial feedback designed to make errors immediately salient without breaking practice rhythm.</p>' +
+        '<ul>' +
+          '<li><strong>Dual response modes:</strong> Choose from 4 multiple-choice options (keys 1&ndash;4) or type the preposition directly (Enter submits).</li>' +
+          '<li><strong>Copy-editor markup:</strong> Incorrect answers receive red strike-throughs with the correct word positioned right above like a proofreader&rsquo;s mark.</li>' +
+          '<li><strong>Slip prevention:</strong> &ldquo;That was a slip, undo&rdquo; instantly reverses accidental clicks or typos without penalty.</li>' +
+          '<li><strong>Metacognitive honesty:</strong> &ldquo;I guessed this&rdquo; keeps lucky guesses in the practice cycle; &ldquo;I don&rsquo;t know&rdquo; counts as a miss to log unknown idioms.</li>' +
+        '</ul>' +
+      '</div>' +
+
+      '<div class="info-card">' +
+        '<h3>Error-fixing loop <span class="pill-tag">Spaced Repetition</span></h3>' +
+        '<p>A multi-tiered recovery engine that ensures mistakes are targeted until mastery is proven.</p>' +
+        '<ul>' +
+          '<li><strong>Dynamic sentence rotation:</strong> &ldquo;Fix errors&rdquo; tests the identical prepositional phrase across varied sentence structures.</li>' +
+          '<li><strong>Streak requirement:</strong> Requires 3 consecutive correct typed answers (customizable 2&ndash;5 in Settings) before moving to the Fixed list.</li>' +
+          '<li><strong>Spaced rechecks:</strong> Fixed items return for typed verification after <strong>3, 10, and 30 days</strong>. Passing all three marks them mastered.</li>' +
+          '<li><strong>Error log diagnostics:</strong> Logs past wrong attempts, miss frequencies, and flags your most-missed prepositions.</li>' +
+        '</ul>' +
+      '</div>' +
+
+      '<div class="info-card">' +
+        '<h3>Insights &amp; mock exams <span class="pill-tag">Testing</span></h3>' +
+        '<p>Continuous diagnostic intelligence and exam-condition simulation.</p>' +
+        '<ul>' +
+          '<li><strong>Live progress strip:</strong> Tracks fixed items, right-first-time recalls, open errors, unasked questions, and first-try accuracy.</li>' +
+          '<li><strong>Targeted drilling:</strong> Insights tab evaluates category proficiency and offers a one-tap &ldquo;Drill this area&rdquo; filter for your weakest domain.</li>' +
+          '<li><strong>25-question mock test:</strong> Simulates exam pressure (12 common, 10 difficult, 3 hardest) with blind scoring and detailed post-test review.</li>' +
+          '<li><strong>Worksheet &amp; portability:</strong> Export a printable 2-page PDF error worksheet with an answer key, use the built-in stopwatch, or copy/restore full JSON progress.</li>' +
+        '</ul>' +
+      '</div>' +
+    '</div>' +
+    '<div class="actions" style="margin-top:20px">' +
+      '<button class="btn" data-tab="practice">Start Practice</button>' +
+      '<button class="ghost" data-tab="mock">Take Mock Test</button>' +
+    '</div>' +
+  '</section>';
+}
+
+function viewSettings(){
+  const s = state.settings;
+  const opt = (v, c, l) => '<option value="'+v+'"'+(String(c)===String(v)?' selected':'')+'>'+l+'</option>';
+  const cnt = f => BANK.filter(f).length;
+  return '<section class="panel"><h2>Settings</h2>' +
+    '<div class="row"><label for="styleSel">Answer style in Practice</label><select id="styleSel">'+opt("choice",s.style,"Choose from 4 options")+opt("type",s.style,"Type the preposition")+'</select></div>' +
+    '<div class="row"><label for="lvSel">Level</label><select id="lvSel">'+opt("all",s.level,"Mixed, all "+BANK.length)+opt("C",s.level,"Common only ("+cnt(b=>b.lv==="C")+")")+opt("D",s.level,"Difficult, includes the hardest 50 ("+cnt(b=>b.lv!=="C")+")")+opt("H",s.level,"Hardest 50 only")+'</select></div>' +
+    '<div class="row"><label for="focusSel">Focus area</label><select id="focusSel">'+opt("all",s.focus,"All kinds")+Object.keys(CAT).map(k=>opt(k,s.focus,CAT[k]+" ("+cnt(b=>b.c===k)+")")).join("")+'</select></div>' +
+    '<div class="row"><label for="needSel">Fix an error after</label><select id="needSel">'+[2,3,4,5].map(k=>opt(k,s.need,k+" correct answers")).join("")+'</select></div>' +
+    '<div class="row"><label for="resetChk">A miss resets the count</label><input type="checkbox" id="resetChk"'+(s.reset?' checked':'')+'> <span class="hint">On: the correct answers must come in a row.</span></div>' +
+    '<p class="small">Questions always come in random order. Fix errors and rechecks always ask you to type the answer, whatever the style above, and they rotate through different sentences that use the same phrase. Fixed items return for a recheck after '+INT.join(", ")+' days.</p>' +
+    '<hr><p class="small">Your progress is saved in this browser and, when you are signed in, to your account.</p>' +
+    '<div class="row"><button class="ghost" id="showBackup">'+(ui.backup?'Hide backup':'Show backup text')+'</button><button class="ghost" id="showRestore">'+(ui.restore?'Hide restore':'Restore from backup')+'</button></div>' +
+    (ui.backup?'<textarea id="backupTxt" readonly aria-label="Backup text">'+esc(JSON.stringify(state))+'</textarea><div class="row"><button class="ghost" id="copyBackup">Copy backup</button></div>':'') +
+    (ui.restore?'<textarea id="restoreTxt" placeholder="Paste backup text here" aria-label="Paste backup text"></textarea><div class="row"><button class="ghost" id="doRestore">Restore this backup</button><span class="hint" id="restoreMsg"></span></div>':'') +
+    '<hr><p class="small">The original Set 1 answer sheet was out of line with its questions from about question 46, so this drill uses a corrected key.</p>' +
+    '<hr><h2 style="font-size:19px;margin-top:4px">Start over</h2><p class="small">Each button needs a second tap to confirm and only touches what it says. Tip: use Show backup text above first if you might want your progress back.</p>' + resetPanel() + '</section>';
+}
+function render(){
+  const c = renderOverview();
+  renderTabs(c);
+  if(!cur && (tab==="practice" || tab==="fix")) cur = pickNext();
+  if(tab==="practice") $("#main").innerHTML = viewPractice();
+  else if(tab==="fix") $("#main").innerHTML = viewFix();
+  else if(tab==="log") $("#main").innerHTML = viewLog();
+  else if(tab==="fixed") $("#main").innerHTML = viewFixed();
+  else if(tab==="insights") $("#main").innerHTML = viewInsights();
+  else if(tab==="info") $("#main").innerHTML = viewInfo();
+  else $("#main").innerHTML = viewMock();
+  const sp = $("#settings"); sp.hidden = !ui.settings; sp.innerHTML = ui.settings ? viewSettings() : "";
+  $("#btnSettings").setAttribute("aria-expanded", ui.settings);
+  const _st = $("#remoteStatus") || $("#foot"); if(_st) _st.textContent = remote.status;
+  const inp = $("#ans"), nb = $("#nextBtn");
+  if(inp) inp.focus({preventScroll:true}); else if(nb) nb.focus({preventScroll:true});
+}
+
+/* ---------- PDF worksheet ---------- */
+
+function pdfBytes(items, dateStr){
+  const W = 595, H = 842, M = 56, CONTENT = W - 2*M;
+  const pages = []; let page, y;
+  const newPage = () => { page = []; pages.push(page); y = H - M; };
+  const MAP = {"’":146,"‘":145,"“":147,"”":148,"–":150,"—":151,"…":133,"•":149};
+  const enc = s => { let o = ""; for(const ch of String(s)){ let c = ch.codePointAt(0); if(MAP[ch]) c = MAP[ch]; else if(c > 255) c = 63; const x = String.fromCharCode(c); o += (x==="("||x===")"||x==="\\") ? "\\"+x : x; } return o; };
+  const wrap = (s, size, indent) => {
+    const max = Math.max(10, Math.floor((CONTENT - indent) / (size*0.54)));
+    const words = String(s).split(/\s+/), lines = []; let line = "";
+    for(const w of words){
+      if((line + " " + w).trim().length > max){ if(line) lines.push(line); line = w; } else line = (line + " " + w).trim();
+    }
+    if(line) lines.push(line); return lines;
+  };
+  function put(s, o){
+    o = o || {}; const size = o.size||11, bold = !!o.bold, indent = o.indent||0, gap = o.gap||0, first = o.first;
+    const lines = wrap(s, size, indent), lh = size*1.5;
+    lines.forEach((ln, i) => {
+      if(y - lh < M + 20) newPage();
+      y -= lh;
+      const x = M + indent;
+      if(i === 0 && first != null) page.push({x:M, y, size, bold, s:first});
+      page.push({x, y, size, bold, s:ln});
+    });
+    y -= gap;
+  }
+  newPage();
+  put("Preposition error log", {size:22, bold:true, gap:2});
+  put(items.length + (items.length===1?" question":" questions") + " to practise" + (dateStr?(" · "+dateStr):""), {size:10.5, gap:10});
+  put("Fill in each blank with the correct preposition. The answer key, with a short explanation for each sentence, starts on a new page.", {size:10.5, gap:14});
+  items.forEach((b, i) => put(b.q.replace("___","________"), {size:12.5, indent:26, first:(i+1)+".", gap:9}));
+  newPage();
+  put("Answer key", {size:20, bold:true, gap:10});
+  items.forEach((b, i) => {
+    const alts = b.a.slice(1);
+    put(b.a[0] + (alts.length ? "  (also: " + alts.join(", ") + ")" : ""), {size:11.5, bold:true, indent:26, first:(i+1)+"."});
+    put(b.q.replace("___", b.a[0].toUpperCase()), {size:10.5, indent:26});
+    put(b.x, {size:10.5, indent:26, gap:9});
+  });
+  const objs = [null];
+  const nPages = pages.length, kids = [];
+  const content = [];
+  pages.forEach((pg, i) => {
+    const foot = {x:W/2-30, y:M-18, size:9, bold:false, s:"Page "+(i+1)+" of "+nPages};
+    const all = pg.concat([foot]);
+    let st = ""; all.forEach(l => { st += "BT /"+(l.bold?"F2":"F1")+" "+l.size+" Tf "+l.x.toFixed(1)+" "+l.y.toFixed(1)+" Td ("+enc(l.s)+") Tj ET\n"; });
+    content.push(st);
+    kids.push((6 + 2*i) + " 0 R");
+  });
+  objs[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  objs[2] = "<< /Type /Pages /Kids [" + kids.join(" ") + "] /Count " + nPages + " >>";
+  objs[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >>";
+  objs[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding >>";
+  objs[5] = null;
+  pages.forEach((pg, i) => {
+    objs[5 + 2*i] = "<< /Length " + content[i].length + " >>\nstream\n" + content[i] + "endstream";
+    objs[6 + 2*i] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + W + " " + H + "] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents " + (5 + 2*i) + " 0 R >>";
+  });
+  // content objects are numbered 5,7,9...; page objects 6,8,10...
+  let out = "%PDF-1.4\n"; const offs = [];
+  const total = 5 + 2*nPages;
+  const objAt = n => n <= 4 ? objs[n] : objs[n];
+  for(let n = 1; n < total; n++){ offs[n] = out.length; out += n + " 0 obj\n" + objAt(n) + "\nendobj\n"; }
+  const xref = out.length;
+  out += "xref\n0 " + total + "\n0000000000 65535 f \n";
+  for(let n = 1; n < total; n++) out += String(offs[n]).padStart(10,"0") + " 00000 n \n";
+  out += "trailer\n<< /Size " + total + " /Root 1 0 R >>\nstartxref\n" + xref + "\n%%EOF";
+  const bytes = new Uint8Array(out.length);
+  for(let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 255;
+  return bytes;
+}
+async function downloadPdf(){
+  const msg = $("#pdfMsg");
+  const items = BANK.filter(b => state.q[b.id] && state.q[b.id].st==="err");
+  if(!items.length){ msg.textContent = "The error log is empty."; return; }
+  const d = new Date();
+  const stamp = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  const filename = "preposition-error-log-" + stamp + ".pdf";
+  let bytes;
+  try{ bytes = pdfBytes(items, d.toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"})); }
+  catch(e){ msg.textContent = "Could not build the PDF."; return; }
+  let dl = null;
+  try{ if(window.claude && window.claude.use) dl = await claude.use("downloads"); }catch(e){}
+  if(dl){
+    try{ await dl.save({filename, data:bytes}); msg.textContent = "PDF ready: " + filename; }
+    catch(e){ msg.textContent = (e && e.code==="declined") ? "Download cancelled." : "This page could not save the file here."; }
+    return;
+  }
+  try{
+    const url = URL.createObjectURL(new Blob([bytes], {type:"application/pdf"}));
+    const a = document.createElement("a"); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    msg.textContent = "PDF ready: " + filename;
+  }catch(e){ msg.textContent = "Your browser blocked the download."; }
+}
+
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("button, [data-tab]"); if(!t) return;
+  if(t.dataset.opt !== undefined){ if(cur && cur.options) submit(cur.options[+t.dataset.opt], false); return; }
+  if(t.dataset.tab){ tab = t.dataset.tab; cur = null; reviewMode = false; render(); return; }
+  if(t.dataset.reopen){ const r = state.q[t.dataset.reopen]; if(r){ r.st="err"; r.streak=0; r.lastMiss=Date.now(); delete r.due; delete r.stage; persist(); render(); } return; }
+  if(t.dataset.focus){ state.settings.focus = t.dataset.focus; persist(); tab = "practice"; cur = null; reviewMode = false; render(); return; }
+  if(t.dataset.clearfocus){ state.settings.focus = "all"; persist(); cur = null; render(); return; }
+  if(t.dataset.act==="review"){ reviewMode = true; cur = null; render(); return; }
+  if(t.dataset.act==="newq"){ reviewMode = false; cur = null; render(); return; }
+  switch(t.id){
+    case "btnSettings": ui.settings = !ui.settings; ui.confirmReset = false; render(); break;
+    case "check": { const i = $("#ans"); const v = i ? i.value : ""; if(norm(v)) submit(v,false); else if(i) i.focus(); break; }
+    case "skip": submit("", true); break;
+    case "nextBtn": next(); break;
+    case "undo": undo(); break;
+    case "guess": markGuess(); break;
+    case "startMock": startMock(); break;
+    case "againMock": mock = {phase:"start", style:mock.style}; cur = null; render(); break;
+    case "pdfBtn": downloadPdf(); break;
+    case "showBackup": ui.backup = !ui.backup; render(); break;
+    case "showRestore": ui.restore = !ui.restore; render(); break;
+    case "copyBackup": {
+      const ta = $("#backupTxt"); ta.select();
+      (navigator.clipboard ? navigator.clipboard.writeText(ta.value) : Promise.reject()).then(()=>{t.textContent="Copied";}).catch(()=>{ try{document.execCommand("copy"); t.textContent="Copied";}catch(_){ t.textContent="Select and copy manually"; } });
+      break; }
+    case "doRestore": {
+      const msg = $("#restoreMsg");
+      try{
+        const s = JSON.parse($("#restoreTxt").value.trim());
+        if(!s || s.v!==1 || typeof s.q!=="object") throw 0;
+        state = normalize(s); persist(); cur = null; ui.restore = false; render();
+      }catch(_){ msg.textContent = "That text is not a valid backup."; }
+      break; }
+    case "resetAll":
+      if(!ui.confirmReset){ ui.confirmReset = true; render(); }
+      else { state = fresh(); persist(); cur = null; lastSnap = null; mock = {phase:"start", style:null}; ui = {settings:false,backup:false,restore:false,confirmReset:false}; render(); }
+      break;
+  }
+});
+document.addEventListener("change", e => {
+  const id = e.target.id, s = state.settings;
+  if(id==="mockStyleSel"){ mock.style = e.target.value; return; }
+  if(id==="styleSel") s.style = e.target.value;
+  else if(id==="lvSel") s.level = e.target.value;
+  else if(id==="focusSel") s.focus = e.target.value;
+  else if(id==="needSel") s.need = parseInt(e.target.value,10);
+  else if(id==="resetChk") s.reset = e.target.checked;
+  else return;
+  persist(); cur = null; render();
+});
+document.addEventListener("keydown", e => {
+  const tg = e.target;
+  if(e.key==="Enter" && tg && tg.id==="ans"){ e.preventDefault(); const v = tg.value; if(norm(v)) submit(v,false); return; }
+  if(cur && cur.phase==="ask" && cur.options && /^[1-4]$/.test(e.key) && !/INPUT|TEXTAREA|SELECT/.test(tg.tagName||"")){
+    const o = cur.options[+e.key - 1]; if(o) submit(o,false);
+  }
+});
+document.addEventListener("input", e => {
+  if(e.target && e.target.id==="ans"){ e.target.style.width = Math.max(5.5, e.target.value.length + 2) + "ch"; }
+});
+
+/* ---------- light / dark toggle: follows the device until you choose, then remembers your choice ---------- */
+const THEME_KEY = "preposition-drill-theme";
+function themeNow(){
+  const t = document.documentElement.getAttribute("data-theme");
+  if(t === "dark" || t === "light") return t;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function themePaint(){
+  const b = document.getElementById("btnTheme"); if(!b) return;
+  const dark = themeNow() === "dark";
+  b.textContent = dark ? "Light mode" : "Dark mode";
+  b.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+}
+function themeSet(t){
+  document.documentElement.setAttribute("data-theme", t);
+  try{ localStorage.setItem(THEME_KEY, t); }catch(e){}
+  themePaint();
+}
+document.addEventListener("click", e => { if(e.target.closest("#btnTheme")) themeSet(themeNow() === "dark" ? "light" : "dark"); });
+themePaint();
+
+/* ---------- resets: every button needs a second tap ---------- */
+function resetCounts(){
+  let ok = 0, err = 0, fixed = 0;
+  for(const id in state.q){ const s = state.q[id].st; if(s==="ok") ok++; else if(s==="err") err++; else if(s==="fixed") fixed++; }
+  return {ok, err, fixed};
+}
+function resetRow(kind, title, desc, label, enabled){
+  return '<div class="reset-row"><p><b>'+title+'</b><span class="hint">'+desc+'</span></p><button class="warnbtn" data-reset="'+kind+'"'+(enabled?'':' disabled')+'>'+label+'</button></div>';
+}
+function resetPanel(){
+  const c = resetCounts(), n = state.mocks.length;
+  return resetRow("round","New practice round","Forget the "+c.ok+" questions you got right first time so they are asked again. Your error log and fixed list stay.","Start new round",c.ok>0) +
+    resetRow("errors","Clear error log","Remove the "+c.err+" open errors. Those questions become unasked again.","Clear log",c.err>0) +
+    resetRow("fixed","Clear fixed list","Remove the "+c.fixed+" fixed questions and their scheduled rechecks.","Clear list",c.fixed>0) +
+    resetRow("mocks","Clear mock scores","Delete the "+n+" saved mock test "+(n===1?"score":"scores")+".","Clear scores",n>0) +
+    resetRow("settings","Reset settings","Back to defaults: options, mixed level, all kinds, 3 correct answers to fix, a miss resets the count.","Reset settings",true) +
+    resetRow("all","Erase everything","All answers, logs, fixed items, scores and settings. This cannot be undone.","Erase everything",true);
+}
+function doReset(kind){
+  if(kind === "quitmock"){ mock = {phase:"start", style:mock.style}; cur = null; render(); return; }
+  if(kind === "round"){ for(const id in state.q) if(state.q[id].st === "ok") delete state.q[id]; }
+  else if(kind === "poolround"){ BANK.forEach(b => { const r = state.q[b.id]; if(r && r.st === "ok" && inLevel(b) && inFocus(b)) delete state.q[b.id]; }); }
+  else if(kind === "errors"){ for(const id in state.q) if(state.q[id].st === "err") delete state.q[id]; }
+  else if(kind === "fixed"){ for(const id in state.q) if(state.q[id].st === "fixed") delete state.q[id]; }
+  else if(kind === "mocks"){ state.mocks = []; }
+  else if(kind === "settings"){ state.settings = {...DEFAULTS}; }
+  else if(kind === "all"){
+    state = fresh(); mock = {phase:"start", style:null}; reviewMode = false;
+    if(timer.on){ timer.base = 0; timer.startedAt = Date.now(); timerPaint(); }
+  }
+  lastSnap = null; cur = null; persist(); render();
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-reset]"); if(!t || t.disabled) return;
+  if(!t.dataset.armed){
+    t.dataset.armed = "1"; t.dataset.label = t.textContent; t.textContent = "Tap again to confirm";
+    setTimeout(() => { if(t.isConnected && t.dataset.armed){ delete t.dataset.armed; t.textContent = t.dataset.label; } }, 5000);
+    return;
+  }
+  doReset(t.dataset.reset);
+});
+
+/* ---------- session timer: one stopwatch for the whole session, off by default ---------- */
+const timer = {on:false, running:false, base:0, startedAt:0, tick:null};
+const tElapsed = () => timer.base + (timer.running ? Date.now() - timer.startedAt : 0);
+function fmtTime(ms){
+  const s = Math.floor(ms/1000), h = Math.floor(s/3600), m = Math.floor(s%3600/60), x = s%60;
+  const p = n => String(n).padStart(2,"0");
+  return (h ? h + ":" : "") + p(m) + ":" + p(x);
+}
+function timerPaint(){
+  const bar = document.getElementById("timerBar"), btn = document.getElementById("btnTimer");
+  bar.hidden = !timer.on;
+  btn.setAttribute("aria-pressed", String(timer.on));
+  btn.textContent = timer.on ? "Timer on" : "Timer";
+  bar.classList.toggle("paused", timer.on && !timer.running);
+  document.getElementById("timerNum").textContent = fmtTime(tElapsed());
+  document.getElementById("timerPause").textContent = timer.running ? "Pause" : "Resume";
+}
+function timerSet(on){
+  timer.on = on; timer.base = 0; timer.running = on; timer.startedAt = Date.now();
+  clearInterval(timer.tick);
+  if(on) timer.tick = setInterval(timerPaint, 250);
+  timerPaint();
+}
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if(!t) return;
+  if(t.id === "btnTimer") timerSet(!timer.on);
+  else if(t.id === "timerPause"){
+    if(timer.running){ timer.base += Date.now() - timer.startedAt; timer.running = false; }
+    else { timer.startedAt = Date.now(); timer.running = true; }
+    timerPaint();
+  }else if(t.id === "timerReset"){ timer.base = 0; timer.startedAt = Date.now(); timerPaint(); }
+});
+
+render();
+</script>
+</body>
+</html>
