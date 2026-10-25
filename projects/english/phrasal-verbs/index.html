@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phrasal Verbs 500 — Meaning, Particle &amp; MCQ Trainer | Miraz Hossain</title>
+<meta name="description" content="Phrasal Verbs 500 — an adaptive phrasal-verb trainer with three faces (meaning recall, particle gap-fill, and confusable multiple-choice), four frequency tiers, random rotation, and spaced error recovery at 3, 10 and 30 days, by Miraz Hossain.">
+<link rel="canonical" href="https://mirazhossain.com/projects/english/phrasal-verbs/">
+<meta property="og:image" content="https://mirazhossain.com/assets/images/projects/phrasal-verbs-cover.svg">
+<meta property="og:title" content="Phrasal Verbs 500 — Meaning, Particle & MCQ Trainer | Miraz Hossain">
+<meta property="og:description" content="500 English phrasal verbs across four frequency tiers with three test faces, random rotation, and spaced error recovery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<script>try{var _t=localStorage.getItem("phrasalverbs-500-theme");if(_t==="dark"||_t==="light")document.documentElement.setAttribute("data-theme",_t);}catch(e){}</script>
+<style>
+:root{
+  --paper:#EEF1F6; --card:#FFFFFF; --ink:#16213A; --ink2:#4B5775; --line:#D6DCE8;
+  --red:#C41E3A; --redbg:#FCE9EC; --green:#0F7A5B; --greenbg:#E2F4EC; --mark:#FFE36B;
+  --btn:#16213A; --btntext:#FFFFFF; --accent:#7A4B16; --accentbg:#F4ECE0;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
+    --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00;
+    --btn:#E9EDF7; --btntext:#0E1525; --accent:#E7C9A0; --accentbg:#2A2113;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
+  --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00;
+  --btn:#E9EDF7; --btntext:#0E1525; --accent:#E7C9A0; --accentbg:#2A2113;
+}
+:root[data-theme="dark"]{color-scheme:dark} :root[data-theme="light"]{color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:10}
+.wrap{max-width:760px;margin:0 auto;padding:20px 18px 48px}
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:500;font-size:26px;margin:0;letter-spacing:-.01em}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.ghost{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink2)}
+.ghost:hover{border-color:var(--ink2);color:var(--ink)}
+.ghost[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--btntext)}
+.hdrbtns{display:flex;gap:8px;flex-wrap:wrap}
+
+.strip{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line)}
+.strip i{display:block;height:100%}
+.strip .s-ok{background:var(--ink2)} .strip .s-err{background:var(--red)} .strip .s-fix{background:var(--green)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;margin:8px 0 0;font-size:14px;color:var(--ink2)}
+.legend b{color:var(--ink);font-weight:600}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+
+nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
+.badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
+.badge.green{background:var(--green)}
+:root[data-theme="dark"] .badge{color:#0E1525}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge{color:#0E1525}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px 22px}
+.meta{margin:0 0 16px;font-size:14px;color:var(--ink2);display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:1px 9px;font-size:13px;color:var(--ink2)}
+.tag.E{border-color:var(--green);color:var(--green)}
+.tag.M{border-color:var(--ink2);color:var(--ink)}
+.tag.H{border-color:var(--accent);color:var(--accent)}
+.tag.X{background:var(--ink);border-color:var(--ink);color:var(--btntext)}
+.tag.reg{font-style:italic;font-family:var(--serif)}
+
+/* faces switch */
+.faces{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:9px;padding:3px;background:var(--paper)}
+.faces button{border:0;background:none;border-radius:6px;padding:6px 12px;font-size:14px;font-weight:600;color:var(--ink2);min-height:36px}
+.faces button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+
+.prompt{font-family:var(--serif);font-size:clamp(26px,4.8vw,40px);line-height:1.35;margin:10px 0 2px;letter-spacing:-.01em}
+.sentence{font-family:var(--serif);font-size:clamp(22px,4vw,32px);line-height:1.9;margin:6px 0 0;overflow-wrap:anywhere}
+.sub{font-size:15px;color:var(--ink2);margin:14px 0 0}
+
+/* gap-fill blank */
+.slot{display:inline-block;position:relative;vertical-align:baseline;margin:0 .12em}
+input.blank{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:3px solid var(--ink);border-radius:0;padding:0 .1em;width:7ch;min-width:5ch;max-width:100%;text-align:center;line-height:1.1;outline:none}
+input.blank:focus{background:var(--mark)}
+.slot.ok{color:var(--green);font-weight:500;border-bottom:3px solid var(--green);padding:0 .15em}
+.slot.bad{padding:0 .15em;border-bottom:3px solid transparent}
+.slot.bad del{color:var(--red);text-decoration:line-through;text-decoration-thickness:3px}
+.slot.bad ins{position:absolute;left:50%;transform:translateX(-50%);top:-1.15em;font-size:.72em;font-weight:500;text-decoration:none;color:var(--ink);white-space:nowrap;line-height:1}
+.slot.bad ins::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:2px;border:5px solid transparent;border-top-color:var(--red);border-bottom:0}
+
+/* meaning reveal */
+.reveal{margin-top:20px;padding:16px 18px;border-radius:10px;background:var(--accentbg);font-family:var(--serif);font-size:20px;line-height:1.5}
+.reveal.hidden-m{filter:blur(7px);user-select:none}
+
+/* mcq options */
+.opts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px}
+.opt{display:flex;align-items:flex-start;gap:12px;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:13px 15px;min-height:52px;font-size:17px;font-family:var(--serif);line-height:1.4}
+.opt:hover{border-color:var(--ink)}
+.opt kbd{font:600 13px var(--sans);color:var(--ink2);border:1px solid var(--line);border-radius:5px;padding:1px 7px;background:var(--card);flex:0 0 auto;margin-top:2px}
+.opt.correct{border-color:var(--green);background:var(--greenbg)}
+.opt.wrong{border-color:var(--red);background:var(--redbg)}
+.opt[disabled]{cursor:default}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+.btn{background:var(--btn);color:var(--btntext);border:0;border-radius:9px;padding:11px 22px;font-weight:600;min-height:44px}
+.btn:hover{opacity:.9}
+.link{background:none;border:0;padding:8px 4px;color:var(--ink2);text-decoration:underline;text-underline-offset:3px;min-height:44px}
+.link:hover{color:var(--ink)}
+.hint{font-size:14px;color:var(--ink2)}
+.fb{margin-top:20px;padding:14px 16px;border-radius:10px;font-size:16px}
+.fb.ok{background:var(--greenbg)} .fb.bad{background:var(--redbg)}
+.fb p{margin:0 0 4px} .fb p:last-child{margin:0}
+.fb strong{font-weight:700}
+.fb .origin{font-style:italic;color:var(--ink2);font-family:var(--serif);font-size:15px;margin-top:8px}
+.pips{display:inline-flex;gap:5px;vertical-align:middle;margin-left:4px}
+.pip{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink2);background:transparent}
+.pip.on{background:var(--green);border-color:var(--green)}
+.celebrate{font-weight:600;color:var(--green)}
+
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:28px 24px}
+.empty h2{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 6px}
+.empty p{margin:0 0 16px;color:var(--ink2);max-width:52ch}
+ul.items{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+li.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+li.item .q{font-family:var(--serif);font-size:20px;line-height:1.5;margin:0 0 4px}
+li.item .q b{color:var(--green);font-weight:600;border-bottom:2px solid var(--green)}
+li.item .mn{font-size:15px;color:var(--ink2);margin:0 0 6px}
+li.item .m{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;font-size:14px;color:var(--ink2)}
+li.item .m .w{color:var(--red);text-decoration:line-through;text-decoration-thickness:2px}
+.chips{margin:0 0 14px;font-size:14px;color:var(--ink2)}
+.chips b{color:var(--ink)}
+.section-note{margin:0 0 14px;color:var(--ink2);font-size:15px}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:18px}
+.panel h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 12px}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 12px}
+.row label{min-width:190px;font-weight:500}
+select,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:40px}
+textarea{width:100%;min-height:110px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+.panel hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.small{font-size:14px;color:var(--ink2);margin:0 0 10px}
+.warnbtn{background:none;border:1px solid var(--red);color:var(--red);border-radius:8px;padding:8px 14px;min-height:40px}
+.warnbtn[data-armed]{background:var(--red);color:var(--card)}
+.reset-row{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap;margin:0 0 14px}
+.reset-row p{margin:0;flex:1 1 260px} .reset-row p b{display:block;font-weight:600}
+
+/* insights */
+.bar-row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 64px;gap:12px;align-items:center;margin:10px 0;font-size:15px}
+.bar{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink2);border-radius:6px}
+.bar.weak i{background:var(--red)}
+.num{text-align:right;font-weight:600}
+.score{font-family:var(--serif);font-size:60px;line-height:1;margin:4px 0 2px}
+
+/* timer */
+.timerbar{display:flex;align-items:center;gap:14px;margin:0 0 14px}
+.timerbar[hidden]{display:none}
+.timernum{font-family:var(--sans);font-weight:700;font-size:clamp(46px,12vw,76px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 22px}
+.timerbar.paused .timernum{color:var(--ink2)}
+.timerctl{display:flex;flex-direction:column;gap:6px}
+
+footer{margin-top:26px;font-size:13px;color:var(--ink2)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}
+.info-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.info-card h3{font-family:var(--serif);font-size:18px;font-weight:600;margin:0 0 8px}
+.info-card p{font-size:14px;line-height:1.6;color:var(--ink2);margin:0 0 8px}
+.info-lead{font-family:var(--serif);font-size:18px;line-height:1.6;margin:0 0 6px}
+@media (max-width:520px){.card{padding:20px 16px 18px}.wrap{padding:16px 12px 40px}.row label{min-width:100%}.bar-row{grid-template-columns:1fr 56px}.bar-row .bar{grid-column:1/-1;order:3}.timerctl{flex-direction:row}}
+@media (prefers-reduced-motion:no-preference){.slot.bad ins{animation:drop .22s ease-out}@keyframes drop{from{opacity:0;top:-.6em}to{opacity:1;top:-1.15em}}}
+
+/* suite switcher */
+.suite-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:8px 18px;margin:-20px -18px 20px}
+.suite-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.suite-brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.suite-brand::before{content:"←";font-family:var(--sans);font-weight:400;color:var(--ink2)}
+.suite-links{display:flex;gap:4px;overflow-x:auto}
+.suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
+.suite-link:hover{color:var(--ink);background:var(--card)}
+.suite-link.is-active{color:var(--btntext);background:var(--btn);font-weight:600}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+<nav class="suite-bar" aria-label="The English Lab tools">
+  <div class="suite-inner">
+    <a href="/projects/english/" class="suite-brand">The English Lab</a>
+    <div class="suite-links"><a href="/projects/english/vocabulary/" class="suite-link">Vocabulary</a><a href="/projects/english/prepositions/" class="suite-link">Prepositions</a><a href="/projects/english/phrasal-verbs/" class="suite-link is-active">Phrasal Verbs</a><a href="/projects/english/idioms/" class="suite-link">Idioms</a></div>
+  </div>
+</nav>
+  <div class="timerbar" id="timerBar" hidden>
+    <div class="timernum" id="timerNum" role="timer" aria-label="Session time">00:00</div>
+    <div class="timerctl"><button class="ghost" id="timerPause">Pause</button><button class="ghost" id="timerReset">Reset</button></div>
+  </div>
+  <header class="top">
+    <div>
+      <a href="/projects/english/" class="ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:4px 10px;margin-bottom:8px">← The English Lab</a>
+      <h1>Phrasal Verbs 500</h1>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Particle · MCQ — with spaced error recovery</p>
+    </div>
+    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
+  </header>
+  <div id="settings" hidden></div>
+  <div id="overview"></div>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  <main id="main"></main>
+  <footer id="foot" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px;padding-top:16px;border-top:1px solid var(--line)">
+    <span>Developed by <a href="https://mirazhossain.com/" style="color:inherit;text-decoration:underline">Miraz Hossain</a> · Part of <a href="https://mirazhossain.com/interventions/" style="color:inherit;text-decoration:underline">Interventions</a></span>
+    <span id="remoteStatus">Saved on this device only</span>
+  </footer>
+</div>
+<script>
+const BANK = [{"id":"PE1","lv":"E","ph":"give up","trap":"up","ex":"Don't give ___ — you're almost there.","mean":"stop trying; quit","mcq":["hand something over to someone","admit you were wrong","run out of energy"],"note":"Separable: give it up.","reg":""},{"id":"PE2","lv":"E","ph":"wake up","trap":"up","ex":"I wake ___ at six every day.","mean":"stop sleeping","mcq":["become suddenly alert","get out of bed","realise something at last"],"note":"","reg":""},{"id":"PE3","lv":"E","ph":"get up","trap":"up","ex":"She gets ___ early to exercise.","mean":"rise from bed or from sitting","mcq":["wake from sleep","stand to leave","prepare for the day"],"note":"","reg":""},{"id":"PE4","lv":"E","ph":"sit down","trap":"down","ex":"Please sit ___.","mean":"move into a seated position","mcq":["lower yourself onto a seat","relax after standing","settle somewhere to stay"],"note":"","reg":""},{"id":"PE5","lv":"E","ph":"stand up","trap":"up","ex":"Everyone stood ___ when she entered.","mean":"rise to a standing position","mcq":["get to your feet","defend a position","straighten your posture"],"note":"","reg":""},{"id":"PE6","lv":"E","ph":"turn on","trap":"on","ex":"Turn ___ the light, please.","mean":"start a device or switch it to working","mcq":["make a machine operate","press a switch","begin using something"],"note":"Separable: turn it on.","reg":""},{"id":"PE7","lv":"E","ph":"turn off","trap":"off","ex":"Turn ___ the TV before bed.","mean":"stop a device or switch it to not working","mcq":["shut a machine down","cut the power to something","make something stop running"],"note":"Separable: turn it off.","reg":""},{"id":"PE8","lv":"E","ph":"put on","trap":"on","ex":"Put ___ your coat; it's cold.","mean":"dress yourself in a piece of clothing","mcq":["place clothing on your body","get dressed in something","cover yourself with a garment"],"note":"Separable: put it on.","reg":""},{"id":"PE9","lv":"E","ph":"take off","trap":"off","ex":"Take ___ your shoes at the door.","mean":"remove a piece of clothing","mcq":["pull a garment off","undress from something","slip out of clothing"],"note":"Also: a plane takes off (leaves the ground).","reg":""},{"id":"PE10","lv":"E","ph":"get in","trap":"in","ex":"Get ___ the car, we're late.","mean":"enter a vehicle or place","mcq":["climb inside something","arrive at a place","go indoors"],"note":"","reg":""},{"id":"PE11","lv":"E","ph":"get out","trap":"out","ex":"Get ___ of the pool now.","mean":"leave a place or vehicle","mcq":["exit from somewhere","escape a situation","step outside"],"note":"","reg":""},{"id":"PE12","lv":"E","ph":"come in","trap":"in","ex":"Come ___ and sit down.","mean":"enter a room or building","mcq":["step inside","arrive at a place","join those already here"],"note":"","reg":""},{"id":"PE13","lv":"E","ph":"go out","trap":"out","ex":"We're going ___ for dinner.","mean":"leave home for a social activity","mcq":["spend time away from home","leave the house","socialise somewhere"],"note":"Also: a fire or light goes out (stops).","reg":""},{"id":"PE14","lv":"E","ph":"look for","trap":"for","ex":"I'm looking ___ my keys.","mean":"try to find something","mcq":["search for something","hunt for a lost thing","seek out an item"],"note":"","reg":""},{"id":"PE15","lv":"E","ph":"look after","trap":"after","ex":"Can you look ___ the baby?","mean":"take care of someone or something","mcq":["watch over someone","be responsible for a person","mind a child or pet"],"note":"Inseparable.","reg":""},{"id":"PE16","lv":"E","ph":"look at","trap":"at","ex":"Look ___ this photo.","mean":"direct your eyes towards something","mcq":["turn your gaze to something","examine with your eyes","view an object"],"note":"","reg":""},{"id":"PE17","lv":"E","ph":"find out","trap":"out","ex":"I need to find ___ the truth.","mean":"learn or discover information","mcq":["discover a fact","get to know something","uncover information"],"note":"Separable: find it out.","reg":""},{"id":"PE18","lv":"E","ph":"grow up","trap":"up","ex":"I grew ___ in Dhaka.","mean":"become an adult; mature","mcq":["develop from child to adult","spend your childhood somewhere","become more mature"],"note":"","reg":""},{"id":"PE19","lv":"E","ph":"throw away","trap":"away","ex":"Don't throw ___ that letter.","mean":"get rid of something as rubbish","mcq":["discard something","put something in the bin","dispose of a thing"],"note":"Separable: throw it away.","reg":""},{"id":"PE20","lv":"E","ph":"pick up","trap":"up","ex":"Pick ___ your toys.","mean":"lift something from a surface","mcq":["raise something with your hands","collect something or someone","take hold of an object"],"note":"Separable: pick it up. Also: pick someone up (collect).","reg":""},{"id":"PE21","lv":"E","ph":"put down","trap":"down","ex":"Put ___ that knife.","mean":"place something on a surface","mcq":["set something down","lower an object you're holding","rest something on a surface"],"note":"Separable: put it down.","reg":""},{"id":"PE22","lv":"E","ph":"come back","trap":"back","ex":"Come ___ soon!","mean":"return to a place or person","mcq":["go back to a place","return after leaving","come again"],"note":"","reg":""},{"id":"PE23","lv":"E","ph":"go back","trap":"back","ex":"I want to go ___ home.","mean":"return to a place","mcq":["return somewhere","head back","retrace your way"],"note":"","reg":""},{"id":"PE24","lv":"E","ph":"turn up","trap":"up","ex":"He turned ___ late to the meeting.","mean":"arrive or appear, often unexpectedly","mcq":["show up somewhere","appear without warning","be found at last"],"note":"Also: turn up the volume (increase).","reg":""},{"id":"PE25","lv":"E","ph":"sit up","trap":"up","ex":"Sit ___ straight at the table.","mean":"move to an upright sitting position","mcq":["straighten your back","rise from lying down","hold yourself upright"],"note":"","reg":""},{"id":"PE26","lv":"E","ph":"lie down","trap":"down","ex":"I'm tired; I'll lie ___ for a bit.","mean":"rest in a flat, horizontal position","mcq":["recline to rest","stretch out flat","settle down to sleep"],"note":"","reg":""},{"id":"PE27","lv":"E","ph":"get on","trap":"on","ex":"Get ___ the bus quickly.","mean":"board a bus, train or plane","mcq":["climb aboard","step onto a vehicle","enter public transport"],"note":"Also: get on with someone (have a good relationship).","reg":""},{"id":"PE28","lv":"E","ph":"get off","trap":"off","ex":"We get ___ at the next stop.","mean":"leave a bus, train or plane","mcq":["step down from a vehicle","exit public transport","disembark"],"note":"","reg":""},{"id":"PE29","lv":"E","ph":"run out","trap":"out","ex":"We've run ___ of milk.","mean":"use up all of something; have none left","mcq":["have nothing left of something","exhaust a supply","be completely used up"],"note":"Usually 'run out of'.","reg":""},{"id":"PE30","lv":"E","ph":"fill in","trap":"in","ex":"Fill ___ this form, please.","mean":"complete a form by writing the details","mcq":["write information in the blanks","complete the required details","enter data on a form"],"note":"Separable: fill it in. Also: fill in for someone (substitute).","reg":""},{"id":"PE31","lv":"E","ph":"write down","trap":"down","ex":"Write ___ my number.","mean":"record something in writing","mcq":["note something on paper","jot something down","make a written record"],"note":"Separable: write it down.","reg":""},{"id":"PE32","lv":"E","ph":"turn down","trap":"down","ex":"Please turn ___ the music.","mean":"reduce the volume or level of something","mcq":["lower the sound","make something quieter","reduce the setting"],"note":"Also: turn down an offer (refuse it).","reg":""},{"id":"PE33","lv":"E","ph":"wake someone up","trap":"up","ex":"Could you wake me ___ at seven?","mean":"rouse someone from sleep","mcq":["bring someone out of sleep","get someone out of bed","make someone stop sleeping"],"note":"Separable: wake me up.","reg":""},{"id":"PE34","lv":"E","ph":"come from","trap":"from","ex":"Where do you come ___?","mean":"have as your place of origin","mcq":["originate in a place","be born or raised somewhere","have your roots in a place"],"note":"","reg":""},{"id":"PE35","lv":"E","ph":"go away","trap":"away","ex":"Go ___ and leave me alone.","mean":"leave; depart","mcq":["move off somewhere","stop being present","leave a place or person"],"note":"Also: go away for a holiday.","reg":""},{"id":"PE36","lv":"E","ph":"hurry up","trap":"up","ex":"Hurry ___, we're late!","mean":"do something more quickly","mcq":["move faster","be quick about it","speed up what you're doing"],"note":"","reg":""},{"id":"PE37","lv":"E","ph":"calm down","trap":"down","ex":"Calm ___ and breathe.","mean":"become less upset or excited","mcq":["relax after being agitated","stop being angry","settle your emotions"],"note":"Separable: calm him down.","reg":""},{"id":"PE38","lv":"E","ph":"get back","trap":"back","ex":"What time did you get ___?","mean":"return home or to a place","mcq":["come back","arrive back","return from somewhere"],"note":"Also: get something back (recover it).","reg":""},{"id":"PE39","lv":"E","ph":"show up","trap":"up","ex":"He didn't show ___ for class.","mean":"arrive; appear","mcq":["turn up somewhere","be present as expected","come to an event"],"note":"","reg":"informal"},{"id":"PE40","lv":"E","ph":"eat out","trap":"out","ex":"Let's eat ___ tonight.","mean":"have a meal in a restaurant","mcq":["dine away from home","go to a restaurant","have a meal elsewhere"],"note":"","reg":""},{"id":"PE41","lv":"E","ph":"wash up","trap":"up","ex":"I'll wash ___ after dinner.","mean":"clean the dishes (British); wash your hands/face (US)","mcq":["clean the plates and cutlery","do the dishes","tidy up after a meal"],"note":"Meaning differs: British = dishes; N. Amer. = wash hands/face.","reg":"British"},{"id":"PE42","lv":"E","ph":"clean up","trap":"up","ex":"Clean ___ your room.","mean":"make a place tidy and clean","mcq":["tidy and clean a place","put things in order","clear away mess"],"note":"Separable: clean it up.","reg":""},{"id":"PE44","lv":"E","ph":"go on","trap":"on","ex":"Please go ___ with your story.","mean":"continue doing or saying something","mcq":["carry on","keep doing something","proceed"],"note":"Also: what's going on? (happening).","reg":""},{"id":"PE45","lv":"E","ph":"carry on","trap":"on","ex":"Carry ___ working while I'm out.","mean":"continue doing something","mcq":["keep going","proceed with a task","go on as before"],"note":"","reg":""},{"id":"PE46","lv":"E","ph":"come on","trap":"on","ex":"Come ___, we'll be late!","mean":"used to urge someone to hurry or try","mcq":["hurry up","be encouraged to act","get moving"],"note":"Also: a show comes on (starts).","reg":"informal"},{"id":"PE47","lv":"E","ph":"hold on","trap":"on","ex":"Hold ___, I'll check.","mean":"wait a moment","mcq":["wait briefly","pause for a second","stay on the line"],"note":"Also: hold on tight (grip).","reg":"informal"},{"id":"PE48","lv":"E","ph":"get together","trap":"together","ex":"Let's get ___ this weekend.","mean":"meet socially","mcq":["meet up with others","gather as a group","come together to socialise"],"note":"","reg":""},{"id":"PE49","lv":"E","ph":"move in","trap":"in","ex":"They moved ___ next door last week.","mean":"start living in a new home","mcq":["begin living somewhere","take up residence","settle into a new place"],"note":"","reg":""},{"id":"PE50","lv":"E","ph":"move out","trap":"out","ex":"She moved ___ of her parents' house.","mean":"stop living in a place; leave a home","mcq":["leave a residence for good","vacate a home","stop living somewhere"],"note":"","reg":""},{"id":"PE51","lv":"E","ph":"switch on","trap":"on","ex":"Switch ___ the fan.","mean":"turn a device on","mcq":["start a machine","power something up","make a device run"],"note":"Separable: switch it on.","reg":""},{"id":"PE52","lv":"E","ph":"switch off","trap":"off","ex":"Switch ___ the lights.","mean":"turn a device off","mcq":["power something down","stop a machine","cut power to a device"],"note":"Also: mentally switch off (stop paying attention).","reg":""},{"id":"PE53","lv":"E","ph":"try on","trap":"on","ex":"Try ___ this jacket.","mean":"put on clothing to see if it fits","mcq":["test clothing for fit","wear something to check size","sample a garment"],"note":"Separable: try it on.","reg":""},{"id":"PE54","lv":"E","ph":"come over","trap":"over","ex":"Come ___ to my place tonight.","mean":"visit someone's home","mcq":["visit casually","drop by someone's house","come to where someone is"],"note":"","reg":""},{"id":"PE55","lv":"E","ph":"drop off","trap":"off","ex":"I'll drop ___ the kids at school.","mean":"take someone or something to a place and leave them there","mcq":["deliver someone somewhere","leave a person at a location","take and drop someone"],"note":"Separable. Also: drop off = fall asleep.","reg":""},{"id":"PE56","lv":"E","ph":"get away","trap":"away","ex":"We need to get ___ for a holiday.","mean":"escape or take a break from somewhere","mcq":["escape to somewhere else","have a short break away","leave for a change"],"note":"Also: get away with something (avoid punishment).","reg":""},{"id":"PE57","lv":"E","ph":"log in","trap":"in","ex":"Log ___ with your password.","mean":"enter a computer system with your details","mcq":["sign into an account","access a system","enter your credentials"],"note":"Also 'log on'.","reg":""},{"id":"PE58","lv":"E","ph":"log out","trap":"out","ex":"Remember to log ___ when you finish.","mean":"exit a computer system","mcq":["sign out of an account","end a session","leave a system securely"],"note":"Also 'log off'.","reg":""},{"id":"PE59","lv":"E","ph":"turn around","trap":"around","ex":"Turn ___ and face me.","mean":"move so you face the opposite way","mcq":["rotate to face the other way","spin to the opposite direction","reverse your facing"],"note":"Also: turn a business around (improve it).","reg":""},{"id":"PE60","lv":"E","ph":"look around","trap":"around","ex":"Feel free to look ___ the shop.","mean":"explore a place by looking at different parts","mcq":["browse a place","survey your surroundings","explore by looking"],"note":"","reg":""},{"id":"PE61","lv":"E","ph":"pay back","trap":"back","ex":"I'll pay you ___ next week.","mean":"return money you owe","mcq":["repay a debt","give back borrowed money","settle what you owe"],"note":"Separable: pay it back. Also: pay someone back (revenge).","reg":""},{"id":"PE62","lv":"E","ph":"hang up","trap":"up","ex":"She hung ___ before I finished.","mean":"end a phone call","mcq":["end a call","put the phone down","finish a phone conversation"],"note":"Also: hang up a coat (on a hook).","reg":""},{"id":"PE63","lv":"E","ph":"wait for","trap":"for","ex":"I'll wait ___ you outside.","mean":"stay somewhere until someone or something comes","mcq":["remain until someone arrives","expect and await","stay in anticipation"],"note":"","reg":""},{"id":"PE64","lv":"E","ph":"ask for","trap":"for","ex":"He asked ___ help.","mean":"request something","mcq":["demand as a right","make a request","say you want something"],"note":"Also: ask for trouble (invite it).","reg":""},{"id":"PE65","lv":"E","ph":"think about","trap":"about","ex":"I'll think ___ your offer.","mean":"consider something","mcq":["consider carefully","reflect on something","mull over an idea"],"note":"","reg":""},{"id":"PE66","lv":"E","ph":"talk about","trap":"about","ex":"Let's talk ___ the plan.","mean":"discuss a topic","mcq":["discuss something","speak on a subject","have a conversation about"],"note":"","reg":""},{"id":"PE67","lv":"E","ph":"go up","trap":"up","ex":"Prices have gone ___ again.","mean":"increase; rise","mcq":["rise in amount","become higher","increase in level"],"note":"","reg":""},{"id":"PE68","lv":"E","ph":"go down","trap":"down","ex":"The temperature went ___ overnight.","mean":"decrease; fall","mcq":["drop in amount","become lower","fall in level"],"note":"Also: go down well (be received well).","reg":""},{"id":"PE69","lv":"E","ph":"break down","trap":"down","ex":"My car broke ___ on the motorway.","mean":"stop working (of a machine or vehicle)","mcq":["stop functioning","fail mechanically","cease to operate"],"note":"Also: break down in tears (lose composure).","reg":""},{"id":"PE70","lv":"E","ph":"come up","trap":"up","ex":"A problem has come ___.","mean":"arise; happen unexpectedly","mcq":["arise suddenly","occur without warning","be raised as an issue"],"note":"Also: come up to someone (approach).","reg":""},{"id":"PE71","lv":"E","ph":"set up","trap":"up","ex":"They set ___ a new company.","mean":"establish or arrange something","mcq":["establish something new","get something ready","start an organisation"],"note":"Separable: set it up.","reg":""},{"id":"PE72","lv":"E","ph":"give back","trap":"back","ex":"Give ___ my pen.","mean":"return something to its owner","mcq":["return a borrowed thing","hand something back","restore to the owner"],"note":"Separable: give it back.","reg":""},{"id":"PE73","lv":"E","ph":"take out","trap":"out","ex":"He took ___ his wallet.","mean":"remove something from inside something","mcq":["remove from a container","pull something out","extract an item"],"note":"Also: take someone out (on a date).","reg":""},{"id":"PE74","lv":"E","ph":"put away","trap":"away","ex":"Put ___ your books now.","mean":"return something to its proper place","mcq":["store something tidily","return to where it belongs","tidy something away"],"note":"Separable: put it away.","reg":""},{"id":"PE75","lv":"E","ph":"turn into","trap":"into","ex":"The rain turned ___ snow.","mean":"become something different","mcq":["change into another form","transform into something","become something else"],"note":"","reg":""},{"id":"PE76","lv":"E","ph":"get ready","trap":"ready","ex":"Get ___ for school.","mean":"prepare yourself","mcq":["prepare to do something","make yourself prepared","sort yourself out"],"note":"","reg":""},{"id":"PE77","lv":"E","ph":"sign up","trap":"up","ex":"I signed ___ for the course.","mean":"register or enrol for something","mcq":["enrol in something","join by registering","put your name down"],"note":"","reg":""},{"id":"PE78","lv":"E","ph":"check in","trap":"in","ex":"We checked ___ at the hotel.","mean":"register your arrival at a hotel or airport","mcq":["register on arrival","report your arrival","sign in at reception"],"note":"","reg":""},{"id":"PE79","lv":"E","ph":"check out","trap":"out","ex":"We check ___ at noon.","mean":"pay and leave a hotel","mcq":["settle up and leave","leave after paying","depart from a hotel"],"note":"Also: check something out (examine it).","reg":""},{"id":"PE80","lv":"E","ph":"come across","trap":"across","ex":"I came ___ an old photo.","mean":"find something by chance","mcq":["find unexpectedly","stumble upon","happen to discover"],"note":"Also: come across as (seem).","reg":""},{"id":"PE81","lv":"E","ph":"run away","trap":"away","ex":"The dog ran ___.","mean":"escape by running; flee","mcq":["flee from somewhere","escape quickly","leave by running"],"note":"","reg":""},{"id":"PE82","lv":"E","ph":"take care of","trap":"care","ex":"She takes ___ of her grandmother.","mean":"look after someone or something","mcq":["look after someone","be responsible for","attend to someone's needs"],"note":"","reg":""},{"id":"PE83","lv":"E","ph":"put off","trap":"off","ex":"Let's put ___ the meeting till Monday.","mean":"postpone something","mcq":["delay to a later time","reschedule for later","postpone an event"],"note":"Separable. Also: put someone off (discourage).","reg":""},{"id":"PE84","lv":"E","ph":"go off","trap":"off","ex":"The alarm went ___ at six.","mean":"start ringing or exploding suddenly","mcq":["start sounding","be triggered","ring or explode"],"note":"Also: food goes off (spoils).","reg":""},{"id":"PE85","lv":"E","ph":"get along","trap":"along","ex":"Do you get ___ with your boss?","mean":"have a friendly relationship","mcq":["have a good relationship","be on good terms","relate well to someone"],"note":"Also 'get on' (British).","reg":""},{"id":"PE86","lv":"E","ph":"look forward to","trap":"forward","ex":"I look ___ to the weekend.","mean":"feel happy about something that will happen","mcq":["anticipate with pleasure","await something eagerly","be excited for something"],"note":"Followed by a noun or -ing.","reg":""},{"id":"PE87","lv":"E","ph":"figure out","trap":"out","ex":"I can't figure ___ this puzzle.","mean":"understand or solve something after thinking","mcq":["work something out","solve by thinking","make sense of something"],"note":"Separable: figure it out.","reg":""},{"id":"PE88","lv":"E","ph":"work out","trap":"out","ex":"I work ___ at the gym daily.","mean":"do physical exercise","mcq":["go to the gym regularly","train your body","exercise for fitness"],"note":"Also: work out a problem (solve); work out well (succeed).","reg":""},{"id":"PE89","lv":"E","ph":"end up","trap":"up","ex":"We ended ___ at a café.","mean":"finally be in a place or situation","mcq":["eventually arrive somewhere","finish in a situation","come to be somewhere at last"],"note":"","reg":""},{"id":"PE90","lv":"E","ph":"grow out of","trap":"out","ex":"She grew ___ of her old clothes.","mean":"become too big or too old for something","mcq":["get too big for something","outgrow something","leave behind with age"],"note":"","reg":""},{"id":"PE91","lv":"E","ph":"keep on","trap":"on","ex":"He kept ___ talking.","mean":"continue doing something","mcq":["continue without stopping","persist in doing","carry on doing"],"note":"Usually keep on + -ing.","reg":""},{"id":"PE92","lv":"E","ph":"get into","trap":"into","ex":"She got ___ a good university.","mean":"be accepted or admitted to something","mcq":["be admitted somewhere","gain entry to","be accepted into"],"note":"Also: get into trouble; get into a hobby.","reg":""},{"id":"PE93","lv":"E","ph":"take back","trap":"back","ex":"I take ___ what I said.","mean":"withdraw something you said","mcq":["retract a statement","withdraw your words","unsay something"],"note":"Also: take back an item to a shop.","reg":""},{"id":"PE94","lv":"E","ph":"come out","trap":"out","ex":"The sun came ___ after the rain.","mean":"appear; become visible","mcq":["become visible","appear from hiding","emerge into view"],"note":"Also: a book comes out (is published).","reg":""},{"id":"PE95","lv":"E","ph":"turn back","trap":"back","ex":"The storm forced us to turn ___.","mean":"return the way you came","mcq":["go back the way you came","reverse your journey","retreat to where you started"],"note":"","reg":""},{"id":"PE96","lv":"E","ph":"add up","trap":"up","ex":"The numbers don't add ___.","mean":"make sense; total correctly","mcq":["make logical sense","total as expected","be consistent"],"note":"Also: add up figures (sum them).","reg":""},{"id":"PE97","lv":"E","ph":"call back","trap":"back","ex":"I'll call you ___ later.","mean":"return someone's phone call","mcq":["phone again","return a call","ring back"],"note":"Separable: call me back.","reg":""},{"id":"PE98","lv":"E","ph":"go through","trap":"through","ex":"Let's go ___ the plan once more.","mean":"examine or review something in detail","mcq":["review carefully","examine step by step","look through thoroughly"],"note":"Also: go through a hard time (experience).","reg":""},{"id":"PE99","lv":"E","ph":"get rid of","trap":"rid","ex":"I want to get ___ of this junk.","mean":"remove or throw away something unwanted","mcq":["dispose of something","remove unwanted things","free yourself of something"],"note":"","reg":""},{"id":"PE100","lv":"E","ph":"drop out","trap":"out","ex":"He dropped ___ of college.","mean":"stop attending a course or activity before finishing","mcq":["quit before completing","leave a course early","withdraw from something"],"note":"","reg":""},{"id":"PE101","lv":"E","ph":"take up","trap":"up","ex":"She took ___ painting last year.","mean":"start a new hobby or activity","mcq":["begin a new pastime","start doing regularly","adopt a new activity"],"note":"Also: take up space/time (occupy).","reg":""},{"id":"PE102","lv":"E","ph":"put up","trap":"up","ex":"They put ___ a tent.","mean":"build or erect something","mcq":["erect a structure","set something upright","build something temporary"],"note":"Also: put someone up (give lodging).","reg":""},{"id":"PE103","lv":"E","ph":"bring up","trap":"up","ex":"She brought ___ three children alone.","mean":"raise a child","mcq":["raise a child to adulthood","care for children as they grow","rear a family"],"note":"Also: bring up a topic (mention it).","reg":""},{"id":"PE104","lv":"E","ph":"get through","trap":"through","ex":"We got ___ a lot of work today.","mean":"finish or deal with a large amount of something","mcq":["complete a quantity of work","manage to finish","deal with successfully"],"note":"Also: get through to someone (reach by phone / make understood).","reg":""},{"id":"PE105","lv":"E","ph":"hand in","trap":"in","ex":"Hand ___ your homework.","mean":"submit something to a person in authority","mcq":["submit work","give in an assignment","deliver for marking"],"note":"Separable: hand it in.","reg":""},{"id":"PE106","lv":"E","ph":"hand out","trap":"out","ex":"The teacher handed ___ the papers.","mean":"distribute something to people","mcq":["give out to many","distribute items","pass around to people"],"note":"Separable: hand them out.","reg":""},{"id":"PE107","lv":"E","ph":"cheer up","trap":"up","ex":"Cheer ___! It's not so bad.","mean":"become or make someone happier","mcq":["become more cheerful","lift someone's mood","feel happier"],"note":"Separable: cheer her up.","reg":""},{"id":"PE108","lv":"E","ph":"slow down","trap":"down","ex":"Slow ___, you're driving too fast.","mean":"reduce speed","mcq":["go more slowly","decrease your pace","become less busy"],"note":"","reg":""},{"id":"PE109","lv":"E","ph":"speed up","trap":"up","ex":"Can you speed ___ a little?","mean":"go faster","mcq":["increase your pace","move more quickly","accelerate"],"note":"","reg":""},{"id":"PE110","lv":"E","ph":"stay up","trap":"up","ex":"I stayed ___ late studying.","mean":"not go to bed until late","mcq":["remain awake late","not sleep until late","be up past bedtime"],"note":"","reg":""},{"id":"PE111","lv":"E","ph":"nod off","trap":"off","ex":"He nodded ___ during the film.","mean":"fall asleep, especially without meaning to","mcq":["drift into sleep","doze off unintentionally","drop off"],"note":"Informal.","reg":"informal"},{"id":"PE112","lv":"E","ph":"put back","trap":"back","ex":"Put the book ___ on the shelf.","mean":"return something to its place","mcq":["return to its spot","replace where it was","set back in position"],"note":"Separable: put it back.","reg":""},{"id":"PE113","lv":"E","ph":"come down","trap":"down","ex":"Prices are coming ___.","mean":"decrease; become lower","mcq":["drop in value","fall in amount","become cheaper"],"note":"Also: come down with an illness.","reg":""},{"id":"PE114","lv":"E","ph":"go away for","trap":"away","ex":"We went ___ for the weekend.","mean":"leave home for a trip","mcq":["travel somewhere for a break","leave for a holiday","take a trip"],"note":"","reg":""},{"id":"PE115","lv":"E","ph":"leave out","trap":"out","ex":"You left ___ an important detail.","mean":"omit; fail to include","mcq":["fail to include something","omit by mistake","miss something out"],"note":"Separable: leave it out.","reg":""},{"id":"PE116","lv":"E","ph":"turn over","trap":"over","ex":"Turn ___ the page.","mean":"move something so the other side is up","mcq":["flip to the other side","rotate to show the back","invert something"],"note":"Also: turn over money (revenue); hand over.","reg":""},{"id":"PE117","lv":"E","ph":"go for","trap":"for","ex":"I'll go ___ the chicken, please.","mean":"choose something","mcq":["choose an option","opt for something","decide on"],"note":"Also: go for a walk; go for it (try).","reg":""},{"id":"PE118","lv":"E","ph":"get on with","trap":"on","ex":"Let's get ___ with the work.","mean":"continue or make progress with something","mcq":["proceed with a task","continue working","make progress"],"note":"Also: get on with someone (relationship).","reg":""},{"id":"PE119","lv":"E","ph":"look up","trap":"up","ex":"Look ___ the word in a dictionary.","mean":"search for information in a reference","mcq":["search for a fact","find information in a source","check in a reference"],"note":"Separable: look it up. Also: things are looking up (improving).","reg":""},{"id":"PE120","lv":"E","ph":"save up","trap":"up","ex":"I'm saving ___ for a laptop.","mean":"keep money over time for a purpose","mcq":["set money aside gradually","accumulate savings","put money by for later"],"note":"","reg":""},{"id":"PE121","lv":"E","ph":"go on with","trap":"on","ex":"Go ___ with what you were saying.","mean":"continue after a pause","mcq":["continue speaking","carry on","resume"],"note":"","reg":""},{"id":"PE122","lv":"E","ph":"get up to","trap":"up","ex":"What did you get ___ to at the weekend?","mean":"do something, often mischievous or unknown to others","mcq":["be busy doing something","be up to an activity","do (often mischief)"],"note":"","reg":"informal"},{"id":"PE123","lv":"E","ph":"take down","trap":"down","ex":"Take ___ this address.","mean":"write down information","mcq":["record in writing","note something down","write information down"],"note":"Separable. Also: take down a structure (dismantle).","reg":""},{"id":"PE124","lv":"E","ph":"put together","trap":"together","ex":"He put ___ the bookshelf himself.","mean":"assemble something from parts","mcq":["assemble from pieces","build by joining parts","construct something"],"note":"Separable: put it together.","reg":""},{"id":"PE125","lv":"E","ph":"break up","trap":"up","ex":"They broke ___ after two years.","mean":"end a romantic relationship","mcq":["end a relationship","split from a partner","stop being a couple"],"note":"Also: school breaks up (term ends).","reg":""},{"id":"PE126","lv":"E","ph":"make up","trap":"up","ex":"They argued but soon made ___.","mean":"become friends again after a quarrel","mcq":["reconcile after a fight","settle a disagreement","become friends again"],"note":"Also: make up a story (invent); make-up (cosmetics).","reg":""},{"id":"PE127","lv":"E","ph":"turn out","trap":"out","ex":"It turned ___ to be a great day.","mean":"happen in the end; prove to be","mcq":["end up being","prove to be in the end","result in a certain way"],"note":"Also: turn out the lights.","reg":""},{"id":"PE128","lv":"E","ph":"drop in","trap":"in","ex":"Drop ___ anytime you like.","mean":"visit someone casually without arranging it","mcq":["visit without warning","pop by casually","call in unannounced"],"note":"","reg":"informal"},{"id":"PE129","lv":"E","ph":"get on well","trap":"on","ex":"The two of them get ___ well.","mean":"have a good relationship","mcq":["relate well together","be on friendly terms","like each other"],"note":"","reg":""},{"id":"PE130","lv":"E","ph":"use up","trap":"up","ex":"We've used ___ all the paper.","mean":"consume all of something","mcq":["finish a supply","consume entirely","exhaust the amount"],"note":"Separable: use it up.","reg":""},{"id":"PM1","lv":"M","ph":"put up with","trap":"up","ex":"I can't put ___ with this noise.","mean":"tolerate something unpleasant","mcq":["endure without complaint","accept something annoying","bear a difficulty"],"note":"Three-part, inseparable.","reg":""},{"id":"PM2","lv":"M","ph":"look up to","trap":"up","ex":"She looks ___ to her mentor.","mean":"admire and respect someone","mcq":["respect greatly","regard as a role model","hold in high esteem"],"note":"Opposite: look down on.","reg":""},{"id":"PM3","lv":"M","ph":"look down on","trap":"down","ex":"He looks ___ on people with less money.","mean":"regard someone as inferior","mcq":["consider someone beneath you","feel superior to someone","despise as lesser"],"note":"","reg":""},{"id":"PM4","lv":"M","ph":"get over","trap":"over","ex":"It took months to get ___ the breakup.","mean":"recover from something difficult","mcq":["recover emotionally","come to terms with","move past a difficulty"],"note":"Also: get over an illness.","reg":""},{"id":"PM5","lv":"M","ph":"come up with","trap":"up","ex":"She came ___ with a brilliant idea.","mean":"think of or produce an idea or plan","mcq":["devise something","produce an idea","think up a solution"],"note":"Three-part, inseparable.","reg":""},{"id":"PM6","lv":"M","ph":"look into","trap":"into","ex":"Police are looking ___ the matter.","mean":"investigate","mcq":["investigate something","examine a problem","inquire into"],"note":"","reg":""},{"id":"PM7","lv":"M","ph":"carry out","trap":"out","ex":"They carried ___ the experiment.","mean":"perform or complete a task","mcq":["perform a task","execute a plan","complete an action"],"note":"Separable: carry it out.","reg":""},{"id":"PM8","lv":"M","ph":"deal with","trap":"with","ex":"I'll deal ___ the complaint.","mean":"handle or manage something","mcq":["handle a matter","take care of a problem","manage a situation"],"note":"","reg":""},{"id":"PM9","lv":"M","ph":"turn down","trap":"down","ex":"She turned ___ the job offer.","mean":"refuse or reject something","mcq":["reject an offer","decline something","say no to"],"note":"Separable: turn it down. (Distinct from turn down volume.)","reg":""},{"id":"PM10","lv":"M","ph":"bring about","trap":"about","ex":"The reforms brought ___ big changes.","mean":"cause something to happen","mcq":["cause to happen","make something occur","produce a result"],"note":"","reg":""},{"id":"PM11","lv":"M","ph":"call off","trap":"off","ex":"They called ___ the wedding.","mean":"cancel something","mcq":["cancel an event","abandon a plan","call an end to"],"note":"Separable: call it off.","reg":""},{"id":"PM12","lv":"M","ph":"put out","trap":"out","ex":"Firefighters put ___ the blaze.","mean":"extinguish a fire","mcq":["extinguish flames","stop something burning","douse a fire"],"note":"Also: put someone out (inconvenience).","reg":""},{"id":"PM13","lv":"M","ph":"give in","trap":"in","ex":"After hours of arguing, he gave ___.","mean":"stop resisting; surrender","mcq":["yield to pressure","admit defeat","stop opposing"],"note":"Also: give in work (submit).","reg":""},{"id":"PM14","lv":"M","ph":"take over","trap":"over","ex":"A larger firm took ___ the company.","mean":"gain control of something","mcq":["assume control","gain charge of","seize command"],"note":"Separable: take it over.","reg":""},{"id":"PM15","lv":"M","ph":"set off","trap":"off","ex":"We set ___ at dawn.","mean":"begin a journey","mcq":["start a journey","depart","head out"],"note":"Also: set off an alarm (trigger).","reg":""},{"id":"PM16","lv":"M","ph":"set out","trap":"out","ex":"They set ___ to climb the peak.","mean":"begin a journey or an effort with a goal","mcq":["start out with an aim","begin a venture","embark on"],"note":"Also: set out an argument (present it).","reg":""},{"id":"PM17","lv":"M","ph":"break into","trap":"into","ex":"Thieves broke ___ the house.","mean":"enter by force, usually to steal","mcq":["enter illegally","force entry","burgle"],"note":"","reg":""},{"id":"PM18","lv":"M","ph":"get by","trap":"by","ex":"We get ___ on a small income.","mean":"manage to survive with what you have","mcq":["manage with little","cope financially","survive on limited means"],"note":"","reg":""},{"id":"PM19","lv":"M","ph":"back up","trap":"up","ex":"The evidence backs ___ her claim.","mean":"support or confirm something","mcq":["support a claim","confirm with evidence","reinforce"],"note":"Also: back up files; reverse a car.","reg":""},{"id":"PM20","lv":"M","ph":"count on","trap":"on","ex":"You can count ___ me.","mean":"rely on or depend on someone","mcq":["rely on someone","depend on","trust to come through"],"note":"","reg":""},{"id":"PM21","lv":"M","ph":"run into","trap":"into","ex":"I ran ___ an old friend today.","mean":"meet someone by chance","mcq":["meet unexpectedly","bump into","encounter by chance"],"note":"Also: run into trouble/debt.","reg":""},{"id":"PM22","lv":"M","ph":"work out","trap":"out","ex":"Everything worked ___ in the end.","mean":"develop in a good or successful way","mcq":["end successfully","turn out well","resolve happily"],"note":"Also: exercise; solve.","reg":""},{"id":"PM23","lv":"M","ph":"point out","trap":"out","ex":"She pointed ___ my mistake.","mean":"draw attention to something","mcq":["draw attention to","note explicitly","indicate"],"note":"Separable: point it out.","reg":""},{"id":"PM24","lv":"M","ph":"give away","trap":"away","ex":"He gave ___ all his old books.","mean":"give something free; donate","mcq":["donate freely","part with for nothing","hand over free"],"note":"Also: give away a secret (reveal).","reg":""},{"id":"PM25","lv":"M","ph":"turn up","trap":"up","ex":"Turn ___ the heating, it's cold.","mean":"increase the level of something","mcq":["raise the level","increase intensity","make stronger"],"note":"Distinct from turn up = arrive.","reg":""},{"id":"PM26","lv":"M","ph":"bring back","trap":"back","ex":"The song brings ___ memories.","mean":"cause something to return, especially memories","mcq":["cause to return","revive a memory","call to mind again"],"note":"Also: return a borrowed item.","reg":""},{"id":"PM27","lv":"M","ph":"hold up","trap":"up","ex":"The accident held ___ traffic for hours.","mean":"delay something","mcq":["cause a delay","slow progress","obstruct temporarily"],"note":"Also: hold up a bank (rob); hold up = remain valid.","reg":""},{"id":"PM28","lv":"M","ph":"put through","trap":"through","ex":"I'll put you ___ to the manager.","mean":"connect someone by telephone","mcq":["connect a call","transfer a caller","link by phone"],"note":"Also: put someone through an ordeal.","reg":""},{"id":"PM29","lv":"M","ph":"take on","trap":"on","ex":"She took ___ extra responsibilities.","mean":"accept or undertake work or a challenge","mcq":["accept a task","undertake something","agree to handle"],"note":"Also: take on staff (hire); take someone on (challenge).","reg":""},{"id":"PM30","lv":"M","ph":"settle down","trap":"down","ex":"They settled ___ in a quiet town.","mean":"begin a stable, calm life in one place","mcq":["start a steady life","become established","live calmly in one place"],"note":"Also: settle down = become calm.","reg":""},{"id":"PM31","lv":"M","ph":"take after","trap":"after","ex":"He takes ___ his father.","mean":"resemble an older relative","mcq":["resemble a relative","be like a parent","inherit traits from"],"note":"Inseparable.","reg":""},{"id":"PM32","lv":"M","ph":"put down","trap":"down","ex":"Stop putting me ___ in front of others.","mean":"criticise or humiliate someone","mcq":["belittle someone","criticise harshly","make someone feel small"],"note":"Distinct from put down = place; also put down a pet.","reg":""},{"id":"PM33","lv":"M","ph":"bring in","trap":"in","ex":"The sale brought ___ a lot of money.","mean":"earn or produce money","mcq":["generate income","earn revenue","produce money"],"note":"Also: bring in a law; bring in an expert.","reg":""},{"id":"PM34","lv":"M","ph":"get across","trap":"across","ex":"He struggled to get his point ___.","mean":"make something understood","mcq":["communicate clearly","make understood","convey an idea"],"note":"Separable: get it across.","reg":""},{"id":"PM35","lv":"M","ph":"fall apart","trap":"apart","ex":"The old chair fell ___.","mean":"break into pieces; collapse","mcq":["break into pieces","disintegrate","come to pieces"],"note":"Also: emotionally fall apart.","reg":""},{"id":"PM36","lv":"M","ph":"come across as","trap":"across","ex":"She comes ___ as confident.","mean":"give a particular impression","mcq":["seem a certain way","give an impression","appear to be"],"note":"","reg":""},{"id":"PM37","lv":"M","ph":"put forward","trap":"forward","ex":"He put ___ a new proposal.","mean":"suggest an idea for consideration","mcq":["propose an idea","suggest for discussion","offer a plan"],"note":"Separable: put it forward.","reg":""},{"id":"PM38","lv":"M","ph":"turn against","trap":"against","ex":"The crowd turned ___ him.","mean":"stop supporting and become hostile","mcq":["become hostile to","withdraw support from","oppose after supporting"],"note":"","reg":""},{"id":"PM39","lv":"M","ph":"stand out","trap":"out","ex":"Her work stands ___ from the rest.","mean":"be noticeably better or different","mcq":["be conspicuous","be clearly superior","catch the eye"],"note":"","reg":""},{"id":"PM40","lv":"M","ph":"stand for","trap":"for","ex":"UN stands ___ United Nations.","mean":"represent or mean (of letters or symbols)","mcq":["represent as an abbreviation","be short for","symbolise"],"note":"Also: not stand for = not tolerate.","reg":""},{"id":"PM41","lv":"M","ph":"go over","trap":"over","ex":"Let's go ___ the figures again.","mean":"examine or review something carefully","mcq":["review carefully","check again","examine in detail"],"note":"Also: go over well (be received well).","reg":""},{"id":"PM42","lv":"M","ph":"keep up with","trap":"up","ex":"I can't keep ___ with the news.","mean":"stay at the same level or pace as something","mcq":["stay level with","not fall behind","match the pace of"],"note":"Three-part.","reg":""},{"id":"PM43","lv":"M","ph":"make out","trap":"out","ex":"I can't make ___ his handwriting.","mean":"manage to see, hear or understand something with difficulty","mcq":["barely perceive","distinguish with effort","manage to discern"],"note":"Also: make out a cheque; how did you make out? (manage).","reg":""},{"id":"PM44","lv":"M","ph":"hold back","trap":"back","ex":"She held ___ her tears.","mean":"restrain or control something","mcq":["restrain an emotion","keep from showing","hold in check"],"note":"Also: hold someone back (hinder).","reg":""},{"id":"PM45","lv":"M","ph":"hold on to","trap":"on","ex":"Hold ___ to your dreams.","mean":"keep something; not let it go","mcq":["keep possession of","retain firmly","not give up"],"note":"","reg":""},{"id":"PM46","lv":"M","ph":"break out","trap":"out","ex":"A fire broke ___ in the kitchen.","mean":"start suddenly (of something bad)","mcq":["begin suddenly","erupt","start abruptly"],"note":"Also: break out of prison (escape).","reg":""},{"id":"PM47","lv":"M","ph":"wear out","trap":"out","ex":"These shoes have worn ___.","mean":"become unusable through use","mcq":["become useless from use","be used until damaged","deteriorate with wear"],"note":"Also: wear someone out (exhaust).","reg":""},{"id":"PM48","lv":"M","ph":"knock out","trap":"out","ex":"The punch knocked him ___.","mean":"make someone unconscious","mcq":["render unconscious","make someone black out","strike insensible"],"note":"Also: knock out of a competition (eliminate).","reg":""},{"id":"PM49","lv":"M","ph":"pass out","trap":"out","ex":"She passed ___ from the heat.","mean":"faint; lose consciousness","mcq":["faint","lose consciousness","black out"],"note":"Also: pass out leaflets (distribute).","reg":""},{"id":"PM50","lv":"M","ph":"pass away","trap":"away","ex":"His grandfather passed ___ last year.","mean":"die (a polite term)","mcq":["die peacefully","pass on","decease"],"note":"Euphemism for die.","reg":""},{"id":"PM51","lv":"M","ph":"cut down on","trap":"down","ex":"I'm cutting ___ on sugar.","mean":"reduce the amount of something","mcq":["reduce consumption","use less of","limit intake"],"note":"Three-part.","reg":""},{"id":"PM52","lv":"M","ph":"cut off","trap":"off","ex":"We were cut ___ in the middle of the call.","mean":"interrupt or disconnect","mcq":["disconnect abruptly","interrupt a connection","sever contact"],"note":"Separable. Also: cut off supplies; cut someone off (inheritance).","reg":""},{"id":"PM53","lv":"M","ph":"run over","trap":"over","ex":"A car ran ___ the cat.","mean":"hit and drive over with a vehicle","mcq":["hit with a vehicle","drive over someone","knock down and pass over"],"note":"Also: the meeting ran over (took longer).","reg":""},{"id":"PM54","lv":"M","ph":"sort out","trap":"out","ex":"I need to sort ___ this mess.","mean":"organise or resolve something","mcq":["resolve a problem","put in order","deal with and fix"],"note":"Separable: sort it out.","reg":"British"},{"id":"PM55","lv":"M","ph":"knock off","trap":"off","ex":"We usually knock ___ at five.","mean":"stop work for the day","mcq":["finish working","clock off","end the workday"],"note":"Informal. Also: knock off a price (reduce); knock it off (stop).","reg":"informal"},{"id":"PM56","lv":"M","ph":"get down to","trap":"down","ex":"Let's get ___ to business.","mean":"start giving serious attention to something","mcq":["begin to focus on","start in earnest","apply yourself to"],"note":"Three-part.","reg":""},{"id":"PM57","lv":"M","ph":"put aside","trap":"aside","ex":"Let's put ___ our differences.","mean":"disregard or save something for later","mcq":["set something apart","ignore for now","reserve for later"],"note":"Separable. Also: put aside money.","reg":""},{"id":"PM58","lv":"M","ph":"take in","trap":"in","ex":"It's a lot of information to take ___.","mean":"understand and absorb information","mcq":["absorb mentally","comprehend fully","grasp and retain"],"note":"Also: take in a stray; be taken in (deceived).","reg":""},{"id":"PM59","lv":"M","ph":"give out","trap":"out","ex":"The teacher gave ___ the test papers.","mean":"distribute something","mcq":["hand out to people","distribute","pass around"],"note":"Also: give out = stop working / run low.","reg":""},{"id":"PM60","lv":"M","ph":"bring down","trap":"down","ex":"Scandal brought ___ the government.","mean":"cause to fall or fail","mcq":["cause the collapse of","overthrow","make fall from power"],"note":"Also: bring down prices.","reg":""},{"id":"PM61","lv":"M","ph":"take place","trap":"place","ex":"The ceremony will take ___ at noon.","mean":"happen; occur","mcq":["occur","be held","happen as planned"],"note":"Not separable; fixed.","reg":""},{"id":"PM62","lv":"M","ph":"go off","trap":"off","ex":"This milk has gone ___.","mean":"become bad to eat; spoil","mcq":["become unfit to eat","spoil","turn bad"],"note":"Distinct from go off = explode/ring.","reg":"British"},{"id":"PM63","lv":"M","ph":"catch up","trap":"up","ex":"Run faster to catch ___.","mean":"reach the same point or level as others","mcq":["draw level after lagging","reach those ahead","close a gap"],"note":"Also: catch up on sleep/news.","reg":""},{"id":"PM64","lv":"M","ph":"get along with","trap":"along","ex":"She gets ___ with everyone.","mean":"have a friendly relationship with someone","mcq":["relate well to","be on good terms with","like and be liked by"],"note":"","reg":""},{"id":"PM65","lv":"M","ph":"put up","trap":"up","ex":"My aunt put me ___ for the night.","mean":"let someone stay in your home","mcq":["give lodging to","host overnight","provide a bed for"],"note":"Distinct from put up = erect.","reg":""},{"id":"PM66","lv":"M","ph":"look out","trap":"out","ex":"Look ___! There's a car.","mean":"be careful; watch for danger","mcq":["be alert to danger","watch out","take care"],"note":"Also: look out for someone (protect / watch for).","reg":""},{"id":"PM67","lv":"M","ph":"back out","trap":"out","ex":"He backed ___ of the deal at the last minute.","mean":"withdraw from an agreement","mcq":["pull out of a deal","fail to keep a commitment","renege"],"note":"","reg":""},{"id":"PM68","lv":"M","ph":"catch on","trap":"on","ex":"The trend quickly caught ___.","mean":"become popular","mcq":["become fashionable","gain popularity","be widely adopted"],"note":"Also: catch on = understand.","reg":""},{"id":"PM69","lv":"M","ph":"hold off","trap":"off","ex":"Let's hold ___ until we know more.","mean":"delay doing something","mcq":["delay acting","wait before proceeding","postpone a decision"],"note":"Also: hold off an attacker (resist).","reg":""},{"id":"PM70","lv":"M","ph":"go through with","trap":"through","ex":"She decided to go ___ with the operation.","mean":"do something difficult you had planned","mcq":["carry out as planned","proceed despite reluctance","follow through on"],"note":"Three-part.","reg":""},{"id":"PM71","lv":"M","ph":"get rid of","trap":"rid","ex":"How do I get ___ of these ants?","mean":"remove or eliminate something unwanted","mcq":["eliminate a nuisance","dispose of","be free of"],"note":"","reg":""},{"id":"PM72","lv":"M","ph":"stick to","trap":"to","ex":"Stick ___ the plan.","mean":"continue with something and not change it","mcq":["keep to a plan","not deviate from","adhere to"],"note":"","reg":""},{"id":"PM73","lv":"M","ph":"stick with","trap":"with","ex":"Stick ___ it; you'll improve.","mean":"continue with something despite difficulty","mcq":["persevere with","keep at something","not give up on"],"note":"","reg":""},{"id":"PM74","lv":"M","ph":"turn out","trap":"out","ex":"Thousands turned ___ for the march.","mean":"attend or appear at an event in numbers","mcq":["come out in numbers","attend an event","show up as a crowd"],"note":"Noun: turnout.","reg":""},{"id":"PM75","lv":"M","ph":"bring out","trap":"out","ex":"The company brought ___ a new model.","mean":"produce or release something new","mcq":["release to the public","launch a product","put on the market"],"note":"Also: bring out the best in someone.","reg":""},{"id":"PM76","lv":"M","ph":"fill out","trap":"out","ex":"Fill ___ the application form.","mean":"complete a form with information","mcq":["complete a form","enter all details","write in the fields"],"note":"Separable. N. Amer. favours 'fill out'; British 'fill in'.","reg":""},{"id":"PM77","lv":"M","ph":"get on","trap":"on","ex":"How are you getting ___ at work?","mean":"make progress; manage","mcq":["progress or manage","do in a situation","fare"],"note":"Also: get on a bus; get on with someone.","reg":"British"},{"id":"PM78","lv":"M","ph":"go after","trap":"after","ex":"She went ___ the promotion aggressively.","mean":"pursue or try to get something","mcq":["pursue a goal","chase after","try hard to obtain"],"note":"Also: go after someone (chase).","reg":""},{"id":"PM79","lv":"M","ph":"make up for","trap":"up","ex":"I'll make ___ for the lost time.","mean":"compensate for something","mcq":["compensate for a loss","offset a shortcoming","make amends for"],"note":"Three-part.","reg":""},{"id":"PM80","lv":"M","ph":"look over","trap":"over","ex":"Could you look ___ my essay?","mean":"examine something quickly","mcq":["review briefly","check over","inspect quickly"],"note":"Separable: look it over.","reg":""},{"id":"PM81","lv":"M","ph":"take off","trap":"off","ex":"The plane took ___ on time.","mean":"leave the ground and begin to fly","mcq":["become airborne","leave the runway","begin flight"],"note":"Also: a business takes off (succeeds suddenly).","reg":""},{"id":"PM82","lv":"M","ph":"give off","trap":"off","ex":"The engine gives ___ a strange smell.","mean":"produce or emit something","mcq":["emit a smell or heat","release into the air","produce a scent"],"note":"","reg":""},{"id":"PM83","lv":"M","ph":"take up","trap":"up","ex":"The sofa takes ___ too much space.","mean":"occupy space or time","mcq":["occupy space","use up room","fill an area"],"note":"Distinct from take up a hobby.","reg":""},{"id":"PM84","lv":"M","ph":"run out of","trap":"out","ex":"We ran ___ of time.","mean":"have no more of something left","mcq":["use up a supply","have none remaining","exhaust something"],"note":"Three-part.","reg":""},{"id":"PM85","lv":"M","ph":"get through to","trap":"through","ex":"I can't get ___ to her; she won't listen.","mean":"make someone understand you","mcq":["make someone understand","reach someone mentally","communicate successfully"],"note":"Also: reach by phone.","reg":""},{"id":"PM86","lv":"M","ph":"fall for","trap":"for","ex":"He fell ___ her lie.","mean":"be deceived by something","mcq":["be taken in by","believe a deception","be fooled"],"note":"Also: fall for someone (fall in love).","reg":""},{"id":"PM87","lv":"M","ph":"go without","trap":"without","ex":"They went ___ food for days.","mean":"manage despite lacking something","mcq":["manage without","do without","lack and endure"],"note":"","reg":""},{"id":"PM88","lv":"M","ph":"keep up","trap":"up","ex":"Keep ___ the good work!","mean":"continue something at the same level","mcq":["maintain a standard","continue as before","sustain an effort"],"note":"","reg":""},{"id":"PM89","lv":"M","ph":"take down","trap":"down","ex":"They took ___ the old barn.","mean":"dismantle or remove a structure","mcq":["dismantle something","remove a structure","demolish piece by piece"],"note":"Distinct from take down = write down.","reg":""},{"id":"PM90","lv":"M","ph":"call for","trap":"for","ex":"The situation calls ___ caution.","mean":"require or demand something","mcq":["require as necessary","demand","make necessary"],"note":"Also: call for someone (collect).","reg":""},{"id":"PM91","lv":"M","ph":"stand by","trap":"by","ex":"I'll stand ___ you whatever happens.","mean":"support someone loyally","mcq":["remain loyal to","support in difficulty","be faithful to"],"note":"Also: stand by = wait ready.","reg":""},{"id":"PM92","lv":"M","ph":"stand up for","trap":"up","ex":"Stand ___ for what you believe.","mean":"defend or support someone or something","mcq":["defend a cause","speak in support of","champion"],"note":"Three-part.","reg":""},{"id":"PM93","lv":"M","ph":"get back to","trap":"back","ex":"I'll get ___ to you tomorrow.","mean":"reply to someone later","mcq":["respond later","reply in due course","return contact"],"note":"Three-part.","reg":""},{"id":"PM94","lv":"M","ph":"settle for","trap":"for","ex":"Don't settle ___ less than you deserve.","mean":"accept something less than ideal","mcq":["accept a lesser option","make do with","be content with less"],"note":"","reg":""},{"id":"PM95","lv":"M","ph":"brush up on","trap":"up","ex":"I need to brush ___ on my French.","mean":"improve a skill you've not used for a while","mcq":["refresh a skill","revise and improve","get back up to speed"],"note":"Three-part.","reg":""},{"id":"PM96","lv":"M","ph":"drop by","trap":"by","ex":"Drop ___ whenever you're near.","mean":"make a short, casual visit","mcq":["visit briefly","call in casually","pop round"],"note":"","reg":"informal"},{"id":"PM97","lv":"M","ph":"get away with","trap":"away","ex":"He got ___ with cheating.","mean":"escape punishment for something wrong","mcq":["avoid punishment","do wrong without consequence","escape blame"],"note":"Three-part.","reg":""},{"id":"PM98","lv":"M","ph":"look after","trap":"after","ex":"Who looks ___ the accounts here?","mean":"be responsible for managing something","mcq":["be responsible for","manage","take charge of"],"note":"","reg":""},{"id":"PM99","lv":"M","ph":"take over from","trap":"over","ex":"She took ___ from the retiring chair.","mean":"replace someone in a role","mcq":["succeed someone","assume a role from","step into the place of"],"note":"","reg":""},{"id":"PM100","lv":"M","ph":"come down to","trap":"down","ex":"It all comes ___ to money.","mean":"be essentially a matter of something","mcq":["be fundamentally about","boil down to","amount to in the end"],"note":"","reg":""},{"id":"PM101","lv":"M","ph":"face up to","trap":"up","ex":"You must face ___ to your mistakes.","mean":"accept and deal with a difficult truth","mcq":["confront honestly","accept and deal with","stop avoiding"],"note":"Three-part.","reg":""},{"id":"PM102","lv":"M","ph":"get on with it","trap":"on","ex":"Stop delaying and get ___ with it.","mean":"start or continue doing something without delay","mcq":["proceed without delay","stop stalling","just do it"],"note":"","reg":"informal"},{"id":"PM103","lv":"M","ph":"hand over","trap":"over","ex":"Hand ___ the documents.","mean":"give something to someone, often formally","mcq":["give to another","surrender possession","pass to someone"],"note":"Separable: hand them over.","reg":""},{"id":"PM104","lv":"M","ph":"check up on","trap":"up","ex":"The nurse checked ___ on the patient.","mean":"investigate or make sure someone is okay","mcq":["verify someone's wellbeing","monitor a person","make sure all is well"],"note":"Three-part.","reg":""},{"id":"PM105","lv":"M","ph":"turn to","trap":"to","ex":"She turned ___ her sister for help.","mean":"go to someone for help or advice","mcq":["seek help from","rely on for support","go to for aid"],"note":"","reg":""},{"id":"PM106","lv":"M","ph":"work on","trap":"on","ex":"I'm working ___ my pronunciation.","mean":"try to improve or develop something","mcq":["try to improve","develop through effort","put work into"],"note":"","reg":""},{"id":"PM107","lv":"M","ph":"take out","trap":"out","ex":"He took her ___ to dinner.","mean":"invite someone somewhere and pay for them","mcq":["treat someone to an outing","invite out socially","take on a date"],"note":"Distinct from take out = remove.","reg":""},{"id":"PM108","lv":"M","ph":"give up on","trap":"up","ex":"Don't give ___ on him yet.","mean":"stop believing someone or something will succeed","mcq":["lose hope in","stop having faith in","abandon belief in"],"note":"Three-part.","reg":""},{"id":"PM109","lv":"M","ph":"break off","trap":"off","ex":"They broke ___ the engagement.","mean":"end something suddenly","mcq":["end abruptly","terminate suddenly","discontinue"],"note":"Also: break off a piece.","reg":""},{"id":"PM110","lv":"M","ph":"act up","trap":"up","ex":"The engine is acting ___ again.","mean":"behave badly or malfunction","mcq":["misbehave or malfunction","work faultily","play up"],"note":"","reg":"informal"},{"id":"PM111","lv":"M","ph":"back down","trap":"down","ex":"Neither side would back ___.","mean":"withdraw a demand or position","mcq":["concede a position","stop insisting","give way in a dispute"],"note":"","reg":""},{"id":"PM112","lv":"M","ph":"come round","trap":"round","ex":"He fainted but soon came ___.","mean":"regain consciousness","mcq":["wake from a faint","come to","recover your senses"],"note":"Also: come round to an opinion (change mind). British.","reg":"British"},{"id":"PM113","lv":"M","ph":"dawn on","trap":"on","ex":"It dawned ___ me that he was right.","mean":"become suddenly clear to someone","mcq":["become suddenly realised","occur to someone","hit you as true"],"note":"","reg":""},{"id":"PM114","lv":"M","ph":"do without","trap":"without","ex":"We'll have to do ___ a car.","mean":"manage despite not having something","mcq":["manage without","get by lacking","cope without"],"note":"","reg":""},{"id":"PM115","lv":"M","ph":"draw up","trap":"up","ex":"The lawyer drew ___ a contract.","mean":"prepare a written document","mcq":["prepare in writing","compose formally","draft a document"],"note":"Separable. Also: a car draws up (stops).","reg":""},{"id":"PM116","lv":"M","ph":"fit in","trap":"in","ex":"She found it hard to fit ___ at the new school.","mean":"belong comfortably in a group","mcq":["belong in a group","be accepted socially","blend in"],"note":"Also: fit someone in (find time).","reg":""},{"id":"PM117","lv":"M","ph":"give rise to","trap":"rise","ex":"The decision gave ___ to protests.","mean":"cause something to happen","mcq":["cause to occur","lead to","bring about"],"note":"Fixed phrase.","reg":""},{"id":"PM118","lv":"M","ph":"hang on","trap":"on","ex":"Hang ___ a second.","mean":"wait a short time","mcq":["wait briefly","hold on","pause"],"note":"Also: hang on to (keep).","reg":"informal"},{"id":"PM119","lv":"M","ph":"hold out","trap":"out","ex":"They held ___ against the siege for weeks.","mean":"resist or survive in a difficult situation","mcq":["resist pressure","endure a siege","survive against the odds"],"note":"Also: hold out for (wait for better).","reg":""},{"id":"PM120","lv":"M","ph":"lay off","trap":"off","ex":"The factory laid ___ 200 workers.","mean":"dismiss workers, usually for lack of work","mcq":["make redundant","let staff go","dismiss for economic reasons"],"note":"Separable. Also informal: lay off = stop.","reg":""},{"id":"PM121","lv":"M","ph":"let down","trap":"down","ex":"Don't let me ___.","mean":"disappoint someone by failing them","mcq":["disappoint by failing","fail to support","break a promise to"],"note":"Separable: let me down.","reg":""},{"id":"PM122","lv":"M","ph":"live up to","trap":"up","ex":"The film didn't live ___ to the hype.","mean":"meet an expected standard","mcq":["meet expectations","match a reputation","be as good as hoped"],"note":"Three-part.","reg":""},{"id":"PM123","lv":"M","ph":"make up","trap":"up","ex":"He made ___ an excuse.","mean":"invent something, often untrue","mcq":["invent a story","fabricate","concoct"],"note":"Distinct from make up = reconcile.","reg":""},{"id":"PM124","lv":"M","ph":"narrow down","trap":"down","ex":"We narrowed ___ the list to three.","mean":"reduce the number of options","mcq":["reduce the choices","cut down options","focus to fewer"],"note":"Separable.","reg":""},{"id":"PM125","lv":"M","ph":"opt for","trap":"for","ex":"She opted ___ the cheaper plan.","mean":"choose one thing over another","mcq":["choose","select","decide on"],"note":"","reg":""},{"id":"PM126","lv":"M","ph":"pick on","trap":"on","ex":"The older boys picked ___ him.","mean":"treat someone unfairly or bully them","mcq":["bully repeatedly","single out to criticise","treat unfairly"],"note":"","reg":""},{"id":"PM127","lv":"M","ph":"pull off","trap":"off","ex":"She pulled ___ a difficult deal.","mean":"succeed in doing something difficult","mcq":["achieve against the odds","manage successfully","bring off"],"note":"Separable. Also literal: pull off the road.","reg":""},{"id":"PM128","lv":"M","ph":"put across","trap":"across","ex":"He put his ideas ___ clearly.","mean":"communicate something effectively","mcq":["convey effectively","make understood","get a point across"],"note":"Separable.","reg":""},{"id":"PM129","lv":"M","ph":"run through","trap":"through","ex":"Let's run ___ the plan once more.","mean":"rehearse or review something quickly","mcq":["rehearse quickly","go over briefly","review in practice"],"note":"Also: run through money (spend).","reg":""},{"id":"PM130","lv":"M","ph":"see to","trap":"to","ex":"I'll see ___ the arrangements.","mean":"take care of or deal with something","mcq":["attend to","deal with","take responsibility for"],"note":"","reg":""},{"id":"PM131","lv":"M","ph":"set aside","trap":"aside","ex":"Set ___ some time to rest.","mean":"reserve something for a purpose","mcq":["reserve for later","keep apart for a use","allocate"],"note":"Separable.","reg":""},{"id":"PM132","lv":"M","ph":"shut down","trap":"down","ex":"The plant was shut ___ for repairs.","mean":"stop operations, temporarily or permanently","mcq":["cease operation","close down","stop running"],"note":"Separable.","reg":""},{"id":"PM133","lv":"M","ph":"sum up","trap":"up","ex":"To sum ___, we need more time.","mean":"state the main points briefly","mcq":["summarise","give the gist","recap briefly"],"note":"Separable: sum it up.","reg":""},{"id":"PM134","lv":"M","ph":"take to","trap":"to","ex":"She took ___ teaching immediately.","mean":"begin to like or be good at something","mcq":["come to like quickly","develop a liking for","adapt well to"],"note":"Also: take to the streets.","reg":""},{"id":"PM135","lv":"M","ph":"throw up","trap":"up","ex":"He felt sick and threw ___.","mean":"vomit; be sick","mcq":["empty your stomach","be sick","bring up food"],"note":"Also: throw up problems (produce).","reg":"informal"},{"id":"PM136","lv":"M","ph":"tie up","trap":"up","ex":"The project has me tied ___ all week.","mean":"keep someone busy or occupied","mcq":["keep fully occupied","leave no free time","engage completely"],"note":"Also: tie up a parcel; tie up loose ends.","reg":""},{"id":"PM137","lv":"M","ph":"wind up","trap":"up","ex":"We wound ___ the meeting early.","mean":"bring something to an end","mcq":["conclude","bring to a close","finish off"],"note":"Also: wind someone up (annoy, British); end up.","reg":""},{"id":"PM138","lv":"M","ph":"zoom in","trap":"in","ex":"Zoom ___ on the details.","mean":"look at something more closely","mcq":["magnify a view","focus in closely","enlarge the detail"],"note":"","reg":""},{"id":"PM139","lv":"M","ph":"own up","trap":"up","ex":"He owned ___ to the mistake.","mean":"admit you did something wrong","mcq":["confess","admit a fault","come clean"],"note":"Often own up to.","reg":""},{"id":"PM140","lv":"M","ph":"team up","trap":"up","ex":"They teamed ___ to win.","mean":"join with someone to work together","mcq":["join forces","form a partnership","collaborate"],"note":"","reg":""},{"id":"PH1","lv":"H","ph":"account for","trap":"for","ex":"Can you account ___ the missing funds?","mean":"explain the reason for something","mcq":["explain or justify","give a reason for","be the explanation of"],"note":"Also: make up a proportion.","reg":""},{"id":"PH2","lv":"H","ph":"allow for","trap":"for","ex":"Allow ___ delays when you plan.","mean":"take something into consideration","mcq":["make provision for","take into account","factor in"],"note":"","reg":""},{"id":"PH3","lv":"H","ph":"bank on","trap":"on","ex":"Don't bank ___ a pay rise.","mean":"rely on something happening","mcq":["count on confidently","depend on an outcome","rely on"],"note":"","reg":""},{"id":"PH4","lv":"H","ph":"bear out","trap":"out","ex":"The data bears ___ her theory.","mean":"support or confirm something is true","mcq":["confirm as true","provide evidence for","corroborate"],"note":"Separable: bear it out.","reg":""},{"id":"PH5","lv":"H","ph":"bear with","trap":"with","ex":"Please bear ___ me a moment.","mean":"be patient with someone","mcq":["be patient with","tolerate briefly","wait patiently for"],"note":"","reg":""},{"id":"PH6","lv":"H","ph":"boil down to","trap":"down","ex":"It all boils ___ to trust.","mean":"be reducible to one essential point","mcq":["amount essentially to","come down to","reduce to one factor"],"note":"Three-part.","reg":""},{"id":"PH7","lv":"H","ph":"branch out","trap":"out","ex":"The firm branched ___ into software.","mean":"expand into a new area of activity","mcq":["expand into new areas","diversify","extend activities"],"note":"","reg":""},{"id":"PH8","lv":"H","ph":"brush aside","trap":"aside","ex":"He brushed ___ my concerns.","mean":"dismiss something as unimportant","mcq":["dismiss dismissively","wave away","disregard"],"note":"Separable.","reg":""},{"id":"PH9","lv":"H","ph":"buckle down","trap":"down","ex":"It's time to buckle ___ and study.","mean":"start working hard and seriously","mcq":["apply yourself seriously","get down to hard work","knuckle down"],"note":"","reg":""},{"id":"PH10","lv":"H","ph":"call into question","trap":"into","ex":"The report calls ___ question his honesty.","mean":"cause doubt about something","mcq":["cast doubt on","raise doubts about","challenge the validity of"],"note":"Fixed phrase.","reg":""},{"id":"PH11","lv":"H","ph":"carry over","trap":"over","ex":"Unused leave carries ___ to next year.","mean":"continue or transfer into a later period","mcq":["transfer to a later time","continue onward","roll forward"],"note":"","reg":""},{"id":"PH12","lv":"H","ph":"cash in on","trap":"in","ex":"They cashed ___ on the craze.","mean":"profit from something, often unfairly","mcq":["exploit for profit","take advantage of to gain","make money from"],"note":"Three-part.","reg":""},{"id":"PH13","lv":"H","ph":"chalk up","trap":"up","ex":"The team chalked ___ another win.","mean":"achieve or record something","mcq":["record an achievement","notch up","attain and register"],"note":"Also: chalk up to (attribute).","reg":""},{"id":"PH14","lv":"H","ph":"churn out","trap":"out","ex":"The studio churns ___ films every month.","mean":"produce something rapidly and in quantity","mcq":["mass-produce quickly","turn out in volume","produce one after another"],"note":"Separable.","reg":""},{"id":"PH15","lv":"H","ph":"clamp down on","trap":"down","ex":"Authorities clamped ___ on speeding.","mean":"act strictly to stop something","mcq":["crack down on","suppress firmly","act strictly against"],"note":"Three-part.","reg":""},{"id":"PH16","lv":"H","ph":"close in on","trap":"in","ex":"Police were closing ___ on the suspect.","mean":"gradually approach and surround","mcq":["approach and surround","draw nearer to trap","converge on"],"note":"Three-part.","reg":""},{"id":"PH17","lv":"H","ph":"come by","trap":"by","ex":"Good staff are hard to come ___.","mean":"obtain or acquire something","mcq":["manage to get","acquire","obtain"],"note":"Also: come by (visit).","reg":""},{"id":"PH18","lv":"H","ph":"come down with","trap":"down","ex":"I'm coming ___ with a cold.","mean":"begin to suffer from an illness","mcq":["start to be ill with","catch an illness","become sick with"],"note":"Three-part.","reg":""},{"id":"PH19","lv":"H","ph":"come up against","trap":"up","ex":"We came ___ against fierce opposition.","mean":"face a difficulty or obstacle","mcq":["encounter an obstacle","meet resistance","be confronted by"],"note":"Three-part.","reg":""},{"id":"PH20","lv":"H","ph":"crack down on","trap":"down","ex":"The city cracked ___ on illegal parking.","mean":"take severe measures against something","mcq":["take firm action against","clamp down on","deal severely with"],"note":"Three-part.","reg":""},{"id":"PH21","lv":"H","ph":"cut back on","trap":"back","ex":"We must cut ___ on spending.","mean":"reduce something","mcq":["reduce the amount","economise on","scale down"],"note":"Three-part.","reg":""},{"id":"PH22","lv":"H","ph":"cut out","trap":"out","ex":"The doctor told him to cut ___ sugar.","mean":"stop consuming or doing something","mcq":["stop using entirely","eliminate from a routine","give up completely"],"note":"Also: be cut out for (suited); engine cuts out.","reg":""},{"id":"PH23","lv":"H","ph":"dawn on","trap":"on","ex":"It finally dawned ___ her what he meant.","mean":"become clear to someone at last","mcq":["become suddenly apparent","be realised at last","occur to"],"note":"","reg":""},{"id":"PH24","lv":"H","ph":"die down","trap":"down","ex":"The excitement soon died ___.","mean":"become less strong or intense","mcq":["subside","grow quieter","lessen in force"],"note":"","reg":""},{"id":"PH25","lv":"H","ph":"dish out","trap":"out","ex":"He's good at dishing ___ advice.","mean":"give out something freely, often criticism or punishment","mcq":["hand out liberally","distribute freely","give out in quantity"],"note":"Separable.","reg":"informal"},{"id":"PH26","lv":"H","ph":"do away with","trap":"away","ex":"They did ___ with the old rules.","mean":"abolish or get rid of something","mcq":["abolish","eliminate","put an end to"],"note":"Three-part.","reg":""},{"id":"PH27","lv":"H","ph":"draw on","trap":"on","ex":"She drew ___ her experience.","mean":"use a resource or supply","mcq":["make use of a resource","call upon","tap into"],"note":"Also: time draws on (passes).","reg":""},{"id":"PH28","lv":"H","ph":"dwell on","trap":"on","ex":"Don't dwell ___ past failures.","mean":"think or talk about something too long","mcq":["keep thinking about","fixate on","brood over"],"note":"","reg":""},{"id":"PH29","lv":"H","ph":"ease off","trap":"off","ex":"The rain eased ___ by evening.","mean":"become less intense or severe","mcq":["lessen gradually","slacken","reduce in force"],"note":"Also: ease off someone (be less harsh).","reg":""},{"id":"PH30","lv":"H","ph":"egg on","trap":"on","ex":"The crowd egged him ___.","mean":"encourage someone to do something, often unwise","mcq":["urge someone on","incite to act","spur on"],"note":"Separable: egg him on.","reg":""},{"id":"PH31","lv":"H","ph":"factor in","trap":"in","ex":"Factor ___ the cost of shipping.","mean":"include something in a calculation","mcq":["include in a calculation","take into account","allow for"],"note":"Separable.","reg":""},{"id":"PH32","lv":"H","ph":"fall back on","trap":"back","ex":"If the plan fails, we'll fall ___ on savings.","mean":"rely on something as a reserve","mcq":["resort to in need","use as a backup","turn to as a reserve"],"note":"Three-part.","reg":""},{"id":"PH33","lv":"H","ph":"fall through","trap":"through","ex":"The deal fell ___ at the last minute.","mean":"fail to happen or be completed","mcq":["fail to materialise","collapse before completion","come to nothing"],"note":"","reg":""},{"id":"PH34","lv":"H","ph":"fend off","trap":"off","ex":"She fended ___ the questions.","mean":"resist or deflect something","mcq":["ward off","deflect attacks","repel"],"note":"Separable.","reg":""},{"id":"PH35","lv":"H","ph":"ferret out","trap":"out","ex":"Journalists ferreted ___ the truth.","mean":"discover something by searching persistently","mcq":["uncover by digging","search out","unearth with effort"],"note":"Separable.","reg":""},{"id":"PH36","lv":"H","ph":"fizzle out","trap":"out","ex":"The campaign fizzled ___.","mean":"end weakly after a promising start","mcq":["peter out","end in anticlimax","fade to nothing"],"note":"","reg":""},{"id":"PH37","lv":"H","ph":"flesh out","trap":"out","ex":"Flesh ___ the outline with detail.","mean":"add more detail to something","mcq":["add substance to","develop with detail","expand with specifics"],"note":"Separable.","reg":""},{"id":"PH38","lv":"H","ph":"follow up on","trap":"up","ex":"I'll follow ___ on your request.","mean":"take further action on something","mcq":["pursue further","take the next step on","act further on"],"note":"Three-part.","reg":""},{"id":"PH39","lv":"H","ph":"gear up for","trap":"up","ex":"The team is gearing ___ for the launch.","mean":"prepare for something demanding","mcq":["get ready for","prepare intensively","build up to"],"note":"Three-part.","reg":""},{"id":"PH40","lv":"H","ph":"gloss over","trap":"over","ex":"He glossed ___ the problems.","mean":"avoid dealing with something by treating it briefly","mcq":["skate over","minimise and move past","play down"],"note":"","reg":""},{"id":"PH41","lv":"H","ph":"grapple with","trap":"with","ex":"Scientists grapple ___ the question daily.","mean":"struggle to deal with or understand something","mcq":["struggle to handle","wrestle with a problem","contend with"],"note":"","reg":""},{"id":"PH42","lv":"H","ph":"hammer out","trap":"out","ex":"They hammered ___ a deal overnight.","mean":"reach an agreement after long difficult discussion","mcq":["negotiate with effort","work out through hard talks","thrash out"],"note":"Separable.","reg":""},{"id":"PH43","lv":"H","ph":"hinge on","trap":"on","ex":"The case hinges ___ one witness.","mean":"depend entirely on something","mcq":["depend critically on","turn on","rest entirely on"],"note":"","reg":""},{"id":"PH44","lv":"H","ph":"iron out","trap":"out","ex":"We need to iron ___ a few problems.","mean":"resolve small difficulties","mcq":["smooth out problems","settle minor issues","resolve details"],"note":"Separable.","reg":""},{"id":"PH45","lv":"H","ph":"jack up","trap":"up","ex":"They jacked ___ the prices before the sale.","mean":"raise something, especially prices, sharply","mcq":["increase sharply","hike up","push up abruptly"],"note":"Separable. Informal.","reg":"informal"},{"id":"PH46","lv":"H","ph":"keel over","trap":"over","ex":"He keeled ___ in the heat.","mean":"collapse or fall over suddenly","mcq":["topple over","collapse suddenly","fall down"],"note":"","reg":"informal"},{"id":"PH47","lv":"H","ph":"key in","trap":"in","ex":"Key ___ your PIN.","mean":"enter data using a keyboard","mcq":["type in data","enter via keyboard","input"],"note":"Separable.","reg":""},{"id":"PH48","lv":"H","ph":"lash out","trap":"out","ex":"She lashed ___ at her critics.","mean":"attack someone suddenly, in words or blows","mcq":["attack verbally or physically","strike out angrily","hit out at"],"note":"Also: lash out on (spend lavishly, British).","reg":""},{"id":"PH49","lv":"H","ph":"latch onto","trap":"onto","ex":"He latched ___ a new idea.","mean":"become very interested in or attached to something","mcq":["seize on with enthusiasm","attach yourself to","fix upon"],"note":"","reg":""},{"id":"PH50","lv":"H","ph":"lay down","trap":"down","ex":"The contract lays ___ strict terms.","mean":"state or establish rules firmly","mcq":["set out as a rule","establish firmly","stipulate"],"note":"Separable. Also: lay down arms (surrender).","reg":""},{"id":"PH51","lv":"H","ph":"lead to","trap":"to","ex":"Poor diet can lead ___ illness.","mean":"result in or cause something","mcq":["result in","bring about","cause as a consequence"],"note":"","reg":""},{"id":"PH52","lv":"H","ph":"level off","trap":"off","ex":"Prices levelled ___ after the rise.","mean":"stop increasing or decreasing and become steady","mcq":["become stable","stop changing","plateau"],"note":"","reg":""},{"id":"PH53","lv":"H","ph":"look back on","trap":"back","ex":"She looks ___ on her career fondly.","mean":"think about something in the past","mcq":["reflect on the past","recall earlier times","reminisce about"],"note":"Three-part.","reg":""},{"id":"PH54","lv":"H","ph":"map out","trap":"out","ex":"They mapped ___ a strategy.","mean":"plan something in detail","mcq":["plan in detail","lay out a plan","chart a course"],"note":"Separable.","reg":""},{"id":"PH55","lv":"H","ph":"measure up to","trap":"up","ex":"The sequel didn't measure ___ to the original.","mean":"be as good as something or someone","mcq":["reach the standard of","match up to","be equal to"],"note":"Three-part.","reg":""},{"id":"PH56","lv":"H","ph":"mull over","trap":"over","ex":"Let me mull ___ your offer.","mean":"think about something carefully over time","mcq":["ponder at length","consider carefully","turn over in the mind"],"note":"Separable.","reg":""},{"id":"PH57","lv":"H","ph":"nail down","trap":"down","ex":"We need to nail ___ the details.","mean":"settle something precisely","mcq":["pin down firmly","establish exactly","finalise precisely"],"note":"Separable.","reg":""},{"id":"PH58","lv":"H","ph":"opt out of","trap":"out","ex":"You can opt ___ of the scheme.","mean":"choose not to take part in something","mcq":["choose not to join","withdraw from participation","decline to take part"],"note":"Three-part.","reg":""},{"id":"PH59","lv":"H","ph":"pan out","trap":"out","ex":"Let's see how things pan ___.","mean":"develop or turn out in a particular way","mcq":["turn out","develop in the end","work out"],"note":"From gold panning.","reg":""},{"id":"PH60","lv":"H","ph":"phase out","trap":"out","ex":"They're phasing ___ the old model.","mean":"gradually stop using something","mcq":["withdraw gradually","discontinue by stages","wind down over time"],"note":"Separable. Opposite: phase in.","reg":""},{"id":"PH61","lv":"H","ph":"pick up on","trap":"up","ex":"She picked ___ on his hesitation.","mean":"notice something subtle","mcq":["respond to a hint","become aware of","detect"],"note":"Three-part.","reg":""},{"id":"PH62","lv":"H","ph":"pin down","trap":"down","ex":"It's hard to pin ___ the exact cause.","mean":"identify or define something precisely","mcq":["identify precisely","define exactly","establish for certain"],"note":"Separable. Also: pin someone down (force a commitment).","reg":""},{"id":"PH63","lv":"H","ph":"play down","trap":"down","ex":"The minister played ___ the risks.","mean":"make something seem less important","mcq":["minimise the importance of","downplay","understate"],"note":"Separable. Opposite: play up.","reg":""},{"id":"PH64","lv":"H","ph":"plough through","trap":"through","ex":"I ploughed ___ the long report.","mean":"work through something slow and difficult","mcq":["work laboriously through","get through with effort","wade through"],"note":"N. Amer.: plow.","reg":"British"},{"id":"PH65","lv":"H","ph":"pore over","trap":"over","ex":"She pored ___ the documents for hours.","mean":"study something closely and attentively","mcq":["examine intently","study closely","scrutinise"],"note":"Not 'pour'.","reg":""},{"id":"PH66","lv":"H","ph":"prop up","trap":"up","ex":"Subsidies prop ___ the industry.","mean":"support something that would otherwise fail","mcq":["support artificially","keep from collapsing","shore up"],"note":"Separable.","reg":""},{"id":"PH67","lv":"H","ph":"pull together","trap":"together","ex":"The team pulled ___ in the crisis.","mean":"work together effectively","mcq":["cooperate in difficulty","unite in effort","join forces well"],"note":"Also: pull yourself together (compose).","reg":""},{"id":"PH68","lv":"H","ph":"put down to","trap":"down","ex":"She put his rudeness ___ to stress.","mean":"attribute something to a cause","mcq":["attribute to a cause","explain as due to","ascribe to"],"note":"Three-part.","reg":""},{"id":"PH69","lv":"H","ph":"rack up","trap":"up","ex":"The firm racked ___ huge losses.","mean":"accumulate a large amount of something","mcq":["accumulate in quantity","build up a total","amass"],"note":"Separable.","reg":""},{"id":"PH70","lv":"H","ph":"rattle off","trap":"off","ex":"He rattled ___ the names from memory.","mean":"say or recite something quickly and easily","mcq":["recite rapidly","reel off","list quickly"],"note":"Separable.","reg":""},{"id":"PH71","lv":"H","ph":"reel off","trap":"off","ex":"She reeled ___ a list of excuses.","mean":"say a lot of things quickly and without effort","mcq":["recite effortlessly","rattle off","list in quick succession"],"note":"Separable.","reg":""},{"id":"PH72","lv":"H","ph":"rein in","trap":"in","ex":"The bank reined ___ its lending.","mean":"bring something under control; restrain","mcq":["restrain","bring under control","hold back"],"note":"Separable. From controlling a horse.","reg":""},{"id":"PH73","lv":"H","ph":"rope in","trap":"in","ex":"I got roped ___ to help move house.","mean":"persuade someone to join or help, often reluctantly","mcq":["recruit reluctantly","draw into a task","enlist by persuasion"],"note":"Separable.","reg":"informal"},{"id":"PH74","lv":"H","ph":"round up","trap":"up","ex":"Police rounded ___ the suspects.","mean":"gather people or animals together","mcq":["gather together","collect in one place","assemble"],"note":"Separable. Also: round up a number.","reg":""},{"id":"PH75","lv":"H","ph":"rule out","trap":"out","ex":"We can't rule ___ sabotage.","mean":"exclude something as a possibility","mcq":["exclude as impossible","dismiss as an option","eliminate from consideration"],"note":"Separable.","reg":""},{"id":"PH76","lv":"H","ph":"scale back","trap":"back","ex":"The company scaled ___ its plans.","mean":"reduce the size or extent of something","mcq":["reduce in scope","cut down the scale of","trim back"],"note":"Separable.","reg":""},{"id":"PH77","lv":"H","ph":"scrape by","trap":"by","ex":"They scrape ___ on very little.","mean":"manage to survive with great difficulty","mcq":["barely manage","get by with difficulty","survive on little"],"note":"","reg":""},{"id":"PH78","lv":"H","ph":"shore up","trap":"up","ex":"Measures to shore ___ the economy failed.","mean":"support or strengthen something weak","mcq":["strengthen a weakness","bolster","support from collapse"],"note":"Separable.","reg":""},{"id":"PH79","lv":"H","ph":"shrug off","trap":"off","ex":"He shrugged ___ the criticism.","mean":"dismiss something as unimportant","mcq":["treat as trivial","dismiss lightly","brush off"],"note":"Separable.","reg":""},{"id":"PH80","lv":"H","ph":"single out","trap":"out","ex":"She was singled ___ for praise.","mean":"choose one person or thing from a group for attention","mcq":["pick out for special notice","select individually","distinguish from the rest"],"note":"Separable.","reg":""},{"id":"PH81","lv":"H","ph":"size up","trap":"up","ex":"He sized ___ the competition.","mean":"form a judgement about someone or something","mcq":["assess carefully","form an estimate of","appraise"],"note":"Separable.","reg":""},{"id":"PH82","lv":"H","ph":"smooth over","trap":"over","ex":"She tried to smooth ___ the quarrel.","mean":"make a difficulty seem less serious","mcq":["ease a conflict","patch up","reduce tension over"],"note":"Separable.","reg":""},{"id":"PH83","lv":"H","ph":"snap up","trap":"up","ex":"Shoppers snapped ___ the bargains.","mean":"buy or take something quickly and eagerly","mcq":["grab quickly","buy eagerly","take before others can"],"note":"Separable.","reg":""},{"id":"PH84","lv":"H","ph":"sort through","trap":"through","ex":"I sorted ___ the old papers.","mean":"look through things to organise or find something","mcq":["go through to organise","sift","search and arrange"],"note":"","reg":""},{"id":"PH85","lv":"H","ph":"spell out","trap":"out","ex":"Let me spell ___ what I mean.","mean":"explain something clearly and in detail","mcq":["explain explicitly","make clear in detail","lay out plainly"],"note":"Separable. Also: spell a word out letter by letter.","reg":""},{"id":"PH86","lv":"H","ph":"spur on","trap":"on","ex":"Her success spurred him ___.","mean":"encourage someone to try harder","mcq":["motivate to greater effort","urge on","drive forward"],"note":"Separable.","reg":""},{"id":"PH87","lv":"H","ph":"stamp out","trap":"out","ex":"The campaign aims to stamp ___ corruption.","mean":"put an end to something bad, forcefully","mcq":["eradicate","wipe out","suppress completely"],"note":"Separable.","reg":""},{"id":"PH88","lv":"H","ph":"stave off","trap":"off","ex":"A snack staved ___ his hunger.","mean":"delay or prevent something bad","mcq":["ward off for a time","hold at bay","prevent temporarily"],"note":"Separable.","reg":""},{"id":"PH89","lv":"H","ph":"step down","trap":"down","ex":"The chairman stepped ___ in May.","mean":"resign from a position","mcq":["resign from a post","give up a role","stand down"],"note":"","reg":""},{"id":"PH90","lv":"H","ph":"step up","trap":"up","ex":"They stepped ___ security.","mean":"increase or intensify something","mcq":["increase the level of","intensify","ramp up"],"note":"Separable. Also: step up to a challenge.","reg":""},{"id":"PH91","lv":"H","ph":"stumble upon","trap":"upon","ex":"We stumbled ___ a lovely café.","mean":"find something by accident","mcq":["discover by chance","come across unexpectedly","chance upon"],"note":"Also 'stumble across'.","reg":""},{"id":"PH92","lv":"H","ph":"tail off","trap":"off","ex":"Sales tailed ___ after Christmas.","mean":"gradually decrease","mcq":["diminish gradually","taper off","fall away slowly"],"note":"","reg":"British"},{"id":"PH93","lv":"H","ph":"take its toll","trap":"toll","ex":"Stress took its ___ on her health.","mean":"cause harm or damage over time","mcq":["cause gradual damage","have a harmful effect","exact a cost"],"note":"Fixed phrase.","reg":""},{"id":"PH94","lv":"H","ph":"talk into","trap":"into","ex":"They talked me ___ buying it.","mean":"persuade someone to do something","mcq":["persuade to do","convince into","coax into"],"note":"Separable: talk me into. Opposite: talk out of.","reg":""},{"id":"PH95","lv":"H","ph":"talk out of","trap":"out","ex":"I talked her ___ of quitting.","mean":"persuade someone not to do something","mcq":["dissuade from","persuade against","convince not to"],"note":"Three-part.","reg":""},{"id":"PH96","lv":"H","ph":"tamper with","trap":"with","ex":"Someone tampered ___ the lock.","mean":"interfere with something so as to damage it","mcq":["interfere harmfully with","meddle with","interfere to alter"],"note":"","reg":""},{"id":"PH97","lv":"H","ph":"tap into","trap":"into","ex":"The ad taps ___ our fears.","mean":"make use of a source or feeling","mcq":["draw on a resource","exploit a source","access and use"],"note":"","reg":""},{"id":"PH98","lv":"H","ph":"tear apart","trap":"apart","ex":"The scandal tore the party ___.","mean":"destroy the unity of something","mcq":["divide destructively","rip to pieces","split apart"],"note":"Separable. Also literal.","reg":""},{"id":"PH99","lv":"H","ph":"thrash out","trap":"out","ex":"They thrashed ___ their differences.","mean":"discuss thoroughly until a solution is reached","mcq":["resolve through discussion","hammer out","work out by debate"],"note":"Separable.","reg":""},{"id":"PH100","lv":"H","ph":"throw off","trap":"off","ex":"She threw ___ her pursuers.","mean":"escape from or get rid of something","mcq":["shake off","escape from","rid yourself of"],"note":"Separable. Also: throw off a comment (say casually).","reg":""},{"id":"PH101","lv":"H","ph":"tide over","trap":"over","ex":"This loan will tide us ___.","mean":"help someone through a difficult period","mcq":["help survive a hard time","support temporarily","see through a shortage"],"note":"Separable.","reg":""},{"id":"PH102","lv":"H","ph":"tone down","trap":"down","ex":"Tone ___ the language in the report.","mean":"make something less strong or extreme","mcq":["soften","make less forceful","moderate"],"note":"Separable.","reg":""},{"id":"PH103","lv":"H","ph":"top up","trap":"up","ex":"Let me top ___ your glass.","mean":"add more to something to fill it again","mcq":["refill partially","add more to","replenish"],"note":"Separable. Also: top up a phone (credit).","reg":"British"},{"id":"PH104","lv":"H","ph":"toy with","trap":"with","ex":"I'm toying ___ the idea of moving.","mean":"consider something casually, not seriously","mcq":["consider half-heartedly","play with an idea","entertain loosely"],"note":"","reg":""},{"id":"PH105","lv":"H","ph":"trail off","trap":"off","ex":"Her voice trailed ___ into silence.","mean":"gradually become quieter and stop","mcq":["fade into silence","die away","peter out"],"note":"","reg":""},{"id":"PH106","lv":"H","ph":"trip up","trap":"up","ex":"The tricky question tripped him ___.","mean":"cause someone to make a mistake","mcq":["cause an error","catch out","make stumble"],"note":"Separable. Also literal: trip up on a step.","reg":""},{"id":"PH107","lv":"H","ph":"usher in","trap":"in","ex":"The vote ushered ___ a new era.","mean":"mark the start of something","mcq":["mark the beginning of","introduce a new period","herald"],"note":"Separable.","reg":""},{"id":"PH108","lv":"H","ph":"wade through","trap":"through","ex":"I waded ___ hundreds of emails.","mean":"deal slowly with a large tedious amount","mcq":["work laboriously through","plough through","get through slowly"],"note":"","reg":""},{"id":"PH109","lv":"H","ph":"ward off","trap":"off","ex":"Vitamin C may ward ___ colds.","mean":"prevent something harmful from affecting you","mcq":["keep at bay","fend off","prevent from reaching you"],"note":"Separable.","reg":""},{"id":"PH110","lv":"H","ph":"water down","trap":"down","ex":"The proposal was watered ___ to pass.","mean":"make something weaker or less effective","mcq":["weaken by dilution","make less forceful","dilute"],"note":"Separable. Also literal.","reg":""},{"id":"PH111","lv":"H","ph":"weed out","trap":"out","ex":"We weeded ___ the weak applications.","mean":"remove unwanted people or things","mcq":["remove the undesirable","eliminate selectively","sift out the bad"],"note":"Separable.","reg":""},{"id":"PH112","lv":"H","ph":"weigh up","trap":"up","ex":"She weighed ___ the options.","mean":"carefully consider and compare things","mcq":["assess and compare","consider the pros and cons","evaluate carefully"],"note":"Separable. British.","reg":"British"},{"id":"PH113","lv":"H","ph":"whittle down","trap":"down","ex":"We whittled ___ the shortlist to five.","mean":"gradually reduce the number of something","mcq":["reduce gradually","pare down","cut down bit by bit"],"note":"Separable.","reg":""},{"id":"PH114","lv":"H","ph":"win over","trap":"over","ex":"She won ___ the sceptics.","mean":"gain someone's support or liking","mcq":["gain support of","persuade to your side","bring round"],"note":"Separable.","reg":""},{"id":"PH115","lv":"H","ph":"wriggle out of","trap":"out","ex":"He wriggled ___ of his responsibilities.","mean":"avoid a duty by clever or dishonest means","mcq":["evade cleverly","escape an obligation","get out of by trickery"],"note":"Three-part.","reg":""},{"id":"PH116","lv":"H","ph":"zero in on","trap":"in","ex":"Investigators zeroed ___ on one suspect.","mean":"focus attention precisely on something","mcq":["focus precisely on","home in on","target exactly"],"note":"Three-part.","reg":""},{"id":"PH117","lv":"H","ph":"bow out","trap":"out","ex":"The champion bowed ___ gracefully.","mean":"withdraw or retire from an activity","mcq":["retire with dignity","step aside","withdraw gracefully"],"note":"","reg":""},{"id":"PH118","lv":"H","ph":"bottle up","trap":"up","ex":"Don't bottle ___ your feelings.","mean":"suppress emotions instead of expressing them","mcq":["suppress emotion","keep feelings inside","hold in"],"note":"Separable.","reg":""},{"id":"PH119","lv":"H","ph":"brace for","trap":"for","ex":"The region braced ___ the storm.","mean":"prepare for something difficult or unpleasant","mcq":["prepare to withstand","steel yourself for","ready for impact"],"note":"","reg":""},{"id":"PH120","lv":"H","ph":"bank up","trap":"up","ex":"Snow banked ___ against the door.","mean":"form or pile into a mass","mcq":["pile up in a mass","accumulate in a heap","build into a bank"],"note":"","reg":""},{"id":"PH121","lv":"H","ph":"carve out","trap":"out","ex":"She carved ___ a niche for herself.","mean":"create something through effort","mcq":["establish through effort","create for oneself","make by hard work"],"note":"Separable.","reg":""},{"id":"PH122","lv":"H","ph":"conjure up","trap":"up","ex":"The smell conjured ___ childhood memories.","mean":"bring an image or memory to mind","mcq":["call to mind vividly","evoke","summon mentally"],"note":"Separable.","reg":""},{"id":"PH123","lv":"H","ph":"drum up","trap":"up","ex":"They drummed ___ support for the cause.","mean":"obtain or generate something by effort","mcq":["generate through effort","rally","work to create"],"note":"Separable.","reg":""},{"id":"PH124","lv":"H","ph":"fork out","trap":"out","ex":"I had to fork ___ for repairs.","mean":"pay for something reluctantly","mcq":["pay out grudgingly","shell out","hand over money reluctantly"],"note":"Separable. Informal.","reg":"informal"},{"id":"PH125","lv":"H","ph":"gun for","trap":"for","ex":"The critics are gunning ___ him.","mean":"be determined to attack or defeat someone","mcq":["seek to attack","be out to get","pursue aggressively"],"note":"","reg":"informal"},{"id":"PH126","lv":"H","ph":"hark back to","trap":"back","ex":"The design harks ___ to the 1950s.","mean":"recall or return to something from the past","mcq":["recall an earlier time","evoke the past","return to in memory"],"note":"Three-part.","reg":""},{"id":"PH127","lv":"H","ph":"home in on","trap":"in","ex":"The missile homed ___ on its target.","mean":"move directly towards a target","mcq":["move straight toward","zero in on","converge on"],"note":"Three-part. Not 'hone in'.","reg":""},{"id":"PH128","lv":"H","ph":"knuckle down","trap":"down","ex":"Exams are near, so knuckle ___.","mean":"begin to work hard","mcq":["apply yourself seriously","get down to work","buckle down"],"note":"","reg":""},{"id":"PH129","lv":"H","ph":"lord it over","trap":"over","ex":"He lords it ___ his juniors.","mean":"behave in a superior, bossy way towards others","mcq":["act superior towards","boss around","dominate arrogantly"],"note":"Fixed.","reg":""},{"id":"PH130","lv":"H","ph":"muscle in on","trap":"in","ex":"Rivals tried to muscle ___ on the market.","mean":"force your way into something for your own gain","mcq":["force your way in","intrude for advantage","push into uninvited"],"note":"Three-part. Informal.","reg":"informal"},{"id":"PX1","lv":"X","ph":"abide by","trap":"by","ex":"All members must abide ___ the rules.","mean":"accept and act according to a rule or decision","mcq":["comply with","observe faithfully","adhere to"],"note":"Formal.","reg":""},{"id":"PX2","lv":"X","ph":"accede to","trap":"to","ex":"The board acceded ___ his request.","mean":"agree to a demand or request","mcq":["give consent to","yield to a request","assent to"],"note":"Formal. Also: accede to a throne.","reg":""},{"id":"PX3","lv":"X","ph":"bear down on","trap":"down","ex":"The deadline bore ___ on them.","mean":"approach in a threatening way; press upon","mcq":["press oppressively on","approach menacingly","weigh heavily upon"],"note":"Three-part.","reg":""},{"id":"PX4","lv":"X","ph":"cast about for","trap":"about","ex":"He cast ___ for an excuse.","mean":"search anxiously for something","mcq":["search around for","grope for","seek anxiously"],"note":"Three-part. Literary.","reg":"literary"},{"id":"PX5","lv":"X","ph":"chance upon","trap":"upon","ex":"I chanced ___ an old letter.","mean":"find or meet by accident","mcq":["come upon by luck","happen across","stumble upon"],"note":"Literary.","reg":"literary"},{"id":"PX6","lv":"X","ph":"consort with","trap":"with","ex":"He was accused of consorting ___ criminals.","mean":"associate with someone, often disreputable","mcq":["keep company with","associate habitually with","mix with"],"note":"Formal, disapproving.","reg":""},{"id":"PX7","lv":"X","ph":"cordon off","trap":"off","ex":"Police cordoned ___ the area.","mean":"close off an area with a barrier","mcq":["seal off a zone","block access to","barricade"],"note":"Separable.","reg":""},{"id":"PX8","lv":"X","ph":"cotton on to","trap":"on","ex":"He finally cottoned ___ to the joke.","mean":"begin to understand something","mcq":["catch on to","grasp at last","twig"],"note":"Three-part. Informal/British.","reg":"British"},{"id":"PX9","lv":"X","ph":"hold with","trap":"with","ex":"She doesn't hold ___ such ideas.","mean":"approve of or agree with (usually negative)","mcq":["approve of","go along with","countenance"],"note":"Usually in the negative. Dated.","reg":"dated"},{"id":"PX10","lv":"X","ph":"cave in","trap":"in","ex":"The management caved ___ to demands.","mean":"stop resisting and give way","mcq":["give in under pressure","capitulate","collapse in resistance"],"note":"Also literal: a roof caves in.","reg":""},{"id":"PX11","lv":"X","ph":"defer to","trap":"to","ex":"I defer ___ your expertise.","mean":"yield to someone's superior knowledge or authority","mcq":["submit to another's judgement","yield respectfully to","bow to"],"note":"Formal. Also: defer a payment (postpone).","reg":""},{"id":"PX12","lv":"X","ph":"descend into","trap":"into","ex":"The debate descended ___ chaos.","mean":"gradually reach a worse state","mcq":["sink into a bad state","deteriorate into","fall into disorder"],"note":"","reg":""},{"id":"PX13","lv":"X","ph":"dispense with","trap":"with","ex":"We can dispense ___ the formalities.","mean":"manage without something; do away with it","mcq":["do without","get rid of as unnecessary","forgo"],"note":"Formal.","reg":""},{"id":"PX14","lv":"X","ph":"dredge up","trap":"up","ex":"Why dredge ___ the past?","mean":"bring up something unpleasant from long ago","mcq":["raise an old unpleasant matter","revive unwelcome memories","bring back up"],"note":"Separable.","reg":""},{"id":"PX15","lv":"X","ph":"eke out","trap":"out","ex":"They eked ___ a living from the land.","mean":"make a small supply last, or earn with difficulty","mcq":["make last with effort","scrape a living","manage to produce barely enough"],"note":"Separable.","reg":""},{"id":"PX16","lv":"X","ph":"emanate from","trap":"from","ex":"A strange glow emanated ___ the box.","mean":"come out from a source","mcq":["issue from a source","originate from","flow out of"],"note":"Formal/literary.","reg":"literary"},{"id":"PX17","lv":"X","ph":"embark on","trap":"on","ex":"She embarked ___ a new career.","mean":"begin something new and significant","mcq":["set out on a venture","begin a major undertaking","commence"],"note":"Also 'embark upon'.","reg":""},{"id":"PX18","lv":"X","ph":"enlarge upon","trap":"upon","ex":"Could you enlarge ___ that point?","mean":"say more about something; elaborate","mcq":["elaborate on","expand upon","go into more detail about"],"note":"Formal.","reg":""},{"id":"PX19","lv":"X","ph":"fall foul of","trap":"foul","ex":"He fell ___ of the law.","mean":"get into trouble with someone or something","mcq":["get on the wrong side of","come into conflict with","run afoul of"],"note":"Three-part.","reg":""},{"id":"PX20","lv":"X","ph":"ferret about","trap":"about","ex":"She ferreted ___ in the drawer.","mean":"search busily and persistently","mcq":["rummage around","search restlessly","hunt about"],"note":"","reg":"British"},{"id":"PX21","lv":"X","ph":"give way to","trap":"way","ex":"Anger gave ___ to grief.","mean":"be replaced by something else","mcq":["be succeeded by","yield to","be replaced by"],"note":"Three-part. Also: give way = collapse / yield.","reg":""},{"id":"PX22","lv":"X","ph":"hanker after","trap":"after","ex":"He hankers ___ the old days.","mean":"long for something with persistent desire","mcq":["yearn for","long persistently for","crave"],"note":"Also 'hanker for'.","reg":""},{"id":"PX23","lv":"X","ph":"hinge upon","trap":"upon","ex":"Everything hinges ___ the vote.","mean":"depend entirely upon","mcq":["depend wholly on","turn upon","rest upon"],"note":"Formal variant of hinge on.","reg":""},{"id":"PX24","lv":"X","ph":"impinge on","trap":"on","ex":"The work impinges ___ my free time.","mean":"have a noticeable, often negative, effect on","mcq":["encroach on","affect adversely","intrude upon"],"note":"Formal. Also 'impinge upon'.","reg":""},{"id":"PX25","lv":"X","ph":"inveigh against","trap":"against","ex":"He inveighed ___ the new tax.","mean":"criticise something strongly in speech or writing","mcq":["protest bitterly against","rail against","denounce"],"note":"Literary/formal.","reg":"literary"},{"id":"PX26","lv":"X","ph":"keep abreast of","trap":"abreast","ex":"I try to keep ___ of developments.","mean":"stay informed about the latest news","mcq":["stay up to date with","remain informed of","keep current with"],"note":"Three-part. Formal.","reg":""},{"id":"PX27","lv":"X","ph":"lapse into","trap":"into","ex":"He lapsed ___ silence.","mean":"gradually pass into a worse or quieter state","mcq":["drift into","sink into","fall gradually into"],"note":"","reg":""},{"id":"PX28","lv":"X","ph":"lavish on","trap":"on","ex":"She lavished attention ___ the guests.","mean":"give something generously or excessively to someone","mcq":["bestow generously on","shower on","heap upon"],"note":"","reg":""},{"id":"PX29","lv":"X","ph":"militate against","trap":"against","ex":"His youth militates ___ his promotion.","mean":"be a factor that makes something less likely","mcq":["work against","count against","be a factor preventing"],"note":"Formal. Not 'mitigate'.","reg":""},{"id":"PX30","lv":"X","ph":"partake of","trap":"of","ex":"They partook ___ a modest meal.","mean":"eat or drink something (formal/literary)","mcq":["consume","have a share of","eat or drink"],"note":"Literary. Also: partake in (participate).","reg":"literary"},{"id":"PX31","lv":"X","ph":"peter out","trap":"out","ex":"The path petered ___ in the woods.","mean":"gradually come to an end or stop","mcq":["fade to nothing","dwindle away","diminish to nothing"],"note":"","reg":""},{"id":"PX32","lv":"X","ph":"preside over","trap":"over","ex":"She presided ___ the committee.","mean":"be in charge of a meeting or situation","mcq":["be in authority over","chair","oversee"],"note":"Formal.","reg":""},{"id":"PX33","lv":"X","ph":"prevail upon","trap":"upon","ex":"I prevailed ___ him to stay.","mean":"persuade someone to do something","mcq":["persuade with effort","induce","win over to a course"],"note":"Formal. Also 'prevail on'.","reg":""},{"id":"PX34","lv":"X","ph":"profit from","trap":"from","ex":"Few profited ___ the scheme.","mean":"gain advantage or benefit from something","mcq":["benefit from","gain by","derive advantage from"],"note":"Also 'profit by'.","reg":""},{"id":"PX35","lv":"X","ph":"rail against","trap":"against","ex":"Critics railed ___ the decision.","mean":"complain or protest angrily about something","mcq":["protest vehemently against","inveigh against","fulminate against"],"note":"","reg":""},{"id":"PX36","lv":"X","ph":"reckon with","trap":"with","ex":"They are a force to be reckoned ___.","mean":"take into account as a serious factor","mcq":["take seriously as a factor","contend with","deal with as important"],"note":"Also: reckon with the consequences.","reg":""},{"id":"PX37","lv":"X","ph":"recoil from","trap":"from","ex":"She recoiled ___ the idea.","mean":"draw back in fear or disgust","mcq":["shrink back from","flinch away from","react with revulsion to"],"note":"","reg":""},{"id":"PX38","lv":"X","ph":"redound to","trap":"to","ex":"It redounds ___ her credit.","mean":"contribute greatly to someone's credit or reputation","mcq":["contribute to one's credit","reflect well on","accrue to"],"note":"Archaic/formal.","reg":"literary"},{"id":"PX39","lv":"X","ph":"resort to","trap":"to","ex":"They resorted ___ violence.","mean":"turn to something, often undesirable, as a last option","mcq":["fall back on in desperation","have recourse to","turn to as a last option"],"note":"","reg":""},{"id":"PX40","lv":"X","ph":"revel in","trap":"in","ex":"He revelled ___ his success.","mean":"take great, open pleasure in something","mcq":["take great delight in","bask in","glory in"],"note":"","reg":""},{"id":"PX41","lv":"X","ph":"ride out","trap":"out","ex":"The firm rode ___ the recession.","mean":"survive a difficult period","mcq":["survive a bad time","weather","come through intact"],"note":"Separable.","reg":""},{"id":"PX42","lv":"X","ph":"round on","trap":"on","ex":"She rounded ___ her accusers.","mean":"suddenly turn and attack someone, usually verbally","mcq":["turn angrily on","round upon","turn to attack"],"note":"British.","reg":"British"},{"id":"PX43","lv":"X","ph":"savour of","trap":"of","ex":"His remarks savour ___ arrogance.","mean":"have a suggestion or trace of a quality","mcq":["have a hint of","smack of","suggest a quality of"],"note":"Literary.","reg":"literary"},{"id":"PX44","lv":"X","ph":"set about","trap":"about","ex":"She set ___ cleaning the house.","mean":"begin doing something with energy","mcq":["begin a task energetically","start in on","get down to"],"note":"Also: set about someone (attack).","reg":""},{"id":"PX45","lv":"X","ph":"set forth","trap":"forth","ex":"The document sets ___ the terms.","mean":"present or explain something formally","mcq":["state formally","lay out in detail","expound"],"note":"Formal. Also: set forth on a journey.","reg":"literary"},{"id":"PX46","lv":"X","ph":"shy away from","trap":"away","ex":"He shies ___ from confrontation.","mean":"avoid something through nervousness or reluctance","mcq":["avoid out of timidity","recoil from","be reluctant to face"],"note":"Three-part.","reg":""},{"id":"PX47","lv":"X","ph":"smack of","trap":"of","ex":"The deal smacks ___ corruption.","mean":"strongly suggest an unpleasant quality","mcq":["suggest something bad","have overtones of","savour of"],"note":"","reg":""},{"id":"PX48","lv":"X","ph":"soldier on","trap":"on","ex":"Despite the pain she soldiered ___.","mean":"continue doggedly despite difficulty","mcq":["persevere doggedly","carry on bravely","keep going regardless"],"note":"","reg":""},{"id":"PX49","lv":"X","ph":"square up to","trap":"up","ex":"He squared ___ to the challenge.","mean":"face a difficult situation with resolve","mcq":["confront boldly","face up to","prepare to deal with"],"note":"Three-part. Also: square up (settle a debt).","reg":""},{"id":"PX50","lv":"X","ph":"stem from","trap":"from","ex":"The dispute stems ___ a misunderstanding.","mean":"originate in or be caused by something","mcq":["have its origin in","arise from","derive from"],"note":"","reg":""},{"id":"PX51","lv":"X","ph":"storm off","trap":"off","ex":"She stormed ___ in a rage.","mean":"leave angrily and abruptly","mcq":["leave in a fury","march off angrily","flounce out"],"note":"","reg":""},{"id":"PX52","lv":"X","ph":"strike up","trap":"up","ex":"They struck ___ a friendship.","mean":"begin a conversation or relationship","mcq":["begin informally","enter into","start up"],"note":"Separable. Also: strike up a tune.","reg":""},{"id":"PX53","lv":"X","ph":"subscribe to","trap":"to","ex":"I don't subscribe ___ that view.","mean":"agree with or support an opinion","mcq":["agree with a view","endorse","hold to"],"note":"Also: subscribe to a magazine.","reg":""},{"id":"PX54","lv":"X","ph":"succumb to","trap":"to","ex":"He finally succumbed ___ the illness.","mean":"fail to resist; be overcome by something","mcq":["yield to","be overcome by","give in to"],"note":"Formal.","reg":""},{"id":"PX55","lv":"X","ph":"take umbrage at","trap":"at","ex":"She took umbrage ___ the remark.","mean":"feel offended by something","mcq":["be offended by","take offence at","resent"],"note":"Formal/literary.","reg":"literary"},{"id":"PX56","lv":"X","ph":"tamp down","trap":"down","ex":"He tamped ___ his anger.","mean":"suppress or reduce something","mcq":["suppress","hold down","restrain"],"note":"Separable.","reg":""},{"id":"PX57","lv":"X","ph":"teem with","trap":"with","ex":"The river teems ___ fish.","mean":"be full of large numbers of something","mcq":["abound with","be full of","swarm with"],"note":"","reg":""},{"id":"PX58","lv":"X","ph":"tend towards","trap":"towards","ex":"His style tends ___ excess.","mean":"be inclined in a particular direction","mcq":["be inclined to","lean towards","have a tendency to"],"note":"Formal.","reg":""},{"id":"PX59","lv":"X","ph":"touch on","trap":"on","ex":"The lecture touched ___ many topics.","mean":"mention or deal with something briefly","mcq":["mention in passing","deal with briefly","allude to"],"note":"Also 'touch upon'.","reg":""},{"id":"PX60","lv":"X","ph":"trade on","trap":"on","ex":"He trades ___ his family name.","mean":"use something to your own advantage, often unfairly","mcq":["exploit for advantage","make use of unfairly","capitalise on"],"note":"","reg":""},{"id":"PX61","lv":"X","ph":"veer off","trap":"off","ex":"The talk veered ___ topic.","mean":"change direction away from something suddenly","mcq":["swerve away","deviate suddenly","go off course"],"note":"","reg":""},{"id":"PX62","lv":"X","ph":"verge on","trap":"on","ex":"His confidence verges ___ arrogance.","mean":"be very close to a state or quality","mcq":["border on","come close to being","approach the point of"],"note":"Also 'verge upon'.","reg":""},{"id":"PX63","lv":"X","ph":"vouch for","trap":"for","ex":"I can vouch ___ her honesty.","mean":"confirm or guarantee something about someone","mcq":["guarantee the truth of","speak in support of","attest to"],"note":"","reg":""},{"id":"PX64","lv":"X","ph":"wallow in","trap":"in","ex":"He wallows ___ self-pity.","mean":"indulge in an emotion or state excessively","mcq":["indulge unhealthily in","luxuriate in","revel self-indulgently in"],"note":"","reg":""},{"id":"PX65","lv":"X","ph":"while away","trap":"away","ex":"We whiled ___ the afternoon reading.","mean":"spend time pleasantly and idly","mcq":["pass time idly","spend leisurely","idle away"],"note":"Separable. Literary.","reg":"literary"},{"id":"PX66","lv":"X","ph":"wind down","trap":"down","ex":"I like to wind ___ after work.","mean":"relax after a period of activity","mcq":["relax gradually","unwind","ease off"],"note":"Also: wind down a business (reduce).","reg":""},{"id":"PX67","lv":"X","ph":"wreak havoc on","trap":"havoc","ex":"The storm wreaked ___ on the coast.","mean":"cause great damage or disruption to something","mcq":["cause severe damage to","devastate","play havoc with"],"note":"Fixed.","reg":""},{"id":"PX68","lv":"X","ph":"wrestle with","trap":"with","ex":"She wrestled ___ her conscience.","mean":"struggle to deal with a difficult problem or feeling","mcq":["struggle to resolve","grapple with","contend with inwardly"],"note":"","reg":""},{"id":"PX69","lv":"X","ph":"yearn for","trap":"for","ex":"They yearned ___ home.","mean":"have an intense longing for something","mcq":["long deeply for","pine for","crave intensely"],"note":"Literary.","reg":"literary"},{"id":"PX70","lv":"X","ph":"zone out","trap":"out","ex":"I zoned ___ during the lecture.","mean":"stop paying attention; become unaware of surroundings","mcq":["lose focus entirely","drift off mentally","switch off attention"],"note":"Informal.","reg":"informal"},{"id":"PX71","lv":"X","ph":"bandy about","trap":"about","ex":"His name was bandied ___ at the meeting.","mean":"mention or spread something casually and repeatedly","mcq":["pass around carelessly","spread loosely in talk","toss around"],"note":"Separable.","reg":""},{"id":"PX72","lv":"X","ph":"beaver away","trap":"away","ex":"She beavered ___ at the report all night.","mean":"work hard and steadily","mcq":["work diligently","toil away","labour steadily"],"note":"British, informal.","reg":"British"},{"id":"PX73","lv":"X","ph":"bristle with","trap":"with","ex":"The plan bristles ___ difficulties.","mean":"be full of something, often problems","mcq":["be full of","abound with","be thick with"],"note":"","reg":""},{"id":"PX74","lv":"X","ph":"cast aspersions on","trap":"on","ex":"He cast aspersions ___ her integrity.","mean":"make damaging or critical remarks about someone","mcq":["make damaging insinuations about","impugn","disparage"],"note":"Formal fixed phrase.","reg":""},{"id":"PX75","lv":"X","ph":"chip away at","trap":"away","ex":"Doubts chipped ___ at his confidence.","mean":"gradually reduce or weaken something","mcq":["erode bit by bit","wear down gradually","undermine slowly"],"note":"Three-part.","reg":""},{"id":"PX76","lv":"X","ph":"come to a head","trap":"head","ex":"Tensions came to a ___ last week.","mean":"reach a critical point","mcq":["reach a crisis","reach a decisive point","build to a climax"],"note":"Fixed.","reg":""},{"id":"PX77","lv":"X","ph":"cut a dash","trap":"dash","ex":"He cut a ___ in his new suit.","mean":"make a striking, stylish impression","mcq":["make a stylish impression","appear impressive","look striking"],"note":"Fixed. British, dated.","reg":"dated"},{"id":"PX78","lv":"X","ph":"fall in with","trap":"in","ex":"He fell ___ with a bad crowd.","mean":"become associated with a group","mcq":["become involved with","take up with","join company with"],"note":"Three-part. Also: agree with a plan.","reg":""},{"id":"PX79","lv":"X","ph":"fob off","trap":"off","ex":"They fobbed me ___ with excuses.","mean":"deceive someone into accepting something inferior","mcq":["put off with something inadequate","palm off on","deceive into accepting"],"note":"Separable. British.","reg":"British"},{"id":"PX80","lv":"X","ph":"give vent to","trap":"vent","ex":"She gave ___ to her frustration.","mean":"express a strong emotion freely","mcq":["express openly","let out an emotion","unleash a feeling"],"note":"Fixed.","reg":""},{"id":"PX81","lv":"X","ph":"hold forth","trap":"forth","ex":"He held ___ on politics for an hour.","mean":"talk at length, often tediously","mcq":["speak at great length","expound tediously","pontificate"],"note":"","reg":""},{"id":"PX82","lv":"X","ph":"jump at","trap":"at","ex":"She jumped ___ the chance.","mean":"accept an opportunity eagerly","mcq":["seize eagerly","grab at once","accept enthusiastically"],"note":"","reg":""},{"id":"PX83","lv":"X","ph":"lay into","trap":"into","ex":"The coach laid ___ the players.","mean":"attack or criticise someone forcefully","mcq":["attack harshly","berate","set about angrily"],"note":"Informal.","reg":"informal"},{"id":"PX84","lv":"X","ph":"luck out","trap":"out","ex":"We really lucked ___ with the weather.","mean":"be unexpectedly fortunate","mcq":["get lucky","have good fortune","be fortunate by chance"],"note":"N. Amer., informal.","reg":"N. Amer."},{"id":"PX85","lv":"X","ph":"make off with","trap":"off","ex":"The thief made ___ with the jewels.","mean":"steal something and escape","mcq":["steal and flee","run off with","abscond with"],"note":"Three-part.","reg":""},{"id":"PX86","lv":"X","ph":"palm off","trap":"off","ex":"He palmed ___ the fake as genuine.","mean":"get rid of something by deceiving someone","mcq":["dispose of by deceit","pass off dishonestly","foist on"],"note":"Separable.","reg":""},{"id":"PX87","lv":"X","ph":"play off against","trap":"off","ex":"She played the two sides ___ against each other.","mean":"set people in opposition for your own advantage","mcq":["set in rivalry for gain","pit against each other","manipulate into conflict"],"note":"Separable.","reg":""},{"id":"PX88","lv":"X","ph":"reckon on","trap":"on","ex":"We hadn't reckoned ___ the delay.","mean":"expect or count on something","mcq":["anticipate","count on","allow for in expectation"],"note":"","reg":""},{"id":"PX89","lv":"X","ph":"rope into","trap":"into","ex":"I was roped ___ organising the event.","mean":"persuade someone into doing something reluctantly","mcq":["enlist reluctantly into","talk into helping","draw into a duty"],"note":"Separable.","reg":"informal"},{"id":"PX90","lv":"X","ph":"run up against","trap":"up","ex":"We ran ___ against legal obstacles.","mean":"encounter an unexpected difficulty","mcq":["meet an obstacle","come up against","encounter a problem"],"note":"Three-part.","reg":""},{"id":"PX91","lv":"X","ph":"sail through","trap":"through","ex":"She sailed ___ the exam.","mean":"succeed at something very easily","mcq":["pass with ease","breeze through","succeed effortlessly"],"note":"","reg":""},{"id":"PX92","lv":"X","ph":"set store by","trap":"store","ex":"He sets great ___ by punctuality.","mean":"consider something important or valuable","mcq":["value highly","attach importance to","regard as valuable"],"note":"Fixed. Formal.","reg":""},{"id":"PX93","lv":"X","ph":"square away","trap":"away","ex":"Let's get everything squared ___.","mean":"settle or arrange something properly","mcq":["put in order","sort out fully","settle neatly"],"note":"N. Amer.","reg":"N. Amer."},{"id":"PX94","lv":"X","ph":"take exception to","trap":"exception","ex":"She took ___ to his tone.","mean":"object to or be offended by something","mcq":["object to","be offended by","take issue with"],"note":"Fixed. Formal.","reg":""},{"id":"PX95","lv":"X","ph":"talk down to","trap":"down","ex":"Don't talk ___ to me like a child.","mean":"speak to someone as if they were inferior","mcq":["speak condescendingly to","patronise","address as a lesser"],"note":"Three-part.","reg":""},{"id":"PX96","lv":"X","ph":"throw yourself into","trap":"into","ex":"He threw himself ___ the work.","mean":"begin doing something with great energy","mcq":["engage wholeheartedly in","devote yourself fully to","plunge energetically into"],"note":"","reg":""},{"id":"PX97","lv":"X","ph":"trot out","trap":"out","ex":"He trotted ___ the same old excuses.","mean":"produce the same tired information or arguments","mcq":["produce predictably","bring out yet again","roll out wearily"],"note":"Separable.","reg":""},{"id":"PX98","lv":"X","ph":"wait on","trap":"on","ex":"The staff waited ___ the guests.","mean":"serve someone, especially at a meal","mcq":["serve at table","attend to needs of","act as server for"],"note":"Also: wait on = wait for (N. Amer.).","reg":""},{"id":"PX99","lv":"X","ph":"warm to","trap":"to","ex":"I warmed ___ her immediately.","mean":"begin to like someone or something","mcq":["begin to like","grow fond of","take to"],"note":"Also: warm to a theme.","reg":""},{"id":"PX100","lv":"X","ph":"wean off","trap":"off","ex":"They weaned him ___ the medication.","mean":"gradually make someone give up a habit or dependence","mcq":["gradually detach from","break a dependence on","ease off a reliance"],"note":"Separable.","reg":""},{"id":"PX101","lv":"X","ph":"hunker down","trap":"down","ex":"They hunkered ___ for the long winter.","mean":"settle in and prepare to endure a difficult period","mcq":["dig in to endure","brace in for the long haul","settle down to withstand"],"note":"","reg":""}];
+
+const BY = Object.fromEntries(BANK.map(b => [b.id, b]));
+const LV = {E:"Easy", M:"Medium", H:"Hard", X:"Difficult"};
+const LVORDER = ["E","M","H","X"];
+const DAY = 86400000, INT = [3, 10, 30];
+const KEY = "phrasalverbs-500-v1";
+const DEFAULTS = {need:3, reset:true, level:"all", face:"meaning", autoface:true};
+const fresh = () => ({v:1, upd:0, settings:{...DEFAULTS}, q:{}, streak:{count:0,last:""}, mocks:[]});
+
+/* ---------- storage ---------- */
+function normalize(s){
+  if(!s || s.v !== 1 || typeof s.q !== "object") return fresh();
+  s.settings = {...DEFAULTS, ...(s.settings||{})};
+  if(!s.streak || typeof s.streak!=="object") s.streak={count:0,last:""};
+  if(!Array.isArray(s.mocks)) s.mocks=[];
+  for(const id in s.q){
+    const r = s.q[id];
+    if(r.st === "fixed" && r.stage === undefined && r.due === undefined){ r.stage = 0; r.due = (r.fixedAt || Date.now()) + INT[0]*DAY; }
+  }
+  return s;
+}
+function loadLocal(){ try{ const raw = localStorage.getItem(KEY); if(raw) return normalize(JSON.parse(raw)); }catch(e){} return fresh(); }
+let state = loadLocal();
+const remote = {doc:null, busy:false, dirty:false, timer:null};
+function saveLocal(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function persist(){ state.upd = Date.now(); saveLocal(); if(remote.doc){ remote.dirty = true; clearTimeout(remote.timer); remote.timer = setTimeout(flush, 1200); } }
+
+/* ---------- daily streak ---------- */
+function dayKey(ts){ const d=new Date(ts); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+function daysBetween(a,b){ // a,b are dayKeys; returns whole days from a to b
+  const pa=a.split("-").map(Number), pb=b.split("-").map(Number);
+  const da=Date.UTC(pa[0],pa[1]-1,pa[2]), db=Date.UTC(pb[0],pb[1]-1,pb[2]);
+  return Math.round((db-da)/86400000);
+}
+function touchStreak(){
+  const today=dayKey(Date.now());
+  const st=state.streak || (state.streak={count:0,last:""});
+  if(st.last===today) return;            // already counted today
+  if(!st.last){ st.count=1; }
+  else{
+    const gap=daysBetween(st.last, today);
+    if(gap===1) st.count=(st.count||0)+1; // consecutive day
+    else if(gap>1) st.count=1;            // missed a day: reset
+    // gap<=0 (clock oddities): leave count, just update last
+  }
+  st.last=today;
+  persist();
+}
+async function flush(){
+  if(!remote.doc) return;
+  if(remote.busy){ remote.dirty = true; return; }
+  remote.busy = true; remote.dirty = false;
+  try{ await remote.doc.set({json: JSON.stringify(state), upd: state.upd}); setStatus("Synced to your account"); }
+  catch(e){ setStatus("Account sync failed; saved on this device"); }
+  remote.busy = false;
+  if(remote.dirty){ clearTimeout(remote.timer); remote.timer = setTimeout(flush, 1200); }
+}
+function setStatus(t){ const f = document.getElementById("remoteStatus"); if(f) f.textContent = t; }
+(async () => {
+  try{
+    if(!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if(!db || !user) return;
+    const id = await user.id(); if(!id) return;
+    remote.doc = db.collection("data/users/" + id).doc("progress");
+    const snap = await remote.doc.get();
+    if(snap.exists){
+      const d = snap.data() || {}; let rs = null;
+      try{ rs = normalize(JSON.parse(d.json)); }catch(e){}
+      if(rs && (rs.upd||0) > (state.upd||0)){ state = rs; saveLocal(); cur = null; render(); }
+      else if((state.upd||0) > ((rs && rs.upd)||0)){ flush(); }
+    }else if((state.upd||0) > 0){ flush(); }
+    setStatus("Synced to your account");
+  }catch(e){ setStatus("Account sync unavailable; saved on this device only"); }
+})();
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s||"").toLowerCase().replace(/[^a-z' ]/g," ").replace(/\s+/g," ").trim();
+const rand = n => Math.floor(Math.random()*n);
+const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j = rand(i+1); [a[i],a[j]] = [a[j],a[i]]; } return a; };
+const fmtDate = ts => ts ? new Date(ts).toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "";
+const need = () => state.settings.need;
+const inLevel = b => { const l = state.settings.level; return l==="all" || b.lv===l; };
+const isDue = r => r && r.st==="fixed" && r.due && r.due <= Date.now();
+const tagHtml = b => '<span class="tag '+b.lv+'">'+LV[b.lv]+'</span>' + (b.reg? ' <span class="tag reg">'+esc(b.reg)+'</span>':'');
+const pips = n => '<span class="pips" aria-hidden="true">' + Array.from({length:need()},(_,i)=>'<span class="pip'+(i<n?' on':'')+'"></span>').join("") + "</span>";
+
+const poolNew    = () => BANK.filter(b => inLevel(b) && !state.q[b.id]);
+const poolReview = () => BANK.filter(b => inLevel(b) && state.q[b.id] && state.q[b.id].st !== "err");
+const poolErr    = () => BANK.filter(b => state.q[b.id] && state.q[b.id].st === "err");
+const poolDue    = () => BANK.filter(b => isDue(state.q[b.id]));
+const poolFix    = () => poolErr().concat(poolDue());
+
+/* ---------- MCQ distractor assembly ---------- */
+/* Each item ships 3 hand-written confusable wrong meanings in b.mcq.
+   We also sometimes swap in a real meaning from another phrasal verb of the SAME tier,
+   so the learner can't rely on "the odd one out" phrasing. */
+function makeMeaningOptions(b){
+  const opts = [{t:b.mean, ok:true}];
+  const own = shuffle(b.mcq).slice(0,3).map(t => ({t, ok:false}));
+  // 1-in-3 chance: replace one authored distractor with a real sibling meaning (same tier, different id)
+  if(rand(3)===0){
+    const sib = shuffle(BANK.filter(x => x.lv===b.lv && x.id!==b.id && norm(x.mean)!==norm(b.mean)));
+    if(sib.length){ own[0] = {t:sib[0].mean, ok:false}; }
+  }
+  return shuffle(opts.concat(own));
+}
+/* For "reverse" gap on meaning face we don't use MCQ; meaning face = recall with reveal. */
+
+/* ---------- variant rotation (same phrasal verb, alt sentence) ---------- */
+function gapSentence(b, useAlt){
+  if(useAlt && b.w) return {q:b.w, a:b.wa};
+  return {q:b.ex, a:[b.trap]};
+}
+
+/* ---------- session state ---------- */
+let tab = "practice";
+let cur = null;     // {mode,id,face,phase,q,a,options,chosen,ok,typed,revealed,retired,passed,useAlt}
+let lastId = null;
+let reviewMode = false;
+let ui = {settings:false, confirmReset:false};
+
+function faceFor(b){
+  // auto: new & easy → meaning first; else rotate meaning/gap/mcq by what's informative
+  if(!state.settings.autoface) return state.settings.face;
+  const r = state.q[b.id];
+  if(!r) return "meaning";                 // first contact: learn the meaning
+  if(r.st === "err") return "gap";         // errors: drill the exact form
+  // known items: alternate mcq and gap to keep both faces fresh
+  return (r.att % 2 === 0) ? "mcq" : "gap";
+}
+
+function pickNext(){
+  if(tab === "fix"){
+    let p = poolFix(); if(!p.length) return null;
+    if(p.length > 1) p = p.filter(b => b.id !== lastId);
+    const b = p[rand(p.length)], r = state.q[b.id];
+    const mode = r.st==="err" ? "fix" : "recheck";
+    const face = r.st==="err" ? "gap" : "mcq";   // fix exact form by typing; recheck meaning by MCQ
+    return build(b, mode, face);
+  }
+  const p = reviewMode ? poolReview() : poolNew();
+  if(!p.length) return null;
+  let pool = p.length>1 ? p.filter(b=>b.id!==lastId) : p;
+  const b = pool[rand(pool.length)];
+  return build(b, reviewMode?"review":"practice", faceFor(b));
+}
+
+function build(b, mode, face){
+  const c = {mode, id:b.id, face, phase:"ask", revealed:false, chosen:null, typed:"", ok:null};
+  if(face === "gap"){
+    const useAlt = !!(b.w && rand(2)===0);
+    const g = gapSentence(b, useAlt);
+    c.q = g.q; c.a = g.a; c.useAlt = useAlt;
+  }else if(face === "mcq"){
+    c.options = makeMeaningOptions(b);
+  }
+  return c;
+}
+
+/* ---------- apply result (shared) ---------- */
+function applyResult(b, ok, typed, mode){
+  let r = state.q[b.id];
+  if(!r) r = state.q[b.id] = {st:"ok", att:0, miss:0, first:ok, streak:0, wrong:[]};
+  r.att++;
+  const out = {retired:false, passed:false};
+  if(ok){
+    if(r.st === "err" && mode === "fix"){
+      r.streak++;
+      if(r.streak >= need()){ r.st="fixed"; r.fixedAt=Date.now(); r.stage=0; r.due=Date.now()+INT[0]*DAY; out.retired=true; }
+    }else if(r.st === "fixed" && mode === "recheck"){
+      r.stage = (r.stage||0)+1;
+      r.due = r.stage < INT.length ? Date.now()+INT[r.stage]*DAY : null;
+      out.passed = true;
+    }
+  }else{
+    r.miss++; r.lastMiss=Date.now();
+    if(typed && !r.wrong.includes(typed)) r.wrong.push(typed);
+    if(r.st==="fixed") r.relapses=(r.relapses||0)+1;
+    r.st="err"; delete r.due; delete r.stage;
+    if(state.settings.reset || mode!=="fix") r.streak=0;
+  }
+  return out;
+}
+
+/* mark a phrasal verb as already known: goes straight to learned, never tested */
+function markKnown(id){
+  const b=BY[id]; if(!b) return;
+  state.q[id]={st:"known", att:0, miss:0, first:true, streak:0, wrong:[], known:true};
+  persist();
+}
+function unmarkKnown(id){ if(state.q[id] && state.q[id].known){ delete state.q[id]; persist(); } }
+
+
+/* ---------- submit ---------- */
+function gradeGap(c){
+  const b = BY[c.id];
+  const typed = norm(c.typed);
+  const ok = c.a.map(norm).includes(typed) && typed!=="";
+  c.ok = ok; c.phase = "done";
+  const res = applyResult(b, ok, c.typed.trim(), c.mode); touchStreak();
+  c.retired = res.retired; c.passed = res.passed;
+  persist(); render();
+}
+function chooseMcq(c, idx){
+  if(c.phase==="done") return;
+  const b = BY[c.id];
+  c.chosen = idx;
+  const ok = c.options[idx].ok;
+  c.ok = ok; c.phase = "done";
+  const res = applyResult(b, ok, ok?"":"(wrong meaning)", c.mode); touchStreak();
+  c.retired = res.retired; c.passed = res.passed;
+  persist(); render();
+}
+function revealMeaning(c){
+  c.revealed = true; render();
+}
+function gradeMeaning(c, got){
+  const b = BY[c.id];
+  c.ok = got; c.phase = "done";
+  const res = applyResult(b, got, got?"":"(didn't recall)", c.mode); touchStreak();
+  c.retired = res.retired; c.passed = res.passed;
+  persist(); render();
+}
+function next(){ lastId = cur? cur.id : lastId; cur = pickNext(); render(); }
+function skip(){ lastId = cur? cur.id : lastId; cur = pickNext(); render(); }
+
+/* ---------- render: question faces ---------- */
+function blankedHtml(q, typed, state2, answer, inputId){
+  // state2: null (input) | 'ok' | 'bad'
+  const parts = q.split("___");
+  const pre = esc(parts[0]||""), post = esc(parts[1]||"");
+  let mid;
+  if(state2==="ok"){ mid = '<span class="slot ok">'+esc(typed)+'</span>'; }
+  else if(state2==="bad"){ mid = '<span class="slot bad"><del>'+esc(typed||"—")+'</del><ins>'+esc(answer)+'</ins></span>'; }
+  else { mid = '<span class="slot"><input class="blank" id="'+(inputId||"blankInput")+'" autocomplete="off" autocapitalize="none" spellcheck="false" value="'+esc(typed)+'"></span>'; }
+  return pre + mid + post;
+}
+
+function knowBtn(){
+  if(tab==="fix") return "";
+  return '<button class="link" id="btnKnow" title="Mark as already known">I know it ✓</button>';
+}
+function faceSwitchHtml(c){
+  if(tab==="fix") return "";   // fix mode dictates its own face
+  const f = c.face;
+  const mk = (id,lab)=>'<button data-face="'+id+'" aria-pressed="'+(f===id)+'">'+lab+'</button>';
+  return '<div class="faces" role="group" aria-label="Test face">'+mk("meaning","Meaning")+mk("gap","Gap-fill")+mk("mcq","MCQ")+'</div>';
+}
+
+function renderQuestion(){
+  const c = cur, b = BY[c.id];
+  const r = state.q[b.id];
+  const streak = r && r.st==="err" ? (r.streak||0) : 0;
+  let metaRight = "";
+  if(c.mode==="fix") metaRight = '<span class="hint">Recovery '+pips(streak)+'</span>';
+  else if(c.mode==="recheck") metaRight = '<span class="hint">Spaced recheck</span>';
+
+  let inner = "";
+  const meta = '<div class="meta">'+tagHtml(b)+(metaRight?'<span style="margin-left:auto">'+metaRight+'</span>':'<span style="margin-left:auto">'+faceSwitchHtml(c)+'</span>')+'</div>';
+
+  if(c.face==="meaning"){
+    inner = '<p class="prompt">'+esc(b.ph)+'</p>';
+    if(!c.revealed){
+      inner += '<p class="sub">Do you know what this phrasal verb means? Recall it, then reveal.</p>';
+      inner += '<div class="actions"><button class="btn" id="btnReveal">Reveal meaning</button><button class="link" id="btnSkip">Skip</button>'+knowBtn()+'</div>';
+    }else{
+      inner += '<div class="reveal">'+esc(b.mean)+'</div>';
+      if(b.note) inner += '<p class="fb origin" style="background:none;padding:6px 2px 0">'+esc(b.note)+'</p>';
+      if(c.phase!=="done"){
+        inner += '<p class="sub">Did you recall it correctly?</p>';
+        inner += '<div class="actions"><button class="btn" id="btnGotit">I knew it</button><button class="ghost" id="btnMissed" style="min-height:44px">I didn\'t</button></div>';
+      }else{
+        inner += feedbackHtml(c);
+      }
+    }
+  }
+  else if(c.face==="gap"){
+    inner = '<p class="sub">Fill the missing particle of the phrasal verb.</p>';
+    if(c.phase!=="done"){
+      inner += '<p class="sentence">'+blankedHtml(c.q, c.typed, null)+'</p>';
+      inner += '<div class="actions"><button class="btn" id="btnCheck">Check</button><button class="link" id="btnSkip">Skip</button>'+knowBtn()+'</div>';
+    }else{
+      inner += '<p class="sentence">'+blankedHtml(c.q, c.typed, c.ok?"ok":"bad", c.a[0])+'</p>';
+      inner += feedbackHtml(c);
+    }
+  }
+  else if(c.face==="mcq"){
+    inner = '<p class="prompt">'+esc(b.ph)+'</p><p class="sub">Which meaning is correct?</p>';
+    inner += '<div class="opts">';
+    c.options.forEach((o,i)=>{
+      let cls="opt";
+      if(c.phase==="done"){
+        if(o.ok) cls+=" correct";
+        else if(i===c.chosen) cls+=" wrong";
+      }
+      const dis = c.phase==="done"?" disabled":"";
+      inner += '<button class="'+cls+'" data-mcq="'+i+'"'+dis+'><kbd>'+String.fromCharCode(65+i)+'</kbd><span>'+esc(o.t)+'</span></button>';
+    });
+    inner += '</div>';
+    if(c.phase==="done") inner += feedbackHtml(c);
+    else inner += '<div class="actions"><button class="link" id="btnSkip">Skip</button>'+knowBtn()+'</div>';
+  }
+  return '<div class="card">'+meta+inner+'</div>';
+}
+
+function feedbackHtml(c){
+  const b = BY[c.id];
+  const ok = c.ok;
+  let h = '<div class="fb '+(ok?"ok":"bad")+'">';
+  if(c.retired){
+    h += '<p class="celebrate">Recovered — back in rotation for spaced rechecks.</p>';
+  }else if(c.passed){
+    const r = state.q[b.id];
+    h += '<p class="celebrate">'+(r.due?("Recheck passed — next in "+INT[r.stage-1]+" days."):"Fully mastered. Nice.")+'</p>';
+  }else if(ok){
+    h += '<p><strong>Correct.</strong></p>';
+  }else{
+    h += '<p><strong>Not quite.</strong></p>';
+  }
+  // always show the full phrasal verb + meaning on completion
+  h += '<p style="font-family:var(--serif);font-size:18px">'+esc(b.ph)+' — '+esc(b.mean)+'</p>';
+  if(c.face!=="meaning" && b.note) h += '<p class="origin">'+esc(b.note)+'</p>';
+  if(!ok && c.mode==="fix"){ const r=state.q[b.id]; h += '<p class="hint">Streak reset — '+pips(r.streak||0)+' of '+need()+' to recover.</p>'; }
+  h += '</div>';
+  h += '<div class="actions"><button class="btn" id="btnNext">Next phrasal verb</button></div>';
+  return h;
+}
+
+/* ---------- render: lists ---------- */
+function listCard(b, showMeaning){
+  const r = state.q[b.id] || {};
+  const filled = (()=>{ const p=b.ex.split("___"); return esc(p[0])+'<b>'+esc(b.trap)+'</b>'+esc(p[1]); })();
+  let m = tagHtml(b);
+  if(r.known) m += ' · <span style="color:var(--green)">known</span> <button class="link" data-unknow="'+b.id+'" style="padding:0 4px;font-size:13px">undo</button>';
+  if(r.wrong && r.wrong.length) m += ' · tried <span class="w">'+esc(r.wrong.join(", "))+'</span>';
+  if(r.due) m += ' · recheck '+fmtDate(r.due);
+  return '<li class="item"><p class="q">'+filled+'</p>'+(showMeaning?'<p class="mn">'+esc(b.mean)+'</p>':'')+'<div class="m">'+m+'</div></li>';
+}
+
+
+/* ================= MOCK TEST ================= */
+/* A fresh 20-question test each generation. Reshuffled every time, never a fixed set.
+   Mix of gap-fill and MCQ. Auto-graded. Misses go into the Fix queue. */
+let mockState = null; // {qs:[{id,face,q,a,options,chosen,typed,ok}], i, done, started}
+const MOCK_N = 20;
+
+function mockPool(){
+  // respect current tier filter; exclude items the user marked 'known' (they don't need testing)
+  return BANK.filter(b => inLevel(b) && !(state.q[b.id] && state.q[b.id].known));
+}
+function buildMockQuestion(b){
+  // 50/50 gap vs mcq; gap only if a clean blank exists (always true here)
+  const face = rand(2)===0 ? "gap" : "mcq";
+  if(face==="gap"){
+    const useAlt = !!(b.w && rand(2)===0);
+    const g = useAlt ? {q:b.w,a:b.wa} : {q:b.ex,a:[b.trap]};
+    return {id:b.id, face:"gap", q:g.q, a:g.a, typed:"", ok:null};
+  }
+  return {id:b.id, face:"mcq", options:makeMeaningOptions(b), chosen:null, ok:null};
+}
+function generateMock(){
+  const pool = shuffle(mockPool());
+  const pick = pool.slice(0, Math.min(MOCK_N, pool.length));
+  mockState = { qs: pick.map(buildMockQuestion), i:0, done:false, started:Date.now() };
+  render();
+}
+function mockAnswerGap(){
+  const q = mockState.qs[mockState.i];
+  const inp = $("#mockBlank"); q.typed = inp ? inp.value : "";
+  q.ok = q.a.map(norm).includes(norm(q.typed)) && norm(q.typed)!=="";
+  mockAdvance();
+}
+function mockAnswerMcq(idx){
+  const q = mockState.qs[mockState.i];
+  if(q.ok!==null) return;
+  q.chosen = idx; q.ok = q.options[idx].ok;
+  render(); // show correct/wrong briefly, then user taps Next
+}
+function mockAdvance(){
+  const q = mockState.qs[mockState.i];
+  if(q.ok===null) return;
+  if(mockState.i < mockState.qs.length-1){ mockState.i++; render(); }
+  else finishMock();
+}
+function finishMock(){
+  mockState.done = true;
+  // feed wrong answers into the Fix queue (mark as error so they resurface)
+  for(const q of mockState.qs){
+    if(!q.ok){
+      const b = BY[q.id];
+      applyResult(b, false, q.typed? q.typed.trim() : "(mock miss)", "practice");
+    }
+  }
+  // record this mock in history (keep last 30)
+  const right=mockState.qs.filter(q=>q.ok).length;
+  state.mocks=state.mocks||[];
+  state.mocks.push({ts:Date.now(), right, total:mockState.qs.length, tier:state.settings.level});
+  if(state.mocks.length>30) state.mocks=state.mocks.slice(-30);
+  touchStreak();
+  persist(); render();
+}
+
+function renderMock(){
+  if(!mockState){
+    const pool = mockPool().length;
+    const n = Math.min(MOCK_N, pool);
+    return '<div class="empty">'
+      +'<h2>Mock test</h2>'
+      +'<p>A fresh set of '+MOCK_N+' questions, reshuffled every time you generate one \u2014 no fixed paper. A mix of gap-fill and multiple choice, drawn from the <b>'+(state.settings.level==="all"?"whole bank":LV[state.settings.level]+" tier")+'</b>. Wrong answers are added to your Fix queue.</p>'
+      +(pool<MOCK_N?'<p class="hint">Only '+pool+' phrasal verbs available in this tier, so the test will have '+n+' questions. Switch tier in Settings for a full set.</p>':'')
+      +'<div class="actions"><button class="btn" id="mockGen"'+(pool===0?' disabled':'')+'>Generate a '+n+'-question test</button></div>'
+      +'</div>';
+  }
+  if(mockState.done) return renderMockResult();
+  // in progress
+  const total = mockState.qs.length, i = mockState.i, q = mockState.qs[i], b = BY[q.id];
+  let h = '<div class="chips"><b>Mock test</b> \u00b7 question '+(i+1)+' of '+total+'</div>';
+  h += '<div class="prog" style="margin-bottom:14px"><i style="width:'+Math.round(i/total*100)+'%"></i></div>';
+  h += '<div class="card"><div class="meta">'+tagHtml(b)+'<span style="margin-left:auto" class="hint">'+(q.face==="gap"?"Fill the blank":"Choose the meaning")+'</span></div>';
+  if(q.face==="gap"){
+    if(q.ok===null){
+      h += '<p class="sentence">'+blankedHtml(q.q, q.typed, null, null, "mockBlank")+'</p>';
+      h += '<div class="actions"><button class="btn" id="mockCheck">Answer</button></div>';
+    }else{
+      h += '<p class="sentence">'+blankedHtml(q.q, q.typed, q.ok?"ok":"bad", q.a[0])+'</p>';
+      h += mockFeedback(q,b);
+    }
+  }else{
+    h += '<p class="prompt">'+esc(b.ph)+'</p>';
+    h += '<div class="opts">';
+    q.options.forEach((o,idx)=>{
+      let cls="opt";
+      if(q.ok!==null){ if(o.ok) cls+=" correct"; else if(idx===q.chosen) cls+=" wrong"; }
+      h += '<button class="'+cls+'" data-mockmcq="'+idx+'"'+(q.ok!==null?" disabled":"")+'><kbd>'+String.fromCharCode(65+idx)+'</kbd><span>'+esc(o.t)+'</span></button>';
+    });
+    h += '</div>';
+    if(q.ok!==null) h += mockFeedback(q,b);
+  }
+  h += '</div>';
+  return h;
+}
+function mockFeedback(q,b){
+  let h = '<div class="fb '+(q.ok?"ok":"bad")+'"><p><strong>'+(q.ok?"Correct.":"Not quite.")+'</strong></p>';
+  h += '<p style="font-family:var(--serif);font-size:18px">'+esc(b.ph)+' \u2014 '+esc(b.mean)+'</p></div>';
+  const last = mockState.i===mockState.qs.length-1;
+  h += '<div class="actions"><button class="btn" id="mockNext">'+(last?"See results":"Next question")+'</button></div>';
+  return h;
+}
+function renderMockResult(){
+  const qs = mockState.qs, right = qs.filter(q=>q.ok).length, total = qs.length;
+  const pct = Math.round(right/total*100);
+  const secs = Math.round((Date.now()-mockState.started)/1000);
+  const mm = Math.floor(secs/60), ss = secs%60;
+  let h = '<div class="card"><div class="score">'+right+'/'+total+'</div>';
+  h += '<p class="hint">'+pct+'% \u00b7 taken in '+(mm?mm+"m ":"")+ss+'s. Missed phrasal verbs have been added to your Fix queue.</p>';
+  h += '<div class="actions"><button class="btn" id="mockGen">New test</button><button class="ghost" id="mockToFix" style="min-height:44px">Go to Fix</button></div></div>';
+  const wrong = qs.filter(q=>!q.ok);
+  if(wrong.length){
+    h += '<div class="panel"><h2>Review \u2014 '+wrong.length+' to revisit</h2><ul class="items">'+wrong.map(q=>{
+      const b=BY[q.id], p=b.ex.split("___");
+      const yours = q.face==="gap" ? (q.typed?('you wrote <span class="w">'+esc(q.typed)+'</span>'):'left blank')
+                    : (q.chosen!=null?('you chose <span class="w">'+esc(q.options[q.chosen].t)+'</span>'):'');
+      return '<li class="item"><p class="q">'+esc(p[0])+'<b>'+esc(b.trap)+'</b>'+esc(p[1])+'</p><p class="mn">'+esc(b.mean)+'</p><div class="m">'+tagHtml(b)+(yours?' \u00b7 '+yours:'')+'</div></li>';
+    }).join("")+'</ul></div>';
+  }else{
+    h += '<div class="panel"><p class="celebrate" style="margin:0">Full marks \u2014 every answer correct.</p></div>';
+  }
+  return h;
+}
+function wireMock(){
+  const on=(id,fn)=>{const e=$("#"+id); if(e) e.addEventListener("click",fn);};
+  on("mockGen", generateMock);
+  on("mockCheck", mockAnswerGap);
+  on("mockNext", mockAdvance);
+  on("mockToFix", ()=>{ tab="fix"; cur=null; mockState=null; render(); });
+  document.querySelectorAll("[data-mockmcq]").forEach(btn=>btn.addEventListener("click",()=>mockAnswerMcq(+btn.dataset.mockmcq)));
+  const mb=$("#mockBlank"); if(mb){ mb.focus(); mb.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); mockAnswerGap(); } }); }
+}
+
+
+/* ---------- overview strip ---------- */
+function counts(){
+  let nw=0, err=0, fixed=0, mastered=0;
+  for(const b of BANK){
+    const r=state.q[b.id];
+    if(!r) nw++;
+    else if(r.st==="err") err++;
+    else if(r.st==="fixed"){ if(r.due===null) mastered++; else fixed++; }
+    else fixed++;
+  }
+  return {nw,err,fixed,mastered,total:BANK.length};
+}
+function streakChip(){
+  const st=state.streak||{count:0,last:""};
+  const today=dayKey(Date.now());
+  // show as active if last activity was today or yesterday (streak not yet broken)
+  let n=st.count||0;
+  if(st.last && st.last!==today && daysBetween(st.last,today)>1) n=0;
+  if(n<=0) return "";
+  const active = st.last===today;
+  return '<span title="Day streak" style="margin-right:14px;color:'+(active?"var(--accent)":"var(--ink2)")+'">\u25C6 '+n+'-day streak'+(active?"":" (keep it up today)")+'</span>';
+}
+function renderOverview(){
+  const c=counts();
+  const seen=c.total-c.nw;
+  const okw=c.fixed+c.mastered;
+  const w=t=>Math.max(t>0?6:0, Math.round(t/c.total*100));
+  const html = '<div class="strip" aria-hidden="true">'
+    + '<i class="s-fix" style="width:'+w(okw)+'%"></i>'
+    + '<i class="s-err" style="width:'+w(c.err)+'%"></i>'
+    + '</div>'
+    + '<div class="legend">'
+    + '<span><span class="dot" style="background:var(--green)"></span><b>'+okw+'</b> learned ('+c.mastered+' mastered)</span>'
+    + '<span><span class="dot" style="background:var(--red)"></span><b>'+c.err+'</b> to fix</span>'
+    + '<span><span class="dot" style="background:var(--line)"></span><b>'+c.nw+'</b> new</span>'
+    + '<span style="margin-left:auto">'+streakChip()+seen+' / '+c.total+' seen</span>'
+    + '</div>';
+  $("#overview").innerHTML = html;
+}
+
+/* ---------- tabs ---------- */
+function renderTabs(){
+  const fix = poolFix().length;
+  const defs = [["practice","Practice"],["fix","Fix"+(fix?'<span class="badge">'+fix+'</span>':'')],["mock","Mock test"],["list","Browse"],["insights","Insights"],["about","How it works"]];
+  $("#tabs").innerHTML = defs.map(([id,lab])=>'<button data-tab="'+id+'" aria-current="'+(tab===id)+'">'+lab+'</button>').join("");
+}
+
+function renderBrowseOnly(){ const m=$("#main"); m.innerHTML=renderList(); wireChrome(); const n=$("#browseSearch"); if(n&&document.activeElement!==n&&browse.q){ /* keep caret only when typing */ } }
+/* ---------- main ---------- */
+function render(){
+  renderOverview(); renderTabs(); renderSettings();
+  const m = $("#main");
+  if(tab==="practice" || tab==="fix"){
+    if(!cur || (tab==="fix" && cur.mode!=="fix" && cur.mode!=="recheck") || (tab!=="fix" && (cur.mode==="fix"||cur.mode==="recheck"))) cur = pickNext();
+    if(!cur){ m.innerHTML = emptyFor(); }
+    else m.innerHTML = practiceHead() + renderQuestion();
+    wireQuestion();
+    const inp = $("#blankInput"); if(inp){ inp.focus(); inp.setSelectionRange(inp.value.length,inp.value.length); }
+  }
+  else if(tab==="mock"){ m.innerHTML = renderMock(); wireMock(); }
+  else if(tab==="list") m.innerHTML = renderList();
+  else if(tab==="insights") m.innerHTML = renderInsights();
+  else if(tab==="about") m.innerHTML = renderAbout();
+  wireChrome();
+}
+
+function practiceHead(){
+  if(tab==="fix"){
+    return '<p class="section-note">Items you missed come back as <b>gap-fill</b> until you get them right '+need()+' times; recovered items return later as <b>MCQ rechecks</b> at 3, 10 and 30 days.</p>';
+  }
+  const lab = reviewMode?"Reviewing learned phrasal verbs":"New phrasal verbs";
+  return '<div class="chips"><b>'+lab+'</b> · '+(state.settings.autoface?"auto face":("face: "+state.settings.face))+' · tier: '+(state.settings.level==="all"?"all":LV[state.settings.level])
+    +' <button class="link" id="btnToggleReview" style="padding:2px 6px">'+(reviewMode?"practice new":"review learned")+'</button></div>';
+}
+
+function emptyFor(){
+  if(tab==="fix") return '<div class="empty"><h2>Nothing to fix right now</h2><p>Missed phrasal verbs and due rechecks appear here. Go practise some new ones.</p><div class="actions"><button class="btn" data-tab="practice">Practise phrasal verbs</button></div></div>';
+  if(reviewMode) return '<div class="empty"><h2>No learned phrasal verbs yet</h2><p>Practise some new phrasal verbs first, then come back to review them.</p><div class="actions"><button class="btn" id="btnToggleReview">Practise new</button></div></div>';
+  return '<div class="empty"><h2>You\'ve seen every phrasal verb in this tier</h2><p>Switch the tier in Settings, review what you\'ve learned, or clear the Fix queue.</p><div class="actions"><button class="btn" id="btnToggleReview">Review learned</button></div></div>';
+}
+
+/* ---------- Browse ---------- */
+let browse = {q:"", tier:"all", open:{E:true,M:true,H:true,X:true}, status:"all"};
+function browseMatch(b){
+  if(browse.tier!=="all" && b.lv!==browse.tier) return false;
+  if(browse.status!=="all"){
+    const r=state.q[b.id];
+    if(browse.status==="new" && r) return false;
+    if(browse.status==="learned" && !(r && r.st!=="err")) return false;
+    if(browse.status==="weak" && !(r && r.st==="err")) return false;
+  }
+  const q=norm(browse.q);
+  if(!q) return true;
+  return norm(b.ph).includes(q) || norm(b.mean).includes(q) || norm(b.ex).includes(q);
+}
+function renderList(){
+  const all=BANK.filter(browseMatch);
+  const tierBtn=(v,lab)=>'<button class="ghost" data-btier="'+v+'" aria-pressed="'+(browse.tier===v)+'">'+lab+'</button>';
+  const statBtn=(v,lab)=>'<button class="ghost" data-bstat="'+v+'" aria-pressed="'+(browse.status===v)+'">'+lab+'</button>';
+  let h='';
+  h+='<div class="panel" style="padding:16px 18px;margin-bottom:14px">';
+  h+='<input id="browseSearch" type="search" placeholder="Search phrasal verbs, meanings or examples…" value="'+esc(browse.q)+'" style="width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-height:44px;margin-bottom:12px">';
+  h+='<div class="row" style="margin-bottom:8px;gap:6px"><span class="hint" style="min-width:52px">Tier</span>'+tierBtn("all","All")+LVORDER.map(lv=>tierBtn(lv,LV[lv])).join("")+'</div>';
+  h+='<div class="row" style="margin:0;gap:6px"><span class="hint" style="min-width:52px">Status</span>'+statBtn("all","All")+statBtn("new","New")+statBtn("learned","Learned")+statBtn("weak","To fix")+'</div>';
+  h+='</div>';
+  if(!all.length){ h+='<div class="empty"><h2>No matches</h2><p>Try a different search term or clear the filters.</p></div>'; return h; }
+  h+='<p class="section-note">'+all.length+' phrasal verb'+(all.length===1?'':'s')+' shown. The blanked particle is in green.</p>';
+  for(const lv of LVORDER){
+    const items=all.filter(b=>b.lv===lv); if(!items.length) continue;
+    const isOpen=browse.open[lv]!==false;
+    h+='<button class="ghost" data-btoggle="'+lv+'" aria-expanded="'+isOpen+'" style="width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;font-family:var(--serif);font-size:20px;margin:16px 0 8px;padding:10px 14px">'
+      +'<span>'+LV[lv]+' <span class="hint">('+items.length+')</span></span><span aria-hidden="true">'+(isOpen?'−':'+')+'</span></button>';
+    if(isOpen) h+='<ul class="items">'+items.map(b=>listCard(b,true)).join("")+'</ul>';
+  }
+  return h;
+}
+
+/* ---------- Insights ---------- */
+function renderInsights(){
+  const c=counts();
+  const pct = c.total? Math.round((c.fixed+c.mastered)/c.total*100):0;
+  let h = '<div class="card"><div class="score">'+pct+'%</div><p class="hint">of the bank learned — '+c.mastered+' fully mastered, '+c.err+' needing work.</p></div>';
+  // per-tier mastery
+  h += '<div class="panel"><h2>Mastery by tier</h2>';
+  for(const lv of LVORDER){
+    const items=BANK.filter(b=>b.lv===lv); if(!items.length) continue;
+    const learned=items.filter(b=>{const r=state.q[b.id];return r&&r.st!=="err";}).length;
+    const weak=items.filter(b=>{const r=state.q[b.id];return r&&r.st==="err";}).length;
+    const p=Math.round(learned/items.length*100);
+    h += '<div class="bar-row"><span>'+LV[lv]+'</span><div class="bar'+(weak>learned?' weak':'')+'"><i style="width:'+p+'%"></i></div><span class="num">'+p+'%</span></div>';
+  }
+  h += '</div>';
+  // most-missed
+  const missed = BANK.map(b=>({b,r:state.q[b.id]})).filter(x=>x.r&&x.r.miss>0).sort((a,b)=>b.r.miss-a.r.miss).slice(0,8);
+  if(missed.length){
+    h += '<div class="panel"><h2>Most-missed phrasal verbs</h2><ul class="items">'+missed.map(x=>{
+      const p=x.b.ex.split("___");
+      return '<li class="item"><p class="q">'+esc(p[0])+'<b>'+esc(x.b.trap)+'</b>'+esc(p[1])+'</p><p class="mn">'+esc(x.b.mean)+'</p><div class="m">'+tagHtml(x.b)+' · missed '+x.r.miss+'×'+(x.r.wrong&&x.r.wrong.length?' · tried <span class="w">'+esc(x.r.wrong.join(", "))+'</span>':'')+'</div></li>';
+    }).join("")+'</ul></div>';
+  }
+  // mock test history
+  const mk=(state.mocks||[]).slice().reverse();
+  if(mk.length){
+    const best=Math.max(...mk.map(m=>Math.round(m.right/m.total*100)));
+    const avg=Math.round(mk.reduce((a,m)=>a+m.right/m.total*100,0)/mk.length);
+    h += '<div class="panel"><h2>Mock test history</h2>';
+    h += '<p class="small">'+mk.length+' test'+(mk.length===1?'':'s')+' taken · best '+best+'% · average '+avg+'%</p>';
+    h += '<ul class="items">'+mk.slice(0,10).map(m=>{
+      const pct=Math.round(m.right/m.total*100);
+      const tier=m.tier&&m.tier!=="all"?LV[m.tier]:"All tiers";
+      return '<li class="item"><div class="m" style="justify-content:space-between"><span><b style="color:var(--ink);font-size:17px">'+m.right+'/'+m.total+'</b> · '+pct+'%</span><span>'+esc(tier)+' · '+fmtDate(m.ts)+'</span></div></li>';
+    }).join("")+'</ul></div>';
+  }
+  return h;
+}
+
+/* ---------- About ---------- */
+function renderAbout(){
+  return '<div class="card">'
+  +'<p class="info-lead">Phrasal Verbs 500 teaches each phrasal verb on three faces, then protects what you learn with spaced recovery.</p>'
+  +'<div class="info-grid">'
+  +'<div class="info-card"><h3>Meaning</h3><p>The phrasal verb appears alone. Recall what it means, then reveal to check. This is how new phrasal verbs are introduced — comprehension before production.</p></div>'
+  +'<div class="info-card"><h3>Gap-fill</h3><p>A natural sentence with the particle blanked \u2014 <em>look ___ the kids</em>. You type the missing particle, and errors are marked copy-editor style. This tests the part learners get wrong most.</p></div>'
+  +'<div class="info-card"><h3>MCQ</h3><p>The phrasal verb with four meanings — one right, three deliberately close. The wrong options are plausible phrasal-verb meanings, so you can\'t guess from the words alone.</p></div>'
+  +'<div class="info-card"><h3>Four tiers</h3><p><b>Easy</b> everyday phrasal verbs, <b>Medium</b> common but tricky, <b>Hard</b> less frequent or figurative, <b>Difficult</b> formal, literary or rare. Items arrive in random order.</p></div>'
+  +'<div class="info-card"><h3>Fix &amp; recover</h3><p>Miss one and it returns as gap-fill until you get it right '+need()+' times. Then it comes back as MCQ rechecks after 3, 10 and 30 days before counting as mastered.</p></div>'
+  +'<div class="info-card"><h3>I know it</h3><p>Already know a phrasal verb? Tap <b>I know it</b> to send it straight to your learned list \u2014 it won\'t be tested again. Changed your mind? Undo it from Browse.</p></div>'
+  +'<div class="info-card"><h3>Daily streak</h3><p>Answer at least one question a day to build a streak, shown at the top. Miss a day and it resets \u2014 a gentle nudge to keep coming back.</p></div>'
+  +'<div class="info-card"><h3>Mock test</h3><p>Generate a fresh '+MOCK_N+'-question test any time, reshuffled on every press \u2014 never a fixed paper. Mixed gap-fill and multiple choice, auto-scored, with misses sent to your Fix queue.</p></div>'
+  +'<div class="info-card"><h3>Your progress</h3><p>Saved on this device, and synced to your account when available. Nothing to sign up for.</p></div>'
+  +'</div></div>';
+}
+
+/* ---------- Settings ---------- */
+function renderSettings(){
+  const s=$("#settings"); if(!ui.settings){ s.hidden=true; s.innerHTML=""; return; } s.hidden=false;
+  const opt=(v,cur,lab)=>'<option value="'+v+'"'+(v===cur?" selected":"")+'>'+lab+'</option>';
+  s.innerHTML = '<div class="panel">'
+  +'<h2>Settings</h2>'
+  +'<div class="row"><label for="setFace">Test face</label><select id="setFace">'
+    +opt("auto",state.settings.autoface?"auto":"", "Auto — pick the useful face")
+    +opt("meaning",state.settings.autoface?"":state.settings.face,"Meaning only")
+    +opt("gap",state.settings.autoface?"":state.settings.face,"Gap-fill only")
+    +opt("mcq",state.settings.autoface?"":state.settings.face,"MCQ only")
+  +'</select></div>'
+  +'<div class="row"><label for="setLevel">Tier</label><select id="setLevel">'
+    +opt("all",state.settings.level,"All tiers")
+    +LVORDER.map(lv=>opt(lv,state.settings.level,LV[lv])).join("")
+  +'</select></div>'
+  +'<div class="row"><label for="setNeed">Correct answers to recover</label><select id="setNeed">'
+    +[2,3,4].map(n=>opt(String(n),String(state.settings.need),n+"×")).join("")
+  +'</select></div>'
+  +'<div class="row"><label for="setReset">Reset recovery streak on a slip</label><select id="setReset">'
+    +'<option value="1"'+(state.settings.reset?" selected":"")+'>Yes — start over</option>'
+    +'<option value="0"'+(!state.settings.reset?" selected":"")+'>No — keep progress</option>'
+  +'</select></div>'
+  +'<hr>'
+  +'<div class="reset-row"><p><b>Reset all progress</b>This clears every answer, streak and recheck on this device.</p><button class="warnbtn" id="btnReset">'+(ui.confirmReset?"Tap again to confirm":"Reset progress")+'</button></div>'
+  +'</div>';
+}
+
+/* ---------- event wiring ---------- */
+function wireQuestion(){
+  const on=(id,fn)=>{const e=$("#"+id); if(e) e.addEventListener("click",fn);};
+  on("btnReveal",()=>revealMeaning(cur));
+  on("btnGotit",()=>gradeMeaning(cur,true));
+  on("btnMissed",()=>gradeMeaning(cur,false));
+  on("btnCheck",()=>{ const i=$("#blankInput"); cur.typed=i?i.value:""; gradeGap(cur); });
+  on("btnKnow",()=>{ if(cur){ markKnown(cur.id); lastId=cur.id; cur=pickNext(); render(); } });
+  on("btnNext",next);
+  on("btnSkip",skip);
+  const inp=$("#blankInput");
+  if(inp) inp.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); cur.typed=inp.value; gradeGap(cur); }});
+  document.querySelectorAll("[data-mcq]").forEach(btn=>btn.addEventListener("click",()=>chooseMcq(cur,+btn.dataset.mcq)));
+  document.querySelectorAll("[data-face]").forEach(btn=>btn.addEventListener("click",()=>{
+    const f=btn.dataset.face; cur = build(BY[cur.id], cur.mode, f); render();
+  }));
+}
+function wireChrome(){
+  document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{ if(b.dataset.tab!=="mock") mockState=null; tab=b.dataset.tab; cur=null; ui.confirmReset=false; render(); }));
+  const tr=$("#btnToggleReview"); if(tr) tr.addEventListener("click",()=>{ reviewMode=!reviewMode; cur=null; render(); });
+  const sf=$("#setFace"); if(sf) sf.addEventListener("change",e=>{ const v=e.target.value; if(v==="auto"){state.settings.autoface=true;} else {state.settings.autoface=false; state.settings.face=v;} persist(); cur=null; render(); });
+  const sl=$("#setLevel"); if(sl) sl.addEventListener("change",e=>{ state.settings.level=e.target.value; persist(); cur=null; render(); });
+  const sn=$("#setNeed"); if(sn) sn.addEventListener("change",e=>{ state.settings.need=+e.target.value; persist(); render(); });
+  const sr=$("#setReset"); if(sr) sr.addEventListener("change",e=>{ state.settings.reset=e.target.value==="1"; persist(); });
+  const bs=$("#browseSearch"); if(bs) bs.addEventListener("input",e=>{ browse.q=e.target.value; const pos=e.target.selectionStart; renderBrowseOnly(); const n=$("#browseSearch"); if(n){ n.focus(); try{n.setSelectionRange(pos,pos);}catch(_){} } });
+  document.querySelectorAll("[data-btier]").forEach(b=>b.addEventListener("click",()=>{ browse.tier=b.dataset.btier; renderBrowseOnly(); }));
+  document.querySelectorAll("[data-bstat]").forEach(b=>b.addEventListener("click",()=>{ browse.status=b.dataset.bstat; renderBrowseOnly(); }));
+  document.querySelectorAll("[data-unknow]").forEach(b=>b.addEventListener("click",()=>{ unmarkKnown(b.dataset.unknow); renderBrowseOnly(); }));
+  document.querySelectorAll("[data-btoggle]").forEach(b=>b.addEventListener("click",()=>{ const lv=b.dataset.btoggle; browse.open[lv]=!(browse.open[lv]!==false); renderBrowseOnly(); }));
+  const br=$("#btnReset"); if(br) br.addEventListener("click",()=>{
+    if(!ui.confirmReset){ ui.confirmReset=true; renderSettings(); wireChrome(); return; }
+    state=fresh(); persist(); cur=null; ui.confirmReset=false; render();
+  });
+}
+
+/* ---------- header controls ---------- */
+function applyTheme(t){ if(t) document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); const dark=document.documentElement.getAttribute("data-theme")==="dark"||(!document.documentElement.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches); const b=$("#btnTheme"); if(b) b.textContent=dark?"Light mode":"Dark mode"; }
+(function initTheme(){ let t=null; try{t=localStorage.getItem("phrasalverbs-500-theme");}catch(e){} applyTheme(t==="dark"||t==="light"?t:null); })();
+$("#btnTheme").addEventListener("click",()=>{ const cur=document.documentElement.getAttribute("data-theme"); const dark=cur==="dark"||(!cur&&matchMedia("(prefers-color-scheme:dark)").matches); const nt=dark?"light":"dark"; try{localStorage.setItem("phrasalverbs-500-theme",nt);}catch(e){} applyTheme(nt); });
+$("#btnSettings").addEventListener("click",()=>{ ui.settings=!ui.settings; $("#btnSettings").setAttribute("aria-expanded",ui.settings); renderSettings(); wireChrome(); });
+
+/* timer */
+let timer={on:false,run:false,sec:0,iv:null};
+function fmtT(s){const m=Math.floor(s/60),x=s%60;return String(m).padStart(2,"0")+":"+String(x).padStart(2,"0");}
+function tick(){ if(timer.run){ timer.sec++; $("#timerNum").textContent=fmtT(timer.sec); } }
+function showTimer(){ const bar=$("#timerBar"); bar.hidden=!timer.on; $("#btnTimer").setAttribute("aria-pressed",timer.on); if(timer.on&&!timer.iv) timer.iv=setInterval(tick,1000); }
+$("#btnTimer").addEventListener("click",()=>{ timer.on=!timer.on; if(timer.on){timer.run=true;} showTimer(); });
+$("#timerPause").addEventListener("click",()=>{ timer.run=!timer.run; $("#timerBar").classList.toggle("paused",!timer.run); $("#timerPause").textContent=timer.run?"Pause":"Resume"; });
+$("#timerReset").addEventListener("click",()=>{ timer.sec=0; $("#timerNum").textContent="00:00"; });
+
+/* boot */
+render();
+
+</script>
+</body>
+</html>

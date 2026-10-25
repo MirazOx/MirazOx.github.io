@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
+<title>The English Lab — Adaptive Language Engines | Miraz Hossain</title>
+<meta name="description" content="The English Lab: Four adaptive diagnostic engines for advanced English mastery — Vocabulary (GRE 500), Prepositions, Phrasal Verbs, and Idioms. Built with spaced repetition, proofreader feedback, and offline PDF generation by Miraz Hossain.">
+<link rel="canonical" href="https://mirazhossain.com/projects/english/">
+<meta property="og:title" content="The English Lab — Adaptive Language Engines | Miraz Hossain">
+<meta property="og:description" content="Four adaptive diagnostic engines designed to eliminate linguistic blindspots across 2,000 active items in vocabulary, syntax, phrasal verbs, and idioms.">
+<meta property="og:image" content="https://mirazhossain.com/assets/images/projects/english-lab-cover.svg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,300;1,7..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=49">
+<style>
+  .english-lab-hero {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+  .english-lab-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin: 0 0 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .english-lab-title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.2vw, 56px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    color: var(--text);
+  }
+  .english-lab-title em {
+    font-style: italic;
+    color: var(--accent-amber);
+  }
+  .english-lab-sub {
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.6;
+    color: var(--text2);
+    max-width: 68ch;
+    margin: 0 0 2rem;
+  }
+  .english-lab-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .el-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .el-stat-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+  }
+  .el-stat-num span {
+    color: var(--accent-teal);
+  }
+  .el-stat-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
+
+  /* 4-Tool Grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 860px) {
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+
+  .tool-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .tool-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-teal);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  }
+  .tool-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--bg2);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .tool-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .tool-card:hover .tool-media img {
+    transform: scale(1.025);
+  }
+  .tool-badge-float {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .tool-body {
+    padding: 1.5rem 1.6rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .tool-kicker {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin: 0 0 0.5rem;
+  }
+  .tool-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+    color: var(--text);
+  }
+  .tool-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text2);
+    margin: 0 0 1.25rem;
+    flex: 1;
+  }
+  .tool-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+  }
+  .tool-chip {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--text3);
+  }
+  .tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent-amber);
+    transition: gap 0.2s ease;
+  }
+  .tool-card:hover .tool-cta {
+    gap: 10px;
+  }
+
+  /* Philosophy / Methodology Section */
+  .method-section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+    margin-bottom: 4rem;
+  }
+  .method-header {
+    margin-bottom: 2rem;
+  }
+  .method-header h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+  }
+  .method-header p {
+    color: var(--text2);
+    margin: 0;
+    max-width: 60ch;
+  }
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .method-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.4rem;
+  }
+  .method-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+    color: var(--text);
+  }
+  .method-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text2);
+    margin: 0;
+  }
+</style>
+</head>
+<body data-page="english-lab">
+
+<nav class="nav-modern" id="siteNav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="/" class="nav-home" aria-label="Home">
+        <span class="nav-home-icon">M</span>
+      </a>
+    </div>
+    <div class="nav-main">
+      <a href="/research/">Research</a>
+      <a href="/academic/">Academic</a>
+      <a href="/writing/">Reportage</a>
+      <a href="/interventions/">Interventions</a>
+      <a href="/about/">About</a>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-track">
+          <span class="toggle-thumb">
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container-wide">
+
+    <section class="english-lab-hero">
+      <p class="english-lab-eyebrow">
+        <span>Software tools</span> · <a href="/interventions/" style="color:inherit;text-decoration:underline">Interventions</a> · <span>Pedagogical Suite</span>
+      </p>
+      <h1 class="english-lab-title">The English <em>Lab</em></h1>
+      <p class="english-lab-sub">Four adaptive diagnostic engines designed to systematically eliminate linguistic blindspots through active production, copy-editor markup feedback, and spaced memory recovery across 2,000 curated items.</p>
+      
+      <div class="english-lab-stats">
+        <div class="el-stat">
+          <span class="el-stat-num">4</span>
+          <span class="el-stat-label">Interactive Engines</span>
+        </div>
+        <div class="el-stat">
+          <span class="el-stat-num">2,000<span>+</span></span>
+          <span class="el-stat-label">Curated Traps</span>
+        </div>
+        <div class="el-stat">
+          <span class="el-stat-num">3 · 10 · 30<span>d</span></span>
+          <span class="el-stat-label">Spaced Rechecks</span>
+        </div>
+        <div class="el-stat">
+          <span class="el-stat-num">100<span>%</span></span>
+          <span class="el-stat-label">Offline-First &amp; Free</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Tools Grid -->
+    <section class="tools-grid">
+
+      <!-- Tool 1: GRE 500 -->
+      <a class="tool-card" href="/projects/english/vocabulary/">
+        <div class="tool-media">
+          <img src="/assets/images/projects/gre-500-cover.svg" alt="GRE 500 — Adaptive Vocabulary Trainer">
+          <span class="tool-badge-float">500 Words</span>
+        </div>
+        <div class="tool-body">
+          <p class="tool-kicker">Lexicon · Phonetics · GRE</p>
+          <h2 class="tool-title">GRE 500 — Adaptive Vocabulary Trainer</h2>
+          <p class="tool-desc">A rigorous flashcard and diagnostic engine built to master high-frequency GRE traps. Features phonetic transcription, nuanced definitions, and a strict retirement rule: answer correctly 5 times in a row and the word retires permanently.</p>
+          <div class="tool-chips">
+            <span class="tool-chip">Active Recall</span>
+            <span class="tool-chip">IPA Phonetics</span>
+            <span class="tool-chip">5-Streak Retirement</span>
+            <span class="tool-chip">Context Sentences</span>
+          </div>
+          <span class="tool-cta">Launch Vocabulary Trainer →</span>
+        </div>
+      </a>
+
+      <!-- Tool 2: Prepositions -->
+      <a class="tool-card" href="/projects/english/prepositions/">
+        <div class="tool-media">
+          <img src="/assets/images/projects/preposition-drill-cover.svg" alt="Preposition Drill — Adaptive Mastery Engine">
+          <span class="tool-badge-float">500 Questions</span>
+        </div>
+        <div class="tool-body">
+          <p class="tool-kicker">Syntax · Collocations · Proofreading</p>
+          <h2 class="tool-title">Preposition Drill — Adaptive Mastery Engine</h2>
+          <p class="tool-desc">Dismantles chronic preposition errors across three graded difficulty tiers. Features proofreader red-ink strike-throughs, multi-variant sentence acceptance, dynamic sentence rotation in error fixing, and printable PDF worksheets.</p>
+          <div class="tool-chips">
+            <span class="tool-chip">Copy-Editor Markup</span>
+            <span class="tool-chip">Sentence Variation</span>
+            <span class="tool-chip">Multi-Answer Acceptance</span>
+            <span class="tool-chip">PDF Worksheet</span>
+          </div>
+          <span class="tool-cta">Launch Preposition Drill →</span>
+        </div>
+      </a>
+
+      <!-- Tool 3: Phrasal Verbs -->
+      <a class="tool-card" href="/projects/english/phrasal-verbs/">
+        <div class="tool-media">
+          <img src="/assets/images/projects/phrasal-verbs-cover.svg" alt="Phrasal Verbs 500 — Meaning, Particle & MCQ Trainer">
+          <span class="tool-badge-float">500 Verbs</span>
+        </div>
+        <div class="tool-body">
+          <p class="tool-kicker">Particles · Multi-Word Verbs · Collocations</p>
+          <h2 class="tool-title">Phrasal Verbs 500 — Meaning, Particle &amp; MCQ Trainer</h2>
+          <p class="tool-desc">Internalize 500 vital multi-word verbs across four frequency tiers. Features three rotating test faces (meaning recall, particle gap-fill in sentence context, and confusable 4-option MCQs) with spaced error recovery at 3, 10, and 30 days.</p>
+          <div class="tool-chips">
+            <span class="tool-chip">3 Test Faces</span>
+            <span class="tool-chip">4 Frequency Tiers</span>
+            <span class="tool-chip">Particle Gap-Fill</span>
+            <span class="tool-chip">Spaced Rechecks</span>
+          </div>
+          <span class="tool-cta">Launch Phrasal Verbs Trainer →</span>
+        </div>
+      </a>
+
+      <!-- Tool 4: Idioms -->
+      <a class="tool-card" href="/projects/english/idioms/">
+        <div class="tool-media">
+          <img src="/assets/images/projects/idioms-cover.svg" alt="Idioms 500 — Meaning, Gap-fill & MCQ Trainer">
+          <span class="tool-badge-float">500 Idioms</span>
+        </div>
+        <div class="tool-body">
+          <p class="tool-kicker">Figurative Language · Register · Fluency</p>
+          <h2 class="tool-title">Idioms 500 — Meaning, Gap-fill &amp; MCQ Trainer</h2>
+          <p class="tool-desc">Master 500 high-yield English idioms through contextual clozes, definition recall, and confusable options across four frequency tiers. Built with active recall to eliminate passive familiarity and cement genuine conversational competence.</p>
+          <div class="tool-chips">
+            <span class="tool-chip">Contextual Clozes</span>
+            <span class="tool-chip">4 Frequency Tiers</span>
+            <span class="tool-chip">Mock Exam Mode</span>
+            <span class="tool-chip">Error Diagnostics</span>
+          </div>
+          <span class="tool-cta">Launch Idioms Trainer →</span>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- Methodology -->
+    <section class="method-section">
+      <div class="method-header">
+        <h2>Pedagogical Architecture</h2>
+        <p>Why these tools work: they reject passive recognition in favor of enforced cognitive retrieval and systematic error recovery.</p>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <h3>Active Production</h3>
+          <p>Recognition is not mastery. Each tool requires either direct typing or commitment before revealing the answer, breaking the illusion of competence caused by multiple-choice guessing.</p>
+        </div>
+        <div class="method-card">
+          <h3>Sentence Variation</h3>
+          <p>When you miss an item, the error-recovery loop rotates through alternative sentences testing the identical phrase. You learn the underlying syntactic pattern, not a static flashcard.</p>
+        </div>
+        <div class="method-card">
+          <h3>3 · 10 · 30d Spaced Rechecks</h3>
+          <p>Graduating an item to the "Fixed" list is not the end. Items return for mandatory typed rechecks at 3, 10, and 30-day intervals to verify that short-term recall has consolidated into long-term memory.</p>
+        </div>
+        <div class="method-card">
+          <h3>Offline-First &amp; Client-Side</h3>
+          <p>All engines run 100% locally in your browser with zero external server dependencies. Progress persists in localStorage, and error logs can be exported directly as printable 2-page PDF worksheets.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container-wide">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem;">
+      <div>
+        <p class="footer-text" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); margin-bottom: 0.25rem;">Location &amp; Local Time</p>
+        <p class="footer-text" style="font-family: var(--font-mono); font-size: 13px; color: var(--text2);" id="footerTime">Dhaka · --:--:--</p>
+      </div>
+      <div>
+        <a href="https://github.com/MirazOx" target="_blank" rel="noopener"><svg class="footer-icon" aria-hidden="true" focusable="false"><use href="/assets/svg/socials.svg#github"></use></svg><span>github</span></a>
+        <a href="https://twitter.com/Miraz8395" target="_blank" rel="noopener"><svg class="footer-icon" aria-hidden="true" focusable="false"><use href="/assets/svg/socials.svg#twitter"></use></svg><span>twitter</span></a>
+        <a href="https://linkedin.com/in/md-miraz-hossain" target="_blank" rel="noopener"><svg class="footer-icon" aria-hidden="true" focusable="false"><use href="/assets/svg/socials.svg#linkedin"></use></svg><span>linkedin</span></a>
+        <a href="https://facebook.com/MirazHossain07" target="_blank" rel="noopener"><svg class="footer-icon" aria-hidden="true" focusable="false"><use href="/assets/svg/socials.svg#facebook"></use></svg><span>facebook</span></a>
+      </div>
+    </div>
+    <div style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--text3);">
+      <span>&copy; 2026 Miraz Hossain. All rights reserved.</span>
+      <span><a href="/about/" style="color: inherit; text-decoration: none; border-bottom: 0.5px dotted var(--text3);">About</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js?v=10"></script>
+</body>
+</html>

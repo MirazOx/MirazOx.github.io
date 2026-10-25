@@ -1,0 +1,73 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0E1525"/>
+  
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="300" x2="1600" y2="300" stroke="#1C2844" stroke-width="2"/>
+  <line x1="0" y1="600" x2="1600" y2="600" stroke="#1C2844" stroke-width="2"/>
+  <line x1="533" y1="0" x2="533" y2="900" stroke="#1C2844" stroke-width="2"/>
+  <line x1="1066" y1="0" x2="1066" y2="900" stroke="#1C2844" stroke-width="2"/>
+  
+  <!-- Massive faint 2000 watermark -->
+  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="420" font-weight="800" text-anchor="middle" letter-spacing="-10">2000</text>
+  
+  <!-- Top badge -->
+  <rect x="180" y="190" width="280" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="320" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PEDAGOGICAL SOFTWARE SUITE</text>
+  
+  <!-- Title & Subtitle -->
+  <text x="180" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="100" font-weight="400" letter-spacing="-2">The English Lab</text>
+  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="24" font-weight="600" letter-spacing="3.5">4 ADAPTIVE MASTERY ENGINES · 2,000 ACTIVE ITEMS</text>
+  
+  <!-- 4 Module Cards Grid -->
+  <g transform="translate(180, 440)">
+    <!-- Card 1: Vocabulary -->
+    <rect x="0" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="24" y="24" width="10" height="10" rx="2" fill="#d94a38"/>
+    <text x="44" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 01 · LEXICON</text>
+    <text x="24" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">GRE 500</text>
+    <text x="24" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 high-frequency traps,</text>
+    <text x="24" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">phonetics &amp; 5-streak retirement</text>
+    
+    <!-- Card 2: Prepositions -->
+    <rect x="315" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="339" y="24" width="10" height="10" rx="2" fill="#C41E3A"/>
+    <text x="359" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 02 · SYNTAX</text>
+    <text x="339" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Prepositions</text>
+    <text x="339" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 syntax collocations,</text>
+    <text x="339" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">copy-editor proofreading marks</text>
+    
+    <!-- Card 3: Phrasal Verbs -->
+    <rect x="630" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="654" y="24" width="10" height="10" rx="2" fill="#E7C9A0"/>
+    <text x="674" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 03 · PARTICLES</text>
+    <text x="654" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Phrasal Verbs</text>
+    <text x="654" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 verbs across 4 tiers,</text>
+    <text x="654" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">meaning, particle &amp; MCQ</text>
+    
+    <!-- Card 4: Idioms -->
+    <rect x="945" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="969" y="24" width="10" height="10" rx="2" fill="#52D0A5"/>
+    <text x="989" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 04 · IDIOMS</text>
+    <text x="969" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Idioms 500</text>
+    <text x="969" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 idioms across 4 tiers,</text>
+    <text x="969" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">contextual gap-fill &amp; MCQs</text>
+  </g>
+  
+  <!-- Bottom pills -->
+  <g transform="translate(180, 670)">
+    <rect x="0" y="0" width="280" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="140" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">SPACED RECHECKS (3 · 10 · 30d)</text>
+    
+    <rect x="300" y="0" width="240" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="420" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">ERROR-LOG WORKSHEETS</text>
+    
+    <rect x="560" y="0" width="210" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="665" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">25-QUESTION MOCK TESTS</text>
+    
+    <rect x="790" y="0" width="180" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="880" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">100% OFFLINE-READY</text>
+  </g>
+  
+  <!-- Watermark -->
+  <text x="1420" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // INTERVENTIONS · MIRAZ HOSSAIN</text>
+</svg>
