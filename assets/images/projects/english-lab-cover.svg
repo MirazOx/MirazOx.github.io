@@ -11,12 +11,12 @@
   <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="420" font-weight="800" text-anchor="middle" letter-spacing="-10">2000</text>
   
   <!-- Top badge -->
-  <rect x="180" y="190" width="280" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
-  <text x="320" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PEDAGOGICAL SOFTWARE SUITE</text>
+  <rect x="180" y="190" width="310" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="335" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 4 MASTERY ENGINES</text>
   
   <!-- Title & Subtitle -->
-  <text x="180" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="100" font-weight="400" letter-spacing="-2">The English Lab</text>
-  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="24" font-weight="600" letter-spacing="3.5">4 ADAPTIVE MASTERY ENGINES · 2,000 ACTIVE ITEMS</text>
+  <text x="180" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="88" font-weight="400" letter-spacing="-2">The English Lab 500</text>
+  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 4 ADAPTIVE MASTERY ENGINES · 2,000 ACTIVE ITEMS</text>
   
   <!-- 4 Module Cards Grid -->
   <g transform="translate(180, 440)">
@@ -32,7 +32,7 @@
     <rect x="315" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
     <rect x="339" y="24" width="10" height="10" rx="2" fill="#C41E3A"/>
     <text x="359" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 02 · SYNTAX</text>
-    <text x="339" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Prepositions</text>
+    <text x="339" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Prepositions 500</text>
     <text x="339" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 syntax collocations,</text>
     <text x="339" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">copy-editor proofreading marks</text>
     
@@ -69,5 +69,5 @@
   </g>
   
   <!-- Watermark -->
-  <text x="1420" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // INTERVENTIONS · MIRAZ HOSSAIN</text>
+  <text x="1420" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // TEL 500 · MIRAZ HOSSAIN</text>
 </svg>

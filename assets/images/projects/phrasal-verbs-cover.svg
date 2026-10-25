@@ -7,6 +7,9 @@
   
   <text x="800" y="650" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="480" font-weight="800" text-anchor="middle" letter-spacing="-15">500</text>
   
+  <rect x="220" y="245" width="220" height="34" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="330" y="267" fill="#E7C9A0" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 · MODULE 03</text>
+
   <rect x="220" y="320" width="74" height="74" rx="10" fill="#7A4B16"/>
   <text x="257" y="370" fill="#E7C9A0" font-family="'Newsreader', Georgia, serif" font-size="48" font-weight="700" font-style="italic" text-anchor="middle">PV</text>
   
@@ -30,5 +33,5 @@
     <text x="672" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">PRINTABLE ERROR PDF</text>
   </g>
   
-  <text x="1380" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // ENGLISH LAB · MIRAZ HOSSAIN</text>
+  <text x="1380" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // TEL 500 · MIRAZ HOSSAIN</text>
 </svg>

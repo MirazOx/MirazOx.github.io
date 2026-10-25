@@ -175,8 +175,10 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 /* suite switcher */
 .suite-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:8px 18px;margin:-20px -18px 20px}
 .suite-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.suite-brand{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-.suite-brand::before{content:"←";font-family:var(--sans);font-weight:400;color:var(--ink2)}
+.suite-brand{font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.suite-brand::before{content:"←";font-family:var(--sans);font-weight:400;color:var(--ink2);margin-right:2px}
+.suite-brand .suite-full{font-family:var(--serif);font-weight:400;font-size:14px;color:var(--ink2)}
+@media (max-width:620px){.suite-brand .suite-full{display:none}}
 .suite-links{display:flex;gap:4px;overflow-x:auto}
 .suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
 .suite-link:hover{color:var(--ink);background:var(--card)}
@@ -186,9 +188,9 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 
 <body>
 <div class="wrap">
-<nav class="suite-bar" aria-label="The English Lab tools">
+<nav class="suite-bar" aria-label="TEL 500 — The English Lab 500 tools">
   <div class="suite-inner">
-    <a href="/projects/english/" class="suite-brand">The English Lab</a>
+    <a href="/projects/english/" class="suite-brand">TEL 500 <span class="suite-full">· The English Lab 500</span></a>
     <div class="suite-links"><a href="/projects/english/vocabulary/" class="suite-link">Vocabulary</a><a href="/projects/english/prepositions/" class="suite-link">Prepositions</a><a href="/projects/english/phrasal-verbs/" class="suite-link">Phrasal Verbs</a><a href="/projects/english/idioms/" class="suite-link is-active">Idioms</a></div>
   </div>
 </nav>
@@ -198,7 +200,7 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
   </div>
   <header class="top">
     <div>
-      <a href="/projects/english/" class="ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:4px 10px;margin-bottom:8px">← The English Lab</a>
+      <a href="/projects/english/" class="ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:4px 10px;margin-bottom:8px">← TEL 500 Suite</a>
       <h1>Idioms 500</h1>
       <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Gap-fill · MCQ — with spaced error recovery</p>
     </div>
