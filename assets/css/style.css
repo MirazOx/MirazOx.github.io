@@ -8451,6 +8451,33 @@ body[data-page="writing"] .writing-archive-cta * {
     max-width: 100% !important;
   }
 
+  /* ---- Preserve the on-screen card grids in print ---- */
+  /* Writing: keep the 2-column "selected works" grid. */
+  body[data-page="writing"] .selected-writing-showcase {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+  /* Interventions: each focus card keeps its text | media two-column
+     split (relax the 320px min so it never collapses on paper). */
+  body[data-page="interventions"] .intervention-focus-card {
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr) !important;
+  }
+  /* Credentials: keep the showcase card strip multi-column. */
+  body[data-page="credentials"] .cred-showcase-strip {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+  /* Stat ledgers: keep all four stats on one row. */
+  body[data-page="interventions"] .academic-ledger-grid,
+  body[data-page="credentials"] .academic-ledger-grid,
+  body[data-page="writing"] .academic-ledger-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
   /* Use a touch less page margin so wide cards fit. */
   @page { margin: 12mm; }
 }
