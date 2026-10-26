@@ -8329,42 +8329,130 @@ body[data-page="writing"] .writing-archive-cta * {
 /* ==========================================================================
    CV PRINT STYLES
    ========================================================================== */
+/* ============================================================
+   PRINT STYLES
+   ------------------------------------------------------------
+   1) CV page: clean black-on-white document (scoped so it no
+      longer flattens every other page).
+   2) Portfolio pages (interventions / credentials / writing):
+      print as seen on screen — dark backgrounds, accent colours
+      and photos all kept, cards not split across pages.
+   ============================================================ */
+
+/* ---- CV page only ---- */
 @media print {
-  body {
+  body[data-page="cv"] {
     background: white !important;
     color: black !important;
     margin: 0 !important;
     padding: 0 !important;
   }
-  nav, footer, .nav-modern, .footer-details-grid, .section-divider {
+  body[data-page="cv"] nav,
+  body[data-page="cv"] footer,
+  body[data-page="cv"] .nav-modern,
+  body[data-page="cv"] .footer-details-grid,
+  body[data-page="cv"] .section-divider {
     display: none !important;
   }
-  .cv-page-container {
+  body[data-page="cv"] .cv-page-container {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none !important;
   }
-  .cv-document {
+  body[data-page="cv"] .cv-document {
     background: white !important;
     color: black !important;
   }
-  .cv-section {
+  body[data-page="cv"] .cv-section {
     page-break-inside: avoid;
   }
-  h1, h2, h3, p, span, div, a {
+  body[data-page="cv"] h1,
+  body[data-page="cv"] h2,
+  body[data-page="cv"] h3,
+  body[data-page="cv"] p,
+  body[data-page="cv"] span,
+  body[data-page="cv"] div,
+  body[data-page="cv"] a {
     color: black !important;
   }
-  .cv-section h2 {
+  body[data-page="cv"] .cv-section h2 {
     color: #1f497d !important;
     border-bottom: 1px solid #1f497d !important;
   }
-  .cv-contact {
+  body[data-page="cv"] .cv-contact {
     border-bottom: 1.5px solid #1f497d !important;
   }
-  .cv-contact i {
+  body[data-page="cv"] .cv-contact i {
     color: #1f497d !important;
   }
+}
+
+/* ---- Portfolio pages: print as seen (dark + colour) ---- */
+@media print {
+  body[data-page="interventions"],
+  body[data-page="credentials"],
+  body[data-page="writing"] {
+    /* Force backgrounds, photos and colours to print,
+       so the user does not have to tick "Background graphics". */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+  }
+
+  /* Everything inside these pages keeps its on-screen colours. */
+  body[data-page="interventions"] *,
+  body[data-page="credentials"] *,
+  body[data-page="writing"] * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reveal-on-scroll elements may never have fired on a print
+     render — force them fully visible. */
+  body[data-page="interventions"] .reveal,
+  body[data-page="credentials"] .reveal,
+  body[data-page="writing"] .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* Hide chrome that is noise on paper. */
+  body[data-page="interventions"] .nav-modern,
+  body[data-page="credentials"] .nav-modern,
+  body[data-page="writing"] .nav-modern,
+  body[data-page="interventions"] .nav-theme-toggle,
+  body[data-page="credentials"] .nav-theme-toggle,
+  body[data-page="writing"] .nav-theme-toggle,
+  body[data-page="interventions"] footer,
+  body[data-page="credentials"] footer,
+  body[data-page="writing"] footer {
+    display: none !important;
+  }
+
+  /* Keep each card whole — never split one across two sheets. */
+  body[data-page="interventions"] .intervention-focus-card,
+  body[data-page="interventions"] .project-banner,
+  body[data-page="credentials"] .cred-showcase-card,
+  body[data-page="credentials"] .cred-group,
+  body[data-page="writing"] .selected-article-card,
+  body[data-page="writing"] .selected-writing-showcase {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Make sure images actually print. */
+  body[data-page="interventions"] img,
+  body[data-page="credentials"] img,
+  body[data-page="writing"] img {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    max-width: 100% !important;
+  }
+
+  /* Use a touch less page margin so wide cards fit. */
+  @page { margin: 12mm; }
 }
 
 /* FactFest Card (is-stacked) */
