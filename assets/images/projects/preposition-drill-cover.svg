@@ -10,12 +10,15 @@
   <!-- Massive faint 500 watermark -->
   <text x="800" y="650" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="480" font-weight="800" text-anchor="middle" letter-spacing="-15">500</text>
   
+  <rect x="220" y="245" width="220" height="34" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="330" y="267" fill="#FF7487" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 · MODULE 02</text>
+
   <!-- Red accent box with copy-editor symbol -->
   <rect x="220" y="320" width="74" height="74" rx="10" fill="#C41E3A"/>
   <text x="257" y="370" fill="#FFFFFF" font-family="'Newsreader', Georgia, serif" font-size="48" font-weight="700" font-style="italic" text-anchor="middle">P</text>
   
   <!-- Title & Subtitle -->
-  <text x="320" y="385" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="86" font-weight="500" letter-spacing="-1.5">Preposition Drill</text>
+  <text x="320" y="385" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="80" font-weight="500" letter-spacing="-1.5">Preposition Drill 500</text>
   <text x="220" y="460" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="24" font-weight="600" letter-spacing="4">500-QUESTION ADAPTIVE MASTERY ENGINE</text>
   
   <!-- Interactive sentence preview card -->
@@ -49,5 +52,5 @@
   </g>
   
   <!-- Watermark -->
-  <text x="1380" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // INTERVENTIONS · MIRAZ HOSSAIN</text>
+  <text x="1380" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // TEL 500 · MIRAZ HOSSAIN</text>
 </svg>

@@ -7,50 +7,58 @@
   <line x1="533" y1="0" x2="533" y2="900" stroke="#1C2844" stroke-width="2"/>
   <line x1="1066" y1="0" x2="1066" y2="900" stroke="#1C2844" stroke-width="2"/>
   
-  <!-- Massive faint 2000 watermark -->
-  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="420" font-weight="800" text-anchor="middle" letter-spacing="-10">2000</text>
+  <!-- Massive faint 2500 watermark -->
+  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="400" font-weight="800" text-anchor="middle" letter-spacing="-10">2500</text>
   
   <!-- Top badge -->
   <rect x="180" y="190" width="310" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
-  <text x="335" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 4 MASTERY ENGINES</text>
+  <text x="335" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 5 MASTERY ENGINES</text>
   
   <!-- Title & Subtitle -->
   <text x="180" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="88" font-weight="400" letter-spacing="-2">The English Lab 500</text>
-  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 4 ADAPTIVE MASTERY ENGINES · 2,000 ACTIVE ITEMS</text>
+  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 5 ADAPTIVE MASTERY ENGINES · 2,500 ACTIVE ITEMS</text>
   
-  <!-- 4 Module Cards Grid -->
+  <!-- 5 Module Cards Grid -->
   <g transform="translate(180, 440)">
     <!-- Card 1: Vocabulary -->
-    <rect x="0" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="24" y="24" width="10" height="10" rx="2" fill="#d94a38"/>
-    <text x="44" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 01 · LEXICON</text>
-    <text x="24" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">GRE 500</text>
-    <text x="24" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 high-frequency traps,</text>
-    <text x="24" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">phonetics &amp; 5-streak retirement</text>
+    <rect x="0" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="20" y="22" width="10" height="10" rx="2" fill="#d94a38"/>
+    <text x="38" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 01 · LEXICON</text>
+    <text x="20" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="26" font-weight="500">GRE 500</text>
+    <text x="20" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 traps, phonetics</text>
+    <text x="20" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">&amp; 5-streak retirement</text>
     
     <!-- Card 2: Prepositions -->
-    <rect x="315" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="339" y="24" width="10" height="10" rx="2" fill="#C41E3A"/>
-    <text x="359" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 02 · SYNTAX</text>
-    <text x="339" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Prepositions 500</text>
-    <text x="339" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 syntax collocations,</text>
-    <text x="339" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">copy-editor proofreading marks</text>
+    <rect x="252" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="272" y="22" width="10" height="10" rx="2" fill="#C41E3A"/>
+    <text x="290" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 02 · SYNTAX</text>
+    <text x="272" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Prepositions 500</text>
+    <text x="272" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 syntax traps,</text>
+    <text x="272" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">copy-editor markups</text>
     
     <!-- Card 3: Phrasal Verbs -->
-    <rect x="630" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="654" y="24" width="10" height="10" rx="2" fill="#E7C9A0"/>
-    <text x="674" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 03 · PARTICLES</text>
-    <text x="654" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Phrasal Verbs</text>
-    <text x="654" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 verbs across 4 tiers,</text>
-    <text x="654" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">meaning, particle &amp; MCQ</text>
+    <rect x="504" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="524" y="22" width="10" height="10" rx="2" fill="#E7C9A0"/>
+    <text x="542" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 03 · VERBS</text>
+    <text x="524" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Phrasal Verbs 500</text>
+    <text x="524" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 multi-word verbs,</text>
+    <text x="524" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">3 rotating test faces</text>
     
     <!-- Card 4: Idioms -->
-    <rect x="945" y="0" width="290" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="969" y="24" width="10" height="10" rx="2" fill="#52D0A5"/>
-    <text x="989" y="33" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">MODULE 04 · IDIOMS</text>
-    <text x="969" y="75" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="32" font-weight="500">Idioms 500</text>
-    <text x="969" y="110" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">500 idioms across 4 tiers,</text>
-    <text x="969" y="130" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13">contextual gap-fill &amp; MCQs</text>
+    <rect x="756" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="776" y="22" width="10" height="10" rx="2" fill="#52D0A5"/>
+    <text x="794" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 04 · IDIOMS</text>
+    <text x="776" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="26" font-weight="500">Idioms 500</text>
+    <text x="776" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 idioms in clozes,</text>
+    <text x="776" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">4 frequency tiers</text>
+    
+    <!-- Card 5: Collocations -->
+    <rect x="1008" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
+    <rect x="1028" y="22" width="10" height="10" rx="2" fill="#64B5F6"/>
+    <text x="1046" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 05 · COLLOCATIONS</text>
+    <text x="1028" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Collocations 500</text>
+    <text x="1028" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 partnerships,</text>
+    <text x="1028" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">6 grammar patterns</text>
   </g>
   
   <!-- Bottom pills -->

@@ -10,11 +10,15 @@
   <!-- Massive faint 500 -->
   <text x="800" y="650" fill="#111317" font-family="'JetBrains Mono', Courier, monospace" font-size="500" font-weight="700" text-anchor="middle" letter-spacing="-20">500</text>
   
+  <!-- Module Badge -->
+  <rect x="250" y="285" width="220" height="34" rx="6" fill="#171A21" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="360" y="307" fill="#d94a38" font-family="'JetBrains Mono', Courier, monospace" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 · MODULE 01</text>
+
   <!-- Red accent box -->
   <rect x="250" y="360" width="80" height="80" fill="#d94a38"/>
   
   <!-- Typography -->
-  <text x="360" y="440" fill="#e2e4e9" font-family="Literata, Georgia, serif" font-size="110" font-weight="400" letter-spacing="-2">GRE Master</text>
+  <text x="360" y="440" fill="#e2e4e9" font-family="Literata, Georgia, serif" font-size="110" font-weight="400" letter-spacing="-2">GRE 500</text>
   <text x="250" y="520" fill="#737882" font-family="'JetBrains Mono', Courier, monospace" font-size="24" font-weight="500" letter-spacing="4">ADAPTIVE VOCABULARY TRAINER</text>
   
   <!-- Some fake UI stats to make it look technical -->
