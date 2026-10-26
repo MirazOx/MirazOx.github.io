@@ -18,7 +18,9 @@
   --paper:#EEF1F6; --card:#FFFFFF; --ink:#16213A; --ink2:#4B5775; --line:#D6DCE8;
   --red:#C41E3A; --redbg:#FCE9EC; --green:#0F7A5B; --greenbg:#E2F4EC; --mark:#FFE36B;
   --btn:#16213A; --btntext:#FFFFFF; --accent:#7A4B16; --accentbg:#F4ECE0;
+  --brand:#D97706; --brand-bg:#FFFBEB; --brand-border:#FCD34D; --brand-text:#FFFFFF;
   --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",Menlo,Consolas,monospace;
   box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
@@ -26,12 +28,14 @@
     --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
     --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00;
     --btn:#E9EDF7; --btntext:#0E1525; --accent:#E7C9A0; --accentbg:#2A2113;
+    --brand:#FBBF24; --brand-bg:#451A03; --brand-border:#92400E; --brand-text:#0E1525;
   }
 }
 :root[data-theme="dark"]{
   --paper:#0E1525; --card:#172038; --ink:#E9EDF7; --ink2:#9FAACB; --line:#2B3656;
   --red:#FF7487; --redbg:#3A1D28; --green:#52D0A5; --greenbg:#15332B; --mark:#6B5B00;
   --btn:#E9EDF7; --btntext:#0E1525; --accent:#E7C9A0; --accentbg:#2A2113;
+  --brand:#FBBF24; --brand-bg:#451A03; --brand-border:#92400E; --brand-text:#0E1525;
 }
 :root[data-theme="dark"]{color-scheme:dark} :root[data-theme="light"]{color-scheme:light}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark}}
@@ -43,7 +47,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 h1{font-family:var(--serif);font-weight:500;font-size:26px;margin:0;letter-spacing:-.01em}
 button{font:inherit;color:inherit;cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2.5px solid var(--brand);outline-offset:2px}
 .ghost{background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink2)}
 .ghost:hover{border-color:var(--ink2);color:var(--ink)}
 .ghost[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--btntext)}
@@ -58,7 +62,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
 nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
-nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
 .badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
 .badge.green{background:var(--green)}
 :root[data-theme="dark"] .badge{color:#0E1525}
@@ -182,7 +186,14 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 .suite-links{display:flex;gap:4px;overflow-x:auto}
 .suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
 .suite-link:hover{color:var(--ink);background:var(--card)}
-.suite-link.is-active{color:var(--btntext);background:var(--btn);font-weight:600}
+.suite-link.is-active{color:var(--brand-text);background:var(--brand);font-weight:600}
+
+/* series kicker */
+.series-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
+.series-tag .kicker-pill{background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:2px 7px;border-radius:4px;font-weight:700;font-size:10.5px}
+.series-tag .series-sep{color:var(--line);font-size:11px}
+.series-tag .series-disc{font-weight:500;color:var(--ink2)}
+
 </style>
 </head>
 
@@ -193,10 +204,11 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
     <a href="/projects/english/" class="suite-brand">TEL 500 <span class="suite-full">· The English Lab 500</span></a>
     <div class="suite-links">
       <a href="/projects/english/vocabulary/" class="suite-link">Vocabulary 500</a>
-      <a href="/projects/english/prepositions/" class="suite-link">Prepositions 500</a>
+      <a href="/projects/english/prepositions/" class="suite-link">Preposition 500</a>
       <a href="/projects/english/phrasal-verbs/" class="suite-link is-active">Phrasal Verbs 500</a>
       <a href="/projects/english/idioms/" class="suite-link">Idioms 500</a>
       <a href="/projects/english/collocations/" class="suite-link">Collocations 500</a>
+      <a href="/projects/english/confusables/" class="suite-link">Confusables 500</a>
     </div>
   </div>
 </nav>
@@ -206,7 +218,11 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
   </div>
   <header class="top">
     <div>
-      <a href="/projects/english/" class="ghost" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:4px 10px;margin-bottom:8px">← TEL 500 Suite</a>
+      <div class="series-tag">
+        <span class="kicker-pill">TEL 500 · Module 03</span>
+        <span class="series-sep">/</span>
+        <span class="series-disc">Particles</span>
+      </div>
       <h1>Phrasal Verbs 500</h1>
       <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Particle · MCQ — with spaced error recovery</p>
     </div>

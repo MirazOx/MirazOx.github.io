@@ -7,75 +7,86 @@
   <line x1="533" y1="0" x2="533" y2="900" stroke="#1C2844" stroke-width="2"/>
   <line x1="1066" y1="0" x2="1066" y2="900" stroke="#1C2844" stroke-width="2"/>
   
-  <!-- Massive faint 2500 watermark -->
-  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="400" font-weight="800" text-anchor="middle" letter-spacing="-10">2500</text>
+  <!-- Massive faint 3000 watermark -->
+  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="380" font-weight="800" text-anchor="middle" letter-spacing="-10">3000</text>
   
   <!-- Top badge -->
-  <rect x="180" y="190" width="310" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
-  <text x="335" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 5 MASTERY ENGINES</text>
+  <rect x="162" y="190" width="310" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+  <text x="317" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 6 MASTERY ENGINES</text>
   
   <!-- Title & Subtitle -->
-  <text x="180" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="88" font-weight="400" letter-spacing="-2">The English Lab 500</text>
-  <text x="180" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 5 ADAPTIVE MASTERY ENGINES · 2,500 ACTIVE ITEMS</text>
+  <text x="162" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="88" font-weight="400" letter-spacing="-2">The English Lab 500</text>
+  <text x="162" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 6 ADAPTIVE MASTERY ENGINES · 3,000 ACTIVE ITEMS</text>
   
-  <!-- 5 Module Cards Grid -->
-  <g transform="translate(180, 440)">
+  <!-- 6 Module Cards Grid -->
+  <g transform="translate(162, 440)">
     <!-- Card 1: Vocabulary -->
-    <rect x="0" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="20" y="22" width="10" height="10" rx="2" fill="#d94a38"/>
-    <text x="38" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 01 · LEXICON</text>
-    <text x="20" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="26" font-weight="500">GRE 500</text>
-    <text x="20" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 traps, phonetics</text>
-    <text x="20" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">&amp; 5-streak retirement</text>
+    <rect x="0" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="16" y="22" width="10" height="10" rx="2" fill="#d94a38"/>
+    <text x="34" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 01 · LEXICON</text>
+    <text x="16" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="22" font-weight="500">Vocabulary 500</text>
+    <text x="16" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 traps, phonetics</text>
+    <text x="16" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">&amp; 5-streak retirement</text>
     
-    <!-- Card 2: Prepositions -->
-    <rect x="252" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="272" y="22" width="10" height="10" rx="2" fill="#C41E3A"/>
-    <text x="290" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 02 · SYNTAX</text>
-    <text x="272" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Prepositions 500</text>
-    <text x="272" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 syntax traps,</text>
-    <text x="272" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">copy-editor markups</text>
+    <!-- Card 2: Preposition -->
+    <rect x="216" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="232" y="22" width="10" height="10" rx="2" fill="#C41E3A"/>
+    <text x="250" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 02 · SYNTAX</text>
+    <text x="232" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="22" font-weight="500">Preposition 500</text>
+    <text x="232" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 syntax traps,</text>
+    <text x="232" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">copy-editor markups</text>
     
     <!-- Card 3: Phrasal Verbs -->
-    <rect x="504" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="524" y="22" width="10" height="10" rx="2" fill="#E7C9A0"/>
-    <text x="542" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 03 · VERBS</text>
-    <text x="524" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Phrasal Verbs 500</text>
-    <text x="524" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 multi-word verbs,</text>
-    <text x="524" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">3 rotating test faces</text>
+    <rect x="432" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="448" y="22" width="10" height="10" rx="2" fill="#D97706"/>
+    <text x="466" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 03 · VERBS</text>
+    <text x="448" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="21" font-weight="500">Phrasal Verbs 500</text>
+    <text x="448" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 multi-word verbs,</text>
+    <text x="448" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">3 rotating test faces</text>
     
     <!-- Card 4: Idioms -->
-    <rect x="756" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="776" y="22" width="10" height="10" rx="2" fill="#52D0A5"/>
-    <text x="794" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 04 · IDIOMS</text>
-    <text x="776" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="26" font-weight="500">Idioms 500</text>
-    <text x="776" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 idioms in clozes,</text>
-    <text x="776" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">4 frequency tiers</text>
+    <rect x="648" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="664" y="22" width="10" height="10" rx="2" fill="#0F7A5B"/>
+    <text x="682" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 04 · IDIOMS</text>
+    <text x="664" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="22" font-weight="500">Idioms 500</text>
+    <text x="664" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 idioms in clozes,</text>
+    <text x="664" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">4 frequency tiers</text>
     
     <!-- Card 5: Collocations -->
-    <rect x="1008" y="0" width="232" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="2"/>
-    <rect x="1028" y="22" width="10" height="10" rx="2" fill="#64B5F6"/>
-    <text x="1046" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5">MOD 05 · COLLOCATIONS</text>
-    <text x="1028" y="72" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="24" font-weight="500">Collocations 500</text>
-    <text x="1028" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">500 partnerships,</text>
-    <text x="1028" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="12">6 grammar patterns</text>
+    <rect x="864" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="880" y="22" width="10" height="10" rx="2" fill="#1D70B8"/>
+    <text x="898" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 05 · COLLOC</text>
+    <text x="880" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="21" font-weight="500">Collocations 500</text>
+    <text x="880" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 partnerships,</text>
+    <text x="880" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">6 grammar patterns</text>
+
+    <!-- Card 6: Confusables -->
+    <rect x="1080" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="1096" y="22" width="10" height="10" rx="2" fill="#7C3AED"/>
+    <text x="1114" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 06 · CONFUSE</text>
+    <text x="1096" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="21" font-weight="500">Confusables 500</text>
+    <text x="1096" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 confusable pairs,</text>
+    <text x="1096" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">3 rotating test faces</text>
   </g>
   
   <!-- Bottom pills -->
-  <g transform="translate(180, 670)">
-    <rect x="0" y="0" width="280" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
-    <text x="140" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">SPACED RECHECKS (3 · 10 · 30d)</text>
+  <g transform="translate(162, 670)">
+    <rect x="0" y="0" width="290" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="145" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13.5" font-weight="600" letter-spacing="1" text-anchor="middle">SPACED RECHECKS (3 · 10 · 30d)</text>
     
-    <rect x="300" y="0" width="240" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
-    <text x="420" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">ERROR-LOG WORKSHEETS</text>
+    <rect x="310" y="0" width="250" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="435" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13.5" font-weight="600" letter-spacing="1" text-anchor="middle">ERROR-LOG WORKSHEETS</text>
     
-    <rect x="560" y="0" width="210" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
-    <text x="665" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">25-QUESTION MOCK TESTS</text>
+    <rect x="580" y="0" width="230" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="695" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13.5" font-weight="600" letter-spacing="1" text-anchor="middle">25-QUESTION MOCK TESTS</text>
     
-    <rect x="790" y="0" width="180" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
-    <text x="880" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">100% OFFLINE-READY</text>
+    <rect x="830" y="0" width="190" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="925" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13.5" font-weight="600" letter-spacing="1" text-anchor="middle">100% OFFLINE-READY</text>
+
+    <rect x="1040" y="0" width="236" height="46" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
+    <text x="1158" y="29" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13.5" font-weight="600" letter-spacing="1" text-anchor="middle">CLIENT-SIDE PRIVACY</text>
   </g>
   
   <!-- Watermark -->
-  <text x="1420" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v1.0.0 // TEL 500 · MIRAZ HOSSAIN</text>
+  <text x="1438" y="845" fill="#2B3656" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="16" font-weight="600" letter-spacing="2" text-anchor="end">v2.0.0 // TEL 500 · MIRAZ HOSSAIN</text>
 </svg>
