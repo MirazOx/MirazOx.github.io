@@ -62,7 +62,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
 nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
-nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
 .badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
 .badge.green{background:var(--green)}
 :root[data-theme="dark"] .badge{color:#0E1525}
@@ -97,8 +97,12 @@ input.blank:focus{background:var(--mark)}
 .slot.bad ins::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:2px;border:5px solid transparent;border-top-color:var(--red);border-bottom:0}
 
 /* meaning reveal */
-.reveal{margin-top:20px;padding:16px 18px;border-radius:10px;background:var(--accentbg);font-family:var(--serif);font-size:20px;line-height:1.5}
+.reveal{margin-top:22px;padding:2px 0 2px 18px;border-left:3px solid var(--ink);font-family:var(--serif);font-size:21px;line-height:1.5;color:var(--ink)}
 .reveal.hidden-m{filter:blur(7px);user-select:none}
+.example{margin:16px 0 0;padding-left:18px;border-left:3px solid var(--line);font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.6;color:var(--ink2)}
+.example b{font-style:normal;font-weight:600;color:var(--ink)}
+.example-k{display:block;font-family:var(--sans);font-style:normal;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:3px}
+.origin-note{margin:14px 0 0;font-size:14px;line-height:1.55;color:var(--ink2)}
 
 /* mcq options */
 .opts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:22px}
@@ -186,11 +190,11 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 .suite-links{display:flex;gap:4px;overflow-x:auto}
 .suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
 .suite-link:hover{color:var(--ink);background:var(--card)}
-.suite-link.is-active{color:var(--brand-text);background:var(--brand);font-weight:600}
+.suite-link.is-active{color:var(--ink);background:var(--card);font-weight:600}
 
 /* series kicker */
 .series-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
-.series-tag .kicker-pill{background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:2px 7px;border-radius:4px;font-weight:700;font-size:10.5px}
+.series-tag .kicker-pill{color:var(--ink2);font-weight:600;font-size:11px}
 .series-tag .series-sep{color:var(--line);font-size:11px}
 .series-tag .series-disc{font-weight:500;color:var(--ink2)}
 
@@ -224,7 +228,7 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
         <span class="series-disc">Particles</span>
       </div>
       <h1>Phrasal Verbs 500</h1>
-      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Particle · MCQ — with spaced error recovery</p>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Particle · MCQ</p>
     </div>
     <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
   </header>
@@ -455,6 +459,17 @@ function chooseMcq(c, idx){
   c.retired = res.retired; c.passed = res.passed;
   persist(); render();
 }
+function exampleHtml(b){
+  if(!b || !b.ex) return "";
+  const parts = b.ex.split("___");
+  let sentence;
+  if(parts.length>1){
+    sentence = esc(parts[0]) + '<b>' + esc(b.trap||"") + '</b>' + esc(parts.slice(1).join("___"));
+  }else{
+    sentence = esc(b.ex);
+  }
+  return '<p class="example"><span class="example-k">In use</span>'+sentence+'</p>';
+}
 function revealMeaning(c){
   c.revealed = true; render();
 }
@@ -505,11 +520,12 @@ function renderQuestion(){
   if(c.face==="meaning"){
     inner = '<p class="prompt">'+esc(b.ph)+'</p>';
     if(!c.revealed){
-      inner += '<p class="sub">Do you know what this phrasal verb means? Recall it, then reveal.</p>';
+      inner += '<p class="sub">Recall the meaning, then reveal.</p>';
       inner += '<div class="actions"><button class="btn" id="btnReveal">Reveal meaning</button><button class="link" id="btnSkip">Skip</button>'+knowBtn()+'</div>';
     }else{
       inner += '<div class="reveal">'+esc(b.mean)+'</div>';
-      if(b.note) inner += '<p class="fb origin" style="background:none;padding:6px 2px 0">'+esc(b.note)+'</p>';
+      inner += exampleHtml(b);
+      if(b.note) inner += '<p class="origin-note">'+esc(b.note)+'</p>';
       if(c.phase!=="done"){
         inner += '<p class="sub">Did you recall it correctly?</p>';
         inner += '<div class="actions"><button class="btn" id="btnGotit">I knew it</button><button class="ghost" id="btnMissed" style="min-height:44px">I didn\'t</button></div>';
@@ -881,17 +897,12 @@ function renderInsights(){
 /* ---------- About ---------- */
 function renderAbout(){
   return '<div class="card">'
-  +'<p class="info-lead">Phrasal Verbs 500 teaches each phrasal verb on three faces, then protects what you learn with spaced recovery.</p>'
+  +'<p class="info-lead">Each phrasal verb is taught on three faces, then protected with spaced recovery.</p>'
   +'<div class="info-grid">'
-  +'<div class="info-card"><h3>Meaning</h3><p>The phrasal verb appears alone. Recall what it means, then reveal to check. This is how new phrasal verbs are introduced — comprehension before production.</p></div>'
-  +'<div class="info-card"><h3>Gap-fill</h3><p>A natural sentence with the particle blanked \u2014 <em>look ___ the kids</em>. You type the missing particle, and errors are marked copy-editor style. This tests the part learners get wrong most.</p></div>'
-  +'<div class="info-card"><h3>MCQ</h3><p>The phrasal verb with four meanings — one right, three deliberately close. The wrong options are plausible phrasal-verb meanings, so you can\'t guess from the words alone.</p></div>'
-  +'<div class="info-card"><h3>Four tiers</h3><p><b>Easy</b> everyday phrasal verbs, <b>Medium</b> common but tricky, <b>Hard</b> less frequent or figurative, <b>Difficult</b> formal, literary or rare. Items arrive in random order.</p></div>'
-  +'<div class="info-card"><h3>Fix &amp; recover</h3><p>Miss one and it returns as gap-fill until you get it right '+need()+' times. Then it comes back as MCQ rechecks after 3, 10 and 30 days before counting as mastered.</p></div>'
-  +'<div class="info-card"><h3>I know it</h3><p>Already know a phrasal verb? Tap <b>I know it</b> to send it straight to your learned list \u2014 it won\'t be tested again. Changed your mind? Undo it from Browse.</p></div>'
-  +'<div class="info-card"><h3>Daily streak</h3><p>Answer at least one question a day to build a streak, shown at the top. Miss a day and it resets \u2014 a gentle nudge to keep coming back.</p></div>'
-  +'<div class="info-card"><h3>Mock test</h3><p>Generate a fresh '+MOCK_N+'-question test any time, reshuffled on every press \u2014 never a fixed paper. Mixed gap-fill and multiple choice, auto-scored, with misses sent to your Fix queue.</p></div>'
-  +'<div class="info-card"><h3>Your progress</h3><p>Saved on this device, and synced to your account when available. Nothing to sign up for.</p></div>'
+  +'<div class="info-card"><h3>Three faces</h3><p>Reveal the <b>meaning</b>, type the missing particle in a <b>gap-fill</b>, or pick the right sense in an <b>MCQ</b> against three close decoys.</p></div>'
+  +'<div class="info-card"><h3>Four tiers</h3><p>Easy, Medium, Hard and Difficult phrasal verbs, drawn in random order.</p></div>'
+  +'<div class="info-card"><h3>Fix &amp; recover</h3><p>Miss one and it returns as gap-fill until you get it right '+need()+' times, then as rechecks at 3, 10 and 30 days before it counts as mastered.</p></div>'
+  +'<div class="info-card"><h3>Mock test</h3><p>A fresh '+MOCK_N+'-question paper on demand, reshuffled each time, auto-scored, with misses sent to Fix.</p></div>'
   +'</div></div>';
 }
 

@@ -62,7 +62,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
 nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
-nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
 .badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
 .badge.green{background:var(--green)}
 :root[data-theme="dark"] .badge{color:#0E1525}
@@ -97,7 +97,7 @@ input.blank:focus{background:var(--mark)}
 .slot.bad ins::after{content:"";position:absolute;left:50%;transform:translateX(-50%);top:100%;margin-top:2px;border:5px solid transparent;border-top-color:var(--red);border-bottom:0}
 
 /* meaning reveal */
-.reveal{margin-top:20px;padding:16px 18px;border-radius:10px;background:var(--accentbg);font-family:var(--serif);font-size:20px;line-height:1.5}
+.reveal{margin-top:22px;padding:2px 0 2px 18px;border-left:3px solid var(--ink);font-family:var(--serif);font-size:21px;line-height:1.5;color:var(--ink)}
 .reveal.hidden-m{filter:blur(7px);user-select:none}
 
 /* mcq options */
@@ -186,11 +186,11 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 .suite-links{display:flex;gap:4px;overflow-x:auto}
 .suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
 .suite-link:hover{color:var(--ink);background:var(--card)}
-.suite-link.is-active{color:var(--brand-text);background:var(--brand);font-weight:600}
+.suite-link.is-active{color:var(--ink);background:var(--card);font-weight:600}
 
 /* series kicker */
 .series-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
-.series-tag .kicker-pill{background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:2px 7px;border-radius:4px;font-weight:700;font-size:10.5px}
+.series-tag .kicker-pill{color:var(--ink2);font-weight:600;font-size:11px}
 .series-tag .series-sep{color:var(--line);font-size:11px}
 .series-tag .series-disc{font-weight:500;color:var(--ink2)}
 
@@ -224,7 +224,7 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
         <span class="series-disc">Collocations</span>
       </div>
       <h1>Collocations 500</h1>
-      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Collocate · Gap-fill · Spot-the-natural — with spaced recovery</p>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Collocate · Gap-fill · Spot-the-natural</p>
     </div>
     <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
   </header>
@@ -890,17 +890,12 @@ function renderInsights(){
 /* ---------- About ---------- */
 function renderAbout(){
   return '<div class="card">'
-  +'<p class="info-lead">Collocations 500 drills English word partnerships on three faces, then protects what you learn with spaced recovery.</p>'
+  +'<p class="info-lead">Word partnerships are drilled on three faces, then protected with spaced recovery.</p>'
   +'<div class="info-grid">'
-  +'<div class="info-card"><h3>Collocate</h3><p>A collocation with one word blanked — <em>___ a decision</em> — and four word choices. Pick the one that partners naturally; the wrong options collocate with other words, so they tempt.</p></div>'
-  +'<div class="info-card"><h3>Gap-fill</h3><p>Type a word that collocates in the blank. Several answers are often natural \u2014 any is accepted, and the full set is revealed after, so you learn every option (<em>make / reach / take a decision</em>).</p></div>'
-  +'<div class="info-card"><h3>Spot-the-natural</h3><p>A phrase appears; you judge whether it is natural English (<em>do homework</em> ✓ / <em>make homework</em> ✗). For unnatural ones the correct form is shown — the real skill of catching a wrong pairing.</p></div>'
-  +'<div class="info-card"><h3>Four tiers</h3><p><b>Easy</b> everyday pairings, <b>Medium</b> common but error-prone, <b>Hard</b> less obvious, <b>Difficult</b> formal or advanced — across six grammar patterns (verb+noun, adjective+noun and so on). Items arrive in random order.</p></div>'
-  +'<div class="info-card"><h3>Fix &amp; recover</h3><p>Miss one and it returns as gap-fill until you get it right '+need()+' times. Then it comes back as MCQ rechecks after 3, 10 and 30 days before counting as mastered.</p></div>'
-  +'<div class="info-card"><h3>I know it</h3><p>Already know a collocation? Tap <b>I know it</b> to send it straight to your learned list \u2014 it won\'t be tested again. Changed your mind? Undo it from Browse.</p></div>'
-  +'<div class="info-card"><h3>Daily streak</h3><p>Answer at least one question a day to build a streak, shown at the top. Miss a day and it resets \u2014 a gentle nudge to keep coming back.</p></div>'
-  +'<div class="info-card"><h3>Mock test</h3><p>Generate a fresh '+MOCK_N+'-question test any time, reshuffled on every press \u2014 never a fixed paper. Mixed gap-fill and collocate-choice, auto-scored, with misses sent to your Fix queue.</p></div>'
-  +'<div class="info-card"><h3>Your progress</h3><p>Saved on this device, and synced to your account when available. Nothing to sign up for.</p></div>'
+  +'<div class="info-card"><h3>Three faces</h3><p><b>Collocate</b>: pick the word that partners naturally. <b>Gap-fill</b>: type a natural partner; every accepted option is shown after. <b>Spot-the-natural</b>: judge whether a pairing is real English.</p></div>'
+  +'<div class="info-card"><h3>Four tiers</h3><p>Easy, Medium, Hard and Difficult pairings across six grammar patterns, drawn in random order.</p></div>'
+  +'<div class="info-card"><h3>Fix &amp; recover</h3><p>Miss one and it returns as gap-fill until you get it right '+need()+' times, then as rechecks at 3, 10 and 30 days before it counts as mastered.</p></div>'
+  +'<div class="info-card"><h3>Mock test</h3><p>A fresh '+MOCK_N+'-question paper on demand, reshuffled each time, auto-scored, with misses sent to Fix.</p></div>'
   +'</div></div>';
 }
 

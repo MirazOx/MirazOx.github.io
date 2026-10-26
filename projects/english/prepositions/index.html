@@ -58,7 +58,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 /* tabs */
 nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
 nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;color:var(--ink2);font-weight:500;white-space:nowrap;margin-bottom:-1px}
-nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
+nav.tabs button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
 .badge{display:inline-block;min-width:22px;padding:0 6px;margin-left:6px;border-radius:11px;background:var(--red);color:#fff;font-size:13px;line-height:22px;text-align:center}
 .badge.green{background:var(--green)}
 :root[data-theme="dark"] .badge{color:#0E1525}
@@ -190,11 +190,11 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
 .suite-links{display:flex;gap:4px;overflow-x:auto}
 .suite-link{font-size:12px;font-family:var(--sans);font-weight:500;color:var(--ink2);text-decoration:none;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .15s}
 .suite-link:hover{color:var(--ink);background:var(--card)}
-.suite-link.is-active{color:var(--brand-text);background:var(--brand);font-weight:600}
+.suite-link.is-active{color:var(--ink);background:var(--card);font-weight:600}
 
 /* series kicker */
 .series-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
-.series-tag .kicker-pill{background:var(--brand-bg);border:1px solid var(--brand-border);color:var(--brand);padding:2px 7px;border-radius:4px;font-weight:700;font-size:10.5px}
+.series-tag .kicker-pill{color:var(--ink2);font-weight:600;font-size:11px}
 .series-tag .series-sep{color:var(--line);font-size:11px}
 .series-tag .series-disc{font-weight:500;color:var(--ink2)}
 
@@ -227,7 +227,7 @@ footer{margin-top:26px;font-size:13px;color:var(--ink2)}
         <span class="series-disc">Syntax</span>
       </div>
       <h1 style="font-size:26px">Preposition 500</h1>
-      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Adaptive Mastery Engine · 500 Traps &amp; Spaced Error Recovery</p>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">500 prepositions · spaced recovery</p>
     </div>
     <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
   </header>
@@ -656,50 +656,23 @@ function viewMock(){
 function viewInfo(){
   return '<section class="panel">' +
     '<h2>How the drill works</h2>' +
-    '<p class="info-lead">An adaptive diagnostic engine designed to systematically dismantle bad habits in English prepositions and replace guesswork with active, permanent recall.</p>' +
+    '<p class="info-lead">500 preposition questions across three tiers, with instant feedback and spaced recovery for the ones you miss.</p>' +
     '<div class="info-grid">' +
       '<div class="info-card">' +
-        '<h3>500-question corpus <span class="pill-tag">Core Bank</span></h3>' +
-        '<p>A curated curriculum of 500 questions arranged across three difficulty tiers: <strong>250 Common</strong>, <strong>200 Difficult</strong>, and <strong>50 Hardest</strong>.</p>' +
-        '<ul>' +
-          '<li><strong>5 linguistic domains:</strong> Time, Place &amp; Movement, Verb collocations, Adjective collocations, and Fixed phrases &amp; nouns.</li>' +
-          '<li><strong>Linguistic rationale:</strong> Every question includes an immediate grammatical explanation displayed after answering.</li>' +
-          '<li><strong>Syntactic flexibility:</strong> Accepts all valid alternate prepositions (e.g. <em>depend on/upon</em>, <em>arrive in/at</em>) and highlights them as &ldquo;also accepted&rdquo;.</li>' +
-          '<li><strong>Shuffled delivery:</strong> Questions are randomized with no sequential bias by set, topic, or level.</li>' +
-        '</ul>' +
+        '<h3>The question bank</h3>' +
+        '<p>500 questions across <strong>Common</strong>, <strong>Difficult</strong> and <strong>Hardest</strong> tiers, covering time, place, verb and adjective pairings and fixed phrases. Each answer comes with a short explanation, valid alternatives are accepted, and order is shuffled.</p>' +
       '</div>' +
-
       '<div class="info-card">' +
-        '<h3>Answering &amp; markup <span class="pill-tag">Feedback</span></h3>' +
-        '<p>Tactile editorial feedback designed to make errors immediately salient without breaking practice rhythm.</p>' +
-        '<ul>' +
-          '<li><strong>Dual response modes:</strong> Choose from 4 multiple-choice options (keys 1&ndash;4) or type the preposition directly (Enter submits).</li>' +
-          '<li><strong>Copy-editor markup:</strong> Incorrect answers receive red strike-throughs with the correct word positioned right above like a proofreader&rsquo;s mark.</li>' +
-          '<li><strong>Slip prevention:</strong> &ldquo;That was a slip, undo&rdquo; instantly reverses accidental clicks or typos without penalty.</li>' +
-          '<li><strong>Metacognitive honesty:</strong> &ldquo;I guessed this&rdquo; keeps lucky guesses in the practice cycle; &ldquo;I don&rsquo;t know&rdquo; counts as a miss to log unknown idioms.</li>' +
-        '</ul>' +
+        '<h3>Answering</h3>' +
+        '<p>Pick one of four options or type the preposition. Wrong answers are marked copy-editor style, with the right word above. &ldquo;Undo&rdquo; reverses a slip; &ldquo;I guessed&rdquo; keeps it in rotation.</p>' +
       '</div>' +
-
       '<div class="info-card">' +
-        '<h3>Error-fixing loop <span class="pill-tag">Spaced Repetition</span></h3>' +
-        '<p>A multi-tiered recovery engine that ensures mistakes are targeted until mastery is proven.</p>' +
-        '<ul>' +
-          '<li><strong>Dynamic sentence rotation:</strong> &ldquo;Fix errors&rdquo; tests the identical prepositional phrase across varied sentence structures.</li>' +
-          '<li><strong>Streak requirement:</strong> Requires 3 consecutive correct typed answers (customizable 2&ndash;5 in Settings) before moving to the Fixed list.</li>' +
-          '<li><strong>Spaced rechecks:</strong> Fixed items return for typed verification after <strong>3, 10, and 30 days</strong>. Passing all three marks them mastered.</li>' +
-          '<li><strong>Error log diagnostics:</strong> Logs past wrong attempts, miss frequencies, and flags your most-missed prepositions.</li>' +
-        '</ul>' +
+        '<h3>Fix &amp; recover</h3>' +
+        '<p>Miss one and it returns in varied sentences until you type it right three times, then returns for rechecks at 3, 10 and 30 days before counting as mastered.</p>' +
       '</div>' +
-
       '<div class="info-card">' +
-        '<h3>Insights &amp; mock exams <span class="pill-tag">Testing</span></h3>' +
-        '<p>Continuous diagnostic intelligence and exam-condition simulation.</p>' +
-        '<ul>' +
-          '<li><strong>Live progress strip:</strong> Tracks fixed items, right-first-time recalls, open errors, unasked questions, and first-try accuracy.</li>' +
-          '<li><strong>Targeted drilling:</strong> Insights tab evaluates category proficiency and offers a one-tap &ldquo;Drill this area&rdquo; filter for your weakest domain.</li>' +
-          '<li><strong>25-question mock test:</strong> Simulates exam pressure (12 common, 10 difficult, 3 hardest) with blind scoring and detailed post-test review.</li>' +
-          '<li><strong>Worksheet &amp; portability:</strong> Export a printable 2-page PDF error worksheet with an answer key, use the built-in stopwatch, or copy/restore full JSON progress.</li>' +
-        '</ul>' +
+        '<h3>Insights &amp; mock test</h3>' +
+        '<p>Track progress and your weakest areas, drill them in one tap, and take a 25-question mock test with blind scoring. Export a printable worksheet or your progress as needed.</p>' +
       '</div>' +
     '</div>' +
     '<div class="actions" style="margin-top:20px">' +
