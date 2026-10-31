@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vocabulary 500 — Adaptive Lexicon Trainer | Miraz Hossain</title>
-<meta name="description" content="Vocabulary 500 (GRE 500) — an adaptive vocabulary trainer for 500 high-frequency traps with context hints, active recall, sentence clozes, decks, and a strict 5-streak permanent mastery rule by Miraz Hossain.">
+<meta name="description" content="Vocabulary 500 (GRE 500) — an adaptive vocabulary trainer for 500 high-frequency traps with context hints, active recall, sentence clozes, error log practice, and offline PDF worksheet generation by Miraz Hossain.">
 <link rel="canonical" href="https://mirazhossain.com/projects/english/vocabulary/">
 <meta property="og:title" content="Vocabulary 500 — Adaptive Lexicon Trainer | Miraz Hossain">
 <meta property="og:description" content="500 high-frequency vocabulary traps with context hints, active recall, sentence clozes, decks, and a strict 5-streak permanent mastery rule.">
@@ -71,6 +71,22 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .series-tag .kicker-pill{color:var(--ink2);font-weight:600;font-size:11px}
 .series-tag .series-sep{color:var(--line);font-size:11px}
 .series-tag .series-disc{font-weight:500;color:var(--ink2)}
+
+
+/* badge & error toolbar */
+.badge{display:inline-block;min-width:18px;padding:0 6px;margin-left:6px;border-radius:10px;background:var(--red);color:#fff;font-size:11px;line-height:18px;text-align:center;font-weight:600;vertical-align:middle}
+:root[data-theme="dark"] .badge{color:#0E1525}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge{color:#0E1525}}
+.log-toolbar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+.log-toolbar-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.log-toolbar-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.log-toolbar-actions button{border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;min-height:38px}
+.btn-primary{background:var(--brand);color:var(--brand-text);border:1px solid var(--brand);transition:all .15s;cursor:pointer}
+.btn-primary:hover{opacity:.92}
+.btn-primary[disabled]{opacity:.5;cursor:not-allowed}
+.btn-outline{background:var(--card);color:var(--ink);border:1px solid var(--line);transition:all .15s;cursor:pointer}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+.btn-outline.ready{border-color:var(--brand);color:var(--brand);font-weight:600;background:var(--brand-bg)}
 
 /* tabs */
 nav.tabs{display:flex;gap:2px;margin:20px 0 16px;border-bottom:1px solid var(--line);overflow-x:auto}
@@ -211,7 +227,7 @@ footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--lin
   <nav class="tabs" aria-label="Sections">
     <button data-v="learn" class="active">Learn</button>
     <button data-v="decks">Decks</button>
-    <button data-v="log">Error Log</button>
+    <button data-v="log">Error Log <span class="badge" id="nav-log-badge" style="display:none;"></span></button>
     <button data-v="browse">Browse</button>
   </nav>
 
@@ -297,8 +313,31 @@ footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--lin
 
   <!-- LOG -->
   <section id="v-log" class="view">
+    <div class="log-toolbar">
+      <div class="log-toolbar-top">
+        <div>
+          <h2 style="font-family:var(--serif);font-size:24px;font-weight:500;margin:0 0 4px;color:var(--ink);">Error Log &amp; Recovery</h2>
+          <p style="margin:0;font-size:13.5px;color:var(--ink2);" id="err-summary-stats">
+            Track missed words, drill unmastered errors, or compile an offline PDF worksheet.
+          </p>
+        </div>
+        <div class="log-toolbar-actions">
+          <button id="btn-practice-errors" class="btn-primary">
+            Practice Error Log (<span id="count-practice-errors">0</span>)
+          </button>
+          <button id="btn-download-pdf" class="btn-outline">
+            Download PDF Worksheet
+          </button>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <span id="pdf-req-status">Minimum 50 error words needed to generate a worksheet (currently 0/50).</span>
+        <span id="pdf-feedback-msg" style="font-family:var(--mono);font-size:11px;color:var(--brand);"></span>
+      </div>
+    </div>
+
     <div class="filterbar" id="log-filter">
-      <button data-f="all" class="active">All</button>
+      <button data-f="all" class="active">All History</button>
       <button data-f="miss">Missed</button>
       <button data-f="confused">Confused</button>
       <button data-f="correct">Correct</button>
@@ -373,6 +412,13 @@ function pick(){
        if(s.wrong + s.confused >= 1 && s.wrong + s.confused <= 3 && !s.mastered) valid = true;
     } else if(STATE.focus === 'unt') {
        if(s.seen === 0 && !s.mastered) valid = true;
+    } else if(STATE.focus === 'err') {
+       const activeErrCount = Object.values(STATE.stats).filter(x => (x.wrong > 0 || x.confused > 0) && !x.mastered).length;
+       if(activeErrCount > 0) {
+         if((s.wrong > 0 || s.confused > 0) && !s.mastered) valid = true;
+       } else {
+         if(s.wrong > 0 || s.confused > 0) valid = true;
+       }
     } else {
        if(!s.mastered) valid = true;
     }
@@ -455,7 +501,7 @@ function loadNext(keepCurrent = false){
   }
   
   if(i==null){
-    el('q-word').textContent= STATE.focus ? 'DECK CLEARED' : 'ALL 500 MASTERED';
+    el('q-word').textContent= STATE.focus === 'err' ? 'ERROR LOG CLEARED' : (STATE.focus ? 'DECK CLEARED' : 'ALL 500 MASTERED');
     el('q-pos').textContent='';
     el('q-ipa').textContent='';
     el('q-reveal').style.display='none';
@@ -463,7 +509,7 @@ function loadNext(keepCurrent = false){
     el('q-btns-back').style.display='none';
     el('q-mcq').style.display='none';
     el('q-btns-next').style.display='none';
-    el('q-flash').textContent='Review decks or reset a word.';
+    el('q-flash').textContent= STATE.focus === 'err' ? 'All active words from your error log have reached 5-streak mastery! Exit focus to return to the full queue.' : 'Review decks or reset a word.';
     el('q-dots').innerHTML=''; el('q-seen').textContent='';
     updateProg(); return;
   }
@@ -568,8 +614,8 @@ function updateProg(){
   for(let i=0;i<N;i++){ const s=STATE.stats[i]; if(s&&s.mastered)mas++; }
   active=N-mas;
   if(STATE.focus) {
-      const labels = {nem: 'NEMESIS', shk: 'SHAKY', unt: 'UNTOUCHED'};
-      el('p-active').innerHTML = `FOCUS: ${labels[STATE.focus]}`;
+      const labels = {nem: 'NEMESIS', shk: 'SHAKY', unt: 'UNTOUCHED', err: 'ERROR LOG'};
+      el('p-active').innerHTML = `FOCUS: ${labels[STATE.focus] || 'CUSTOM'}`;
       el('btn-clear-focus').style.display = 'inline-block';
   } else {
       el('p-active').textContent='ACTIVE: '+active;
@@ -577,6 +623,17 @@ function updateProg(){
   }
   el('p-txt').textContent=mas+' / '+N+' MASTERED';
   el('p-bar').style.width=(mas/N*100)+'%';
+
+  const badge = el('nav-log-badge');
+  if(badge) {
+    const actErrs = getErrorWords(true);
+    if(actErrs.length > 0) {
+      badge.textContent = actErrs.length;
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
 }
 
 function renderDecks(){
@@ -612,8 +669,261 @@ function fillDeck(bodyId,cntId,arr,meta,plain){
   }).join('');
 }
 
+
+/* ---------- Error Log & PDF Generator ---------- */
+const PDF_MIN_WORDS = 50;
+
+function getErrorWords(activeOnly = false){
+  const list = [];
+  for(let i = 0; i < N; i++){
+    const s = STATE.stats[i];
+    if(s && (s.wrong > 0 || s.confused > 0)){
+      if(!activeOnly || !s.mastered){
+        list.push({i, word: WORDS[i], s});
+      }
+    }
+  }
+  list.sort((a, b) => (b.s.wrong + b.s.confused) - (a.s.wrong + a.s.confused));
+  return list;
+}
+
+function practiceErrors(){
+  const activeErrs = getErrorWords(true);
+  if(activeErrs.length > 0){
+    setFocus('err');
+    toast('PRACTICING ERROR LOG: ' + activeErrs.length + ' WORDS');
+  } else {
+    const allErrs = getErrorWords(false);
+    if(allErrs.length > 0){
+      setFocus('err');
+      toast('Reviewing ' + allErrs.length + ' error words');
+    } else {
+      toast('No errors logged yet! Words you miss during practice will appear here.');
+    }
+  }
+}
+
+function pdfBytes(items, dateStr){
+  const W = 595, H = 842, M = 50, CONTENT = W - 2*M;
+  const pages = []; let page, y;
+  const newPage = () => { page = []; pages.push(page); y = H - M; };
+  const MAP = {"’":146,"‘":145,"“":147,"”":148,"–":150,"—":151,"…":133,"•":149,"é":233,"è":232,"ê":234,"ë":235,"à":224,"á":225,"â":226,"ä":228,"ö":246,"ü":252,"ñ":241};
+  const enc = s => {
+    let o = "";
+    for(const ch of String(s)){
+      let c = ch.codePointAt(0);
+      if(MAP[ch]) c = MAP[ch];
+      else if(c > 255) c = 32;
+      const x = String.fromCharCode(c);
+      o += (x === "(" || x === ")" || x === "\\") ? "\\" + x : x;
+    }
+    return o;
+  };
+  const wrap = (s, size, indent) => {
+    const maxChars = Math.max(10, Math.floor((CONTENT - indent) / (size * 0.52)));
+    const wordsList = String(s).split(/\s+/);
+    const lines = []; let line = "";
+    for(const w of wordsList){
+      if((line + " " + w).trim().length > maxChars){
+        if(line) lines.push(line);
+        line = w;
+      } else {
+        line = (line + " " + w).trim();
+      }
+    }
+    if(line) lines.push(line);
+    return lines;
+  };
+  function put(s, o){
+    o = o || {}; const size = o.size || 10, bold = !!o.bold, indent = o.indent || 0, gap = o.gap || 0, first = o.first;
+    const lines = wrap(s, size, indent), lh = size * 1.45;
+    lines.forEach((ln, i) => {
+      if(y - lh < M + 24) newPage();
+      y -= lh;
+      const x = M + indent;
+      if(i === 0 && first != null) page.push({x: M, y, size, bold, s: first});
+      page.push({x, y, size, bold, s: ln});
+    });
+    y -= gap;
+  }
+
+  // Cover & Question Pages
+  newPage();
+  put("GRE 500 — Vocabulary Error Log Worksheet", {size: 18, bold: true, gap: 3});
+  put(items.length + " Error Words to Master  ·  Barron's & Kaplan Top-500 Traps" + (dateStr ? ("  ·  " + dateStr) : ""), {size: 10, gap: 6});
+  put("Directions: For each item below, write the correct GRE vocabulary word in the blank based on the sentence context and definition clue. The complete Answer Key and Master Lexicon Guide begins on the answer key page.", {size: 9.5, gap: 14});
+
+  items.forEach((item, i) => {
+    const w = item.word;
+    const ex = item.ex || "";
+    const reg = new RegExp("\\b" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[a-z]*\\b", "gi");
+    let blanked = ex.replace(reg, "________________");
+    if(!blanked.includes("________________")) blanked = blanked + " [ " + w.charAt(0) + "____________ ]";
+
+    put("[ ____________________ ]   (" + (item.pos || "word") + ".)", {size: 10.5, bold: true, indent: 24, first: (i + 1) + ".", gap: 2});
+    put('"' + blanked + '"', {size: 9.5, bold: false, indent: 24, gap: 2});
+    put("Clue: " + item.def, {size: 9.0, bold: false, indent: 24, gap: 8});
+  });
+
+  // Answer Key Page
+  newPage();
+  put("Answer Key & Master Lexicon Guide", {size: 18, bold: true, gap: 3});
+  put(items.length + " Words with Definitions, Context Sentences, and GRE Traps", {size: 10, gap: 14});
+
+  items.forEach((item, i) => {
+    put(item.word.toUpperCase() + "  (" + (item.pos || "word") + ".)", {size: 10.5, bold: true, indent: 24, first: (i + 1) + ".", gap: 2});
+    put("Definition: " + item.def, {size: 9.5, bold: false, indent: 24, gap: 2});
+    put('Context: "' + item.ex + '"', {size: 9.0, bold: false, indent: 24, gap: 2});
+    if(item.gre){
+      put("GRE Trap Note: " + item.gre, {size: 8.5, bold: false, indent: 24, gap: 2});
+    }
+    y -= 5;
+  });
+
+  const objs = [null];
+  const nPages = pages.length, kids = [];
+  const content = [];
+  pages.forEach((pg, i) => {
+    const foot = {x: W / 2 - 80, y: M - 18, size: 8.5, bold: false, s: "Page " + (i + 1) + " of " + nPages + "  ·  GRE 500 Error Log Worksheet"};
+    const all = pg.concat([foot]);
+    let st = "";
+    all.forEach(l => {
+      st += "BT /" + (l.bold ? "F2" : "F1") + " " + l.size + " Tf " + l.x.toFixed(1) + " " + l.y.toFixed(1) + " Td (" + enc(l.s) + ") Tj ET\n";
+    });
+    content.push(st);
+    kids.push((6 + 2 * i) + " 0 R");
+  });
+
+  objs[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  objs[2] = "<< /Type /Pages /Kids [" + kids.join(" ") + "] /Count " + nPages + " >>";
+  objs[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >>";
+  objs[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding >>";
+  pages.forEach((pg, i) => {
+    objs[5 + 2 * i] = "<< /Length " + content[i].length + " >>\nstream\n" + content[i] + "endstream";
+    objs[6 + 2 * i] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + W + " " + H + "] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents " + (5 + 2 * i) + " 0 R >>";
+  });
+
+  let out = "%PDF-1.4\n"; const offs = [];
+  const total = 5 + 2 * nPages;
+  for(let n = 1; n < total; n++){ offs[n] = out.length; out += n + " 0 obj\n" + objs[n] + "\nendobj\n"; }
+  const xref = out.length;
+  out += "xref\n0 " + total + "\n0000000000 65535 f \n";
+  for(let n = 1; n < total; n++) out += String(offs[n]).padStart(10, "0") + " 00000 n \n";
+  out += "trailer\n<< /Size " + total + " /Root 1 0 R >>\nstartxref\n" + xref + "\n%%EOF";
+
+  const bytes = new Uint8Array(out.length);
+  for(let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 255;
+  return bytes;
+}
+
+async function downloadPdfWorksheet(isSample = false){
+  const feedback = el('pdf-feedback-msg');
+  let items = [];
+  if(isSample){
+    items = WORDS.slice(0, 50);
+  } else {
+    items = getErrorWords(false).map(e => e.word);
+    if(items.length < PDF_MIN_WORDS){
+      toast('Minimum 50 error words needed to generate a worksheet (currently ' + items.length + '/50). Keep practicing!');
+      if(feedback) feedback.textContent = 'Requires ' + PDF_MIN_WORDS + ' error words (' + items.length + '/50 logged).';
+      return;
+    }
+  }
+
+  const d = new Date();
+  const stamp = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const filename = isSample ? ("gre500-sample-worksheet-" + stamp + ".pdf") : ("gre500-error-log-" + stamp + ".pdf");
+  const dateStr = d.toLocaleDateString(undefined, {day: "numeric", month: "long", year: "numeric"});
+
+  let bytes;
+  try {
+    bytes = pdfBytes(items, dateStr);
+  } catch(e) {
+    toast('Could not build the PDF worksheet.');
+    if(feedback) feedback.textContent = 'PDF generation error.';
+    return;
+  }
+
+  let dl = null;
+  try { if(window.claude && window.claude.use) dl = await claude.use("downloads"); } catch(e){}
+  if(dl){
+    try {
+      await dl.save({filename, data: bytes});
+      toast('PDF ready: ' + filename);
+      if(feedback) feedback.textContent = 'Saved: ' + filename;
+    } catch(e){
+      toast('Download cancelled.');
+    }
+    return;
+  }
+
+  try {
+    const url = URL.createObjectURL(new Blob([bytes], {type: "application/pdf"}));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 6000);
+    toast('PDF ready: ' + filename);
+    if(feedback) feedback.textContent = 'Downloaded: ' + filename;
+  } catch(e){
+    toast('Browser blocked PDF download.');
+  }
+}
+
 let logFilter='all';
 function renderLog(){
+  const activeErrs = getErrorWords(true);
+  const allErrs = getErrorWords(false);
+
+  // Update Toolbar UI
+  const cntPractice = el('count-practice-errors');
+  if(cntPractice) cntPractice.textContent = activeErrs.length;
+
+  const errStats = el('err-summary-stats');
+  if(errStats){
+    errStats.innerHTML = 'Active errors to fix: <b>' + activeErrs.length + '</b> unmastered · Total unique error words logged: <b>' + allErrs.length + '</b>';
+  }
+
+  const btnPractice = el('btn-practice-errors');
+  if(btnPractice){
+    btnPractice.onclick = practiceErrors;
+  }
+
+  const btnPdf = el('btn-download-pdf');
+  const reqStatus = el('pdf-req-status');
+  if(btnPdf){
+    if(allErrs.length >= PDF_MIN_WORDS){
+      btnPdf.textContent = 'Download PDF Worksheet (' + allErrs.length + ' words)';
+      btnPdf.classList.add('ready');
+      if(reqStatus) reqStatus.innerHTML = '✓ <b>Worksheet ready to download:</b> ' + allErrs.length + ' unique error words compiled into exercises with full answer key.';
+    } else {
+      btnPdf.textContent = 'Download PDF Worksheet (50 words min)';
+      btnPdf.classList.remove('ready');
+      if(reqStatus) reqStatus.innerHTML = 'Worksheet unlocks at 50 error words (currently <b>' + allErrs.length + '</b> / 50). <a href="#" id="link-sample-pdf" style="color:var(--brand);text-decoration:underline;margin-left:8px;">Download 50-Word Sample PDF</a>';
+    }
+    btnPdf.onclick = () => downloadPdfWorksheet(false);
+  }
+
+  const sampleLink = el('link-sample-pdf');
+  if(sampleLink){
+    sampleLink.onclick = (e) => { e.preventDefault(); downloadPdfWorksheet(true); };
+  }
+
+  // Update tab badge
+  const badge = el('nav-log-badge');
+  if(badge){
+    if(activeErrs.length > 0){
+      badge.textContent = activeErrs.length;
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  // History log list
   const list = STATE.log.filter(e=> logFilter==='all'||e.r===logFilter);
   const box=el('log-list');
   if(!list.length){ box.innerHTML='<div class="empty">No entries yet.</div>'; return; }
