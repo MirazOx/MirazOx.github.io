@@ -248,14 +248,11 @@ li.item:hover{border-color:var(--ink2)}
   <header class="top">
     <div>
       <div class="series-tag">
-        <span class="kicker-pill">TEL 500 · Module 06</span>
-        <span class="series-sep">/</span>
-        <span class="series-disc">Confusables</span>
+        <span class="kicker-pill">Module 06</span>
       </div>
       <h1 style="display:flex;align-items:center;gap:10px;">Confusables 500</h1>
-      <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">Meaning · Right word · MCQ</p>
     </div>
-    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
+    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnAbout">How it works</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
   </header>
   <div id="settings" hidden></div>
   <div id="overview"></div>
@@ -811,7 +808,7 @@ function renderOverview(){
 /* ---------- tabs ---------- */
 function renderTabs(){
   const fix = poolFix().length;
-  const defs = [["practice","Practice"],["fix","Fix"+(fix?'<span class="badge">'+fix+'</span>':'')],["mock","Mock test"],["list","Browse"],["insights","Insights"],["about","How it works"]];
+  const defs = [["practice","Practice"],["fix","Fix"+(fix?'<span class="badge">'+fix+'</span>':'')],["mock","Mock test"],["list","Browse"],["insights","Insights"]];
   $("#tabs").innerHTML = defs.map(([id,lab])=>'<button data-tab="'+id+'" aria-current="'+(tab===id)+'">'+lab+'</button>').join("");
 }
 
@@ -1099,6 +1096,7 @@ function applyTheme(t){ if(t) document.documentElement.setAttribute("data-theme"
 (function initTheme(){ let t=null; try{t=localStorage.getItem("confusables-500-theme");}catch(e){} applyTheme(t==="dark"||t==="light"?t:null); })();
 $("#btnTheme").addEventListener("click",()=>{ const cur=document.documentElement.getAttribute("data-theme"); const dark=cur==="dark"||(!cur&&matchMedia("(prefers-color-scheme:dark)").matches); const nt=dark?"light":"dark"; try{localStorage.setItem("confusables-500-theme",nt);}catch(e){} applyTheme(nt); });
 $("#btnSettings").addEventListener("click",()=>{ ui.settings=!ui.settings; $("#btnSettings").setAttribute("aria-expanded",ui.settings); renderSettings(); wireChrome(); });
+$("#btnAbout").addEventListener("click",()=>{ ui.settings=false; $("#btnSettings").setAttribute("aria-expanded",false); mockState=null; tab="about"; cur=null; render(); });
 
 /* timer */
 let timer={on:false,run:false,sec:0,iv:null};

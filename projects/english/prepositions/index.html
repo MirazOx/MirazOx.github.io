@@ -242,14 +242,14 @@ li.item:hover{border-color:var(--ink2)}
   <header class="top">
     <div>
       <div class="series-tag">
-        <span class="kicker-pill">TEL 500 · Module 02</span>
+        <span class="kicker-pill">Module 02</span>
         <span class="series-sep">/</span>
         <span class="series-disc">Syntax</span>
       </div>
       <h1>Preposition 500</h1>
       <p style="margin:2px 0 0;font-size:13px;color:var(--ink2)">500 prepositions · spaced recovery</p>
     </div>
-    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
+    <div class="hdrbtns"><button class="ghost" id="btnTheme">Dark mode</button><button class="ghost" id="btnTimer" aria-pressed="false">Timer</button><button class="ghost" id="btnInfo">How it works</button><button class="ghost" id="btnSettings" aria-expanded="false">Settings</button></div>
   </header>
   <div id="settings" hidden></div>
   <div id="overview"></div>
@@ -520,7 +520,7 @@ function renderOverview(){
   return {fixN: err + due, fix};
 }
 function renderTabs(c){
-  const t = [["practice","Practice",0,""],["fix","Fix errors",c.fixN,""],["log","Error log",0,""],["fixed","Fixed list",c.fix,"green"],["insights","Insights",0,""],["mock","Mock test",0,""],["info","How it works",0,""]];
+  const t = [["practice","Practice",0,""],["fix","Fix errors",c.fixN,""],["log","Error log",0,""],["fixed","Fixed list",c.fix,"green"],["insights","Insights",0,""],["mock","Mock test",0,""]];
   $("#tabs").innerHTML = t.map(([k,l,n,cl]) =>
     '<button data-tab="'+k+'"'+(tab===k?' aria-current="true"':'')+'>'+l+(n?'<span class="badge '+cl+'">'+n+'</span>':'')+'</button>').join("");
 }
@@ -851,6 +851,7 @@ document.addEventListener("click", e => {
   if(t.dataset.act==="newq"){ reviewMode = false; cur = null; render(); return; }
   switch(t.id){
     case "btnSettings": ui.settings = !ui.settings; ui.confirmReset = false; render(); break;
+    case "btnInfo": tab = "info"; cur = null; ui.settings = false; render(); break;
     case "check": { const i = $("#ans"); const v = i ? i.value : ""; if(norm(v)) submit(v,false); else if(i) i.focus(); break; }
     case "skip": submit("", true); break;
     case "nextBtn": next(); break;

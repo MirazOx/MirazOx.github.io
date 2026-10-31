@@ -190,9 +190,10 @@ nav.tabs button.active{color:var(--ink);border-bottom-color:var(--ink);font-weig
 
 footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 @media (max-width:560px){.btns{grid-template-columns:1fr}.btns button{min-height:48px}#btn-show{grid-column:1/-1}}
-.timerbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:0 0 16px}
+.timerbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin:0 0 16px}
+.timerbar[hidden]{display:none}
 .timerbar.paused{opacity:.6}
-.timernum{font-family:var(--mono);font-size:18px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.timernum{font-family:var(--mono);font-size:clamp(34px,9vw,52px);font-weight:700;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1}
 .timerctl{display:flex;gap:8px}
 
 /* ===== bolder modernization: amplify the existing identity ===== */
@@ -232,7 +233,7 @@ nav.tabs button.active{border-bottom-color:var(--brand);border-bottom-width:3px;
   <header class="top">
     <div>
       <div class="series-tag">
-        <span class="kicker-pill">TEL 500 · Module 01</span>
+        <span class="kicker-pill">Module 01</span>
         <span class="series-sep">/</span>
         <span class="series-disc">Lexicon</span>
       </div>
@@ -282,6 +283,7 @@ nav.tabs button.active{border-bottom-color:var(--brand);border-bottom-width:3px;
       <div class="btns" id="q-btns-front">
         <button id="btn-hint" style="grid-column: 1 / 2;">Context Hint</button>
         <button id="btn-show" style="grid-column: 2 / -1;">Show definition</button>
+        <button id="btn-iknow" style="grid-column:1 / -1;background:none;border:1px solid var(--line);color:var(--ink2);">I know it ✓</button>
       </div>
       <div class="btns" id="q-btns-back" style="display:none">
         <button data-r="correct" style="background:var(--green);color:#fff;border-color:var(--green)">Got it [1]</button>
@@ -319,6 +321,10 @@ nav.tabs button.active{border-bottom-color:var(--brand);border-bottom-width:3px;
     <div class="deck" data-deck>
       <h3><span>[ MASTERED ] <span class="c">5 correct in a row</span></span><span class="c" id="d-mas-c">0</span></h3>
       <div class="body" id="d-mas"></div>
+    </div>
+    <div class="deck" data-deck>
+      <h3><span>[ KNOWN ] <span class="c">Marked &ldquo;I know it&rdquo; twice</span></span><span class="c" id="d-kno-c">0</span></h3>
+      <div class="body" id="d-kno"></div>
     </div>
     <div class="deck" data-deck>
       <h3><span>[ UNTOUCHED ] <span class="c">Not seen yet</span></span><span class="c" id="d-unt-c">0</span></h3>
@@ -401,7 +407,7 @@ let theme = localStorage.getItem('gre500_theme') || 'dark';
 document.documentElement.setAttribute('data-theme', theme);
 
 
-function blank(i){ return {seen:0,correct:0,wrong:0,confused:0,streak:0,mastered:false,last:0}; }
+function blank(i){ return {seen:0,correct:0,wrong:0,confused:0,streak:0,mastered:false,known:false,iknow:0,last:0}; }
 function st(i){ if(!STATE.stats[i]) STATE.stats[i]=blank(i); return STATE.stats[i]; }
 
 // Storage
@@ -419,6 +425,7 @@ function weight(i){
   w += s.wrong*3 + s.confused*2;
   if(s.seen===0) w += 1.2;
   if(s.streak>0) w += 0.5;
+  if((s.iknow||0)===1 && !s.known) w += 1.5;  // bring an "I know it" word back for its confirming round
   if(STATE.cur===i) w*=0.05;
   return w;
 }
@@ -428,21 +435,23 @@ function pick(){
   for(let i=0;i<N;i++){
     const s=st(i);
     let valid = false;
-    if(STATE.focus === 'nem') {
-       if(s.wrong + s.confused >= 4 && !s.mastered) valid = true;
+    if(STATE.focus === 'kno') {
+       if(s.known) valid = true;
+    } else if(STATE.focus === 'nem') {
+       if(s.wrong + s.confused >= 4 && !s.mastered && !s.known) valid = true;
     } else if(STATE.focus === 'shk') {
-       if(s.wrong + s.confused >= 1 && s.wrong + s.confused <= 3 && !s.mastered) valid = true;
+       if(s.wrong + s.confused >= 1 && s.wrong + s.confused <= 3 && !s.mastered && !s.known) valid = true;
     } else if(STATE.focus === 'unt') {
-       if(s.seen === 0 && !s.mastered) valid = true;
+       if(s.seen === 0 && !s.mastered && !s.known) valid = true;
     } else if(STATE.focus === 'err') {
-       const activeErrCount = Object.values(STATE.stats).filter(x => (x.wrong > 0 || x.confused > 0) && !x.mastered).length;
+       const activeErrCount = Object.values(STATE.stats).filter(x => (x.wrong > 0 || x.confused > 0) && !x.mastered && !x.known).length;
        if(activeErrCount > 0) {
-         if((s.wrong > 0 || s.confused > 0) && !s.mastered) valid = true;
+         if((s.wrong > 0 || s.confused > 0) && !s.mastered && !s.known) valid = true;
        } else {
-         if(s.wrong > 0 || s.confused > 0) valid = true;
+         if((s.wrong > 0 || s.confused > 0) && !s.known) valid = true;
        }
     } else {
-       if(!s.mastered) valid = true;
+       if(!s.mastered && !s.known) valid = true;
     }
     
     if(valid){
@@ -488,11 +497,27 @@ function record(result){
   save();
 }
 
+/* "I know it": a confidence shortcut. First click sends the word back for one
+   more round; a second "I know it" retires it into the separate Known stack,
+   which never mixes with Mastered and can be practised on its own. */
+function knowIt(){
+  if(STATE.cur==null) return;
+  const i=STATE.cur, s=st(i), W=WORDS[i];
+  s.iknow=(s.iknow||0)+1; s.seen++; s.last=Date.now();
+  let f;
+  if(s.iknow>=2){ s.known=true; s.streak=0; toast('KNOWN: '+W.word); f='RETIRED TO KNOWN STACK.'; }
+  else { f='I KNOW IT — IT WILL RETURN ONCE MORE.'; }
+  save();
+  loadNext();
+  el('q-flash').textContent=f;
+}
+
 function decks(){
-  const nem=[],shk=[],mas=[],unt=[];
+  const nem=[],shk=[],mas=[],unt=[],kno=[];
   for(let i=0;i<N;i++){
     const s=STATE.stats[i];
     if(!s || s.seen===0){ unt.push(i); continue; }
+    if(s.known){ kno.push(i); continue; }
     if(s.mastered){ mas.push(i); continue; }
     const miss=s.wrong+s.confused;
     if(miss>=4) nem.push(i);
@@ -501,7 +526,7 @@ function decks(){
   }
   const bymiss=(a,b)=>{const A=st(a),B=st(b);return (B.wrong+B.confused)-(A.wrong+A.confused)};
   nem.sort(bymiss); shk.sort(bymiss);
-  return {nem,shk,mas,unt};
+  return {nem,shk,mas,unt,kno};
 }
 
 // DOM
@@ -632,11 +657,11 @@ function answer(r){
 }
 
 function updateProg(){
-  let mas=0,active=0;
-  for(let i=0;i<N;i++){ const s=STATE.stats[i]; if(s&&s.mastered)mas++; }
-  active=N-mas;
+  let mas=0,kno=0,active=0;
+  for(let i=0;i<N;i++){ const s=STATE.stats[i]; if(s&&s.mastered)mas++; else if(s&&s.known)kno++; }
+  active=N-mas-kno;
   if(STATE.focus) {
-      const labels = {nem: 'NEMESIS', shk: 'SHAKY', unt: 'UNTOUCHED', err: 'ERROR LOG'};
+      const labels = {nem: 'NEMESIS', shk: 'SHAKY', unt: 'UNTOUCHED', err: 'ERROR LOG', kno: 'KNOWN'};
       el('p-active').innerHTML = `FOCUS: ${labels[STATE.focus] || 'CUSTOM'}`;
       el('btn-clear-focus').style.display = 'inline-block';
   } else {
@@ -673,6 +698,7 @@ function renderDecks(){
   fillDeck('d-shk','d-shk-c',d.shk,i=>{const s=st(i);return (s.wrong+s.confused)+' wrong · streak '+s.streak+'/5';});
   fillDeck('d-mas','d-mas-c',d.mas,i=>{const s=st(i);return 'seen '+s.seen+'× · clean';});
   fillDeck('d-unt','d-unt-c',d.unt,i=>'not seen',true);
+  fillDeck('d-kno','d-kno-c',d.kno,i=>{const s=st(i);return 'known · seen '+s.seen+'×';});
 }
 
 function fillDeck(bodyId,cntId,arr,meta,plain){
@@ -683,7 +709,7 @@ function fillDeck(bodyId,cntId,arr,meta,plain){
   let h = '';
   if(bodyId !== 'd-mas') {
      let type = bodyId.replace('d-', '');
-     h += `<button style="background:var(--fg); color:var(--bg); border:none; padding:8px 16px; margin-bottom:1rem; font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; cursor:pointer;" onclick="setFocus('${type}')">Practice This Deck (${arr.length} words)</button>`;
+     h += `<button style="background:var(--btn); color:var(--btntext); border:none; border-radius:8px; padding:9px 16px; margin-bottom:1rem; font-family:var(--mono); font-size:0.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; cursor:pointer;" onclick="setFocus('${type}')">Practice This Deck (${arr.length} words)</button>`;
   }
   
   body.innerHTML = h + arr.map(i=>{
@@ -963,7 +989,7 @@ function renderBrowse(){
   if(!arr.length){ box.innerHTML='<div class="empty">NO MATCHES.</div>'; return; }
   box.innerHTML=arr.map(i=>{
     const W=WORDS[i], s=STATE.stats[i];
-    let badge=''; if(s&&s.mastered)badge='<span class="tag t-c">MASTERED</span>'; else if(s&&(s.wrong+s.confused>=4))badge='<span class="tag t-m">NEMESIS</span>'; else if(s&&(s.wrong+s.confused>=1))badge='<span class="tag t-x">SHAKY</span>';
+    let badge=''; if(s&&s.known)badge='<span class="tag t-c">KNOWN</span>'; else if(s&&s.mastered)badge='<span class="tag t-c">MASTERED</span>'; else if(s&&(s.wrong+s.confused>=4))badge='<span class="tag t-m">NEMESIS</span>'; else if(s&&(s.wrong+s.confused>=1))badge='<span class="tag t-x">SHAKY</span>';
     return '<div class="browse-card"><header><h4>'+esc(W.word)+' <span class="pos">'+esc(W.pos)+'</span></h4>'+badge+'</header><p class="def">'+esc(W.def)+'</p>'+(W.gre?'<div class="gre">GRE TRAP: '+esc(W.gre)+'</div>':'')+'<p class="ex">'+esc(W.ex)+'</p></div>';
   }).join('');
 }
@@ -1003,6 +1029,7 @@ function resetOneMastered(){
 // Binds
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>switchView(b.dataset.v));
 el('btn-show').onclick=showDef;
+if(el('btn-iknow')) el('btn-iknow').onclick=knowIt;
 
 window.mcqAnswer = function(selectedWord) {
     if(shown) return;
