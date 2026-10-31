@@ -190,6 +190,10 @@ nav.tabs button.active{color:var(--ink);border-bottom-color:var(--ink);font-weig
 
 footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 @media (max-width:560px){.btns{grid-template-columns:1fr}.btns button{min-height:48px}#btn-show{grid-column:1/-1}}
+.timerbar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:0 0 16px}
+.timerbar.paused{opacity:.6}
+.timernum{font-family:var(--mono);font-size:18px;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.timerctl{display:flex;gap:8px}
 </style>
 </head>
 <body>
@@ -208,6 +212,11 @@ footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--lin
   </div>
 </nav>
 
+  <div class="timerbar" id="timerBar" hidden>
+    <div class="timernum" id="timerNum" role="timer" aria-label="Session time">00:00</div>
+    <div class="timerctl"><button class="ghost" id="timerPause">Pause</button><button class="ghost" id="timerReset">Reset</button></div>
+  </div>
+
   <header class="top">
     <div>
       <div class="series-tag">
@@ -220,6 +229,7 @@ footer.site-foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--lin
     </div>
     <div class="hdrbtns">
       <button class="ghost" id="btn-theme">Dark mode</button>
+      <button class="ghost" id="btn-timer" aria-pressed="false">Timer</button>
       <button class="ghost" id="btn-mode">Switch to Context Mode</button>
     </div>
   </header>
@@ -621,7 +631,8 @@ function updateProg(){
       el('p-active').textContent='ACTIVE: '+active;
       if(el('btn-clear-focus')) el('btn-clear-focus').style.display = 'none';
   }
-  el('p-txt').textContent=mas+' / '+N+' MASTERED';
+  const lastT = (STATE.log && STATE.log.length) ? STATE.log[0].t : 0;
+  el('p-txt').innerHTML = mas+' / '+N+' MASTERED' + (lastT ? ' <span class="muted" style="font-weight:400">· last practised '+ago(lastT)+'</span>' : '');
   el('p-bar').style.width=(mas/N*100)+'%';
 
   const badge = el('nav-log-badge');
@@ -887,29 +898,24 @@ function renderLog(){
     errStats.innerHTML = 'Active errors to fix: <b>' + activeErrs.length + '</b> unmastered · Total unique error words logged: <b>' + allErrs.length + '</b>';
   }
 
-  const btnPractice = el('btn-practice-errors');
-  if(btnPractice){
-    btnPractice.onclick = practiceErrors;
-  }
-
-  const btnPdf = el('btn-download-pdf');
+  // The error log unlocks only at PDF_MIN_WORDS logged error words: below that,
+  // neither Practice Error Log nor the PDF worksheet is offered — just a notice.
+  const actions = document.querySelector('.log-toolbar-actions');
   const reqStatus = el('pdf-req-status');
-  if(btnPdf){
-    if(allErrs.length >= PDF_MIN_WORDS){
+  const locked = allErrs.length < PDF_MIN_WORDS;
+  if(actions) actions.style.display = locked ? 'none' : 'flex';
+  if(locked){
+    if(reqStatus) reqStatus.innerHTML = 'The error log unlocks at ' + PDF_MIN_WORDS + ' logged error words — you have <b>' + allErrs.length + '</b> / ' + PDF_MIN_WORDS + '. Keep practicing: words you miss or mark confused collect here, and once you reach ' + PDF_MIN_WORDS + ' you can drill them and download a printable PDF worksheet.';
+  } else {
+    const btnPractice = el('btn-practice-errors');
+    if(btnPractice) btnPractice.onclick = practiceErrors;
+    const btnPdf = el('btn-download-pdf');
+    if(btnPdf){
       btnPdf.textContent = 'Download PDF Worksheet (' + allErrs.length + ' words)';
       btnPdf.classList.add('ready');
-      if(reqStatus) reqStatus.innerHTML = '✓ <b>Worksheet ready to download:</b> ' + allErrs.length + ' unique error words compiled into exercises with full answer key.';
-    } else {
-      btnPdf.textContent = 'Download PDF Worksheet (50 words min)';
-      btnPdf.classList.remove('ready');
-      if(reqStatus) reqStatus.innerHTML = 'Worksheet unlocks at 50 error words (currently <b>' + allErrs.length + '</b> / 50). <a href="#" id="link-sample-pdf" style="color:var(--brand);text-decoration:underline;margin-left:8px;">Download 50-Word Sample PDF</a>';
+      btnPdf.onclick = () => downloadPdfWorksheet(false);
     }
-    btnPdf.onclick = () => downloadPdfWorksheet(false);
-  }
-
-  const sampleLink = el('link-sample-pdf');
-  if(sampleLink){
-    sampleLink.onclick = (e) => { e.preventDefault(); downloadPdfWorksheet(true); };
+    if(reqStatus) reqStatus.innerHTML = '✓ <b>Unlocked:</b> ' + allErrs.length + ' error words — drill them with Practice Error Log, or download the PDF worksheet with a full answer key.';
   }
 
   // Update tab badge
@@ -1081,6 +1087,15 @@ document.addEventListener('keydown',e=>{
       if(shown && e.code==='Space'){ e.preventDefault(); loadNext(); }
   }
 });
+
+/* ---------- session timer ---------- */
+let vTimer={on:false,run:false,sec:0,iv:null};
+function vFmtT(s){const m=Math.floor(s/60),x=s%60;return String(m).padStart(2,"0")+":"+String(x).padStart(2,"0");}
+function vTick(){ if(vTimer.run){ vTimer.sec++; const n=el('timerNum'); if(n) n.textContent=vFmtT(vTimer.sec); } }
+function vShowTimer(){ const bar=el('timerBar'); if(bar) bar.hidden=!vTimer.on; const b=el('btn-timer'); if(b){ b.setAttribute('aria-pressed',vTimer.on); b.textContent=vTimer.on?'Timer on':'Timer'; } if(vTimer.on&&!vTimer.iv) vTimer.iv=setInterval(vTick,1000); }
+if(el('btn-timer')) el('btn-timer').onclick=()=>{ vTimer.on=!vTimer.on; if(vTimer.on) vTimer.run=true; vShowTimer(); };
+if(el('timerPause')) el('timerPause').onclick=()=>{ vTimer.run=!vTimer.run; const bar=el('timerBar'); if(bar) bar.classList.toggle('paused',!vTimer.run); el('timerPause').textContent=vTimer.run?'Pause':'Resume'; };
+if(el('timerReset')) el('timerReset').onclick=()=>{ vTimer.sec=0; const n=el('timerNum'); if(n) n.textContent='00:00'; };
 
 // Boot
 (async function(){ load(); loadNext(); updateProg(); })();

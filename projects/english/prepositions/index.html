@@ -314,6 +314,7 @@ const norm = s => String(s||"").toLowerCase().replace(/[^a-z ]/g," ").replace(/\
 const rand = n => Math.floor(Math.random()*n);
 const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j = rand(i+1); [a[i],a[j]] = [a[j],a[i]]; } return a; };
 const fmtDate = ts => ts ? new Date(ts).toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "";
+const rel = ts => { if(!ts) return ""; const d=Date.now()-ts; if(d<60000) return "just now"; if(d<3600000){ const m=Math.floor(d/60000); return m+(m===1?" min ago":" mins ago"); } const h=Math.floor(d/3600000); if(h<24) return h+(h===1?" hour ago":" hours ago"); const dd=Math.floor(d/86400000); if(dd===1) return "yesterday"; if(dd<30) return dd+" days ago"; return "on "+fmtDate(ts); };
 const need = () => state.settings.need;
 const inLevel = b => { const l = state.settings.level; return l==="all" || (l==="C" && b.lv==="C") || (l==="D" && b.lv!=="C") || (l==="H" && b.lv==="H"); };
 const inFocus = b => state.settings.focus==="all" || b.c === state.settings.focus;
@@ -378,7 +379,7 @@ function pickNext(){
 function applyResult(b, ok, t, skipped, mode){
   let r = state.q[b.id];
   if(!r) r = state.q[b.id] = {st:"ok", att:0, miss:0, first:ok, streak:0, wrong:[]};
-  r.att++;
+  r.att++; state.lastSeen = Date.now();
   const out = {retired:false, passed:false};
   if(ok){
     if(r.st === "err" && mode === "fix"){
@@ -494,6 +495,7 @@ function renderOverview(){
       '<span><span class="dot" style="background:var(--line)"></span><b>'+unseen+'</b> not yet asked</span>' +
       (due ? '<span><b>'+due+'</b> due for recheck</span>' : '') +
       (acc!==null ? '<span>First-try accuracy <b>'+acc+'%</b></span>' : '') +
+      (state.lastSeen ? '<span>Last practised <b>'+rel(state.lastSeen)+'</b></span>' : '') +
     '</p>';
   return {fixN: err + due, fix};
 }
@@ -594,7 +596,7 @@ function viewLog(){
     '<ul class="items">'+items.map(b => {
       const r = state.q[b.id];
       const wrong = r.wrong.length ? 'You wrote: '+r.wrong.map(w=>'<span class="w">'+esc(w)+'</span>').join(", ") : (r.shaky ? 'Marked as a guess' : 'Skipped');
-      return '<li class="item"><p class="q">'+sentenceFilled(b)+'</p><div class="m"><span>'+wrong+'</span>'+(r.miss?'<span>Missed '+r.miss+(r.miss===1?' time':' times')+'</span>':'')+'<span>'+pips(r.streak)+' '+r.streak+' of '+need()+'</span>'+tag(b)+'<span class="tag">'+esc(CAT[b.c])+'</span></div><p class="x">'+esc(b.x)+'</p></li>';
+      return '<li class="item"><p class="q">'+sentenceFilled(b)+'</p><div class="m"><span>'+wrong+'</span>'+(r.miss?'<span>Missed '+r.miss+(r.miss===1?' time':' times')+'</span>':'')+(r.lastMiss?'<span>last '+rel(r.lastMiss)+'</span>':'')+'<span>'+pips(r.streak)+' '+r.streak+' of '+need()+'</span>'+tag(b)+'<span class="tag">'+esc(CAT[b.c])+'</span></div><p class="x">'+esc(b.x)+'</p></li>';
     }).join("")+'</ul>';
 }
 function viewFixed(){
@@ -628,7 +630,7 @@ function viewInsights(){
   else if(answered < 15) out += '<p class="section-note">A clearer picture appears after about 15 answers.</p>';
   out += '<section class="panel"><h2>By kind of preposition</h2>' + Object.keys(CAT).map(k => row(esc(CAT[k]), cat[k], k===weakK && weakV<100)).join("") + '</section>';
   out += '<section class="panel"><h2>By level</h2>' + ["C","D","H"].map(k => row(LV[k], lv[k], false)).join("") + '</section>';
-  if(state.mocks.length) out += '<section class="panel"><h2>Mock test scores</h2><ul class="hist">'+state.mocks.slice(-6).reverse().map(m => '<li>'+fmtDate(m.ts)+': <b>'+m.score+' of '+m.total+'</b> ('+Math.round(m.score/m.total*100)+'%)</li>').join("")+'</ul></section>';
+  if(state.mocks.length) out += '<section class="panel"><h2>Mock test scores</h2><p class="small" style="margin:0 0 8px">Last mock '+rel(state.mocks[state.mocks.length-1].ts)+'</p><ul class="hist">'+state.mocks.slice(-6).reverse().map(m => '<li>'+fmtDate(m.ts)+': <b>'+m.score+' of '+m.total+'</b> ('+Math.round(m.score/m.total*100)+'%)</li>').join("")+'</ul></section>';
   out += '<p class="small">Accuracy counts every attempt, including rechecks. A level or kind needs a few attempts before the percentage means much.</p>';
   return out;
 }

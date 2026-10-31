@@ -326,6 +326,7 @@ const norm = s => String(s||"").toLowerCase().replace(/[^a-z' ]/g," ").replace(/
 const rand = n => Math.floor(Math.random()*n);
 const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j = rand(i+1); [a[i],a[j]] = [a[j],a[i]]; } return a; };
 const fmtDate = ts => ts ? new Date(ts).toLocaleDateString(undefined,{day:"numeric",month:"short"}) : "";
+const rel = ts => { if(!ts) return ""; const d=Date.now()-ts; if(d<60000) return "just now"; if(d<3600000){ const m=Math.floor(d/60000); return m+(m===1?" min ago":" mins ago"); } const h=Math.floor(d/3600000); if(h<24) return h+(h===1?" hour ago":" hours ago"); const dd=Math.floor(d/86400000); if(dd===1) return "yesterday"; if(dd<30) return dd+" days ago"; return "on "+fmtDate(ts); };
 const need = () => state.settings.need;
 const inLevel = b => { const l = state.settings.level; return l==="all" || b.lv===l; };
 const isDue = r => r && r.st==="fixed" && r.due && r.due <= Date.now();
@@ -409,7 +410,7 @@ function build(b, mode, face){
 function applyResult(b, ok, typed, mode){
   let r = state.q[b.id];
   if(!r) r = state.q[b.id] = {st:"ok", att:0, miss:0, first:ok, streak:0, wrong:[]};
-  r.att++;
+  r.att++; state.lastSeen = Date.now();
   const out = {retired:false, passed:false};
   if(ok){
     if(r.st === "err" && mode === "fix"){
@@ -593,6 +594,7 @@ function listCard(b, showMeaning){
   let m = tagHtml(b);
   if(r.known) m += ' · <span style="color:var(--green)">known</span> <button class="link" data-unknow="'+b.id+'" style="padding:0 4px;font-size:13px">undo</button>';
   if(r.wrong && r.wrong.length) m += ' · tried <span class="w">'+esc(r.wrong.join(", "))+'</span>';
+  if(r.st==="err" && r.lastMiss) m += ' · missed '+rel(r.lastMiss);
   if(r.due) m += ' · recheck '+fmtDate(r.due);
   return '<li class="item"><p class="q">'+filled+'</p>'+(showMeaning?'<p class="mn">'+esc(b.mean)+'</p>':'')+'<div class="m">'+m+'</div></li>';
 }
@@ -773,7 +775,7 @@ function renderOverview(){
     + '<span><span class="dot" style="background:var(--green)"></span><b>'+okw+'</b> learned ('+c.mastered+' mastered)</span>'
     + '<span><span class="dot" style="background:var(--red)"></span><b>'+c.err+'</b> to fix</span>'
     + '<span><span class="dot" style="background:var(--line)"></span><b>'+c.nw+'</b> new</span>'
-    + '<span style="margin-left:auto">'+streakChip()+seen+' / '+c.total+' seen</span>'
+    + '<span style="margin-left:auto">'+streakChip()+seen+' / '+c.total+' seen'+(state.lastSeen?' · last practised '+rel(state.lastSeen):'')+'</span>'
     + '</div>';
   $("#overview").innerHTML = html;
 }
@@ -806,7 +808,15 @@ function render(){
 
 function practiceHead(){
   if(tab==="fix"){
-    return '<p class="section-note">Items you missed come back as <b>gap-fill</b> until you get them right '+need()+' times; recovered items return later as <b>MCQ rechecks</b> at 3, 10 and 30 days.</p>';
+    const errs = poolErr();
+    let bar = "";
+    if(errs.length){
+      const recent = errs.reduce((m,b)=>{ const t=(state.q[b.id]||{}).lastMiss||0; return t>m?t:m; }, 0);
+      bar = '<div class="pdfbar" style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:0 0 14px">'
+          + '<button class="btn" id="btnPdf">Download PDF worksheet</button>'
+          + '<span class="hint" id="pdfMsg">'+errs.length+' error'+(errs.length===1?'':'s')+' logged'+(recent?' · most recent '+rel(recent):'')+' · gap-fill sheet with answer key.</span></div>';
+    }
+    return bar + '<p class="section-note">Items you missed come back as <b>gap-fill</b> until you get them right '+need()+' times; recovered items return later as <b>MCQ rechecks</b> at 3, 10 and 30 days.</p>';
   }
   const lab = reviewMode?"Reviewing learned idioms":"New idioms";
   return '<div class="chips"><b>'+lab+'</b> · '+(state.settings.autoface?"auto face":("face: "+state.settings.face))+' · tier: '+(state.settings.level==="all"?"all":LV[state.settings.level])
@@ -875,7 +885,7 @@ function renderInsights(){
   if(missed.length){
     h += '<div class="panel"><h2>Most-missed idioms</h2><ul class="items">'+missed.map(x=>{
       const p=x.b.ex.split("___");
-      return '<li class="item"><p class="q">'+esc(p[0])+'<b>'+esc(x.b.trap)+'</b>'+esc(p[1])+'</p><p class="mn">'+esc(x.b.mean)+'</p><div class="m">'+tagHtml(x.b)+' · missed '+x.r.miss+'×'+(x.r.wrong&&x.r.wrong.length?' · tried <span class="w">'+esc(x.r.wrong.join(", "))+'</span>':'')+'</div></li>';
+      return '<li class="item"><p class="q">'+esc(p[0])+'<b>'+esc(x.b.trap)+'</b>'+esc(p[1])+'</p><p class="mn">'+esc(x.b.mean)+'</p><div class="m">'+tagHtml(x.b)+' · missed '+x.r.miss+'×'+(x.r.lastMiss?' · last '+rel(x.r.lastMiss):'')+(x.r.wrong&&x.r.wrong.length?' · tried <span class="w">'+esc(x.r.wrong.join(", "))+'</span>':'')+'</div></li>';
     }).join("")+'</ul></div>';
   }
   // mock test history
@@ -884,7 +894,7 @@ function renderInsights(){
     const best=Math.max(...mk.map(m=>Math.round(m.right/m.total*100)));
     const avg=Math.round(mk.reduce((a,m)=>a+m.right/m.total*100,0)/mk.length);
     h += '<div class="panel"><h2>Mock test history</h2>';
-    h += '<p class="small">'+mk.length+' test'+(mk.length===1?'':'s')+' taken · best '+best+'% · average '+avg+'%</p>';
+    h += '<p class="small">'+mk.length+' test'+(mk.length===1?'':'s')+' taken · last '+rel(mk[0].ts)+' · best '+best+'% · average '+avg+'%</p>';
     h += '<ul class="items">'+mk.slice(0,10).map(m=>{
       const pct=Math.round(m.right/m.total*100);
       const tier=m.tier&&m.tier!=="all"?LV[m.tier]:"All tiers";
@@ -934,6 +944,92 @@ function renderSettings(){
   +'</div>';
 }
 
+/* ---------- PDF worksheet (self-contained, no library) ---------- */
+function pdfBytes(items, dateStr){
+  const W = 595, H = 842, M = 56, CONTENT = W - 2*M;
+  const pages = []; let page, y;
+  const newPage = () => { page = []; pages.push(page); y = H - M; };
+  const MAP = {"’":146,"‘":145,"“":147,"”":148,"–":150,"—":151,"…":133,"•":149};
+  const enc = s => { let o = ""; for(const ch of String(s)){ let c = ch.codePointAt(0); if(MAP[ch]) c = MAP[ch]; else if(c > 255) c = 63; const x = String.fromCharCode(c); o += (x==="("||x===")"||x==="\\") ? "\\"+x : x; } return o; };
+  const wrap = (s, size, indent) => {
+    const max = Math.max(10, Math.floor((CONTENT - indent) / (size*0.54)));
+    const words = String(s).split(/\s+/), lines = []; let line = "";
+    for(const w of words){ if((line + " " + w).trim().length > max){ if(line) lines.push(line); line = w; } else line = (line + " " + w).trim(); }
+    if(line) lines.push(line); return lines;
+  };
+  function put(s, o){
+    o = o || {}; const size = o.size||11, bold = !!o.bold, indent = o.indent||0, gap = o.gap||0, first = o.first;
+    const lines = wrap(s, size, indent), lh = size*1.5;
+    lines.forEach((ln, i) => { if(y - lh < M + 20) newPage(); y -= lh; const x = M + indent; if(i === 0 && first != null) page.push({x:M, y, size, bold, s:first}); page.push({x, y, size, bold, s:ln}); });
+    y -= gap;
+  }
+  newPage();
+  put("Idioms error log", {size:22, bold:true, gap:2});
+  put(items.length + (items.length===1?" idiom":" idioms") + " to practise" + (dateStr?(" · "+dateStr):""), {size:10.5, gap:10});
+  put("Fill each blank with the missing word of the idiom. The answer key, with meanings and notes, starts on a new page.", {size:10.5, gap:14});
+  items.forEach((b, i) => put(b.ex.replace("___","________"), {size:12.5, indent:26, first:(i+1)+".", gap:9}));
+  newPage();
+  put("Answer key", {size:20, bold:true, gap:10});
+  items.forEach((b, i) => {
+    put(b.ph + "  —  " + b.mean, {size:11.5, bold:true, indent:26, first:(i+1)+"."});
+    put(b.ex.replace("___", b.trap.toUpperCase()), {size:10.5, indent:26, gap: b.note?0:9});
+    if(b.note) put(b.note, {size:10, indent:26, gap:9});
+  });
+  const objs = [null];
+  const nPages = pages.length, kids = [];
+  const content = [];
+  pages.forEach((pg, i) => {
+    const foot = {x:W/2-30, y:M-18, size:9, bold:false, s:"Page "+(i+1)+" of "+nPages};
+    const all = pg.concat([foot]);
+    let st = ""; all.forEach(l => { st += "BT /"+(l.bold?"F2":"F1")+" "+l.size+" Tf "+l.x.toFixed(1)+" "+l.y.toFixed(1)+" Td ("+enc(l.s)+") Tj ET\n"; });
+    content.push(st);
+    kids.push((6 + 2*i) + " 0 R");
+  });
+  objs[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  objs[2] = "<< /Type /Pages /Kids [" + kids.join(" ") + "] /Count " + nPages + " >>";
+  objs[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Roman /Encoding /WinAnsiEncoding >>";
+  objs[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding >>";
+  objs[5] = null;
+  pages.forEach((pg, i) => {
+    objs[5 + 2*i] = "<< /Length " + content[i].length + " >>\nstream\n" + content[i] + "endstream";
+    objs[6 + 2*i] = "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + W + " " + H + "] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents " + (5 + 2*i) + " 0 R >>";
+  });
+  let out = "%PDF-1.4\n"; const offs = [];
+  const total = 5 + 2*nPages;
+  for(let n = 1; n < total; n++){ offs[n] = out.length; out += n + " 0 obj\n" + objs[n] + "\nendobj\n"; }
+  const xref = out.length;
+  out += "xref\n0 " + total + "\n0000000000 65535 f \n";
+  for(let n = 1; n < total; n++) out += String(offs[n]).padStart(10,"0") + " 00000 n \n";
+  out += "trailer\n<< /Size " + total + " /Root 1 0 R >>\nstartxref\n" + xref + "\n%%EOF";
+  const bytes = new Uint8Array(out.length);
+  for(let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 255;
+  return bytes;
+}
+async function downloadPdf(){
+  const msg = $("#pdfMsg");
+  const items = poolErr();
+  if(!items.length){ if(msg) msg.textContent = "No errors logged yet."; return; }
+  const d = new Date();
+  const stamp = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  const filename = "idioms-error-log-" + stamp + ".pdf";
+  let bytes;
+  try{ bytes = pdfBytes(items, d.toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"})); }
+  catch(e){ if(msg) msg.textContent = "Could not build the PDF."; return; }
+  let dl = null;
+  try{ if(window.claude && window.claude.use) dl = await claude.use("downloads"); }catch(e){}
+  if(dl){
+    try{ await dl.save({filename, data:bytes}); if(msg) msg.textContent = "PDF ready: " + filename; }
+    catch(e){ if(msg) msg.textContent = (e && e.code==="declined") ? "Download cancelled." : "This page could not save the file here."; }
+    return;
+  }
+  try{
+    const url = URL.createObjectURL(new Blob([bytes], {type:"application/pdf"}));
+    const a = document.createElement("a"); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    if(msg) msg.textContent = "PDF ready: " + filename;
+  }catch(e){ if(msg) msg.textContent = "Your browser blocked the download."; }
+}
+
 /* ---------- event wiring ---------- */
 function wireQuestion(){
   const on=(id,fn)=>{const e=$("#"+id); if(e) e.addEventListener("click",fn);};
@@ -953,6 +1049,7 @@ function wireQuestion(){
 }
 function wireChrome(){
   document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{ if(b.dataset.tab!=="mock") mockState=null; tab=b.dataset.tab; cur=null; ui.confirmReset=false; render(); }));
+  const pb=$("#btnPdf"); if(pb) pb.addEventListener("click",downloadPdf);
   const tr=$("#btnToggleReview"); if(tr) tr.addEventListener("click",()=>{ reviewMode=!reviewMode; cur=null; render(); });
   const sf=$("#setFace"); if(sf) sf.addEventListener("change",e=>{ const v=e.target.value; if(v==="auto"){state.settings.autoface=true;} else {state.settings.autoface=false; state.settings.face=v;} persist(); cur=null; render(); });
   const sl=$("#setLevel"); if(sl) sl.addEventListener("change",e=>{ state.settings.level=e.target.value; persist(); cur=null; render(); });
