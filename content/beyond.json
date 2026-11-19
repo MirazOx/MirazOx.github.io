@@ -429,10 +429,6 @@
         "title": "Maths I'm actually using",
         "items": [
           {
-            "text": "Graph theory \u2014 NetworkX for media-citation networks",
-            "meta": "Applied to the research pilot"
-          },
-          {
             "text": "Basic probability and Bayesian reasoning",
             "meta": "For verification decision-making"
           },
