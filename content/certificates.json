@@ -3,7 +3,8 @@
     "title": "Create a Resume and Cover Letter with Google Docs",
     "issuer": "Coursera / Coursera Project Network",
     "date": "Jul 17, 2021",
-    "theme": "Career Development & Productivity"
+    "theme": "Career Development & Productivity",
+    "hidden": true
   },
   {
     "title": "Take your searches on social networks to a higher level",
@@ -33,7 +34,8 @@
     "title": "Build Your Professional ePortfolio in English",
     "issuer": "Coursera / Georgia Institute of Technology",
     "date": "May 03, 2020",
-    "theme": "Career Development & Productivity"
+    "theme": "Career Development & Productivity",
+    "hidden": true
   },
   {
     "title": "Identify trustworthy sources on health topics and evaluate studies",
@@ -63,13 +65,15 @@
     "title": "Write Professional Emails in English",
     "issuer": "Coursera / Georgia Institute of Technology",
     "date": "Apr 27, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "English for Career Development (Virtual MOOC Camp)",
     "issuer": "University of Pennsylvania / U.S. Embassy, Dhaka",
     "date": "Aug 25, 2022",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Introduction to Digital Journalism",
@@ -81,7 +85,8 @@
     "title": "Spanish Vocabulary: Meeting People",
     "issuer": "Coursera / UC Davis",
     "date": "Jul 16, 2020",
-    "theme": "Language Learning"
+    "theme": "Language Learning",
+    "hidden": true
   },
   {
     "title": "How Any Journalist Can Earn Trust (International)",
@@ -93,19 +98,22 @@
     "title": "Grammar and Punctuation",
     "issuer": "Coursera / UC Irvine",
     "date": "Aug 03, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Take Your English Communication Skills to the Next Level",
     "issuer": "Coursera / Georgia Institute of Technology",
     "date": "May 27, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Speak English Professionally: In Person, Online & On the Phone",
     "issuer": "Coursera / Georgia Institute of Technology",
     "date": "Apr 29, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Research Methodologies",
@@ -123,31 +131,36 @@
     "title": "Initiating and Planning Projects",
     "issuer": "Coursera / UC Irvine",
     "date": "May 06, 2020",
-    "theme": "Project Management & Leadership"
+    "theme": "Project Management & Leadership",
+    "hidden": true
   },
   {
     "title": "Advanced Writing",
     "issuer": "Coursera / UC Irvine",
     "date": "Aug 30, 2021",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Train the Trainer Beginners Workshop (Pearson PTE)",
     "issuer": "Pearson",
     "date": "Jul 06, 2022",
-    "theme": "Career Development & Productivity"
+    "theme": "Career Development & Productivity",
+    "hidden": true
   },
   {
     "title": "Negotiation, Mediation and Conflict Resolution (Specialization)",
     "issuer": "Coursera / ESSEC Business School",
     "date": "Jun 28, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Project Management: The Basics for Success",
     "issuer": "Coursera / UC Irvine",
     "date": "Apr 29, 2020",
-    "theme": "Project Management & Leadership"
+    "theme": "Project Management & Leadership",
+    "hidden": true
   },
   {
     "title": "Understanding Research Methods",
@@ -159,19 +172,22 @@
     "title": "Everyday Parenting: The ABCs of Child Rearing",
     "issuer": "Coursera / Yale University",
     "date": "May 20, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "Writing and Editing: Word Choice and Word Order",
     "issuer": "Coursera / University of Michigan",
     "date": "Aug 03, 2022",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Improve Your English Communication Skills (Specialization)",
     "issuer": "Coursera / Georgia Institute of Technology",
     "date": "May 27, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "AI For Everyone",
@@ -183,85 +199,99 @@
     "title": "Learning How to Learn",
     "issuer": "Coursera / Deep Teaching Solutions",
     "date": "Apr 22, 2020",
-    "theme": "Career Development & Productivity"
+    "theme": "Career Development & Productivity",
+    "hidden": true
   },
   {
     "title": "The Art of Negotiation",
     "issuer": "Coursera / UC Irvine",
     "date": "May 05, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Perfect Tenses and Modals",
     "issuer": "Coursera / UC Irvine",
     "date": "May 12, 2020",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Mediation and Conflict Resolution",
     "issuer": "Coursera / ESSEC Business School",
     "date": "Jun 12, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Leading Teams: Developing as a Leader",
     "issuer": "Coursera / University of Illinois",
     "date": "Jul 20, 2022",
-    "theme": "Project Management & Leadership"
+    "theme": "Project Management & Leadership",
+    "hidden": true
   },
   {
     "title": "English for Journalism",
     "issuer": "Coursera / University of Pennsylvania",
     "date": "Jul 20, 2022",
-    "theme": "English Language & Communication"
+    "theme": "English Language & Communication",
+    "hidden": true
   },
   {
     "title": "Journey of the Universe: The Unfolding of Life",
     "issuer": "Coursera / Yale University",
     "date": "May 28, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Philosophy, Science and Religion: Religion and Science",
     "issuer": "Coursera / University of Edinburgh",
     "date": "Jul 21, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Journey Conversations: Weaving Knowledge and Action",
     "issuer": "Coursera / Yale University",
     "date": "Jun 05, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Negotiation, Mediation, and Conflict Resolution - Capstone",
     "issuer": "Coursera / ESSEC Business School",
     "date": "Jun 28, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Philosophy, Science and Religion: Philosophy and Religion",
     "issuer": "Coursera / University of Edinburgh",
     "date": "Jul 04, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Philosophy, Science and Religion: Science and Philosophy",
     "issuer": "Coursera / University of Edinburgh",
     "date": "Jun 30, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "The Worldview of Thomas Berry: The Flourishing Earth",
     "issuer": "Coursera / Yale University",
     "date": "Jun 08, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Journey of the Universe: A Story for Our Times (Specialization)",
     "issuer": "Coursera / Yale University",
     "date": "Jun 08, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Introduction to Probability and Data with R",
@@ -273,19 +303,22 @@
     "title": "The Science of Well-Being",
     "issuer": "Coursera / Yale University",
     "date": "Apr 28, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "Positive Psychiatry and Mental Health",
     "issuer": "Coursera / University of Sydney",
     "date": "Jul 08, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "Greek and Roman Mythology",
     "issuer": "Coursera / University of Pennsylvania",
     "date": "Aug 04, 2023",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Introduction to Climate Change and Health",
@@ -297,7 +330,8 @@
     "title": "International and Cross-Cultural Negotiation",
     "issuer": "Coursera / ESSEC Business School",
     "date": "Jun 02, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Making Sense of the News: News Literacy for Digital Citizens",
@@ -309,73 +343,85 @@
     "title": "Psychology of Popularity",
     "issuer": "Coursera / UNC at Chapel Hill",
     "date": "May 25, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "Negotiation Fundamentals",
     "issuer": "Coursera / ESSEC Business School",
     "date": "May 28, 2020",
-    "theme": "Negotiation & Conflict Resolution"
+    "theme": "Negotiation & Conflict Resolution",
+    "hidden": true
   },
   {
     "title": "Mindshift: Break Through Obstacles to Learning",
     "issuer": "Coursera / McMaster University",
     "date": "Jun 24, 2020",
-    "theme": "Career Development & Productivity"
+    "theme": "Career Development & Productivity",
+    "hidden": true
   },
   {
     "title": "Relativism",
     "issuer": "Coursera / UC Irvine",
     "date": "May 18, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Moralities of Everyday Life",
     "issuer": "Coursera / Yale University",
     "date": "May 12, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Moral Foundations of Politics",
     "issuer": "Coursera / Yale University",
     "date": "May 21, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Think Again II: How to Reason Deductively",
     "issuer": "Coursera / Duke University",
     "date": "Jun 22, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Think Again I: How to Understand Arguments",
     "issuer": "Coursera / Duke University",
     "date": "May 31, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Philosophy and the Sciences: Introduction to Cog. Science",
     "issuer": "Coursera / University of Edinburgh",
     "date": "Jun 27, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Microeconomics Principles",
     "issuer": "Coursera / University of Illinois",
     "date": "May 07, 2020",
-    "theme": "Business & Economics"
+    "theme": "Business & Economics",
+    "hidden": true
   },
   {
     "title": "Emotions: a Philosophical Introduction",
     "issuer": "Coursera / Universitat Autònoma de Barcelona",
     "date": "May 11, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Introduction to Psychology",
     "issuer": "Coursera / Yale University",
     "date": "May 09, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "What is news?",
@@ -393,44 +439,51 @@
     "title": "The Brain and Space",
     "issuer": "Coursera / Duke University",
     "date": "May 30, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "Introduction to Philosophy",
     "issuer": "Coursera / University of Edinburgh",
     "date": "Apr 22, 2020",
-    "theme": "Philosophy, Religion & Ethics"
+    "theme": "Philosophy, Religion & Ethics",
+    "hidden": true
   },
   {
     "title": "Introduction to Psychology",
     "issuer": "Coursera / University of Toronto",
     "date": "Apr 27, 2020",
-    "theme": "Psychology & Mental Health"
+    "theme": "Psychology & Mental Health",
+    "hidden": true
   },
   {
     "title": "\"Life in the Times of Corona\" Literary Contest 2022",
     "issuer": "Dept of English, Uni of Dhaka",
     "date": "Jun 07, 2022",
-    "theme": "Awards & Recognition"
+    "theme": "Awards & Recognition",
+    "hidden": true
   },
   {
     "title": "A Better Press' Fellowship",
     "issuer": "BJIM & EMK Center",
     "date": "Jun–Aug 2023",
-    "theme": "Awards & Recognition"
+    "theme": "Awards & Recognition",
+    "hidden": true
   },
   {
     "title": "SDG Essay Competition",
     "issuer": "ICE Center, Uni of Dhaka",
     "date": "Not Specified",
-    "theme": "Awards & Recognition"
+    "theme": "Awards & Recognition",
+    "hidden": true
   },
   {
     "title": "Leadership Certificate — Campus Leader",
     "issuer": "English Olympiad / WOC / The Daily Sun",
     "date": "Mar 16, 2018",
     "theme": "Awards & Recognition",
-    "file": "/pdfs/campus-leader-english-olympiad.pdf"
+    "file": "/pdfs/campus-leader-english-olympiad.pdf",
+    "hidden": true
   },
   {
     "title": "AI, Justice, and the Rule of Law",
