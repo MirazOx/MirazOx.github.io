@@ -1,52 +1,49 @@
 [
   {
-    "slug": "algorithmic-news-feeds",
-    "status": "in-progress",
-    "year": "2026",
-    "type": "Mixed methods \u00b7 ULAB, Dhaka",
-    "title": "Algorithmic News Feeds and Misinformation Susceptibility Among Young Urban News Consumers in Dhaka",
-    "desc": "A sequential explanatory mixed-methods study examining how algorithmically curated social media shapes epistemic vulnerability among university students. Uses a validated survey (n=130\u2013150) and qualitative interviews to measure the structural, behavioural, and cognitive dimensions of algorithmic misinformation exposure.",
-    "tags": [
-      "platform studies",
-      "media literacy",
-      "Bangladesh",
-      "epistemic vulnerability",
-      "Facebook"
-    ],
-    "supervisor": "Andalib Rubayat (ULAB)",
-    "methods": "Python data handling, qualitative interviews, validated media literacy survey instruments",
-    "file": "/pdfs/algorithmic-news-feeds.pdf",
-    "fileLabel": "Read Proposal"
-  },
-  {
-    "slug": "saalwatch",
-    "status": "planned",
-    "year": "2026",
-    "type": "Platform audit \u00b7 Independent",
-    "title": "SAALWatch: South Asian Algorithmic Literacy Audit",
-    "desc": "A pilot platform audit framework for South Asian newsrooms. Each audit focuses on one event and one platform, combining scraped data, manual coding, and replication-ready code published on GitHub.",
-    "tags": [
-      "platform audit",
-      "OSINT",
-      "South Asia",
-      "open methods"
-    ],
-    "supervisor": "Self-directed",
-    "methods": "Web scraping (Python), content analysis, reproducible notebooks"
-  },
-  {
-    "slug": "thesis-2027",
+    "slug": "foundational-learning",
+    "thread": "Thread · Foundational learning",
     "status": "planned",
     "year": "2027",
-    "type": "Undergraduate thesis \u00b7 ULAB",
-    "title": "Algorithms, media literacy and education in Bangladesh",
-    "desc": "Final-year thesis extending the 2026 pilot study into a larger, education-policy-facing argument: how curriculum design in Bangladeshi schools and universities can be rebuilt around algorithmic literacy.",
-    "tags": [
-      "education policy",
-      "curriculum",
-      "algorithmic literacy"
-    ],
-    "supervisor": "TBC",
-    "methods": "Document analysis, stakeholder interviews, policy review"
+    "type": "Mixed methods · Bangladesh",
+    "title": "Foundational Learning Gaps in Bangladesh",
+    "deck": "Why so many students reach university without solid reading and maths, and why so many come to fear maths.",
+    "desc": "Planned study of gaps in foundational reading and numeracy that persist into university, combining a short skills assessment, a validated maths-anxiety scale, schooling-history questions and interviews. Design in progress.",
+    "tags": ["foundational learning", "numeracy", "maths anxiety", "education policy", "Bangladesh"],
+    "supervisor": "Not yet confirmed",
+    "methods": "Skills assessment, maths-anxiety scale, survey, semi-structured interviews"
+  },
+  {
+    "slug": "the-vanishing-struggle",
+    "thread": "Thread · Writing & epistemic development",
+    "status": "planned",
+    "year": "2026",
+    "type": "Mixed methods · ULAB CLS",
+    "title": "The Vanishing Struggle",
+    "deck": "Whether generative AI substitution forecloses the occasions for reasoning in undergraduate writing.",
+    "desc": "A cross-disciplinary, within-person study comparing 30–40 ULAB undergraduates across no-AI and AI-permitted writing sessions. Using version history, reflection logs, and interviews, the study measures the presence or absence of 'productive struggle' events. Proposal stage; no data collected yet.",
+    "tags": ["generative AI", "academic writing", "epistemic foreclosure", "productive struggle", "Bangladesh"],
+    "supervisor": "Not yet confirmed",
+    "methods": "Within-person writing sessions, document version history, reflection logs, semi-structured interviews",
+    "image": "/assets/images/research/writing-without-writing.png",
+    "imageAlt": "Research project visual for The Vanishing Struggle, on AI-assisted academic writing and student development.",
+    "file": "/pdfs/the-vanishing-struggle-proposal.pdf",
+    "fileLabel": "latest proposal"
+  },
+  {
+    "slug": "algorithmic-news-feeds",
+    "thread": "Thread · Learning from algorithmic feeds",
+    "status": "in-progress",
+    "year": "2026",
+    "type": "Mixed methods · six Dhaka universities",
+    "title": "Algorithmic News Feeds and Misinformation Susceptibility",
+    "deck": "How algorithmically ranked feeds shape what young urban news consumers trust, doubt, and share.",
+    "desc": "A cross-sectional mixed-methods study proposing to survey 300–360 students across six Dhaka universities, measuring Facebook, TikTok, and AI-mediated news exposure against misinformation discernment, share intent, media-literacy training, and socioeconomic controls. Pilot responses collected; analysis in progress.",
+    "tags": ["platform studies", "media literacy", "MIST-20", "misinformation", "Dhaka"],
+    "supervisor": "Andalib Rubayat (ULAB)",
+    "methods": "MIST-20, adapted AOT, Bangladesh headline task, share-intent ratings, 18 interviews",
+    "image": "/assets/images/research/algorithm-misinformation-bangladesh.jpeg",
+    "imageAlt": "Research project visual on algorithmic news feeds and misinformation susceptibility in Bangladesh.",
+    "file": "/pdfs/algorithmic-news-feeds.pdf",
+    "fileLabel": "latest proposal"
   }
 ]
