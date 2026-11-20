@@ -7,19 +7,19 @@
   <line x1="533" y1="0" x2="533" y2="900" stroke="#1C2844" stroke-width="2"/>
   <line x1="1066" y1="0" x2="1066" y2="900" stroke="#1C2844" stroke-width="2"/>
   
-  <!-- Massive faint 3000 watermark -->
-  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="380" font-weight="800" text-anchor="middle" letter-spacing="-10">3000</text>
+  <!-- Massive faint 3500 watermark -->
+  <text x="800" y="640" fill="#141D33" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="380" font-weight="800" text-anchor="middle" letter-spacing="-10">3500</text>
   
   <!-- Top badge -->
   <rect x="162" y="190" width="310" height="36" rx="6" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
-  <text x="317" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 6 MASTERY ENGINES</text>
+  <text x="317" y="214" fill="#52D0A5" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEL 500 // 7 MASTERY ENGINES</text>
   
   <!-- Title & Subtitle -->
   <text x="162" y="320" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="88" font-weight="400" letter-spacing="-2">The English Lab 500</text>
-  <text x="162" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 6 ADAPTIVE MASTERY ENGINES · 3,000 ACTIVE ITEMS</text>
+  <text x="162" y="380" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="3.5">TEL 500 · 7 ADAPTIVE MASTERY ENGINES · 3,500 ACTIVE ITEMS</text>
   
-  <!-- 6 Module Cards Grid -->
-  <g transform="translate(162, 440)">
+  <!-- 7 Module Cards Grid (scaled to the 1276px row) -->
+  <g transform="translate(162, 440) scale(0.8552)">
     <!-- Card 1: Vocabulary -->
     <rect x="0" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
     <rect x="16" y="22" width="10" height="10" rx="2" fill="#d94a38"/>
@@ -67,6 +67,13 @@
     <text x="1096" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="21" font-weight="500">Confusables 500</text>
     <text x="1096" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">500 confusable pairs,</text>
     <text x="1096" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">3 rotating test faces</text>
+    <!-- Card 7: Articles -->
+    <rect x="1296" y="0" width="196" height="180" rx="12" fill="#172038" stroke="#2B3656" stroke-width="1.5"/>
+    <rect x="1312" y="22" width="10" height="10" rx="2" fill="#65A30D"/>
+    <text x="1330" y="31" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MOD 07 · DETERM</text>
+    <text x="1312" y="70" fill="#E9EDF7" font-family="'Newsreader', Georgia, serif" font-size="22" font-weight="500">Articles 500</text>
+    <text x="1312" y="105" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">a, an, the or none</text>
+    <text x="1312" y="125" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="11.5">across 10 rule areas</text>
   </g>
   
   <!-- Bottom pills -->

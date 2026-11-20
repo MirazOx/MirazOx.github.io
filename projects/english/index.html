@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
 <title>TEL 500 — The English Lab 500 | Adaptive Language Engines</title>
-<meta name="description" content="TEL 500 (The English Lab 500): Six adaptive diagnostic engines for advanced English mastery — Vocabulary 500, Preposition 500, Phrasal Verbs 500, Idioms 500, Collocations 500, and Confusables 500. Built with spaced repetition, copy-editor markup, and offline PDF generation by Miraz Hossain.">
+<meta name="description" content="TEL 500 (The English Lab 500): Seven adaptive diagnostic engines for advanced English mastery — Vocabulary 500, Preposition 500, Phrasal Verbs 500, Idioms 500, Collocations 500, Confusables 500, and Articles 500. Built with spaced repetition, copy-editor markup, and offline PDF generation by Miraz Hossain.">
 <link rel="canonical" href="https://mirazhossain.com/projects/english/">
 <meta property="og:title" content="TEL 500 — The English Lab 500 | Adaptive Language Engines">
-<meta property="og:description" content="TEL 500 (The English Lab 500) — six adaptive diagnostic engines designed to eliminate linguistic blindspots across 3,000 active items in vocabulary, syntax, phrasal verbs, idioms, collocations, and commonly confused words.">
+<meta property="og:description" content="TEL 500 (The English Lab 500) — seven adaptive diagnostic engines designed to eliminate linguistic blindspots across 3,500 active items in vocabulary, syntax, phrasal verbs, idioms, collocations, commonly confused words, and articles.">
 <meta property="og:image" content="https://mirazhossain.com/assets/images/projects/english-lab-cover.svg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +93,11 @@
   }
   @media (max-width: 860px) {
     .tools-grid { grid-template-columns: 1fr; }
+  }
+  /* an odd card out spans the row, image and text side by side */
+  @media (min-width: 861px) {
+    .tools-grid > .tool-card:last-child:nth-child(odd) { grid-column: 1 / -1; flex-direction: row; }
+    .tools-grid > .tool-card:last-child:nth-child(odd) .tool-media { flex: 0 0 50%; width: 50%; border-bottom: 0; border-right: 1px solid var(--border); }
   }
 
   .tool-card {
@@ -286,15 +291,15 @@
         <span style="font-weight: 700; color: var(--accent-amber); letter-spacing: 0.16em;">TEL 500</span> · <a href="/interventions/" style="color:inherit;text-decoration:underline">Interventions</a> · <span>Pedagogical Suite</span>
       </p>
       <h1 class="english-lab-title">The English Lab <em>500</em></h1>
-      <p class="english-lab-sub">Six engines for advanced English, built on active recall and spaced review — 3,000 items across vocabulary, prepositions, phrasal verbs, idioms, collocations and confusables.</p>
+      <p class="english-lab-sub">Seven engines for advanced English, built on active recall and spaced review — 3,500 items across vocabulary, prepositions, phrasal verbs, idioms, collocations, confusables and articles.</p>
       
       <div class="english-lab-stats">
         <div class="el-stat">
-          <span class="el-stat-num">6</span>
+          <span class="el-stat-num">7</span>
           <span class="el-stat-label">Interactive Engines</span>
         </div>
         <div class="el-stat">
-          <span class="el-stat-num">3,000<span>+</span></span>
+          <span class="el-stat-num">3,500<span>+</span></span>
           <span class="el-stat-label">Curated Items</span>
         </div>
         <div class="el-stat">
@@ -428,6 +433,26 @@
             <span class="tool-chip">Spaced Rechecks</span>
           </div>
           <span class="tool-cta">Launch Confusables Trainer →</span>
+        </div>
+      </a>
+
+      <!-- Tool 7: Articles -->
+      <a class="tool-card" href="/projects/english/articles/">
+        <div class="tool-media">
+          <img src="/assets/images/projects/articles-cover.svg" alt="Articles 500 — a, an, the or no article">
+          <span class="tool-badge-float">500 Sentences</span>
+        </div>
+        <div class="tool-body">
+          <p class="tool-kicker">TEL 500 · Module 07 · Articles</p>
+          <h2 class="tool-title">Articles 500 — a, an, the or no article</h2>
+          <p class="tool-desc">500 sentences, short and long, that make you choose between a, an, the and nothing at all: silent h and acronyms, generic and uncountable nouns, place names, institutions, fixed phrases and the hardest 50. Every answer explains the rule and the usual mistake.</p>
+          <div class="tool-chips">
+            <span class="tool-chip">10 Rule Areas</span>
+            <span class="tool-chip">No-Article Choice</span>
+            <span class="tool-chip">UK / US Variants</span>
+            <span class="tool-chip">PDF Worksheet</span>
+          </div>
+          <span class="tool-cta">Launch Articles Trainer →</span>
         </div>
       </a>
 
