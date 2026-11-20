@@ -24,7 +24,7 @@
 
   <g transform="translate(220, 680)">
     <rect x="0" y="0" width="250" height="44" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
-    <text x="125" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">10 RULE AREAS</text>
+    <text x="125" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">11 RULE AREAS</text>
 
     <rect x="265" y="0" width="290" height="44" rx="8" fill="#1B2542" stroke="#2B3656" stroke-width="1.5"/>
     <text x="410" y="28" fill="#9FAACB" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">COMMON · DIFFICULT · HARDEST 50</text>
